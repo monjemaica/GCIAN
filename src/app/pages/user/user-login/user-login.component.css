@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins" , sans-serif;
+}
+
+.submit {
+    background-color: #419751;
+    color: white;
+    border-radius: 25px;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    font-size: 17px;
+}
+
+.mat-card {
+    box-shadow: inset 0 0 0px black;
+    margin-left: 50%;
+    margin-top: 10%;
+}
+
+.mat-toolbar {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.forgotPassword {
+    font-size: 13px;
+    text-align: center;
+    margin-top: 3%;
+}
+
+.btnforgotPassword {
+    font-size: 13px;
+    font-weight: bold;
+    color: #8B51B2;
+    background-color: transparent;
+    text-decoration: none;
+}
