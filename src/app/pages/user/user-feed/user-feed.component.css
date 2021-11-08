@@ -235,9 +235,18 @@ mat-divider {
 }
 
 img {
-  height: 50%;
+  height: 100%;
+  border-radius: 50%;
 }
 
 .comment {
   text-align: end;
+}
+
+.label {
+  padding: 10px;
+  margin-top: 2%;
+  margin-left: 3%;
+  font-size: 25px;
+  font-weight: 500;
 }
