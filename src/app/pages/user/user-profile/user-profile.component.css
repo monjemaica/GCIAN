@@ -207,16 +207,10 @@
 
 mat-card {
   box-shadow: inset 0 0 0px black;
-  margin-top: 5%;
+  margin-top: 2%;
   border-radius: 20px;
   background: #52c066;
   color: #FFF;
-}
-
-mat-card-title {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 2%;
 }
 
 mat-card-subtitle {
@@ -235,3 +229,33 @@ mat-divider {
   padding-bottom: 2%;
 }
 
+img {
+  height: 300%;
+  border-radius: 50%;
+  margin-left: 900%;
+}
+
+mat-card-header {
+  padding-bottom: 2%;
+}
+
+.container {
+  margin-top: 9%;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+.title1 {
+  font-size: 18px;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+.comment {
+  text-align: end;
+}

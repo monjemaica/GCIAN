@@ -19,6 +19,8 @@ import { UserTrendsComponent } from './pages/user/user-trends/user-trends.compon
 import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
 import { UserSettingsComponent } from './pages/user/user-settings/user-settings.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditComponent } from './pages/user/user-feed/edit/edit.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -28,12 +30,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     UserTrendsComponent,
     UserProfileComponent,
     UserSettingsComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
@@ -43,6 +47,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatSidenavModule,
     MatDividerModule,
     NgbModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
