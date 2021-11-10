@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { PopUpComponent } from 'src/app/pop-up/pop-up.component';
+import { PopUpComponent } from 'src/app/modal/pop-up/pop-up.component';
 
 @Component({
   selector: 'app-user-feed',

@@ -21,7 +21,8 @@ import { UserSettingsComponent } from './pages/user/user-settings/user-settings.
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
-import { PopUpComponent } from './pop-up/pop-up.component';
+import { PopUpComponent } from './modal/pop-up/pop-up.component';
+import { ChangePasswordComponent } from './modal/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { PopUpComponent } from './pop-up/pop-up.component';
     UserProfileComponent,
     UserSettingsComponent,
     PopUpComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,

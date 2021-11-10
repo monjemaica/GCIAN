@@ -27,6 +27,7 @@
     "ngx-autosize": "^1.8.4",
     "ngx-bootstrap": "^2.0.5",
     "rxjs": "~6.6.0",
+    "tsconfig": "^7.0.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
