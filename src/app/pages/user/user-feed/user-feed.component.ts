@@ -19,6 +19,7 @@ export class UserFeedComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   logout(){
     this._us.setLoggedOut();
     this.router.navigateByUrl('/');
