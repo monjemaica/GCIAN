@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-<<<<<<< HEAD
+import { Router } from '@angular/router';
 import { PopUpComponent } from 'src/app/modal/pop-up/pop-up.component';
-=======
-import { EditComponent } from './edit/edit.component';
->>>>>>> 8589012075d6d71bfa6285d424e3de168aaf77eb
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-feed',
@@ -19,7 +17,7 @@ export class UserFeedComponent {
   //   const dialogRef = this.dialog.open(EditComponent);
   // }
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private _us: UserService, private router: Router) {}
 
   openDialog() {
     this.dialog.open(PopUpComponent);
@@ -27,5 +25,10 @@ export class UserFeedComponent {
 
   ngOnInit(): void {
   }
-}
+  
+  logout(){
+    this._us.setLoggedOut();
+    this.router.navigateByUrl('/');
+  }
 
+}
