@@ -40,6 +40,7 @@ import { ChangePasswordComponent } from './modal/change-password/change-password
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,

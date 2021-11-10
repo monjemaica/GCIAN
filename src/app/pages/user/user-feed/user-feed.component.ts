@@ -9,7 +9,13 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './user-feed.component.html',
   styleUrls: ['./user-feed.component.css']
 })
-export class UserFeedComponent implements OnInit {
+export class UserFeedComponent {
+
+  // constructor(public dialog: MatDialog) { }
+
+  // open() {
+  //   const dialogRef = this.dialog.open(EditComponent);
+  // }
 
   constructor(public dialog: MatDialog, private _us: UserService, private router: Router) {}
 
@@ -19,6 +25,7 @@ export class UserFeedComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   logout(){
     this._us.setLoggedOut();
     this.router.navigateByUrl('/');
