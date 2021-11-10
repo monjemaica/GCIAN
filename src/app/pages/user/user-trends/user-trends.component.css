@@ -17,7 +17,7 @@ body {
   top: 0;
   height: 100%;
   width: 78px;
-  background: #4ca85d;
+  background: #398547;
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
@@ -146,7 +146,7 @@ body {
   align-items: center;
   text-decoration: none;
   transition: all 0.4s ease;
-  background: #58bd6b;
+  background: #4ca05c;
 }
 .sidebar li a:hover{
   background: #FFF;
@@ -224,9 +224,8 @@ body {
 .cards_wrap .card_item {
   width: 30%;
   padding: 5.9px;
-  background: #52c066;
-  border-radius: 20px;
-  opacity: 90%;
+  background: #398547;
+  border-radius: 15px;
   margin-left: 10px;
   margin: 10px auto;
   float: none;
@@ -262,5 +261,6 @@ mat-card-title {
 }
 
 .label {
-  padding: 5px;
+  font-size: 25px;
+  margin-top: 5px;
 }

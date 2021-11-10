@@ -11,7 +11,7 @@
   top: 0;
   height: 100%;
   width: 78px;
-  background: #4ca85d;
+  background: #398547;
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
@@ -140,7 +140,7 @@
   align-items: center;
   text-decoration: none;
   transition: all 0.4s ease;
-  background: #58bd6b;
+  background: #4ca05c;
 }
 .sidebar li a:hover{
   background: #FFF;
@@ -207,16 +207,16 @@
 
 mat-card {
   box-shadow: inset 0 0 0px black;
-  margin-top: 5%;
-  border-radius: 20px;
-  background: #52c066;
+  margin-top: 4.3%;
+  border-radius: 15px;
+  background: #44a756;
   color: #FFF;
 }
 
-mat-card-title {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 2%;
+.mat-card-id {
+  background: #398547;
+  color: #FFF;
+  position: fixed;
 }
 
 mat-card-subtitle {
@@ -232,6 +232,107 @@ mat-card-content {
 
 mat-divider {
   border-top-color: rgb(216, 216, 216); 
-  padding-bottom: 2%;
+  padding-bottom: 4%;
 }
 
+img {
+  height: 320%;
+  border-radius: 50%;
+  margin-left: 285%;
+  display: flex;
+}
+
+mat-card-header {
+  padding-bottom: 15%;
+}
+
+.container {
+  margin-top: 25%;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 3%;
+  text-align: end;
+}
+
+.subtitle {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: end;
+}
+
+.title1 {
+  font-size: 18px;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+.comment {
+  text-align: end;
+  margin: -12px;
+  margin-bottom: .3%;
+}
+
+.header {
+  margin-bottom: 5%;
+}
+
+.subs {
+  margin-left: 5%;
+}
+
+.cards_wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: -6px; 
+}
+
+.cards_wrap1 {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.one {
+  flex: 0 0 40%;
+}
+
+.two {
+  flex: 1;
+}
+
+.two1 {
+  flex: 0 0 32%;
+  margin-top: -20px;
+}
+
+.test {
+  margin-left: 33%;
+}
+
+mat-toolbar {
+  background-color: white;
+  z-index: 10;
+  position: fixed;
+  margin-top: -10px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.label {
+  font-size: 25px;
+  margin-top: 5px;
+}
+
+.card-btn {
+  text-align: center;
+}
+
+.btn {
+  background: #63be74;
+  width: 80%;
+  border-radius: 20px;
+}

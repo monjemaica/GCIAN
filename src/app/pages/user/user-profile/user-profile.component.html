@@ -1,61 +1,184 @@
+<!--------------------------------------- SIDE NAVIGATION BAR --------------------------------------->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
-<body>
-  <div class="sidebar">
-    <ul class="nav-list">
-      <li>
-        <a href="user-feed">
-          <i class='bx bx-home-alt'></i>
-          <span class="links_name">Home</span>
+  </head>
+  <body>
+    <div class="sidebar">
+      <ul class="nav-list">
+        <li>
+          <a href="user-feed">
+            <i class='bx bx-home-alt'></i>
+            <span class="links_name">Home</span>
+          </a>
+            <span class="tooltip">Home</span>
+        </li>
+        <li>
+          <a (click)="openDialog()">
+            <i class='bx bx-edit'></i>
+            <span class="links_name">Create</span>
+          </a>
+            <span class="tooltip">Create Post</span>
+        </li>
+        <li>
+          <a href="user-trends">
+            <i class='bx bx-trending-up' ></i>
+            <span class="links_name">Trends</span>
+          </a>
+            <span class="tooltip">Trends</span>
+        </li>
+        <li>
+        <a href="user-profile">
+          <i class='bx bx-user' ></i>
+          <span class="links_name">Profile</span>
         </a>
-         <span class="tooltip">Home</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-edit'></i>
-          <span class="links_name">Create</span>
-        </a>
-         <span class="tooltip">Create Post</span>
-      </li>
-      <li>
-        <a href="user-trends">
-          <i class='bx bx-trending-up' ></i>
-          <span class="links_name">Trends</span>
-        </a>
-        <span class="tooltip">Trends</span>
-      </li>
-      <li>
-       <a href="user-profile">
-         <i class='bx bx-user' ></i>
-         <span class="links_name">Profile</span>
-       </a>
-       <span class="tooltip">Profile</span>
-     </li>
-     <li>
-       <a href="user-settings">
-         <i class='bx bx-cog' ></i>
-         <span class="links_name">Settings</span>
-       </a>
-       <span class="tooltip">Settings</span>
-     </li>
-     <li class="profile">
-        <a href="#">
-          <i class='bx bx-log-out' ></i>
-          <span class="links_name">Logout</span>
-        </a>
-        <span class="tooltip">Logout</span>
-     </li>
-    </ul>
-  </div>
-<!-- --------------------------------------HOME SECTION--------------------------------------------- -->
-  <section class="home-section">
-      <div class="text">Page</div>
-  </section>
-  
-</body>
+            <span class="tooltip">Profile</span>
+        </li>
+        <!-- <li>
+          <a href="user-settings">
+            <i class='bx bx-cog' ></i>
+            <span class="links_name">Settings</span>
+          </a>
+            <span class="tooltip">Settings</span>
+        </li> -->
+        <li class="profile">
+            <a href="#">
+              <i class='bx bx-log-out' ></i>
+              <span class="links_name">Logout</span>
+            </a>
+              <span class="tooltip">Logout</span>
+        </li>
+      </ul>
+    </div>
+  <!-- --------------------------------------HOME SECTION--------------------------------------------- -->
+    <section class="home-section">
+      <mat-toolbar>
+        <span class="label">Student's Profile</span>
+      </mat-toolbar>
+      <div fxLayoutAlign="start start" fxFlexFill>
+        <mat-card class="mat-card-id" fxFlex="37">
+          <div class="cards_wrap1">
+            <div class="one">
+              <mat-card-header>
+                <div mat-card-avatar>
+                  <img src="https://scontent.fcrk1-4.fna.fbcdn.net/v/t1.6435-9/52880705_1316013818554538_4011622629831081984_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeFgWSgq3nq230EA-mfpvwgPkiKDHF6FoNKSIoMcXoWg0hhYsX5wmXz556vT5Dc8_0rxHOZ-IvpfKJBkc3GmYVYc&_nc_ohc=VSrL4yvMSF8AX8W8MiM&_nc_ht=scontent.fcrk1-4.fna&oh=242243f9901f3895defda9286bc091b2&oe=61ADCE54" alt="">
+                </div>
+              </mat-card-header>
+            </div>
+          </div>
+          <div class="container">
+            <div class="cards_wrap">
+              <div class="one">
+                <mat-card-subtitle class="subs">Name</mat-card-subtitle>
+              </div>
+              <div class="two">
+                <mat-card-content class="cards_wrap_id">John Miko Barreyro</mat-card-content>
+              </div>
+            </div>
+
+            <mat-divider [inset]="true"></mat-divider>
+
+            <div class="cards_wrap">
+              <div class="one">
+                <mat-card-subtitle class="subs">Student ID</mat-card-subtitle>
+              </div>
+              <div class="two">
+                <mat-card-content class="cards_wrap_id">201810149</mat-card-content>
+              </div>
+            </div>
+            
+            <mat-divider [inset]="true"></mat-divider>
+
+            <div class="cards_wrap">
+              <div class="one">
+                <mat-card-subtitle class="subs">Gender</mat-card-subtitle>
+              </div>
+              <div class="two">
+                <mat-card-content class="cards_wrap_id">Male</mat-card-content>
+              </div>
+            </div>
+            
+            <mat-divider [inset]="true"></mat-divider>
+            
+            <div class="cards_wrap">
+              <div class="one">
+                <mat-card-subtitle class="subs">Department</mat-card-subtitle>
+              </div>
+              <div class="two">
+                <mat-card-content class="cards_wrap_id">CCS</mat-card-content>
+              </div>
+            </div>
+            <mat-divider [inset]="true"></mat-divider>
+            <div class="cards_wrap">
+              <div class="one">
+                <mat-card-subtitle class="subs">Email Address</mat-card-subtitle>
+              </div>
+              <div style="text-align: center;" class="two">
+                <mat-card-content class="cards_wrap_id">201810149@gordoncollege.edu.ph</mat-card-content>
+              </div>
+            </div>
+          </div>
+          <mat-card-actions class="card-btn">
+            <button class="btn" mat-raised-button>Change Password</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+      
+      
+      <div class="test" fxFlexFill>
+        <mat-card fxFlex="66">
+          <mat-card-content>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacus risus, luctus et 
+              volutpat vitae, iaculis non sem. Donec at vulputate mi. Sed facilisis, lorem vel condimentum 
+              dictum, felis ipsum porta mi, eget eleifend justo mauris id nisl. Vestibulum ullamcorper 
+              est eu mauris venenatis hendrerit. Quisque consectetur varius massa, in semper arcu 
+              consectetur ac. Pellentesque dictum volutpat ex sed luctus. Fusce lobortis dignissim 
+              sollicitudin. Suspendisse potenti. Donec at lectus turpis. Pellentesque in eros felis. 
+            </p>
+          </mat-card-content>
+          <mat-card-actions class="comment">
+            <button mat-button>Edit</button>
+          </mat-card-actions>
+
+          <mat-divider [inset]="true"></mat-divider>
+
+          <mat-card-content>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacus risus, luctus et 
+              volutpat vitae, iaculis non sem. Donec at vulputate mi. Sed facilisis, lorem vel condimentum 
+              dictum, felis ipsum porta mi, eget eleifend justo mauris id nisl. Vestibulum ullamcorper 
+              est eu mauris venenatis hendrerit. Quisque consectetur varius massa, in semper arcu 
+              consectetur ac. Pellentesque dictum volutpat ex sed luctus. Fusce lobortis dignissim 
+              sollicitudin. Suspendisse potenti. Donec at lectus turpis. Pellentesque in eros felis. 
+            </p>
+          </mat-card-content>
+          <mat-card-actions class="comment">
+            <button mat-button>Edit</button>
+          </mat-card-actions>
+
+          <mat-divider [inset]="true"></mat-divider>
+
+          <mat-card-content>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacus risus, luctus et 
+              volutpat vitae, iaculis non sem. Donec at vulputate mi. Sed facilisis, lorem vel condimentum 
+              dictum, felis ipsum porta mi, eget eleifend justo mauris id nisl. Vestibulum ullamcorper 
+              est eu mauris venenatis hendrerit. Quisque consectetur varius massa, in semper arcu 
+              consectetur ac. Pellentesque dictum volutpat ex sed luctus. Fusce lobortis dignissim 
+              sollicitudin. Suspendisse potenti. Donec at lectus turpis. Pellentesque in eros felis. 
+            </p>
+          </mat-card-content>
+          <mat-card-actions class="comment">
+            <button mat-button>Edit</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </section>
+    
+  </body>
 </html>

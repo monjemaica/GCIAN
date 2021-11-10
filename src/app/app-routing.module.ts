@@ -11,7 +11,7 @@ const routes: Routes = [
   {path:'user-feed', component:UserFeedComponent},
   {path:'user-trends', component:UserTrendsComponent},
   {path:'user-profile', component:UserProfileComponent},
-  {path:'user-settings', component:UserSettingsComponent}
+  {path:'user-settings', component:UserSettingsComponent},
 ];
 
 @NgModule({

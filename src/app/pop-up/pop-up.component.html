@@ -1,0 +1,10 @@
+<form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Hi, GCIAN! What's on your mind?</mat-label>
+      <textarea matInput #message maxlength="256" placeholder="Ex: GCIAN is a great app..."></textarea>
+      <mat-hint align="end">{{message.value.length}} / 256  </mat-hint>
+    </mat-form-field>
+    <div mat-card-actions class="comment">
+      <button mat-raised-button>Post</button>
+    </div>
+</form>

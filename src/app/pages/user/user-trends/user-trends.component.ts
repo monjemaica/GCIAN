@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { PopUpComponent } from 'src/app/pop-up/pop-up.component';
 
 @Component({
   selector: 'app-user-trends',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserTrendsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) {}
+
+  openDialog() {
+    this.dialog.open(PopUpComponent);
+  }
 
   ngOnInit(): void {
   }

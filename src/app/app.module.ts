@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,11 +13,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatDialogModule } from '@angular/material/dialog';
 import { UserFeedComponent } from './pages/user/user-feed/user-feed.component';
 import { UserTrendsComponent } from './pages/user/user-trends/user-trends.component';
 import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
 import { UserSettingsComponent } from './pages/user/user-settings/user-settings.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatListModule } from '@angular/material/list';
+import { PopUpComponent } from './pop-up/pop-up.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     UserTrendsComponent,
     UserProfileComponent,
     UserSettingsComponent,
+    PopUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatIconModule,
     MatSidenavModule,
     MatDividerModule,
+    MatDialogModule,
     NgbModule,
+    LayoutModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
