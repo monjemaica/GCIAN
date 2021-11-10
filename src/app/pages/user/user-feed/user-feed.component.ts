@@ -28,7 +28,6 @@ export class UserFeedComponent {
   
   logout(){
     this._us.setLoggedOut();
-    this.router.navigateByUrl('/');
   }
 
 }

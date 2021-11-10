@@ -8,17 +8,27 @@ import { UserProfileComponent } from './pages/user/user-profile/user-profile.com
 import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
-  {path:'', component:UserFeedComponent,
-    canActivate:[AuthGuard]
+  { path: '', component: UserFeedComponent, canActivate: [AuthGuard] },
+  { path: 'user-login', component: UserLoginComponent },
+  {
+    path: 'user-trends',
+    component: UserTrendsComponent,
+    canActivate: [AuthGuard],
   },
-  {path:'user-login', component:UserLoginComponent},
-  {path:'user-trends', component:UserTrendsComponent},
-  {path:'user-profile', component:UserProfileComponent},
-  {path:'user-settings', component:UserSettingsComponent},
+  {
+    path: 'user-profile',
+    component: UserProfileComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'user-settings',
+    component: UserSettingsComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

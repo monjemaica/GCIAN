@@ -10,7 +10,7 @@
     <div class="sidebar">
       <ul class="nav-list">
         <li>
-          <a [routerLink]="['/']" >
+          <a href = "/" >
             <i class='bx bx-home-alt'></i>
             <span class="links_name">Home</span>
           </a>
@@ -24,14 +24,14 @@
             <span class="tooltip">Create Post</span>
         </li>
         <li>
-          <a [routerLink]="['/user-trends']" >
+          <a href = "user-trends" >
             <i class='bx bx-trending-up' ></i>
             <span class="links_name">Trends</span>
           </a>
             <span class="tooltip">Trends</span>
         </li>
         <li>
-        <a [routerLink]="['/user-profile']" >
+        <a href = "user-profile" >
           <i class='bx bx-user' ></i>
           <span class="links_name">Profile</span>
         </a>
@@ -45,7 +45,7 @@
             <span class="tooltip">Settings</span>
         </li> -->
         <li class="profile">
-            <a href (click)="logout()">
+            <a href (click) = "logout()">
               <i class='bx bx-log-out' ></i>
               <span class="links_name">Logout</span>
             </a>
