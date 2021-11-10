@@ -15,20 +15,20 @@
 </div>
 
 <div fxLayoutAlign="center center" fxFlexFill>
-    <mat-card fxFlex="30">
-      <mat-toolbar fxLayoutAlign="center center">Welcome GCIANs!</mat-toolbar>
-       <form fxLayoutAlign="stretch" fxLayout="column">
-         <mat-form-field>
-            <input matInput placeholder="Email Address" >
-          </mat-form-field>
-            
-          <mat-form-field>
-            <input matInput type="password" placeholder="Password" >
-          </mat-form-field>
-            <button class="submit" mat-raised-button type="submit">LOGIN</button>
-              <p class="forgotPassword">Forgot Password? <a class="btnforgotPassword" href="https://www.w3schools.com">Click Here!</a> </p>
-      </form>     
-    </mat-card>
-  </div>
+  <mat-card fxFlex="30">
+    <mat-toolbar fxLayoutAlign="center center">Welcome GCIANs!</mat-toolbar>
+    <form fxLayoutAlign="stretch" fxLayout="column" ngNativeValidate (submit)= "login($event)">
+        <mat-form-field>
+          <input matInput placeholder="Email Address" type="text" id="email" name="email" required>
+        </mat-form-field>
+      
+        <mat-form-field>
+            <input matInput type="password" placeholder="Password" id="password" name="password" required>
+        </mat-form-field>
+        <button class="submit" mat-raised-button type="submit">LOGIN</button>
+        <p class="forgotPassword">Forgot Password? <a class="btnforgotPassword" href="https://www.w3schools.com">Click Here!</a> </p>
+    </form>     
+  </mat-card>
+</div>
   
   

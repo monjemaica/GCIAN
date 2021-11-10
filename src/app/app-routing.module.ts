@@ -5,10 +5,13 @@ import { UserLoginComponent } from './pages/user/user-login/user-login.component
 import { UserSettingsComponent } from './pages/user/user-settings/user-settings.component';
 import { UserTrendsComponent } from './pages/user/user-trends/user-trends.component';
 import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
-  {path:'', component:UserLoginComponent},
-  {path:'user-feed', component:UserFeedComponent},
+  {path:'', component:UserFeedComponent,
+    canActivate:[AuthGuard]
+  },
+  {path:'user-login', component:UserLoginComponent},
   {path:'user-trends', component:UserTrendsComponent},
   {path:'user-profile', component:UserProfileComponent},
   {path:'user-settings', component:UserSettingsComponent},
