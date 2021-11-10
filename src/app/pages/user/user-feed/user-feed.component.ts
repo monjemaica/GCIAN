@@ -22,7 +22,6 @@ export class UserFeedComponent implements OnInit {
   
   logout(){
     this._us.setLoggedOut();
-    this.router.navigateByUrl('/');
   }
 
 }

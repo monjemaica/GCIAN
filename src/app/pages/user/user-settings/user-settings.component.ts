@@ -21,7 +21,7 @@ export class UserSettingsComponent implements OnInit {
   }
 
   logout(){
-    this._us.setLoggedin();
+    this._us.setLoggedOut();
   }
 
 }
