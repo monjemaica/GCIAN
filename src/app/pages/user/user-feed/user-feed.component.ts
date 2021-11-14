@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { PopUpComponent } from 'src/app/modal/pop-up/pop-up.component';
+import { CreateCommentComponent } from 'src/app/modal/create-comment/create-comment.component';
+import { CreatePostComponent } from 'src/app/modal/create-post/create-post.component';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -14,7 +15,11 @@ export class UserFeedComponent implements OnInit {
   constructor(public dialog: MatDialog, private _us: UserService, private router: Router) {}
 
   openDialog() {
-    this.dialog.open(PopUpComponent);
+    this.dialog.open(CreatePostComponent);
+  }
+
+  comment() {
+    this.dialog.open(CreateCommentComponent);
   }
 
   ngOnInit(): void {
@@ -22,7 +27,6 @@ export class UserFeedComponent implements OnInit {
   
   logout(){
     this._us.setLoggedOut();
-    this.router.navigateByUrl('/');
   }
 
 }
