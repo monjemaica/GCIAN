@@ -2,58 +2,54 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="UTF-8">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <div class="sidebar">
       <ul class="nav-list">
         <li>
-          <a href = "/">
-            <i class='bx bx-home-alt'></i>
+          <a [routerLink]="['/']">
+            <i class="bx bx-home-alt"></i>
             <span class="links_name">Home</span>
           </a>
-            <span class="tooltip">Home</span>
+          <span class="tooltip">Home</span>
         </li>
         <li>
           <a (click)="openDialog()">
-            <i class='bx bx-edit'></i>
+            <i class="bx bx-edit"></i>
             <span class="links_name">Create</span>
           </a>
-            <span class="tooltip">Create Post</span>
+          <span class="tooltip">Create Post</span>
         </li>
         <li>
-          <a href = "user-trends">
-            <i class='bx bx-trending-up' ></i>
+          <a [routerLink]="['/user-trends']">
+            <i class="bx bx-trending-up"></i>
             <span class="links_name">Trends</span>
           </a>
-            <span class="tooltip">Trends</span>
+          <span class="tooltip">Trends</span>
         </li>
         <li>
-        <a href = "user-profile">
-          <i class='bx bx-user' ></i>
-          <span class="links_name">Profile</span>
-        </a>
-            <span class="tooltip">Profile</span>
-        </li>
-        <!-- <li>
-          <a href="user-settings">
-            <i class='bx bx-cog' ></i>
-            <span class="links_name">Settings</span>
+          <a [routerLink]="['/user-profile']">
+            <i class="bx bx-user"></i>
+            <span class="links_name">Profile</span>
           </a>
-            <span class="tooltip">Settings</span>
-        </li> -->
+          <span class="tooltip">Profile</span>
+        </li>
         <li class="profile">
-            <a href (click) = "logout()">
-              <i class='bx bx-log-out' ></i>
-              <span class="links_name">Logout</span>
-            </a>
-              <span class="tooltip">Logout</span>
+          <a href (click)="logout()">
+            <i class="bx bx-log-out"></i>
+            <span class="links_name">Logout</span>
+          </a>
+          <span class="tooltip">Logout</span>
         </li>
       </ul>
     </div>
-<!-- --------------------------------------HOME SECTION--------------------------------------------- -->
+    <!-- --------------------------------------HOME SECTION--------------------------------------------- -->
   <section class="home-section">
     <mat-toolbar>
       <span class="label">Home</span>
@@ -75,13 +71,8 @@
             bred for hunting.
           </p>
         </mat-card-content>
-      
-        <mat-card-actions class="comment">
-<<<<<<< HEAD
-          <!-- <button mat-button>Edit</button> -->
-=======
+        <mat-card-actions (click)="comment()" class="comment">
           <button mat-button onclick="open()">Edit</button>
->>>>>>> 8589012075d6d71bfa6285d424e3de168aaf77eb
           <button mat-button>Comment</button>
         </mat-card-actions>
       </mat-card>
@@ -89,31 +80,6 @@
     
   </section>
 
-  <!-- <script>
-    function openModal() {
-      document.getElementById(modal-1).style.display='block';
-      document.body.classList.add('jw-modal-open');
-    }
-    function closeModal(){
-      document.getElementById(modal-1).style.display='none';
-      document.body.classList.remove('jw-modal-open');
-    }
-  </script>
-
-  <button onclick='openModal()'>Open modal</button>
-  <div class-"jw-modal-wrapper" id='modal-1'>
-    <div class="jw-modal">
-      <div class='jw-modal-body'>
-        <p>body</p>
-        <button onclick='closeModal()'>Close modal</button>
-
-    </div></div>
-
-    <div class='jw-modal-background'></div>
-
-  </div> -->
-
-  
 </body>
 </html>
 

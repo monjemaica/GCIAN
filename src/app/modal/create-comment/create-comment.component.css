@@ -1,0 +1,34 @@
+.container {
+  min-width: 500px;
+  min-height: 200px;
+  width: 100%;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+input {
+  font-size: 16px;
+}
+
+mat-label {
+  font-size: 15px;
+}
+
+mat-form-field {
+  margin-bottom: 2%;
+}
+
+.actions {
+  text-align: end;
+}
+
+.btnCancel {
+  font-size: 25px;
+}
+
+.btnSave {
+  background-color: #398547;
+  color: white;
+}

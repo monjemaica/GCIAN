@@ -2,80 +2,84 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="UTF-8">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <div class="sidebar">
       <ul class="nav-list">
         <li>
-          <a href = "/">
-            <i class='bx bx-home-alt'></i>
+          <a [routerLink]="['/']">
+            <!-- <a href (click)="test()"> -->
+            <i class="bx bx-home-alt"></i>
             <span class="links_name">Home</span>
           </a>
-            <span class="tooltip">Home</span>
+          <span class="tooltip">Home</span>
         </li>
         <li>
           <a (click)="openDialog()">
-            <i class='bx bx-edit'></i>
+            <i class="bx bx-edit"></i>
             <span class="links_name">Create</span>
           </a>
-            <span class="tooltip">Create Post</span>
+          <span class="tooltip">Create Post</span>
         </li>
         <li>
-          <a href = "user-trends">
-            <i class='bx bx-trending-up' ></i>
+          <a [routerLink]="['/user-trends']">
+            <i class="bx bx-trending-up"></i>
             <span class="links_name">Trends</span>
           </a>
-            <span class="tooltip">Trends</span>
+          <span class="tooltip">Trends</span>
         </li>
         <li>
-        <a href = "user-profile">
-          <i class='bx bx-user' ></i>
-          <span class="links_name">Profile</span>
-        </a>
-            <span class="tooltip">Profile</span>
-        </li>
-        <!-- <li>
-          <a href="user-settings">
-            <i class='bx bx-cog' ></i>
-            <span class="links_name">Settings</span>
+          <a [routerLink]="['/user-profile']">
+            <i class="bx bx-user"></i>
+            <span class="links_name">Profile</span>
           </a>
-            <span class="tooltip">Settings</span>
-        </li> -->
-        <li class="profile" >
-            <a href (click) = "logout()">
-              <i class='bx bx-log-out' ></i>
-              <span class="links_name">Logout</span>
-            </a>
-              <span class="tooltip">Logout</span>
+          <span class="tooltip">Profile</span>
+        </li>
+        <li class="profile">
+          <a href (click)="logout()">
+            <i class="bx bx-log-out"></i>
+            <span class="links_name">Logout</span>
+          </a>
+          <span class="tooltip">Logout</span>
         </li>
       </ul>
     </div>
-  <!-- --------------------------------------HOME SECTION--------------------------------------------- -->
+    <!-- --------------------------------------HOME SECTION--------------------------------------------- -->
     <section class="home-section">
       <mat-toolbar>
-        <span class="label">Student's Profile</span>
+        <span class="toolbar_title">Student's Profile</span>
       </mat-toolbar>
+
       <div fxLayoutAlign="start start" fxFlexFill>
-        <mat-card class="mat-card-id" fxFlex="37">
-          <div class="cards_wrap1">
+        <mat-card class="id_card-border" fxFlex="37">
+          <div class="id_cards-wrap">
             <div class="one">
               <mat-card-header>
                 <div mat-card-avatar>
-                  <img src="https://scontent.fcrk1-4.fna.fbcdn.net/v/t1.6435-9/52880705_1316013818554538_4011622629831081984_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeFgWSgq3nq230EA-mfpvwgPkiKDHF6FoNKSIoMcXoWg0hhYsX5wmXz556vT5Dc8_0rxHOZ-IvpfKJBkc3GmYVYc&_nc_ohc=VSrL4yvMSF8AX8W8MiM&_nc_ht=scontent.fcrk1-4.fna&oh=242243f9901f3895defda9286bc091b2&oe=61ADCE54" alt="">
+                  <img
+                    class="id_img"
+                    src="https://scontent.fcrk1-4.fna.fbcdn.net/v/t1.6435-9/52880705_1316013818554538_4011622629831081984_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeFgWSgq3nq230EA-mfpvwgPkiKDHF6FoNKSIoMcXoWg0hhYsX5wmXz556vT5Dc8_0rxHOZ-IvpfKJBkc3GmYVYc&_nc_ohc=VSrL4yvMSF8AX8W8MiM&_nc_ht=scontent.fcrk1-4.fna&oh=242243f9901f3895defda9286bc091b2&oe=61ADCE54"
+                    alt=""
+                  />
                 </div>
               </mat-card-header>
             </div>
           </div>
-          <div class="container">
+          <div class="id_container">
             <div class="cards_wrap">
               <div class="one">
-                <mat-card-subtitle class="subs">Name</mat-card-subtitle>
+                <mat-card-subtitle class="id_subs">Name</mat-card-subtitle>
               </div>
               <div class="two">
-                <mat-card-content class="cards_wrap_id">John Miko Barreyro</mat-card-content>
+                <mat-card-content class="cards_wrap_id"
+                  >John Miko Barreyro</mat-card-content
+                >
               </div>
             </div>
 
@@ -83,29 +87,35 @@
 
             <div class="cards_wrap">
               <div class="one">
-                <mat-card-subtitle class="subs">Student ID</mat-card-subtitle>
+                <mat-card-subtitle class="id_subs"
+                  >Student ID</mat-card-subtitle
+                >
               </div>
               <div class="two">
-                <mat-card-content class="cards_wrap_id">201810149</mat-card-content>
+                <mat-card-content class="cards_wrap_id"
+                  >201810149</mat-card-content
+                >
               </div>
             </div>
-            
+
             <mat-divider [inset]="true"></mat-divider>
 
             <div class="cards_wrap">
               <div class="one">
-                <mat-card-subtitle class="subs">Gender</mat-card-subtitle>
+                <mat-card-subtitle class="id_subs">Gender</mat-card-subtitle>
               </div>
               <div class="two">
                 <mat-card-content class="cards_wrap_id">Male</mat-card-content>
               </div>
             </div>
-            
+
             <mat-divider [inset]="true"></mat-divider>
-            
+
             <div class="cards_wrap">
               <div class="one">
-                <mat-card-subtitle class="subs">Department</mat-card-subtitle>
+                <mat-card-subtitle class="id_subs"
+                  >Department</mat-card-subtitle
+                >
               </div>
               <div class="two">
                 <mat-card-content class="cards_wrap_id">CCS</mat-card-content>
@@ -114,71 +124,136 @@
             <mat-divider [inset]="true"></mat-divider>
             <div class="cards_wrap">
               <div class="one">
-                <mat-card-subtitle class="subs">Email Address</mat-card-subtitle>
+                <mat-card-subtitle class="id_subs"
+                  >Email Address</mat-card-subtitle
+                >
               </div>
-              <div style="text-align: center;" class="two">
-                <mat-card-content class="cards_wrap_id">201810149@gordoncollege.edu.ph</mat-card-content>
+              <div style="text-align: center" class="two">
+                <mat-card-content class="cards_wrap_id"
+                  >201810149@gordoncollege.edu.ph</mat-card-content
+                >
               </div>
             </div>
           </div>
-          <mat-card-actions class="card-btn">
-            <button class="btn" mat-raised-button>Change Password</button>
+          <mat-card-actions class="id_card-btn">
+            <button (click)="changePassword()" class="id_btn" mat-raised-button>
+              Change Password
+            </button>
           </mat-card-actions>
         </mat-card>
       </div>
 
-      
-      
-      <div class="test" fxFlexFill>
+      <div class="space_maker" fxFlexFill>
         <mat-card fxFlex="66">
-          <mat-card-content>
+          <div class="cards_wrap">
+            <div class="one">
+              <div mat-card-avatar>
+                <img
+                  class="posts_img-small"
+                  src="https://scontent.fcrk1-4.fna.fbcdn.net/v/t1.6435-9/52880705_1316013818554538_4011622629831081984_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeFgWSgq3nq230EA-mfpvwgPkiKDHF6FoNKSIoMcXoWg0hhYsX5wmXz556vT5Dc8_0rxHOZ-IvpfKJBkc3GmYVYc&_nc_ohc=VSrL4yvMSF8AX8W8MiM&_nc_ht=scontent.fcrk1-4.fna&oh=242243f9901f3895defda9286bc091b2&oe=61ADCE54"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="two">
+              <div class="posts_cards-wrap">
+                <div class="one">
+                  <p class="posts_display-name">John Miko Barreyro</p>
+                </div>
+                <div class="two">
+                  <mat-card-actions class="posts_btn-container">
+                    <button
+                      class="posts_btn"
+                      mat-icon-button
+                      [matMenuTriggerFor]="option"
+                    >
+                      <i class="bx bx-dots-horizontal-rounded"></i>
+                    </button>
+                    <mat-menu #option="matMenu">
+                      <button mat-menu-item (click)="editPost()">
+                        <i style="margin-right: 8%" class="bx bx-edit"></i>Edit
+                      </button>
+                      <mat-divider style="width: 90%; margin-left: 5%;" class="posts_mat-divider"></mat-divider>
+                      <button mat-menu-item (click)="deletePost()">
+                        <i style="margin-right: 8%" class="bx bx-trash"></i
+                        >Delete
+                      </button>
+                    </mat-menu>
+                  </mat-card-actions>
+                </div>
+              </div>
+            </div>
+          </div>
+          <mat-card-content class="posts_card-content">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacus risus, luctus et 
-              volutpat vitae, iaculis non sem. Donec at vulputate mi. Sed facilisis, lorem vel condimentum 
-              dictum, felis ipsum porta mi, eget eleifend justo mauris id nisl. Vestibulum ullamcorper 
-              est eu mauris venenatis hendrerit. Quisque consectetur varius massa, in semper arcu 
-              consectetur ac. Pellentesque dictum volutpat ex sed luctus. Fusce lobortis dignissim 
-              sollicitudin. Suspendisse potenti. Donec at lectus turpis. Pellentesque in eros felis. 
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+              lacus risus, luctus et volutpat vitae, iaculis non sem. Donec at
+              vulputate mi. Sed facilisis, lorem vel condimentum dictum, felis
+              ipsum porta mi, eget eleifend justo mauris id nisl. Vestibulum
+              ullamcorper est eu mauris venenatis hendrerit. Quisque consectetur
+              varius massa, in semper arcu consectetur ac. Pellentesque dictum
+              volutpat ex sed luctus. Fusce lobortis dignissim sollicitudin.
+              Suspendisse potenti. Donec at lectus turpis. Pellentesque in eros
+              felis.
             </p>
           </mat-card-content>
-          <mat-card-actions class="comment">
-            <button mat-button>Edit</button>
-          </mat-card-actions>
 
-          <mat-divider [inset]="true"></mat-divider>
+          <mat-divider class="posts_mat-divider" [inset]="true"></mat-divider>
 
-          <mat-card-content>
+          <div class="cards_wrap">
+            <div class="one">
+              <div mat-card-avatar>
+                <img
+                  class="posts_img-small"
+                  src="https://scontent.fcrk1-4.fna.fbcdn.net/v/t1.6435-9/52880705_1316013818554538_4011622629831081984_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeFgWSgq3nq230EA-mfpvwgPkiKDHF6FoNKSIoMcXoWg0hhYsX5wmXz556vT5Dc8_0rxHOZ-IvpfKJBkc3GmYVYc&_nc_ohc=VSrL4yvMSF8AX8W8MiM&_nc_ht=scontent.fcrk1-4.fna&oh=242243f9901f3895defda9286bc091b2&oe=61ADCE54"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="two">
+              <div class="posts_cards-wrap">
+                <div class="one">
+                  <p class="posts_display-name">John Miko Barreyro</p>
+                </div>
+                <div class="two">
+                  <mat-card-actions class="posts_btn-container">
+                    <button
+                      class="posts_btn"
+                      mat-icon-button
+                      [matMenuTriggerFor]="option"
+                    >
+                      <i class="bx bx-dots-horizontal-rounded"></i>
+                    </button>
+                    <mat-menu #option="matMenu">
+                      <button mat-menu-item (click)="editPost()">
+                        <i style="margin-right: 8%" class="bx bx-edit"></i>Edit
+                      </button>
+                      <mat-divider style="width: 90%; margin-left: 5%;" class="posts_mat-divider"></mat-divider>
+                      <button mat-menu-item (click)="deletePost()">
+                        <i style="margin-right: 8%" class="bx bx-trash"></i
+                        >Delete
+                      </button>
+                    </mat-menu>
+                  </mat-card-actions>
+                </div>
+              </div>
+            </div>
+          </div>
+          <mat-card-content class="posts_card-content">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacus risus, luctus et 
-              volutpat vitae, iaculis non sem. Donec at vulputate mi. Sed facilisis, lorem vel condimentum 
-              dictum, felis ipsum porta mi, eget eleifend justo mauris id nisl. Vestibulum ullamcorper 
-              est eu mauris venenatis hendrerit. Quisque consectetur varius massa, in semper arcu 
-              consectetur ac. Pellentesque dictum volutpat ex sed luctus. Fusce lobortis dignissim 
-              sollicitudin. Suspendisse potenti. Donec at lectus turpis. Pellentesque in eros felis. 
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+              lacus risus, luctus et volutpat vitae, iaculis non sem. Donec at
+              vulputate mi. Sed facilisis, lorem vel condimentum dictum, felis
+              ipsum porta mi, eget eleifend justo mauris id nisl. Vestibulum
+              ullamcorper est eu mauris venenatis hendrerit. Quisque consectetur
+              varius massa, in semper arcu consectetur ac. Pellentesque dictum
+              volutpat ex sed luctus. Fusce lobortis dignissim sollicitudin.
+              Suspendisse potenti. Donec at lectus turpis. Pellentesque in eros
+              felis.
             </p>
           </mat-card-content>
-          <mat-card-actions class="comment">
-            <button mat-button>Edit</button>
-          </mat-card-actions>
-
-          <mat-divider [inset]="true"></mat-divider>
-
-          <mat-card-content>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacus risus, luctus et 
-              volutpat vitae, iaculis non sem. Donec at vulputate mi. Sed facilisis, lorem vel condimentum 
-              dictum, felis ipsum porta mi, eget eleifend justo mauris id nisl. Vestibulum ullamcorper 
-              est eu mauris venenatis hendrerit. Quisque consectetur varius massa, in semper arcu 
-              consectetur ac. Pellentesque dictum volutpat ex sed luctus. Fusce lobortis dignissim 
-              sollicitudin. Suspendisse potenti. Donec at lectus turpis. Pellentesque in eros felis. 
-            </p>
-          </mat-card-content>
-          <mat-card-actions class="comment">
-            <button mat-button>Edit</button>
-          </mat-card-actions>
         </mat-card>
       </div>
     </section>
-    
   </body>
 </html>

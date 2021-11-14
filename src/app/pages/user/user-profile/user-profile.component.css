@@ -5,6 +5,11 @@
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
 }
+
+body {
+  overflow-x: hidden;
+}
+
 .sidebar{
   position: fixed;
   left: 0;
@@ -16,45 +21,7 @@
   z-index: 99;
   transition: all 0.5s ease;
 }
-.sidebar.open{
-  width: 250px;
-}
-.sidebar .logo-details{
-  height: 60px;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-.sidebar .logo-details .icon{
-  opacity: 0;
-  transition: all 0.5s ease;
-}
-.sidebar .logo-details .logo_name{
-  color: #fff;
-  font-size: 20px;
-  font-weight: 600;
-  opacity: 0;
-  transition: all 0.5s ease;
-}
-.sidebar.open .logo-details .icon,
-.sidebar.open .logo-details .logo_name{
-  opacity: 1;
-}
-.sidebar .logo-details #btn{
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  font-size: 22px;
-  transition: all 0.4s ease;
-  font-size: 23px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.5s ease;
-}
-.sidebar.open .logo-details #btn{
-  text-align: right;
-}
+
 .sidebar i{
   color: #fff;
   height: 60px;
@@ -63,15 +30,18 @@
   text-align: center;
   line-height: 60px;
 }
+
 .sidebar .nav-list{
   margin-top: 20px;
   height: 100%;
 }
+
 .sidebar li{
   position: relative;
   margin: 8px 0;
   list-style: none;
 }
+
 .sidebar li .tooltip{
   position: absolute;
   top: -20px;
@@ -88,6 +58,7 @@
   pointer-events: none;
   transition: 0s;
 }
+
 .sidebar li:hover .tooltip{
   opacity: 1;
   pointer-events: auto;
@@ -95,43 +66,11 @@
   top: 50%;
   transform: translateY(-50%);
 }
+
 .sidebar.open li .tooltip{
   display: none;
 }
-.sidebar input{
-  font-size: 15px;
-  color: #FFF;
-  font-weight: 400;
-  outline: none;
-  height: 50px;
-  width: 100%;
-  width: 50px;
-  border: none;
-  border-radius: 12px;
-  transition: all 0.5s ease;
-  background: #1d1b31;
-}
-.sidebar.open input{
-  padding: 0 20px 0 50px;
-  width: 100%;
-}
-.sidebar .bx-search{
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  font-size: 22px;
-  background: #1d1b31;
-  color: #FFF;
-}
-.sidebar.open .bx-search:hover{
-  background: #1d1b31;
-  color: #FFF;
-}
-.sidebar .bx-search:hover{
-  background: #FFF;
-  color: #11101d;
-}
+
 .sidebar li a{
   display: flex;
   height: 100%;
@@ -142,9 +81,11 @@
   transition: all 0.4s ease;
   background: #4ca05c;
 }
+
 .sidebar li a:hover{
   background: #FFF;
 }
+
 .sidebar li a .links_name{
   color: #fff;
   font-size: 15px;
@@ -154,21 +95,25 @@
   pointer-events: none;
   transition: 0.4s;
 }
+
 .sidebar.open li a .links_name{
   opacity: 1;
   pointer-events: auto;
 }
+
 .sidebar li a:hover .links_name,
 .sidebar li a:hover i{
   transition: all 0.5s ease;
   color: #11101D;
 }
+
 .sidebar li i{
   height: 50px;
   line-height: 50px;
   font-size: 18px;
   border-radius: 12px;
 }
+
 .sidebar li.profile{
   position: fixed;
   height: 60px;
@@ -179,6 +124,7 @@
   transition: all 0.5s ease;
   overflow: hidden;
 }
+
 .home-section{
   position: relative;
   background: #fff;
@@ -188,10 +134,12 @@
   transition: all 0.5s ease;
   z-index: 2;
 }
+
 .sidebar.open ~ .home-section{
   left: 250px;
   width: calc(100% - 250px);
 }
+
 .home-section .text{
   display: inline-block;
   color: #11101d;
@@ -199,24 +147,20 @@
   font-weight: 500;
   margin: 18px
 }
+
 @media (max-width: 420px) {
   .sidebar li .tooltip{
     display: none;
   }
 }
 
+/* ------------------------------ SIDE NAV CSS ENDS HERE ------------------------------ */
 mat-card {
   box-shadow: inset 0 0 0px black;
   margin-top: 4.3%;
   border-radius: 15px;
-  background: #44a756;
-  color: #FFF;
-}
-
-.mat-card-id {
   background: #398547;
   color: #FFF;
-  position: fixed;
 }
 
 mat-card-subtitle {
@@ -235,63 +179,22 @@ mat-divider {
   padding-bottom: 4%;
 }
 
-img {
-  height: 320%;
-  border-radius: 50%;
-  margin-left: 285%;
-  display: flex;
+mat-toolbar {
+  background-color: white;
+  z-index: 10;
+  position: fixed;
+  margin-top: -10px;
 }
 
-mat-card-header {
-  padding-bottom: 15%;
-}
-
-.container {
-  margin-top: 25%;
-}
-
-.title {
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 3%;
-  text-align: end;
-}
-
-.subtitle {
+.toolbar_title {
   font-size: 25px;
-  font-weight: bold;
-  text-align: end;
-}
-
-.title1 {
-  font-size: 18px;
-  margin-bottom: 2%;
-  text-align: center;
-}
-
-.comment {
-  text-align: end;
-  margin: -12px;
-  margin-bottom: .3%;
-}
-
-.header {
-  margin-bottom: 5%;
-}
-
-.subs {
-  margin-left: 5%;
+  margin-top: 5px;
 }
 
 .cards_wrap {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: -6px; 
-}
-
-.cards_wrap1 {
-  display: flex;
-  margin-bottom: 15px;
 }
 
 .one {
@@ -302,37 +205,90 @@ mat-card-header {
   flex: 1;
 }
 
-.two1 {
-  flex: 0 0 32%;
-  margin-top: -20px;
+.bx bx-edit {
+  color: red;
 }
-
-.test {
-  margin-left: 33%;
-}
-
-mat-toolbar {
-  background-color: white;
-  z-index: 10;
+/* ------------------------- CARD FOR STUDENT'S ID STARTS HERE ------------------------- */
+.id_card-border {
+  background: #398547;
+  color: #FFF;
   position: fixed;
-  margin-top: -10px;
+  padding-bottom: 2%;
 }
 
-body {
-  overflow-x: hidden;
+.id_container {
+  margin-top: 32%;
 }
 
-.label {
-  font-size: 25px;
-  margin-top: 5px;
+.id_cards-wrap {
+  display: flex;
+  margin-bottom: 15px;
 }
 
-.card-btn {
+.id_img {
+  height: 320%;
+  border-radius: 50%;
+  margin-left: 285%;
+  display: flex;
+}
+
+.id_subs {
+  margin-left: 5%;
+}
+
+.id_card-btn {
   text-align: center;
 }
 
-.btn {
+.id_btn {
   background: #63be74;
   width: 80%;
   border-radius: 20px;
+}
+
+/* ------------------------- CARD FOR VIEW ALL POSTS STARTS HERE ------------------------- */
+.space_maker {
+  margin-left: 33%;
+}
+
+.posts_btn-container {
+  text-align: end;
+  margin: -12px;
+  margin-right: 10px;
+}
+
+.posts_cards-wrap {
+  display: flex;
+  margin-bottom: -6px; 
+}
+
+.posts_img-small {
+  height: 150%;
+  border-radius: 50%;
+  margin-left: 20%;
+  display: flex;
+}
+
+.posts_display-name {
+  margin-left: -125%;
+  margin-top: 4%;
+}
+
+.posts_btn {
+  color: white;
+  font-size: 20px;
+}
+
+.posts_card-content {
+  font-size: 14px;
+  color: white;
+  margin-left: 3%;
+  padding-left: 7%;
+  padding-right: 2%;
+  font-weight: lighter;
+}
+
+.posts_mat-divider {
+  border-top-color: rgb(216, 216, 216); 
+  padding-bottom: 2%;
 }

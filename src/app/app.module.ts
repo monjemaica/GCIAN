@@ -14,15 +14,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
 import { UserFeedComponent } from './pages/user/user-feed/user-feed.component';
 import { UserTrendsComponent } from './pages/user/user-trends/user-trends.component';
 import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
-import { UserSettingsComponent } from './pages/user/user-settings/user-settings.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
 import { PopUpComponent } from './modal/pop-up/pop-up.component';
 import { ChangePasswordComponent } from './modal/change-password/change-password.component';
+import { CreatePostComponent } from './modal/create-post/create-post.component';
+import { EditPostComponent } from './modal/edit-post/edit-post.component';
+import { DeletePostComponent } from './modal/delete-post/delete-post.component';
+import { CreateCommentComponent } from './modal/create-comment/create-comment.component';
 
 @NgModule({
   declarations: [
@@ -31,9 +35,12 @@ import { ChangePasswordComponent } from './modal/change-password/change-password
     UserFeedComponent,
     UserTrendsComponent,
     UserProfileComponent,
-    UserSettingsComponent,
     PopUpComponent,
     ChangePasswordComponent,
+    CreatePostComponent,
+    EditPostComponent,
+    DeletePostComponent,
+    CreateCommentComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +60,7 @@ import { ChangePasswordComponent } from './modal/change-password/change-password
     NgbModule,
     LayoutModule,
     MatListModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

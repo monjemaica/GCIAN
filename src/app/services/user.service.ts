@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class UserService {
-  loggedIn: boolean = false;
+  // loggedIn: boolean = false;
+  loggedIn: boolean = true;
 
   constructor(private router: Router) {}
 

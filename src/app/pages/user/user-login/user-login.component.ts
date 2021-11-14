@@ -19,9 +19,9 @@ export class UserLoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this._us.isLoggedIn()) {
-      this.router.navigateByUrl('/');
-    }
+    // if (this._us.isLoggedIn()) {
+    //   this.router.navigateByUrl('/');
+    // }
   }
 
   login(e) {
@@ -31,6 +31,7 @@ export class UserLoginComponent implements OnInit {
     if (ue == this.email && up == this.password) {
       this._us.setLoggedin();
       this.router.navigateByUrl('/');
+      
     }
   }
 }
