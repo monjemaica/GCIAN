@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -7,17 +8,18 @@ export class UserService {
   // loggedIn: boolean = false;
   loggedIn: boolean = true;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   isLoggedIn(): boolean {
+    this.loggedIn = window.sessionStorage.getItem('user-login') == 'true' ? true : false;
     return this.loggedIn;
   }
 
   setLoggedin() {
-    this.loggedIn = true;
+    window.sessionStorage.setItem('user-login', 'true');
   }
-
+  
   setLoggedOut() {
-    this.loggedIn = false;
+    window.sessionStorage.setItem('user-login', 'false');
   }
 }
