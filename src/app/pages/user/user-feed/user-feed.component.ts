@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './user-feed.component.html',
   styleUrls: ['./user-feed.component.css']
 })
+
 export class UserFeedComponent implements OnInit{
   posts: any;
   isPopupOpened = false;

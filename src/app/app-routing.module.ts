@@ -9,9 +9,7 @@ import { DetailsPostComponent } from './modal/posts/details-post/details-post.co
 // import { EditPostComponent } from './modal/edit-post/edit-post.component';
 
 const routes: Routes = [
-  {path:'', component:UserFeedComponent,
-    canActivate:[AuthGuard]
-  },
+  { path: '', component: UserFeedComponent, canActivate: [AuthGuard] },
   {path:'user-login', component:UserLoginComponent},
   {path:'user-trends', component:UserTrendsComponent, canActivate:[AuthGuard]},
   {path:'user-profile', component:UserProfileComponent, canActivate:[AuthGuard]},
@@ -20,6 +18,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

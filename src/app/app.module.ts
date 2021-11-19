@@ -52,6 +52,7 @@ import { DetailsPostComponent } from './modal/posts/details-post/details-post.co
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,

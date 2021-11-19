@@ -12,8 +12,8 @@ export class UserService {
   userData: any;
   loggedIn: boolean = true;
 
-  constructor(private router: Router, private _ds: DataService) {}
 
+  constructor(private router: Router, private _ds: DataService) {}
 
 
   isLoggedIn(): boolean {
@@ -27,6 +27,7 @@ export class UserService {
   
   setLoggedOut() {
     window.sessionStorage.setItem('user-login', 'false');
+
   }
 
   saveToken(token: string): void {
@@ -41,6 +42,7 @@ export class UserService {
   saveUser(user: any): void {
     window.sessionStorage.removeItem(this.USER_KEY);
     window.sessionStorage.setItem(this.USER_KEY,JSON.stringify(user));
+
   }
 
   getUser(): any {
