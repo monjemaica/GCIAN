@@ -5,13 +5,25 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class DataService {
-  // private url = 'http://localhost/';
+  private url = 'http://localhost:5000/';
 
-  // constructor(private http: HttpClient) {
-  //   console.log('Data service is working');
-  // }
+  constructor(private http: HttpClient) {
+    console.log('Data service is working');
+  }
 
-  // processData(endpoint, data) {
-  //   return this.http.post(this.url + endpoint, data);
-  // }
+  _httpGetRequest(endpoint) {
+    return this.http.get(this.url + endpoint);
+  }
+  _httpGetRequestById(endpoint, id){
+    return this.http.get(this.url + endpoint + id);
+  }
+  _httpPostRequest(endpoint, data){
+    return this.http.post(this.url + endpoint, data);
+  }
+  _httpPostRequestById(endpoint, id, data){
+    return this.http.put(this.url + endpoint + id, data);
+  }
+  _httpDeleteById(endpoint, id){
+    return this.http.delete(this.url + endpoint + id);
+  }
 }
