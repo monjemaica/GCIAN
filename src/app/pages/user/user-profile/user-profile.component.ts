@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ChangePasswordComponent } from 'src/app/modal/change-password/change-password.component';
-import { CreatePostComponent } from 'src/app/modal/create-post/create-post.component';
-import { DeletePostComponent } from 'src/app/modal/delete-post/delete-post.component';
-import { EditPostComponent } from 'src/app/modal/edit-post/edit-post.component';
+import { CreatePostComponent } from 'src/app/modal/posts/create-post/create-post.component';
+import { DeletePostComponent } from 'src/app/modal/posts/delete-post/delete-post.component';
+import { EditPostComponent } from 'src/app/modal/posts/edit-post/edit-post.component';
+import { DataService } from 'src/app/services/data.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -13,27 +14,72 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
+  posts: any;
+  student:any;
 
-  constructor(public dialog: MatDialog, private _us: UserService, private router: Router) {}
+  isPopupOpened = false;
 
-  openDialog() {
-    this.dialog.open(CreatePostComponent);
+  constructor(public dialog: MatDialog, private _us: UserService, private _ds:DataService , private router: Router) {}
+  
+  ngOnInit(): void {
+    this.student = this._us.getUser();
+    this.getUsersPosts();
   }
 
-  editPost() {
-    this.dialog.open(EditPostComponent);
+  getUsersPosts(){
+    let studid_fld = this.student.studid_fld
+    this._ds._httpGetRequestById('posts/', studid_fld).subscribe((res:any) =>{
+      console.log('test: ',res);
+      this.posts = res;
+      console.log(this.posts);
+    },(err:any) => {
+      if(err.status == 401){
+        this._us.setLoggedOut();
+        this.router.navigateByUrl('/login');
+      }
+    });
+  }
+
+  addPost() {
+    this.isPopupOpened = true;
+    const dialogRef = this.dialog.open(CreatePostComponent);
+
+    dialogRef.afterClosed().subscribe(res => {
+      this.isPopupOpened = false;
+    })
+  }
+
+
+  editPost(id: number) {
+    this.isPopupOpened = true;
+    let post = this.posts.find(post => post.post_uid === id);
+
+    const dialogRef = this.dialog.open(EditPostComponent, {
+      data: post
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      this.isPopupOpened = false;
+    });
   }
   
-  deletePost() {
-    this.dialog.open(DeletePostComponent);
+  deletePost(id: number) {
+    this.isPopupOpened = true;
+    let post = this.posts.find(post => post.post_uid === id);
+
+    const dialogRef = this.dialog.open(DeletePostComponent, {
+      data: post
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      this.isPopupOpened = false;
+    });
   }
 
   changePassword() {
     this.dialog.open(ChangePasswordComponent);
   }
 
-  ngOnInit(): void {
-  }
 
   test() {
     window.location.href="/"

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { CreatePostComponent } from 'src/app/modal/create-post/create-post.component';
+import { CreatePostComponent } from 'src/app/modal/posts/create-post/create-post.component';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -10,11 +10,17 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-trends.component.css']
 })
 export class UserTrendsComponent implements OnInit {
+  isPopupOpened = false;
 
   constructor(public dialog: MatDialog, private _us: UserService, private router: Router) {}
 
-  openDialog() {
-    this.dialog.open(CreatePostComponent);
+  addPost() {
+    this.isPopupOpened = true;
+    const dialogRef = this.dialog.open(CreatePostComponent);
+
+    dialogRef.afterClosed().subscribe(res => {
+      this.isPopupOpened = false;
+    })
   }
 
   ngOnInit(): void {

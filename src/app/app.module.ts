@@ -23,10 +23,14 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
 import { PopUpComponent } from './modal/pop-up/pop-up.component';
 import { ChangePasswordComponent } from './modal/change-password/change-password.component';
-import { CreatePostComponent } from './modal/create-post/create-post.component';
-import { EditPostComponent } from './modal/edit-post/edit-post.component';
-import { DeletePostComponent } from './modal/delete-post/delete-post.component';
-import { CreateCommentComponent } from './modal/create-comment/create-comment.component';
+import { CreatePostComponent } from './modal/posts/create-post/create-post.component';
+import { EditPostComponent } from './modal/posts/edit-post/edit-post.component';
+import { DeletePostComponent } from './modal/posts/delete-post/delete-post.component';
+import { CreateCommentComponent } from './modal/comments/create-comment/create-comment.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { AuthInterceptorProviders } from './helpers/auth.interceptor';
+import { DetailsPostComponent } from './modal/posts/details-post/details-post.component'
 
 @NgModule({
   declarations: [
@@ -41,6 +45,7 @@ import { CreateCommentComponent } from './modal/create-comment/create-comment.co
     EditPostComponent,
     DeletePostComponent,
     CreateCommentComponent,
+    DetailsPostComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,8 +66,11 @@ import { CreateCommentComponent } from './modal/create-comment/create-comment.co
     LayoutModule,
     MatListModule,
     MatMenuModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

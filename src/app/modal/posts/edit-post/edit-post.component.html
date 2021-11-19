@@ -1,10 +1,13 @@
-<form class="example-form">
+<form class="example-form" ngNativeValidate (submit)="doEdit($event)" required  >
   <mat-card-title>Edit post</mat-card-title>
-    <mat-form-field class="wrapper" appearance="fill">
+    <mat-form-field  class="wrapper" appearance="fill">
       <textarea
         matInput
         #message
         maxlength="256"
+        id="content" name="content"
+        type='textarea'
+        required
       ></textarea>
       <mat-hint align="end">{{ message.value.length }} / 256 </mat-hint>
     </mat-form-field>

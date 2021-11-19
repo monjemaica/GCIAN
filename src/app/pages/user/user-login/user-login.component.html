@@ -17,15 +17,17 @@
 <div fxLayoutAlign="center center" fxFlexFill>
   <mat-card fxFlex="30">
     <mat-toolbar fxLayoutAlign="center center">Welcome GCIANs!</mat-toolbar>
-    <form fxLayoutAlign="stretch" fxLayout="column" ngNativeValidate (submit)= "login($event)">
+    <form *ngIf="!isLoggedIn" name="form" fxLayoutAlign="stretch" fxLayout="column" ngNativeValidate (submit)= "login($event)">
         <mat-form-field>
-          <input matInput placeholder="Email Address" type="text" id="email" name="email" required>
+          <input matInput placeholder="Email Address" type="email" id="email" name="email" required email>
         </mat-form-field>
-      
+        
         <mat-form-field>
-            <input matInput type="password" placeholder="Password" id="password" name="password" required>
+          <input matInput type="password" placeholder="Password" id="password" name="password" required password>
         </mat-form-field>
         <button class="submit" mat-raised-button type="submit">LOGIN</button>
+        <ng-container class="alert alert-warning" *ngIf="isLoginFailed">Log In Failed!, {{errorMessage}}</ng-container> 
+        <ng-container class="alert alert-warning" *ngIf="isLoggedIn">Your Login</ng-container> 
         <p class="forgotPassword">Forgot Password? <a class="btnforgotPassword" href="https://www.w3schools.com">Click Here!</a> </p>
     </form>     
   </mat-card>

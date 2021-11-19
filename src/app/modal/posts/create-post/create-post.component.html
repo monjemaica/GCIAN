@@ -1,7 +1,7 @@
-<form class="example-form">
+<form class="example-form" ngNativeValidate action="/post/compose" method="post" (submit)="doCompose($event)">
   <mat-form-field class="wrapper" appearance="fill">
     <mat-label>Hi, GCIAN! What's on your mind?</mat-label>
-    <textarea
+    <textarea type="textarea" id="content" name="content" required
       matInput
       #message
       maxlength="256"
@@ -19,6 +19,6 @@
     >
       Cancel
     </button>
-    <button mat-raised-button class="btnSave" type="submit">Save</button>
+    <button mat-raised-button class="btnSave" type="submit" >Save</button>
   </div>
 </form>

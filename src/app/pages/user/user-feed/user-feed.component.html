@@ -20,7 +20,7 @@
           <span class="tooltip">Home</span>
         </li>
         <li>
-          <a (click)="openDialog()">
+          <a (click)="addPost()">
             <i class="bx bx-edit"></i>
             <span class="links_name">Create</span>
           </a>
@@ -55,28 +55,30 @@
       <span class="label">Home</span>
     </mat-toolbar>
 
-    <div fxLayoutAlign="center start" fxFlexFill>
-      <mat-card fxFlex="90" class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar>
-            <img src="https://scontent.fcrk1-4.fna.fbcdn.net/v/t1.6435-9/52880705_1316013818554538_4011622629831081984_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeFgWSgq3nq230EA-mfpvwgPkiKDHF6FoNKSIoMcXoWg0hhYsX5wmXz556vT5Dc8_0rxHOZ-IvpfKJBkc3GmYVYc&_nc_ohc=VSrL4yvMSF8AX8W8MiM&_nc_ht=scontent.fcrk1-4.fna&oh=242243f9901f3895defda9286bc091b2&oe=61ADCE54" alt="">
-          </div>
-          <mat-card-title>Barreyro, John Miko D.</mat-card-title>
-          <mat-card-subtitle>BSCS</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
-          </p>
-        </mat-card-content>
-        <mat-card-actions (click)="comment()" class="comment">
-          <button mat-button onclick="open()">Edit</button>
-          <button mat-button>Comment</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
+
+    <ng-container *ngFor="let post of posts">
+      <div fxLayoutAlign="center start" fxFlexFill>
+        <mat-card fxFlex="90" class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar>
+              <img src="{{post.avatar_fld}}" alt="">
+            </div>
+            <mat-card-title>{{post.fname_fld}} {{post.mname_fld}} {{post.lname_fld}}</mat-card-title>
+            <mat-card-subtitle>{{post.program_fld}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              {{post.content_fld}}
+            </p>
+          </mat-card-content>
+        
+          <mat-card-actions (click)="comment()" class="comment">
+            <!-- <button mat-button>Edit</button> -->
+            <button mat-button>Comment</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </ng-container>
     
   </section>
 

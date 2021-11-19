@@ -1,4 +1,4 @@
-<form class="container">
+<form class="container" ngNativeValidate (submit)='doComment($event)'>
   <div mat-card-actions class="actions">
     <button
       mat-dialog-close
@@ -11,9 +11,9 @@
     </button>
   </div>
   <mat-form-field class="wrapper" appearance="fill">
-    <input matInput #message maxlength="256" placeholder="Write a comment..." />
+    <input matInput #message maxlength="256" placeholder="Write a comment..." type="text" id="content" name="content" required/>
   </mat-form-field>
   <div mat-card-actions class="actions">
-    <button mat-raised-button class="btnSave" type="submit">Save</button>
+    <button mat-raised-button class="btnSave" type="submit" >Save</button>
   </div>
 </form>
