@@ -40,10 +40,11 @@ export class UserFeedComponent implements OnInit{
     dialogRef.afterClosed().subscribe(res => {
       this.isPopupOpened = false;
     })
-  }
+  } 
 
-  comment() {
-    this.dialog.open(CreateCommentComponent);
+  comment(id:number) {
+    // this.dialog.open(CreateCommentComponent);
+    this.router.navigateByUrl('details-post/' + id);
   }
 
   logout(){

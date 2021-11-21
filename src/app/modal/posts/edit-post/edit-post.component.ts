@@ -11,6 +11,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class EditPostComponent implements OnInit {
   post: any;
+  post_uid: any;
+  comments:any;
 
   constructor(
     private dialogRef: MatDialogRef<EditPostComponent>,

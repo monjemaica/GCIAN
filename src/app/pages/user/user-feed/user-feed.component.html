@@ -64,7 +64,7 @@
               <img src="{{post.avatar_fld}}" alt="">
             </div>
             <mat-card-title>{{post.fname_fld}} {{post.mname_fld}} {{post.lname_fld}}</mat-card-title>
-            <mat-card-subtitle>{{post.program_fld}}</mat-card-subtitle>
+            <mat-card-subtitle>{{post.program_fld}} | {{post.date_created_TS_fld}}</mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
             <p>
@@ -72,7 +72,7 @@
             </p>
           </mat-card-content>
         
-          <mat-card-actions (click)="comment()" class="comment">
+          <mat-card-actions (click)="comment(post.post_uid)" class="comment">
             <!-- <button mat-button>Edit</button> -->
             <button mat-button>Comment</button>
           </mat-card-actions>
