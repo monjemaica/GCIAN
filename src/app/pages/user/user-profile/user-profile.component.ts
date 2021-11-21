@@ -52,8 +52,9 @@ export class UserProfileComponent implements OnInit {
 
   editPost(id: number) {
     this.isPopupOpened = true;
+    
     let post = this.posts.find(post => post.post_uid === id);
-
+    console.log('post_uid: ', this.posts.post_uid)
     const dialogRef = this.dialog.open(EditPostComponent, {
       data: post
     });

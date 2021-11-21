@@ -30,7 +30,9 @@ import { CreateCommentComponent } from './modal/comments/create-comment/create-c
 
 import { HttpClientModule } from '@angular/common/http';
 import { AuthInterceptorProviders } from './helpers/auth.interceptor';
-import { DetailsPostComponent } from './modal/posts/details-post/details-post.component'
+import { DetailsPostComponent } from './modal/posts/details-post/details-post.component';
+import { EditCommentComponent } from './modal/comments/edit-comment/edit-comment.component';
+import { DeleteCommentComponent } from './modal/comments/delete-comment/delete-comment.component'
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { DetailsPostComponent } from './modal/posts/details-post/details-post.co
     DeletePostComponent,
     CreateCommentComponent,
     DetailsPostComponent,
+    EditCommentComponent,
+    DeleteCommentComponent,
   ],
   imports: [
     BrowserModule,
