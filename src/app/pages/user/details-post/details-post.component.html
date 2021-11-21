@@ -1,0 +1,175 @@
+<!--------------------------------------- SIDE NAVIGATION BAR --------------------------------------->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <div class="sidebar">
+      <ul class="nav-list">
+        <li>
+          <a [routerLink]="['/']">
+            <i class="bx bx-home-alt"></i>
+            <span class="links_name">Home</span>
+          </a>
+          <span class="tooltip">Home</span>
+        </li>
+        <li>
+          <a (click)="addPost()">
+            <i class="bx bx-edit"></i>
+            <span class="links_name">Create</span>
+          </a>
+          <span class="tooltip">Create Post</span>
+        </li>
+        <li>
+          <a [routerLink]="['/user-trends']">
+            <i class="bx bx-trending-up"></i>
+            <span class="links_name">Trends</span>
+          </a>
+          <span class="tooltip">Trends</span>
+        </li>
+        <li>
+          <a [routerLink]="['/user-profile']">
+            <i class="bx bx-user"></i>
+            <span class="links_name">Profile</span>
+          </a>
+          <span class="tooltip">Profile</span>
+        </li>
+        <li class="profile">
+          <a href (click)="logout()">
+            <i class="bx bx-log-out"></i>
+            <span class="links_name">Logout</span>
+          </a>
+          <span class="tooltip">Logout</span>
+        </li>
+      </ul>
+    </div>
+    <!-- --------------------------------------HOME SECTION--------------------------------------------- -->
+    <ng-container *ngIf="post">
+      <section class="home-section">
+        <mat-toolbar>
+          <button mat-button>
+            <a>
+              <i class="bx bx-left-arrow-alt"></i>
+            </a>
+          </button>
+          <span>All Comments</span>
+        </mat-toolbar>
+
+        <div class="postst-card" fxLayoutAlign="center start" fxFlexFill>
+          <mat-card fxFlex="90" class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar>
+                <img src="{{ post[0].avatar_fld }}" alt="" />
+              </div>
+              <mat-card-title
+                >{{ post[0].fname_fld }} {{ post[0].mname_fld }}
+                {{ post[0].lname_fld }}</mat-card-title
+              >
+              <mat-card-subtitle
+                >{{ post[0].program_fld }} | |
+                {{ post[0].date_created_TS_fld }}</mat-card-subtitle
+              >
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{ post[0].content_fld }}</p>
+            </mat-card-content>
+
+            <!-- ---------------------------------------ALL COMMENTS IN ONE POST------------------------------------ -->
+            <ng-container *ngFor="let c of comments">
+              <div class="margin-comments">
+                <div class="post-card mat-elevation-z0">
+                  <mat-card fxFlex="100">
+                    <mat-card-header>
+                      <div mat-card-avatar>
+                        <img src="{{ c.avatar_fld }}" alt="" />
+                      </div>
+                      <mat-card-title
+                        >{{ c.fname_fld }} {{ c.mname_fld }}
+                        {{ c.lname_fld }}</mat-card-title
+                      >
+                      <mat-card-subtitle
+                        >{{ c.program_fld }} | |
+                        {{ c.date_created_TS_fld }}</mat-card-subtitle
+                      >
+                      <div>
+                        <mat-card-actions class="posts_btn-container">
+                          <button
+                            class="posts_btn"
+                            mat-icon-button
+                            [matMenuTriggerFor]="option"
+                          >
+                            <i class="bx bx-dots-horizontal-rounded"></i>
+                          </button>
+                          <mat-menu #option="matMenu">
+                            <button
+                              mat-menu-item
+                              (click)="editComment(c.comment_uid)"
+                            >
+                              <i style="margin-right: 8%" class="bx bx-edit"></i
+                              >Edit
+                            </button>
+                            <mat-divider
+                              style="width: 90%; margin-left: 5%"
+                              class="posts_mat-divider"
+                            ></mat-divider>
+                            <button
+                              mat-menu-item
+                              (click)="deleteComment(c.comment_uid)"
+                            >
+                              <i
+                                style="margin-right: 8%"
+                                class="bx bx-trash"
+                              ></i
+                              >Delete
+                            </button>
+                          </mat-menu>
+                        </mat-card-actions>
+                      </div>
+                    </mat-card-header>
+
+                    <mat-card-content>
+                      <p>{{ c.content_fld }}</p>
+                    </mat-card-content>
+                  </mat-card>
+                </div>
+              </div>
+            </ng-container>
+
+            <form
+              ngNativeValidate
+              action="posts/{{ post[0].post_uid }}/comments"
+              method="post"
+              (submit)="doComment($event)"
+            >
+              <div class="comment-panel">
+                <mat-form-field appearance="fill">
+                  <input
+                    matInput
+                    #message
+                    maxlength="256"
+                    placeholder="Write a comment..."
+                    id="content"
+                    name="content"
+                    required
+                  />
+                </mat-form-field>
+                <div mat-card-actions class="actions">
+                  <button mat-button class="btnSave" type="submit">
+                    <i class="bx bx-paper-plane"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </mat-card>
+        </div>
+      </section>
+    </ng-container>
+  </body>
+</html>

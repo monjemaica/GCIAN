@@ -3,9 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { UserService } from 'src/app/services/user.service';
-import { DeleteCommentComponent } from '../../comments/delete-comment/delete-comment.component';
-import { EditCommentComponent } from '../../comments/edit-comment/edit-comment.component';
-import { CreatePostComponent } from '../create-post/create-post.component';
+import { DeleteCommentComponent } from '../../../modal/comments/delete-comment/delete-comment.component';
+import { EditCommentComponent } from '../../../modal/comments/edit-comment/edit-comment.component';
+import { CreatePostComponent } from '../../../modal/posts/create-post/create-post.component';
 
 @Component({
   selector: 'app-details-post',

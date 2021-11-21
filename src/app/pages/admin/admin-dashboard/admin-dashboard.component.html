@@ -1,0 +1,153 @@
+<!--------------------------------------- SIDE NAVIGATION BAR --------------------------------------->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <ul class="nav-list">
+        <li>
+          <a [routerLink]="['/']">
+            <i class="bx bx-home-alt"></i>
+            <span class="links_name">Home</span>
+          </a>
+          <span class="tooltip">Home</span>
+        </li>
+        <li>
+            <a (click)="profile()">
+            <i class="bx bx-user"></i>
+            <span class="links_name">Profile</span>
+          </a>
+          <span class="tooltip">Profile</span>
+        </li>
+        <li class="profile">
+          <a href (click)="logout()">
+            <i class="bx bx-log-out"></i>
+            <span class="links_name">Logout</span>
+          </a>
+          <span class="tooltip">Logout</span>
+        </li>
+      </ul>
+    </div>
+    <!-- --------------------------------------HOME SECTION--------------------------------------------- -->
+    <section class="home-section">
+      <div class="home-content">
+        <div class="overview-panel">
+          <div class="panel-card">
+            <div class="panel-container">
+              <div class="panel-title">Total Users</div>
+              <div class="panel_number">36</div>
+            </div>
+          </div>
+          <div class="panel-card">
+            <div class="panel-container">
+              <div class="panel-title">Daily Posts</div>
+              <div class="panel_number">12</div>
+            </div>
+          </div>
+          <div class="panel-card">
+            <div class="panel-container">
+              <div class="panel-title">Weekly Posts</div>
+              <div class="panel_number">80</div>
+            </div>
+          </div>
+          <div class="panel-card">
+            <div class="panel-container">
+              <div class="panel-title">Montly Post</div>
+              <div class="panel_number">326</div>
+            </div>
+          </div>
+        </div>
+        <!-- --------------------------------------NEXT--------------------------------------------- -->
+        <div class="posts-boxes">
+          <div class="all-posts-card">
+            <div class="title">User Interactions</div>
+            <div class="category-spacer">
+              <div class="category-student-id-title">Student ID</div>
+              <div class="category-post-id-title">Post ID</div>
+              <div class="category-date-title">Date</div>
+              <div class="category-post-content-title">Post Content</div>
+            </div>
+            <div class="category-spacer">
+              <div class="category-student-id">201810149</div>
+              <div class="category-post-id">0</div>
+              <div class="category-date">11/18/21</div>
+              <div class="category-post-content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+            </div>
+            <div class="category-spacer">
+              <div class="category-student-id">201810149</div>
+              <div class="category-post-id">1</div>
+              <div class="category-date">11/18/21</div>
+              <div class="category-post-content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+            </div>
+            <div class="category-spacer">
+              <div class="category-student-id">201810149</div>
+              <div class="category-post-id">2</div>
+              <div class="category-date">11/18/21</div>
+              <div class="category-post-content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+            </div>
+            <div class="category-spacer">
+              <div class="category-student-id">201810149</div>
+              <div class="category-post-id">3</div>
+              <div class="category-date">11/18/21</div>
+              <div class="category-post-content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+            </div>
+            <div class="category-spacer">
+              <div class="category-student-id">201810149</div>
+              <div class="category-post-id">4</div>
+              <div class="category-date">11/18/21</div>
+              <div class="category-post-content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+            </div>
+            <mat-card-actions class="button">
+              <button mat-button>See all ></button>
+            </mat-card-actions>
+          </div>
+
+          <div class="trend-card">
+            <div class="title">Top Sentiments</div>
+            <div class="category-spacer-trends">
+              <div class="trends-number">1</div>
+              <div class="trends-sentiment">Sentiment</div>
+            </div>
+            <div class="category-spacer-trends">
+              <div class="trends-number">2</div>
+              <div class="trends-sentiment">Sentiment</div>
+            </div>
+            <div class="category-spacer-trends">
+              <div class="trends-number">3</div>
+              <div class="trends-sentiment">Sentiment</div>
+            </div>
+            <div class="category-spacer-trends">
+              <div class="trends-number">4</div>
+              <div class="trends-sentiment">Sentiment</div>
+            </div>
+            <div class="category-spacer-trends">
+              <div class="trends-number">5</div>
+              <div class="trends-sentiment">Sentiment</div>
+            </div>
+            <div class="category-spacer-trends">
+              <div class="trends-number">6</div>
+              <div class="trends-sentiment">Sentiment</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
