@@ -21,7 +21,6 @@ import { UserProfileComponent } from './pages/user/user-profile/user-profile.com
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
-import { PopUpComponent } from './modal/pop-up/pop-up.component';
 import { ChangePasswordComponent } from './modal/change-password/change-password.component';
 import { CreatePostComponent } from './modal/posts/create-post/create-post.component';
 import { EditPostComponent } from './modal/posts/edit-post/edit-post.component';
@@ -30,9 +29,12 @@ import { CreateCommentComponent } from './modal/comments/create-comment/create-c
 
 import { HttpClientModule } from '@angular/common/http';
 import { AuthInterceptorProviders } from './helpers/auth.interceptor';
-import { DetailsPostComponent } from './modal/posts/details-post/details-post.component';
+import { DetailsPostComponent } from './pages/user/details-post/details-post.component';
 import { EditCommentComponent } from './modal/comments/edit-comment/edit-comment.component';
-import { DeleteCommentComponent } from './modal/comments/delete-comment/delete-comment.component'
+import { DeleteCommentComponent } from './modal/comments/delete-comment/delete-comment.component';
+import { AdminLoginComponent } from './pages/admin/admin-login/admin-login.component';
+import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
+import { AdminProfileComponent } from './modal/admin-profile/admin-profile.component'
 
 @NgModule({
   declarations: [
@@ -41,7 +43,6 @@ import { DeleteCommentComponent } from './modal/comments/delete-comment/delete-c
     UserFeedComponent,
     UserTrendsComponent,
     UserProfileComponent,
-    PopUpComponent,
     ChangePasswordComponent,
     CreatePostComponent,
     EditPostComponent,
@@ -50,6 +51,9 @@ import { DeleteCommentComponent } from './modal/comments/delete-comment/delete-c
     DetailsPostComponent,
     EditCommentComponent,
     DeleteCommentComponent,
+    AdminLoginComponent,
+    AdminDashboardComponent,
+    AdminProfileComponent,
   ],
   imports: [
     BrowserModule,

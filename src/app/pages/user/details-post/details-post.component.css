@@ -225,14 +225,22 @@ mat-card mat-form-field {
   text-align: end;
 }
 
+
+
+.posts_btn-container {
+  text-align: end;
+}
+
 .actions i {
   font-size: 20px;
   margin-top: 40%;
   transform: rotate(55deg);
 }
+
 .margin-comments{
-  margin-left: 2rem;
+  margin-left: 1rem;
 }
+
 .flex {
   display: flex;
 }

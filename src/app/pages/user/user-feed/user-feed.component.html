@@ -50,40 +50,39 @@
       </ul>
     </div>
     <!-- --------------------------------------HOME SECTION--------------------------------------------- -->
-  <section class="home-section">
-    <mat-toolbar>
-      <span class="label">Home</span>
-    </mat-toolbar>
+    <section class="home-section">
+      <mat-toolbar>
+        <span class="label">Home</span>
+      </mat-toolbar>
 
+      <ng-container *ngFor="let post of posts">
+        <div class="post-card" fxLayoutAlign="center start" fxFlexFill>
+          <mat-card fxFlex="90" class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar>
+                <img src="{{ post.avatar_fld }}" alt="" />
+              </div>
+              <mat-card-title
+                >{{ post.fname_fld }} {{ post.mname_fld }}
+                {{ post.lname_fld }}</mat-card-title
+              >
+              <mat-card-subtitle
+                >{{ post.program_fld }} |
+                {{ post.date_created_TS_fld }}</mat-card-subtitle
+              >
+            </mat-card-header>
+            <mat-card-content>
+              <p>
+                {{ post.content_fld }}
+              </p>
+            </mat-card-content>
 
-    <ng-container *ngFor="let post of posts">
-      <div fxLayoutAlign="center start" fxFlexFill>
-        <mat-card fxFlex="90" class="example-card">
-          <mat-card-header>
-            <div mat-card-avatar>
-              <img src="{{post.avatar_fld}}" alt="">
-            </div>
-            <mat-card-title>{{post.fname_fld}} {{post.mname_fld}} {{post.lname_fld}}</mat-card-title>
-            <mat-card-subtitle>{{post.program_fld}} | {{post.date_created_TS_fld}}</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <p>
-              {{post.content_fld}}
-            </p>
-          </mat-card-content>
-        
-          <mat-card-actions (click)="comment(post.post_uid)" class="comment">
-            <!-- <button mat-button>Edit</button> -->
-            <button mat-button>Comment</button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
-    </ng-container>
-    
-  </section>
-
-</body>
+            <mat-card-actions (click)="comment(post.post_uid)">
+              <button mat-button>Comment</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </ng-container>
+    </section>
+  </body>
 </html>
-
-
-

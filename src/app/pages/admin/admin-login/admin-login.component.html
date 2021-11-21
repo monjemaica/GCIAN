@@ -1,0 +1,34 @@
+<!-- <div class="panels-container">
+    <div class="panel left-panel">
+      <div class="content">
+        <img class="home-image" src="assets/img/home-image.svg" alt="" />
+      </div>
+      </div>
+    </div> -->
+    <div class= "waves">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path fill="#429451" fill-opacity="1" d="M0,96L60,90.7C120,85,240,75,360,74.7C480,75,600,85,720,117.3C840,149,960,203,
+            1080,192C1200,181,1320,107,1380,69.3L1440,32L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,
+            320,480,320,360,320C240,320,120,320,60,320L0,320Z" style="user-select: auto;">
+          </path>
+        </svg>
+      </div>
+      
+      <div fxLayoutAlign="center center" fxFlexFill>
+        <mat-card fxFlex="30">
+          <mat-toolbar fxLayoutAlign="center center">Welcome Admin!</mat-toolbar>
+          <form fxLayoutAlign="stretch" fxLayout="column" ngNativeValidate (submit)= "login($event)">
+              <mat-form-field>
+                <input matInput placeholder="Email Address" type="text" id="email" name="email" required>
+              </mat-form-field>
+            
+              <mat-form-field>
+                  <input matInput type="password" placeholder="Password" id="password" name="password" required>
+              </mat-form-field>
+              <button class="submit" mat-raised-button type="submit">LOGIN</button>
+              <p class="forgotPassword">Forgot Password? <a class="btnforgotPassword" href="https://www.w3schools.com">Click Here!</a> </p>
+          </form>     
+        </mat-card>
+      </div>
+        
+        

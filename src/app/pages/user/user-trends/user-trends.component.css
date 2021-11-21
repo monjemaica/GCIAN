@@ -162,24 +162,24 @@ mat-toolbar {
   margin-top: -10px;
 }
 
-.label {
+mat-toolbar .label {
   font-size: 25px;
   margin-top: 5px;
 }
 
-.wrapper {
+.home-section .wrapper {
   width: 100%;
   margin: -50px auto;
   padding: 2%;
 }
 
-.cards_wrap {
+.wrapper .cards_wrap {
   display: flex;
   flex-wrap: wrap;
   padding: 30px;
 }
 
-.card_item {
+.wrapper .cards_wrap .card_item {
   width: 30%;
   padding: 5.9px;
   background: #398547;
@@ -189,29 +189,29 @@ mat-toolbar {
   float: none;
 }
 
-mat-card-header {
+.cards_wrap .card_item mat-card-header {
   padding: 2%;
   text-transform: uppercase;
   color: white;
   font-size: 20px;
 }
 
-mat-card-title {
+mat-card-header mat-card-title {
   margin-left: 3%;
 }
 
-mat-divider {
+.cards_wrap .card_item mat-divider {
   border-top-color: rgb(216, 216, 216); 
   padding-bottom: 2%;
   margin-top: -3%;
 }
 
-.card_bottom {
+.cards_wrap .card_item .card_bottom {
   padding: 5px;
   color: white;
   font-weight: lighter;
 }
 
-.button {
+.card_bottom mat-card-actions {
   margin-left: 68%;
 }

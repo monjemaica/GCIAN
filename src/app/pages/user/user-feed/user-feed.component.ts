@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { CreateCommentComponent } from 'src/app/modal/comments/create-comment/create-comment.component';
 import { CreatePostComponent } from 'src/app/modal/posts/create-post/create-post.component';
 import { DataService } from 'src/app/services/data.service';
 import { UserService } from 'src/app/services/user.service';
