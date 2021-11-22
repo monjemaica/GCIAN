@@ -28,6 +28,6 @@ export class CreatePostComponent implements OnInit {
       this.posts = res;
       this.dialogRef.close()
     })
-  }
+  } 
    
 }

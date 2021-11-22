@@ -27,7 +27,7 @@ export class UserService {
   
   setLoggedOut() {
     window.sessionStorage.setItem('user-login', 'false');
-
+    window.sessionStorage.clear();
   }
 
   saveToken(token: string): void {
