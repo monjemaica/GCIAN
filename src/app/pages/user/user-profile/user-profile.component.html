@@ -158,9 +158,9 @@
         </div>
       </ng-container>
 
+      <ng-container *ngFor="let post of posts">
       <div class="space_maker" fxFlexFill>
         <mat-card fxFlex="66">
-          <ng-container *ngFor="let post of posts">
             <div class="cards_wrap">
               <div class="one">
                 <div mat-card-avatar>
@@ -217,72 +217,9 @@
             </mat-card-content>
 
             <!-- <mat-divider class="posts_mat-divider" [inset]="true"></mat-divider> -->
-          </ng-container>
-        </mat-card>
-      </div>
-
-      <div class="space_maker" fxFlexFill>
-        <mat-card fxFlex="66">
-          <ng-container *ngFor="let post of posts">
-            <div class="cards_wrap">
-              <div class="one">
-                <div mat-card-avatar>
-                  <img
-                    class="posts_img-small"
-                    src="{{ post.avatar_fld }}"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="two">
-                <div class="posts_cards-wrap">
-                  <div class="one">
-                    <p class="posts_display-name">
-                      {{ post.fname_fld }} {{ post.mname_fld }}
-                      {{ post.lname_fld }} | {{ post.date_created_TS_fld }}
-                    </p>
-                  </div>
-                  <div class="two">
-                    <mat-card-actions class="posts_btn-container">
-                      <button
-                        class="posts_btn"
-                        mat-icon-button
-                        [matMenuTriggerFor]="option"
-                      >
-                        <i class="bx bx-dots-horizontal-rounded"></i>
-                      </button>
-                      <mat-menu #option="matMenu">
-                        <button mat-menu-item (click)="editPost(post.post_uid)">
-                          <i style="margin-right: 8%" class="bx bx-edit"></i
-                          >Edit
-                        </button>
-                        <mat-divider
-                          style="width: 90%; margin-left: 5%"
-                          class="posts_mat-divider"
-                        ></mat-divider>
-                        <button
-                          mat-menu-item
-                          (click)="deletePost(post.post_uid)"
-                        >
-                          <i style="margin-right: 8%" class="bx bx-trash"></i
-                          >Delete
-                        </button>
-                      </mat-menu>
-                    </mat-card-actions>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <mat-card-content class="posts_card-content">
-              <p>
-                {{ post.content_fld }}
-              </p>
-            </mat-card-content>
-
-            <!-- <mat-divider class="posts_mat-divider" [inset]="true"></mat-divider> -->
-          </ng-container>
-        </mat-card>
-      </div>
+          </mat-card>
+        </div>
+      </ng-container>
       
     </section>
   </body>

@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
@@ -34,16 +35,6 @@ export class UserLoginComponent implements OnInit {
     };
   }
 
-  // login(e){
-  //   let {email_fld, password_fld } = this.form;
-
-  //   this._ds._httpPostRequest('students/login', {email_fld, password_fld}).subscribe(
-  //     (res => {
-  //       this._us.saveToken(res.token);
-  //       this._us.saveUser(res);
-  //     })
-  //   );
-  // }
 
   login(e) {
     e.preventDefault();
