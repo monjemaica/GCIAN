@@ -29,7 +29,6 @@ export class UserProfileComponent implements OnInit {
   getUsersPosts(){
     let studid_fld = this.student.studid_fld
     this._ds._httpGetRequestById('posts/', studid_fld).subscribe((res:any) =>{
-      console.log('test: ',res);
       this.posts = res;
       console.log(this.posts);
     },(err:any) => {
@@ -75,12 +74,26 @@ export class UserProfileComponent implements OnInit {
     dialogRef.afterClosed().subscribe(res => {
       this.isPopupOpened = false;
     });
+    
   }
 
-  changePassword() {
-    this.dialog.open(ChangePasswordComponent);
+  changePassword(id: number) {
+    this.isPopupOpened = true;
+    console.log(this.student);
+    if(this.student.studid_fld !== id){
+      console.log('invalid studid_fld')
+    }else{
+      let student = this.student
+      
+      const dialogRef = this.dialog.open(ChangePasswordComponent, {
+        data: student
+      });
+  
+      dialogRef.afterClosed().subscribe(res => {
+        this.isPopupOpened = false;
+      });
+    }
   }
-
 
   test() {
     window.location.href="/"
