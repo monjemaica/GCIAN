@@ -156,21 +156,27 @@ body {
 }
 
 /* ------------------------------ SIDE NAV CSS ENDS HERE ------------------------------ */
+.home-section .post-card {
+  margin-bottom: 1%;
+}
+
+.home-section mat-card {
+  border-radius: 15px;
+  background: #398547;
+  color: white;
+}
+
+.home-section mat-toolbar .label {
+  margin-top: 0px;
+}
+
 mat-toolbar {
-  background-color: white;
-  z-index: 10;
+  height: 64px;
   margin-top: -10px;
-}
-
-mat-toolbar .label {
-  font-size: 25px;
-  margin-top: 5px;
-}
-
-.home-section .wrapper {
-  width: 100%;
-  margin: -50px auto;
-  padding: 2%;
+  position: fixed;
+  z-index: 100;
+  width: 100%  !important;
+  padding-left: 0px; 
 }
 
 .wrapper .cards_wrap {
@@ -187,6 +193,7 @@ mat-toolbar .label {
   margin-left: 10px;
   margin: 10px auto;
   float: none;
+  margin-top: 40px;
 }
 
 .cards_wrap .card_item mat-card-header {
@@ -215,3 +222,4 @@ mat-card-header mat-card-title {
 .card_bottom mat-card-actions {
   margin-left: 68%;
 }
+

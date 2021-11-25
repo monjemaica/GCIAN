@@ -153,23 +153,28 @@ body {
     display: none;
   }
 }
+.two {
+  flex: 1;
+}
 
 /* ------------------------------ SIDE NAV CSS ENDS HERE ------------------------------ */
 
 mat-toolbar i {
-  font-size: 25px;
+  font-size: 22px;
   margin-right: 1%;
-  margin-top: 55%;
   color: black;
 }
 
 mat-toolbar span {
-  font-size: 25px;
+  font-size: 22px;
   margin-top: 5px;
+  
 }
 
 .home-section .post-card {
   margin-bottom: 1%;
+  
+  margin-top: 0px;
 }
 
 .home-section mat-card {
@@ -181,18 +186,20 @@ mat-toolbar span {
 mat-card mat-card-header mat-card-title {
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 4%;
+  /* margin-bottom: 4%; */
 }
 
 mat-card mat-card-header mat-card-subtitle {
-  font-size: 15px;
-  color: white;
+  font-size: 13px;
+  color: rgb(208, 208, 208);
 }
+
 
 mat-card mat-card-content {
   font-size: 15px;
   color: white;
   margin-left: 3%;
+  
 }
 
 mat-card mat-card-header img {
@@ -203,12 +210,14 @@ mat-card mat-card-header img {
 mat-card mat-form-field {
   margin-bottom: 2%;
   width: 93%;
+  
 }
 
 .comment-panel {
   display: flex;
   flex-wrap: wrap;
   padding: 0 25px;
+  
 }
 
 .comment-panel input {
@@ -239,8 +248,23 @@ mat-card mat-form-field {
 
 .margin-comments{
   margin-left: 1rem;
+  margin-bottom: 0rem;
 }
 
 .flex {
   display: flex;
+}
+/* mat-toolbar {
+  position: fixed;
+  height: 64px;
+  margin-top: -10px;
+  z-index: 100;
+  width: 100%  !important;
+  padding-left: 0px; 
+  
+} */
+
+example-card{
+  margin-top: 80px;
+  
 }

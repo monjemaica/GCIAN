@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
+  scrollbar-width: none;  
 }
 
 body {
@@ -157,12 +158,12 @@ body {
 /* ------------------------------ SIDE NAV CSS ENDS HERE ------------------------------ */
 mat-card {
   box-shadow: inset 0 0 0px black;
-  margin-top: 4.3%;
+  margin-top: 70px;
   border-radius: 15px;
   background: #398547;
   color: #FFF;
+  
 }
-
 mat-card-subtitle {
   font-size: 15px;
   color: white;
@@ -180,21 +181,19 @@ mat-divider {
 }
 
 mat-toolbar {
-  background-color: white;
-  z-index: 10;
   position: fixed;
+  height: 64px;
   margin-top: -10px;
+  z-index: 100;
+  width: 100%  !important;
+  padding-left: 0px; 
 }
 
-.toolbar_title {
-  font-size: 25px;
-  margin-top: 5px;
-}
 
 .cards_wrap {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: -6px; 
+  margin-bottom: -10px; 
 }
 
 .one {
@@ -208,6 +207,7 @@ mat-toolbar {
 .bx bx-edit {
   color: red;
 }
+
 /* ------------------------- CARD FOR STUDENT'S ID STARTS HERE ------------------------- */
 .id_card-border {
   background: #398547;
@@ -257,7 +257,8 @@ mat-toolbar {
 /* ------------------------- CARD FOR VIEW ALL POSTS STARTS HERE ------------------------- */
 .space_maker {
   margin-left: 33%;
-  margin-bottom: -3%;
+  margin-bottom: -5%;
+  
 }
 
 .posts_btn-container {
@@ -301,3 +302,5 @@ mat-toolbar {
   border-top-color: rgb(216, 216, 216); 
   padding-bottom: 2%;
 }
+
+/* ------------------------- HIDE SCROLL ------------------------- */

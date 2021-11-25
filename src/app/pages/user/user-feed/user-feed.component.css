@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
+  scrollbar-width: none;  
 }
 
 body {
@@ -157,19 +158,22 @@ body {
 /* ------------------------------ SIDE NAV CSS ENDS HERE ------------------------------ */
 
 .home-section .post-card {
-  margin-bottom: 1%;
+  margin-bottom: -5%;
+  
 }
 
 .home-section mat-card {
   border-radius: 15px;
   background: #398547;
   color: white;
+  margin-top: 70px;
 }
 
 mat-card mat-card-header mat-card-title {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   margin-bottom: 6%;
+  
 }
 
 mat-card mat-card-header mat-card-subtitle {
@@ -192,7 +196,12 @@ mat-card mat-card-header img {
   border-radius: 50%;
 }
 
-.home-section mat-toolbar .label {
-  font-size: 25px;
-  margin-top: 5px;
+mat-toolbar {
+  position: fixed;
+  height: 64px;
+  margin-top: -10px;
+  z-index: 100;
+  width: 100%  !important;
+  padding-left: 0px; 
+  
 }
