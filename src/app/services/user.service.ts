@@ -6,14 +6,13 @@ import { DataService } from './data.service';
   providedIn: 'root',
 })
 export class UserService {
-  // loggedIn: boolean = false;
   TOKEN_KEY = 'auth-token';
   USER_KEY = 'auth-user';
   userData: any;
   loggedIn: boolean = true;
 
 
-  constructor(private router: Router, private _ds: DataService) {}
+  constructor() {}
 
 
   isLoggedIn(): boolean {
@@ -53,9 +52,4 @@ export class UserService {
     return {};
   }
 
-  // setUserData(email_fld){
-  //   const 
-  //   console.log("test userdata:", this.userData);
-  //  return this.userData;
-  // }
 }

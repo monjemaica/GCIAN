@@ -31,7 +31,7 @@ export class UserLoginComponent implements OnInit {
     const hasToken = (token) => {
       token = this._us.getToken()
         ? this.isLoggedIn == true
-        : this.isLoggedIn == true;
+        : this.isLoggedIn == false;
     };
   }
 
@@ -41,13 +41,12 @@ export class UserLoginComponent implements OnInit {
     let email_fld = e.target.email.value;
     let password_fld = e.target.password.value;
 
-    this._ds._httpPostRequest('students/login', { email_fld, password_fld }).subscribe(
+    this._ds._httpPostRequest('students/user-login', { email_fld, password_fld }).subscribe(
         (res: any) => {
           this._us.saveToken(res.token);
           this._us.saveUser(res.data);
 
           this.isLoggedIn = true;
-          this.isLoginFailed = false;
 
           this._us.userData = res;
           this._us.setLoggedin();
