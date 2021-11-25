@@ -55,7 +55,7 @@
       <section class="home-section">
         <mat-toolbar>
           <button mat-button>
-            <a>
+            <a [routerLink]="['/']">
               <i class="bx bx-left-arrow-alt"></i>
             </a>
           </button>
@@ -73,8 +73,8 @@
                 {{ post[0].lname_fld }}</mat-card-title
               >
               <mat-card-subtitle
-                >{{ post[0].program_fld }} | |
-                {{ post[0].date_created_TS_fld }}</mat-card-subtitle
+                >{{ post[0].program_fld }} |
+                {{ post[0].date_created_TS_fld | date:'short' }}</mat-card-subtitle
               >
             </mat-card-header>
             <mat-card-content>
@@ -95,10 +95,10 @@
                         {{ c.lname_fld }}</mat-card-title
                       >
                       <mat-card-subtitle
-                        >{{ c.program_fld }} | |
-                        {{ c.date_created_TS_fld }}</mat-card-subtitle
+                        >{{ c.program_fld }} | 
+                        {{ c.date_created_TS_fld | date:'short' }}</mat-card-subtitle
                       >
-                      <div>
+                      <div class="two">
                         <mat-card-actions class="posts_btn-container">
                           <button
                             class="posts_btn"
