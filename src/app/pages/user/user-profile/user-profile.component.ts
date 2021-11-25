@@ -34,7 +34,7 @@ export class UserProfileComponent implements OnInit {
     },(err:any) => {
       if(err.status == 401){
         this._us.setLoggedOut();
-        this.router.navigateByUrl('/login');
+        this.router.navigateByUrl('/user-login');
       }
     });
   }
