@@ -1,85 +1,84 @@
 <div fxLayoutAlign="start start" fxFlexFill>
-    <mat-card class="id_card-border" fxFlex="100">
-      <div mat-card-actions class="actions">
-        <button
-          mat-dialog-close
-          mat-icon-button
-          class="btnCancel"
-          type="button"
-          data-dismiss="modal"
-        >
-          <i class="bx bx-x"></i>
-        </button>
+  <mat-card class="id_card-border" fxFlex="100">
+    <div mat-card-actions class="actions">
+      <button
+        mat-dialog-close
+        mat-icon-button
+        class="btnCancel"
+        type="button"
+        data-dismiss="modal"
+      >
+        <i class="bx bx-x"></i>
+      </button>
+    </div>
+    <div class="id_cards-wrap">
+      <div class="one">
+        <mat-card-header>
+          <div mat-card-avatar>
+            <img
+              class="id_img"
+              src="https://scontent.fcrk1-4.fna.fbcdn.net/v/t1.6435-9/52880705_1316013818554538_4011622629831081984_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeFgWSgq3nq230EA-mfpvwgPkiKDHF6FoNKSIoMcXoWg0hhYsX5wmXz556vT5Dc8_0rxHOZ-IvpfKJBkc3GmYVYc&_nc_ohc=VSrL4yvMSF8AX8W8MiM&_nc_ht=scontent.fcrk1-4.fna&oh=242243f9901f3895defda9286bc091b2&oe=61ADCE54"
+              alt=""
+            />
+          </div>
+        </mat-card-header>
       </div>
-      <div class="id_cards-wrap">
+    </div>
+    <div class="id_container">
+      <div class="cards_wrap">
         <div class="one">
-          <mat-card-header>
-            <div mat-card-avatar>
-              <img
-                class="id_img"
-                src="https://scontent.fcrk1-4.fna.fbcdn.net/v/t1.6435-9/52880705_1316013818554538_4011622629831081984_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeFgWSgq3nq230EA-mfpvwgPkiKDHF6FoNKSIoMcXoWg0hhYsX5wmXz556vT5Dc8_0rxHOZ-IvpfKJBkc3GmYVYc&_nc_ohc=VSrL4yvMSF8AX8W8MiM&_nc_ht=scontent.fcrk1-4.fna&oh=242243f9901f3895defda9286bc091b2&oe=61ADCE54"
-                alt=""
-              />
-            </div>
-          </mat-card-header>
+          <mat-card-subtitle class="id_subs">Name</mat-card-subtitle>
+        </div>
+        <div class="two">
+          <mat-card-content class="cards_wrap_id"
+            >John Miko Barreyro</mat-card-content
+          >
         </div>
       </div>
-      <div class="id_container">
-        <div class="cards_wrap">
-          <div class="one">
-            <mat-card-subtitle class="id_subs">Name</mat-card-subtitle>
-          </div>
-          <div class="two">
-            <mat-card-content class="cards_wrap_id"
-              >John Miko Barreyro</mat-card-content
-            >
-          </div>
+
+      <mat-divider [inset]="true"></mat-divider>
+
+      <div class="cards_wrap">
+        <div class="one">
+          <mat-card-subtitle class="id_subs">Admin ID</mat-card-subtitle>
         </div>
-  
-        <mat-divider [inset]="true"></mat-divider>
-  
-        <div class="cards_wrap">
-          <div class="one">
-            <mat-card-subtitle class="id_subs">Admin ID</mat-card-subtitle>
-          </div>
-          <div class="two">
-            <mat-card-content class="cards_wrap_id">101234</mat-card-content>
-          </div>
-        </div>
-  
-        <mat-divider [inset]="true"></mat-divider>
-  
-        <div class="cards_wrap">
-          <div class="one">
-            <mat-card-subtitle class="id_subs">Gender</mat-card-subtitle>
-          </div>
-          <div class="two">
-            <mat-card-content class="cards_wrap_id">Male</mat-card-content>
-          </div>
-        </div>
-  
-        <mat-divider [inset]="true"></mat-divider>
-  
-        <div class="cards_wrap">
-          <div class="one">
-            <mat-card-subtitle class="id_subs">Faculty</mat-card-subtitle>
-          </div>
-          <div class="two">
-            <mat-card-content class="cards_wrap_id">CCS</mat-card-content>
-          </div>
-        </div>
-        <mat-divider [inset]="true"></mat-divider>
-        <div class="cards_wrap">
-          <div class="one">
-            <mat-card-subtitle class="id_subs">Email Address</mat-card-subtitle>
-          </div>
-          <div style="text-align: center" class="two">
-            <mat-card-content class="cards_wrap_id"
-              >201810149@gordoncollege.edu.ph</mat-card-content
-            >
-          </div>
+        <div class="two">
+          <mat-card-content class="cards_wrap_id">101234</mat-card-content>
         </div>
       </div>
-    </mat-card>
-  </div>
-  
+
+      <mat-divider [inset]="true"></mat-divider>
+
+      <div class="cards_wrap">
+        <div class="one">
+          <mat-card-subtitle class="id_subs">Gender</mat-card-subtitle>
+        </div>
+        <div class="two">
+          <mat-card-content class="cards_wrap_id">Male</mat-card-content>
+        </div>
+      </div>
+
+      <mat-divider [inset]="true"></mat-divider>
+
+      <div class="cards_wrap">
+        <div class="one">
+          <mat-card-subtitle class="id_subs">Faculty</mat-card-subtitle>
+        </div>
+        <div class="two">
+          <mat-card-content class="cards_wrap_id">CCS</mat-card-content>
+        </div>
+      </div>
+      <mat-divider [inset]="true"></mat-divider>
+      <div class="cards_wrap">
+        <div class="one">
+          <mat-card-subtitle class="id_subs">Email Address</mat-card-subtitle>
+        </div>
+        <div style="text-align: center" class="two">
+          <mat-card-content class="cards_wrap_id"
+            >201810149@gordoncollege.edu.ph</mat-card-content
+          >
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>

@@ -1,15 +1,10 @@
-<ng-container *ngIf="post">
-  <form class="example-form" ngNativeValidate (submit)="doEdit($event)" required  >
-    <mat-card-title>Edit post</mat-card-title>
-    <mat-form-field  class="wrapper" appearance="fill">
+<form class="example-form">
+  <mat-card-title>Edit post</mat-card-title>
+    <mat-form-field class="wrapper" appearance="fill">
       <textarea
-      matInput
+        matInput
         #message
         maxlength="256"
-        id="content" name="content"
-        value="{{post.content_fld}}"
-        type='textarea'
-        required
       ></textarea>
       <mat-hint align="end">{{ message.value.length }} / 256 </mat-hint>
     </mat-form-field>
@@ -26,5 +21,4 @@
       <button mat-raised-button class="btnSave" type="submit">Save</button>
     </div>
   </form>
-</ng-container>
   

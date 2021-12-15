@@ -1,0 +1,35 @@
+<form class="example-form">
+    <h4>Help us understand the problem. What is going on with this post?</h4>
+    <mat-form-field appearance="fill" style="width: 100%">
+      <mat-label>Concern Category</mat-label>
+      <select matNativeControl required>
+        <option value="spam">
+          It's suspicious or spam. May include harmful, malicious, or phishing
+          site.
+        </option>
+        <option value="violence">It's abusive of harmful.</option>
+      </select>
+    </mat-form-field>
+    <mat-form-field class="wrapper" appearance="fill" style="margin-top: -3%">
+      <mat-label>Hi, GCIAN! What's your concern?</mat-label>
+      <textarea
+        matInput
+        #message
+        maxlength="256"
+        placeholder="Ex: GCIAN is a great app..."
+      ></textarea>
+      <mat-hint align="end">{{ message.value.length }} / 256 </mat-hint>
+    </mat-form-field>
+    <div mat-card-actions class="actions">
+      <button
+        mat-dialog-close
+        mat-raised-button
+        class="btnCancel"
+        type="button"
+        data-dismiss="modal"
+      >
+        Cancel
+      </button>
+      <button mat-raised-button class="btnSave" type="submit">Submit</button>
+    </div>
+  </form>

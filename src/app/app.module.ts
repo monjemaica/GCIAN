@@ -16,7 +16,6 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { UserFeedComponent } from './pages/user/user-feed/user-feed.component';
-import { UserTrendsComponent } from './pages/user/user-trends/user-trends.component';
 import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -34,14 +33,17 @@ import { EditCommentComponent } from './modal/comments/edit-comment/edit-comment
 import { DeleteCommentComponent } from './modal/comments/delete-comment/delete-comment.component';
 import { AdminLoginComponent } from './pages/admin/admin-login/admin-login.component';
 import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
-import { AdminProfileComponent } from './modal/admin-profile/admin-profile.component'
+import { AdminProfileComponent } from './modal/admin-profile/admin-profile.component';
+import { AppInfoComponent } from './modal/app-info/app-info.component';
+import { ReportPostComponent } from './modal/posts/report-post/report-post.component';
+import { UserChatComponent } from './pages/user/user-chat/user-chat.component';
+import { UserProfileCaresComponent } from './pages/user/user-profile-cares/user-profile-cares.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserLoginComponent,
     UserFeedComponent,
-    UserTrendsComponent,
     UserProfileComponent,
     ChangePasswordComponent,
     CreatePostComponent,
@@ -54,6 +56,10 @@ import { AdminProfileComponent } from './modal/admin-profile/admin-profile.compo
     AdminLoginComponent,
     AdminDashboardComponent,
     AdminProfileComponent,
+    AppInfoComponent,
+    ReportPostComponent,
+    UserChatComponent,
+    UserProfileCaresComponent,
   ],
   imports: [
     BrowserModule,

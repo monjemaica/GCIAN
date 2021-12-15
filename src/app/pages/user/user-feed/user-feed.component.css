@@ -4,7 +4,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
-  scrollbar-width: none;  
 }
 
 body {
@@ -157,51 +156,114 @@ body {
 
 /* ------------------------------ SIDE NAV CSS ENDS HERE ------------------------------ */
 
-.home-section .post-card {
-  margin-bottom: -5%;
-  
+.label {
+  font-size: 23px;
+  margin-top: 5px;
+  font-weight: 500;
 }
 
-.home-section mat-card {
+.navbar {
+  position: fixed; 
+  z-index: 99; 
+  width: 100%;
+}
+
+section .post-card {
+  margin-bottom: 1%;
+}
+
+section .card {
   border-radius: 15px;
   background: #398547;
   color: white;
-  margin-top: 70px;
 }
 
-mat-card mat-card-header mat-card-title {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 6%;
-  
+.post-card .post-card-details {
+  margin-left: -6%; 
 }
 
-mat-card mat-card-header mat-card-subtitle {
-  font-size: 13px;
-  color: rgb(208, 208, 208);
+.post-card .card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 2%;
 }
 
-mat-card mat-card-content {
+.post-card .card-subtitle {
   font-size: 15px;
   color: white;
-  margin-left: 3%;
+  margin-top: -8px;
 }
 
-mat-card mat-card-actions {
-  text-align: end;
+.post-card .card-content {
+  font-size: 15px;
+  color: white;
+  margin-left: 7.5%;
+  margin-right: 7.5%;
+  margin-top: -2%;
 }
 
-mat-card mat-card-header img {
+.post-card .avatar {
+  height: 50px;
+}
+
+.avatar img {
   height: 100%;
   border-radius: 50%;
 }
 
-mat-toolbar {
+.post-card .card-actions {
+  text-align: center;
+  padding: 1%;
+}
+
+.card-actions .btn_like {
+  margin-right: 18%;
+  border: none;
+  background-color: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.card-actions .btn_comment {
+  margin-left: 18%;
+  border: none;
+  background-color: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+button:hover, button:focus {
+  outline: none;
+}
+
+.error {
+  color: red; 
+  font-size: 16px;
+}
+
+.posts_btn {
+  color: white;
+  font-size: 20px;
+}
+
+.drop-down {
+  margin-left: 260%; 
+  margin-top: 15px;
+}
+
+.show-less {
+  height: 1.2rem;
+  overflow: hidden;
+}
+
+.trends-card {
+  margin-right: 5%; 
+  background: #398547; 
   position: fixed;
-  height: 64px;
-  margin-top: -10px;
-  z-index: 100;
-  width: 100%  !important;
-  padding-left: 0px; 
-  
+}
+
+.trends {
+  font-size: 20px; 
+  margin-top: 4%; 
+  margin-left: 5%;
 }

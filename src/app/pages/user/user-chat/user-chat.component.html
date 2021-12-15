@@ -1,0 +1,120 @@
+<!--------------------------------------- SIDE NAVIGATION BAR --------------------------------------->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <ul class="nav-list">
+        <li>
+          <a [routerLink]="['/']">
+            <i class="bx bx-home-alt"></i>
+            <span class="links_name">Home</span>
+          </a>
+          <span class="tooltip">Home</span>
+        </li>
+        <li>
+          <a (click)="openDialog()">
+            <i class="bx bx-edit"></i>
+            <span class="links_name">Create</span>
+          </a>
+          <span class="tooltip">Create Post</span>
+        </li>
+        <li>
+          <a [routerLink]="['/user-profile']">
+            <i class="bx bx-user"></i>
+            <span class="links_name">Profile</span>
+          </a>
+          <span class="tooltip">Profile</span>
+        </li>
+        <li class="profile">
+          <a href (click)="logout()">
+            <i class="bx bx-log-out"></i>
+            <span class="links_name">Logout</span>
+          </a>
+          <span class="tooltip">Logout</span>
+        </li>
+        <li>
+          <a [routerLink]="['/user-chat']">
+            <i class="bx bx-globe"></i>
+            <span class="links_name">Chat</span>
+          </a>
+          <span class="tooltip">GChat</span>
+        </li>
+        <li>
+          <a (click)="appInfo()">
+            <i class="bx bx-info-circle"></i>
+            <span class="links_name">About Us</span>
+          </a>
+          <span class="tooltip">About Us</span>
+        </li>
+      </ul>
+    </div>
+    <!-- --------------------------------------HOME SECTION--------------------------------------------- -->
+    <section class="home-section">
+      <nav class="navbar navbar-light bg-light">
+        <span class="label">GChat</span>
+      </nav>
+
+      <div class="container">
+        <div class="chat-box" style="margin-top: 5%">
+          <!-- main chat section -->
+          <div class="chats">
+            <div class="chat-flex">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxl-vi-iqxgO9FOcrfIm4VMoKg_7jx63mPMw&usqp=CAU"
+                alt=""
+                class="one"
+              />
+              <div class="client-chat">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta, libero eos! Culpa aspernatur, repellendus architecto laborum quia provident ipsum nemo est iusto voluptatibus saepe dolorum nulla inventore magni tempora sit.</div>
+            </div>
+            <div class="chat-flex">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvssmtGNdFjoSjNsyPQZLFvaBeN2FvdAB68g&usqp=CAU"
+                alt=""
+                class="one"
+              />
+              <div class="client-chat">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta, libero eos! Culpa aspernatur, repellendus architecto laborum quia provident ipsum nemo est iusto voluptatibus saepe dolorum nulla inventore magni tempora sit.</div>
+            </div>
+            <div class="chat-flex">
+              <div class="my-chat">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, dolores repudiandae. Eaque maiores qui quos magnam ipsa animi, hic sit minus veritatis! Ex reprehenderit dignissimos ducimus nulla placeat, omnis sapiente.</div>
+              <img
+                src="https://i.scdn.co/image/ab6761610000e5eb006ff3c0136a71bfb9928d34"
+                alt=""
+                class="one"
+              />
+            </div>
+          </div>
+
+          <!-- input field section -->
+          <div class="chat-input">
+            <button type="button" class="attach-btn">
+              <input type="file" id="file" accept="image/*" />
+              <label for="file"> <i class="bx bx-paperclip"></i> &nbsp; </label>
+            </button>
+            <input type="text" placeholder="Enter Message" />
+            <button class="send-btn">
+              <i class="bx bx-paper-plane" style="font-size: 25px"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

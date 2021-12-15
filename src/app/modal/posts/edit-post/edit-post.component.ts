@@ -21,6 +21,7 @@ export class EditPostComponent implements OnInit {
     private router: Router,
     @Inject(MAT_DIALOG_DATA) data
   ) {
+    dialogRef.disableClose = true;
     this.post = data;
   }
 

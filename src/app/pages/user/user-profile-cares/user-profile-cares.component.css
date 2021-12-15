@@ -8,7 +8,6 @@
 
 body {
   overflow-x: hidden;
-  overflow-y: hidden !important;
 }
 
 .sidebar{
@@ -156,70 +155,216 @@ body {
 }
 
 /* ------------------------------ SIDE NAV CSS ENDS HERE ------------------------------ */
-.home-section .post-card {
+
+.id_card-border {
+  background: #398547;
+  color: #FFF;
+  position: fixed;
+  padding-bottom: 2%;
+}
+
+mat-card-subtitle {
+  font-size: 15px;
+  color: white;
+}
+
+mat-card-content {
+  font-size: 15px;
+  color: white;
+  margin-left: 3%;
+}
+
+mat-divider {
+  border-top-color: rgb(216, 216, 216); 
+  padding-bottom: 4%;
+}
+
+
+
+.cards_wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: -6px; 
+}
+
+.one {
+  flex: 0 0 40%;
+}
+
+.two {
+  flex: 1;
+}
+
+.bx bx-edit {
+  color: red;
+}
+
+
+hr {
+  margin-top: .7rem;
+  margin-bottom: .7rem;
+  border: 0;
+  border-top: 1px solid rgba(240, 240, 240, 0.693);
+}
+/* ------------------------- CARD FOR STUDENT'S ID STARTS HERE ------------------------- */
+
+.change-avatar {
+  background-color: rgba(223, 223, 223, 0.166); 
+  border: none; 
+  border-radius: 50%; 
+  width: 45px; 
+  height: 45px; 
+  margin-left: 175px; 
+  margin-top: 40px
+}
+
+.id_container {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.id_cards-wrap {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.id_img {
+  height: 320%;
+  border-radius: 50%;
+  margin-left: 285%;
+  display: flex;
+}
+
+.id_subs {
+  margin-left: 5%;
+}
+
+.id_card-btn {
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.id_btn {
+  background: #63be74;
+  width: 80%;
+  border-radius: 20px;
+}
+
+/* ------------------------- CARD FOR VIEW ALL POSTS STARTS HERE ------------------------- */
+
+.label {
+  font-size: 23px;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+.navbar {
+  position: fixed; 
+  z-index: 99; 
+  width: 100%
+}
+
+section .post-card {
   margin-bottom: 1%;
 }
 
-.home-section mat-card {
+section .card {
   border-radius: 15px;
   background: #398547;
   color: white;
 }
 
-.home-section mat-toolbar .label {
-  margin-top: 0px;
+.post-card .post-card-details {
+  margin-left: -6%; 
 }
 
-mat-toolbar {
-  height: 64px;
-  margin-top: -10px;
-  position: fixed;
-  z-index: 100;
-  width: 100%  !important;
-  padding-left: 0px; 
+.post-card .card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 2%;
 }
 
-.wrapper .cards_wrap {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 30px;
+.post-card .card-subtitle {
+  font-size: 15px;
+  color: white;
+  margin-top: -8px;
 }
 
-.wrapper .cards_wrap .card_item {
-  width: 30%;
-  padding: 5.9px;
-  background: #398547;
-  border-radius: 15px;
-  margin-left: 10px;
-  margin: 10px auto;
-  float: none;
-  margin-top: 40px;
+.post-card .card-content {
+  font-size: 15px;
+  color: white;
+  margin-left: 7.5%;
+  margin-right: 7.5%;
+  margin-top: -1%;
 }
 
-.cards_wrap .card_item mat-card-header {
-  padding: 2%;
-  text-transform: uppercase;
+.post-card .avatar {
+  height: 50px;
+}
+
+.avatar img {
+  height: 250%;
+  border-radius: 50%;
+  margin-left: 100px;
+}
+
+button:hover, button:focus {
+  outline: none;
+}
+
+.drop-down {
+  margin-left: 260%; 
+  margin-top: 15px;
+}
+
+.post-card .card-actions {
+  text-align: end;
+  margin-right: 2%;
+}
+
+.posts_btn {
   color: white;
   font-size: 20px;
 }
 
-mat-card-header mat-card-title {
-  margin-left: 3%;
+.bx-camera {
+  margin-left: 140px; 
+  margin-top: -68px !important; 
+  font-size: 17px; 
+  color: white
 }
 
-.cards_wrap .card_item mat-divider {
-  border-top-color: rgb(216, 216, 216); 
-  padding-bottom: 2%;
-  margin-top: -3%;
+input[type="file"] {
+  display: none;
 }
 
-.cards_wrap .card_item .card_bottom {
-  padding: 5px;
+label {
   color: white;
-  font-weight: lighter;
 }
 
-.card_bottom mat-card-actions {
-  margin-left: 68%;
+label i {
+  margin-left: 6px;
 }
 
+.seg-cares {
+  width:358px; 
+  border: none; 
+  border-bottom: 3px solid #398547; 
+  background-color: transparent; 
+  margin-bottom: 2%; 
+  font-weight: 500;
+}
+
+.seg-posts {
+  width:358px; 
+  border: none; 
+  background-color: transparent; 
+  margin-bottom: 2%;
+}
+
+.posts-avatar img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
