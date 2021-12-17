@@ -155,6 +155,22 @@ body {
 }
 
 /* ------------------------------ SIDE NAV CSS ENDS HERE ------------------------------ */
+.label {
+  font-size: 23px;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+.navbar {
+  position: fixed; 
+  z-index: 99; 
+  width: 100%;
+}
+
+.nav-spacer {
+  height: 20px;
+}
+
 .home-section .home-content {
   position: relative;
   padding-top: 3%;
@@ -167,6 +183,7 @@ body {
   flex-wrap: wrap;
   padding: 0 20px;
   margin-bottom: 26px;
+  background: whitesmoke;
 }
 
 .overview-panel .panel-card {
@@ -174,18 +191,18 @@ body {
   align-items: center;
   justify-content: center;
   width: calc(100% / 4 - 15px);
-  background: #398547;
-  padding: 35px 14px;
+  background: white;
+  padding: 10px 1px; 
   min-width: 220px;
-  border-radius: 12px;
+  border-radius: 10px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .overview-panel .panel-title {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 500;
   margin-bottom: 25%;
-  color: rgb(235, 235, 235);
+  color: black;
 }
 
 .home-content .panel-card .panel_number {
@@ -193,7 +210,7 @@ body {
   font-size: 40px;
   margin-top: -6px;
   font-weight: 500;
-  color: white;
+  color: black;
 }
 
 /* ------------------------------ PANEL'S CSS ENDS HERE ------------------------------ */
@@ -206,8 +223,8 @@ body {
 .home-content .posts-boxes .all-posts-card {
   width: 70%;
   /* background: rgb(255, 255, 255); */
-  background: #398547;
-  color: white;
+  background: white;
+  color: black;
   padding: 20px 30px;
   margin: 0 20px;
   border-radius: 12px;
@@ -215,9 +232,10 @@ body {
 }
 
 .title {
-  font-size: 23px;
+  font-size: 16px;
   font-weight: bold;
-  margin-bottom: 2%;
+  margin-bottom: 4%;
+  color: black;
 }
 
 .home-content .posts-boxes .category-spacer {
@@ -293,9 +311,9 @@ body {
 .home-content .posts-boxes .trend-card {
   width: 25%;
   /* background: rgb(255, 255, 255); */
-  background: #398547;
+  background: white;
   color: white;
-  padding: 20px 30px;
+  padding: 20px 20px;
   margin: 0 20px;
   border-radius: 12px;
   box-shadow: 0 0px 8px rgba(0, 0, 0, 0.3);
@@ -307,12 +325,41 @@ body {
   margin-top: 7%;
 }
 
-.trend-card .trends-number {
-  font-size: 17px;
+.show-less {
+  height: 1.2rem;
+  overflow: hidden;
 }
 
-.trend-card .trends-sentiment {
-  flex: 0 0 2;
-  width: 11rem;
-  font-size: 17px;
+.trends-card {
+  font-size: 15px;
+  color: black;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.trends-button {
+  margin-left: 60%; 
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 5%; 
+  background-color: transparent; 
+  border: none; 
+  color: #449953;
+  font-size: 13px; 
+  /* border: none;  */
+  border: 2px solid black;
+  border-color: #449953;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+hr {
+  margin-top: 0.7rem;
+  margin-bottom: 0.7rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.693);
 }

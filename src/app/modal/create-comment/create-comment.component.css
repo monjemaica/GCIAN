@@ -1,0 +1,57 @@
+.container {
+    min-width: 500px;
+    min-height: 200px;
+    width: 100%;
+  }
+  
+  .wrapper {
+    width: 100%;
+  }
+  
+  input {
+    font-size: 16px;
+  }
+  
+  mat-label {
+    font-size: 15px;
+  }
+  
+  mat-form-field {
+    margin-bottom: 2%;
+    width: 100%;
+  }
+  
+  .actions {
+    text-align: end;
+  }
+  
+  .btnCancel {
+    font-size: 25px;
+  }
+  
+  .btnSave {
+    background-color: #398547;
+    color: white;
+  }
+  
+  img {
+    height: 100%;
+    border-radius: 50%;
+  }
+  
+  mat-card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 2%;
+  }
+  
+  mat-card-subtitle {
+    font-size: 15px;
+    color: black;
+  }
+  
+  mat-card-content {
+    font-size: 15px;
+    color: black;
+    margin-left: 3%;
+  }

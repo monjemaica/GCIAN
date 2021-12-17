@@ -4,23 +4,61 @@
   <head>
     <meta charset="UTF-8" />
     <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link
       href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <div class="sidebar">
       <ul class="nav-list">
         <li>
-          <a [routerLink]="['/']">
+          <a [routerLink]="['/admin-dashboard']">
             <i class="bx bx-home-alt"></i>
-            <span class="links_name">Home</span>
+            <span class="links_name">Dashboard</span>
           </a>
-          <span class="tooltip">Home</span>
+          <span class="tooltip">Dashboard</span>
         </li>
         <li>
-            <a (click)="profile()">
+          <a [routerLink]="['/admin-users']">
+            <i class="bx bx-user-pin"></i>
+            <span class="links_name">Users</span>
+          </a>
+          <span class="tooltip">Users</span>
+        </li>
+        <li>
+          <a [routerLink]="['/admin-posts']">
+            <i class="bx bx-book-open"></i>
+            <span class="links_name">Posts</span>
+          </a>
+          <span class="tooltip">Posts</span>
+        </li>
+        <li>
+          <a [routerLink]="['/admin-reports']">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span class="links_name">Reports</span>
+          </a>
+          <span class="tooltip">Reports</span>
+        </li>
+        <li>
+          <a (click)="profile()">
             <i class="bx bx-user"></i>
             <span class="links_name">Profile</span>
           </a>
@@ -37,113 +75,168 @@
     </div>
     <!-- --------------------------------------HOME SECTION--------------------------------------------- -->
     <section class="home-section">
+      <nav class="navbar navbar-light bg-light">
+        <span class="label">Dashboard</span>
+      </nav>
+      <div class="nav-spacer"></div>
       <div class="home-content">
         <div class="overview-panel">
-          <div class="panel-card">
-            <div class="panel-container">
-              <div class="panel-title">Total Users</div>
-              <div class="panel_number">36</div>
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div
+              class="card border-left-success shadow h-100 py-2"
+              style="border-radius: 10px"
+            >
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div
+                      class="text-xs font-weight-bold text-uppercase mb-1"
+                      style="color: #4e73df !important"
+                    >
+                      Total Users
+                    </div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                      126
+                    </div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-user-friends fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="panel-card">
-            <div class="panel-container">
-              <div class="panel-title">Daily Posts</div>
-              <div class="panel_number">12</div>
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div
+              class="card border-left-success shadow h-100 py-2"
+              style="border-radius: 10px"
+            >
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div
+                      class="text-xs font-weight-bold text-uppercase mb-1"
+                      style="color: #51ac61 !important"
+                    >
+                      New Users
+                    </div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">23</div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-user-plus fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="panel-card">
-            <div class="panel-container">
-              <div class="panel-title">Weekly Posts</div>
-              <div class="panel_number">80</div>
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div
+              class="card border-left-success shadow h-100 py-2"
+              style="border-radius: 10px"
+            >
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div
+                      class="text-xs font-weight-bold text-uppercase mb-1"
+                      style="color: #36b9cc !important"
+                    >
+                      Total Posts
+                    </div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">35</div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-book-open fa-2x"></i>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="panel-card">
-            <div class="panel-container">
-              <div class="panel-title">Montly Post</div>
-              <div class="panel_number">326</div>
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div
+              class="card border-left-success shadow h-100 py-2"
+              style="border-radius: 10px"
+            >
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div
+                      class="text-xs font-weight-bold text-uppercase mb-1"
+                      style="color: rgb(245, 57, 57)"
+                    >
+                      Total Reports
+                    </div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">3</div>
+                  </div>
+                  <div class="col-auto">
+                    <i
+                      class="fas fa-exclamation-triangle fa-2x text-gray-300"
+                    ></i>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <!-- --------------------------------------NEXT--------------------------------------------- -->
+
         <div class="posts-boxes">
           <div class="all-posts-card">
             <div class="title">User Interactions</div>
-            <div class="category-spacer">
-              <div class="category-student-id-title">Student ID</div>
-              <div class="category-post-id-title">Post ID</div>
-              <div class="category-date-title">Date</div>
-              <div class="category-post-content-title">Post Content</div>
-            </div>
-            <div class="category-spacer">
-              <div class="category-student-id">201810149</div>
-              <div class="category-post-id">0</div>
-              <div class="category-date">11/18/21</div>
-              <div class="category-post-content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              <div class="container">
+                <div style="width:100%;">
+                  <canvas id="myChart" width="700" height="250" #mychart></canvas>
+               </div>
               </div>
-            </div>
-            <div class="category-spacer">
-              <div class="category-student-id">201810149</div>
-              <div class="category-post-id">1</div>
-              <div class="category-date">11/18/21</div>
-              <div class="category-post-content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </div>
-            </div>
-            <div class="category-spacer">
-              <div class="category-student-id">201810149</div>
-              <div class="category-post-id">2</div>
-              <div class="category-date">11/18/21</div>
-              <div class="category-post-content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </div>
-            </div>
-            <div class="category-spacer">
-              <div class="category-student-id">201810149</div>
-              <div class="category-post-id">3</div>
-              <div class="category-date">11/18/21</div>
-              <div class="category-post-content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </div>
-            </div>
-            <div class="category-spacer">
-              <div class="category-student-id">201810149</div>
-              <div class="category-post-id">4</div>
-              <div class="category-date">11/18/21</div>
-              <div class="category-post-content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </div>
-            </div>
-            <mat-card-actions class="button">
-              <button mat-button>See all ></button>
-            </mat-card-actions>
           </div>
 
-          <div class="trend-card">
+          <div class="trend-card shadow h-100">
             <div class="title">Top Sentiments</div>
-            <div class="category-spacer-trends">
-              <div class="trends-number">1</div>
-              <div class="trends-sentiment">Sentiment</div>
+            <hr />
+            <div class="trends-card">
+              <div
+                [ngClass]="{ 'show-less': showShortDesciption }"
+                style="margin-left: 5%; margin-right: 5%; margin-bottom: 3%;"
+              >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
+                ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum
+                dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor
+                sit amet consectetur adipisicing elit.
+              </div>
+
+              <button class="trends-button" (click)="alterDescriptionText()">
+                {{ showShortDesciption ? "Show More >" : "Show Less" }}
+              </button>
             </div>
-            <div class="category-spacer-trends">
-              <div class="trends-number">2</div>
-              <div class="trends-sentiment">Sentiment</div>
+            <div class="trends-card">
+              <div
+                [ngClass]="{ 'show-less': showShortDesciption }"
+                style="margin-left: 5%; margin-right: 5%; margin-bottom: 3%;"
+              >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
+                ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum
+                dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor
+                sit amet consectetur adipisicing elit.
+              </div>
+
+              <button class="trends-button" (click)="alterDescriptionText()">
+                {{ showShortDesciption ? "Show More >" : "Show Less" }}
+              </button>
             </div>
-            <div class="category-spacer-trends">
-              <div class="trends-number">3</div>
-              <div class="trends-sentiment">Sentiment</div>
-            </div>
-            <div class="category-spacer-trends">
-              <div class="trends-number">4</div>
-              <div class="trends-sentiment">Sentiment</div>
-            </div>
-            <div class="category-spacer-trends">
-              <div class="trends-number">5</div>
-              <div class="trends-sentiment">Sentiment</div>
-            </div>
-            <div class="category-spacer-trends">
-              <div class="trends-number">6</div>
-              <div class="trends-sentiment">Sentiment</div>
+            <div class="trends-card">
+              <div
+                [ngClass]="{ 'show-less': showShortDesciption }"
+                style="margin-left: 5%; margin-right: 5%; margin-bottom: 3%;"
+              >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
+                ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum
+                dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor
+                sit amet consectetur adipisicing elit.
+              </div>
+
+              <button class="trends-button" (click)="alterDescriptionText()">
+                {{ showShortDesciption ? "Show More >" : "Show Less" }}
+              </button>
             </div>
           </div>
         </div>

@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -9,11 +10,11 @@ import { EditCommentComponent } from '../../../modal/comments/edit-comment/edit-
 import { CreatePostComponent } from '../../../modal/posts/create-post/create-post.component';
 
 @Component({
-  selector: 'app-details-post',
-  templateUrl: './details-post.component.html',
-  styleUrls: ['./details-post.component.css']
+  selector: 'app-user-comment',
+  templateUrl: './user-comment.component.html',
+  styleUrls: ['./user-comment.component.css']
 })
-export class DetailsPostComponent implements OnInit {
+export class UserCommentComponent implements OnInit {
   post: any;
   post_uid: any;
   comments:any;

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeletePostComponent } from './delete-post.component';
+import { AdminReportsComponent } from './admin-reports.component';
 
-describe('DeletePostComponent', () => {
-  let component: DeletePostComponent;
-  let fixture: ComponentFixture<DeletePostComponent>;
+describe('AdminReportsComponent', () => {
+  let component: AdminReportsComponent;
+  let fixture: ComponentFixture<AdminReportsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DeletePostComponent ]
+      declarations: [ AdminReportsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DeletePostComponent);
+    fixture = TestBed.createComponent(AdminReportsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

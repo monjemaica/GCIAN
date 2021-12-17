@@ -3,9 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AppInfoComponent } from 'src/app/modal/app-info/app-info.component';
 import { ChangePasswordComponent } from 'src/app/modal/change-password/change-password.component';
-import { CreatePostComponent } from 'src/app/modal/create-post/create-post.component';
-import { DeletePostComponent } from 'src/app/modal/delete-post/delete-post.component';
-import { EditPostComponent } from 'src/app/modal/edit-post/edit-post.component';
+import { CreatePostComponent } from 'src/app/modal/posts/create-post/create-post.component';
+import { DeletePostComponent } from 'src/app/modal/posts/delete-post/delete-post.component';
+import { EditPostComponent } from 'src/app/modal/posts/edit-post/edit-post.component';
 import { DataService } from 'src/app/services/data.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -50,32 +50,39 @@ export class UserProfileCaresComponent implements OnInit {
   }
 
 
-  editPost(id: number) {
-    this.isPopupOpened = true;
+  // editPost(id: number) {
+  //   this.isPopupOpened = true;
     
-    let post = this.posts.find(post => post.post_uid === id);
-    console.log('post_uid: ', this.posts.post_uid)
-    const dialogRef = this.dialog.open(EditPostComponent, {
-      data: post
-    });
+  //   let post = this.posts.find(post => post.post_uid === id);
+  //   console.log('post_uid: ', this.posts.post_uid)
+  //   const dialogRef = this.dialog.open(EditPostComponent, {
+  //     data: post
+  //   });
 
-    dialogRef.afterClosed().subscribe(res => {
-      this.isPopupOpened = false;
-    });
-  }
+  //   dialogRef.afterClosed().subscribe(res => {
+  //     this.isPopupOpened = false;
+  //   });
+  // }
   
-  deletePost(id: number) {
-    this.isPopupOpened = true;
-    let post = this.posts.find(post => post.post_uid === id);
+  // deletePost(id: number) {
+  //   this.isPopupOpened = true;
+  //   let post = this.posts.find(post => post.post_uid === id);
 
-    const dialogRef = this.dialog.open(DeletePostComponent, {
-      data: post
-    });
+  //   const dialogRef = this.dialog.open(DeletePostComponent, {
+  //     data: post
+  //   });
 
-    dialogRef.afterClosed().subscribe(res => {
-      this.isPopupOpened = false;
-    });
+  //   dialogRef.afterClosed().subscribe(res => {
+  //     this.isPopupOpened = false;
+  //   });
     
+  // }
+  deletePost() {
+    this.dialog.open(DeletePostComponent);
+  }
+
+  editPost() {
+    this.dialog.open(EditPostComponent);
   }
 
   changePassword(id: number) {
@@ -95,6 +102,7 @@ export class UserProfileCaresComponent implements OnInit {
       });
     }
   }
+  
 
   test() {
     window.location.href="/"

@@ -1,12 +1,11 @@
-<div class="container">
-
+<form class="example-form">
   <mat-card-title>Delete post?</mat-card-title>
-  <div class="wrapper" appearance="fill">
+  <mat-form-field class="wrapper" appearance="fill">
     <mat-card-subtitle class="subtitle"
       >This can’t be undone and it will be removed from your profile
       permanently.
     </mat-card-subtitle>
-  </div>
+  </mat-form-field>
   <div mat-card-actions class="actions">
     <div>
       <button mat-raised-button class="btnDelete" (click)="deletePost($event)">Delete</button>
@@ -23,5 +22,4 @@
       </button>
     </div>
   </div>
-</div>
-
+</form>

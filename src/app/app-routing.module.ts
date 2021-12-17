@@ -9,6 +9,11 @@ import { AdminLoginComponent } from './pages/admin/admin-login/admin-login.compo
 import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
 import { UserChatComponent } from './pages/user/user-chat/user-chat.component';
 import { UserProfileCaresComponent } from './pages/user/user-profile-cares/user-profile-cares.component';
+import { UserCommentComponent } from './pages/user/user-comment/user-comment.component';
+import { AdminReportsComponent } from './pages/admin/admin-reports/admin-reports.component';
+import { AdminUsersComponent } from './pages/admin/admin-users/admin-users.component';
+import { AdminPostsComponent } from './pages/admin/admin-posts/admin-posts.component';
+import { AdminRequestsComponent } from './pages/admin/admin-requests/admin-requests.component';
 
 const routes: Routes = [
   { path: '', component: UserFeedComponent, canActivate: [AuthGuard] },
@@ -17,8 +22,13 @@ const routes: Routes = [
   { path:'user-profile-cares', component:UserProfileCaresComponent, canActivate:[AuthGuard] },
   { path:'user-chat', component:UserChatComponent, canActivate:[AuthGuard] },
   {path:'details-post/:id', component:DetailsPostComponent, canActivate:[AuthGuard]},
+  { path:'user-comment', component:UserCommentComponent, canActivate:[AuthGuard] },
   { path:'admin-login', component:AdminLoginComponent },
-  { path:'admin-dashboard', component:AdminDashboardComponent },
+  { path:'admin-dashboard', component:AdminDashboardComponent, canActivate:[AuthGuard] },
+  { path:'admin-users', component:AdminUsersComponent, canActivate:[AuthGuard] },
+  { path:'admin-posts', component:AdminPostsComponent, canActivate:[AuthGuard] },
+  { path:'admin-reports', component:AdminReportsComponent, canActivate:[AuthGuard] },
+  { path:'admin-requests', component:AdminRequestsComponent, canActivate:[AuthGuard] },
 ];
 
 @NgModule({
