@@ -156,13 +156,9 @@ body {
 
 /* ------------------------------ SIDE NAV CSS ENDS HERE ------------------------------ */
 .label {
-  font-size: 23px;
-  margin-top: 5px;
-  font-weight: 500;
-}
-
-.label i {
-  font-size: 25px;
+  /* text-align: center !important; */
+  font-size: 18px; 
+  font-weight: bold;
   color: black;
 }
 
@@ -172,65 +168,31 @@ body {
   width: 100%;
 }
 
-section .post-card {
-  margin-bottom: 1%;
+.nav-spacer {
+  height: 30px;
 }
 
-section .card {
-  border-radius: 15px;
-  background: #398547;
-  color: white;
+.table {
+    padding: 50px;
+    font-size: 15px;
 }
 
-.post-card .post-card-details {
-  margin-left: -12%; 
+.all-posts-card {
+    width: 90%;
+    background: white;
+    color: black;
+    padding: 20px 30px;
+    margin: 0 auto;
+    float: none;
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.3);
+  }
+
+.category-spacer {
+  display: flex;
+  justify-content: space-between;
 }
 
-.post-card .card-title {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 2%;
-}
-
-.post-card .card-subtitle {
-  font-size: 15px;
-  color: white;
-  margin-top: -8px;
-}
-
-.post-card .card-content {
-  font-size: 15px;
-  color: white;
-  margin-left: 7.5%;
-  margin-right: 7.5%;
-  margin-top: -2%;
-}
-
-.post-card .avatar {
-  height: 50px;
-}
-
-.avatar img {
-  height: 100%;
-  border-radius: 50%;
-}
-
-.post-card .card-actions {
-  text-align: end;
-  margin-right: 2%;
-}
-
-button:hover, button:focus {
-  outline: none;
-}
-
-::placeholder {
-  font-size: 14px;
-  color: white !important;
-  opacity: 80% !important;
-}
-
-.comment-panel {
-  margin-left: 5%;
-  margin-right: 5%;
+.category-spacer a {
+  color: #398547;
+  text-decoration: none;
 }

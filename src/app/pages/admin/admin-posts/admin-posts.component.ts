@@ -5,19 +5,13 @@ import { AdminProfileComponent } from 'src/app/modal/admin-profile/admin-profile
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-admin-dashboard',
-  templateUrl: './admin-dashboard.component.html',
-  styleUrls: ['./admin-dashboard.component.css']
+  selector: 'app-admin-posts',
+  templateUrl: './admin-posts.component.html',
+  styleUrls: ['./admin-posts.component.css']
 })
-export class AdminDashboardComponent implements OnInit {
+export class AdminPostsComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private _us: UserService, private router: Router) {}
-
-  showShortDesciption = true
-
-  alterDescriptionText() {
-    this.showShortDesciption = !this.showShortDesciption
-}
 
   ngOnInit(): void {
   }
@@ -29,4 +23,5 @@ export class AdminDashboardComponent implements OnInit {
   logout(){
     this._us.setLoggedOut();
   }
+
 }
