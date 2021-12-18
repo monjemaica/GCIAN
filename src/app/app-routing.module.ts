@@ -17,18 +17,54 @@ import { AdminRequestsComponent } from './pages/admin/admin-requests/admin-reque
 
 const routes: Routes = [
   { path: '', component: UserFeedComponent, canActivate: [AuthGuard] },
-  {path:'user-login', component:UserLoginComponent},
-  {path:'user-profile', component:UserProfileComponent, canActivate:[AuthGuard]},
-  { path:'user-profile-cares', component:UserProfileCaresComponent, canActivate:[AuthGuard] },
-  { path:'user-chat', component:UserChatComponent, canActivate:[AuthGuard] },
-  {path:'details-post/:id', component:DetailsPostComponent, canActivate:[AuthGuard]},
-  { path:'user-comment', component:UserCommentComponent, canActivate:[AuthGuard] },
-  { path:'admin-login', component:AdminLoginComponent },
-  { path:'admin-dashboard', component:AdminDashboardComponent, canActivate:[AuthGuard] },
-  { path:'admin-users', component:AdminUsersComponent, canActivate:[AuthGuard] },
-  { path:'admin-posts', component:AdminPostsComponent, canActivate:[AuthGuard] },
-  { path:'admin-reports', component:AdminReportsComponent, canActivate:[AuthGuard] },
-  { path:'admin-requests', component:AdminRequestsComponent, canActivate:[AuthGuard] },
+  { path: 'user-login', component: UserLoginComponent },
+  {
+    path: 'user-profile',
+    component: UserProfileComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'user-profile-cares',
+    component: UserProfileCaresComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'user-chat', component: UserChatComponent, canActivate: [AuthGuard] },
+  {
+    path: 'details-post/:id',
+    component: DetailsPostComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'user-comment',
+    component: UserCommentComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'admin-login', component: AdminLoginComponent },
+  {
+    path: 'admin-dashboard',
+    component: AdminDashboardComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin-users',
+    component: AdminUsersComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin-posts',
+    component: AdminPostsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin-reports',
+    component: AdminReportsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin-requests',
+    component: AdminRequestsComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
