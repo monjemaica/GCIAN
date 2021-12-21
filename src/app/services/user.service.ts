@@ -44,6 +44,10 @@ export class UserService {
 
   }
 
+  refreshUser(){
+    window.sessionStorage.clear();
+  }
+
   getUser(): any {
     const user = window.sessionStorage.getItem(this.USER_KEY);
     if(user){

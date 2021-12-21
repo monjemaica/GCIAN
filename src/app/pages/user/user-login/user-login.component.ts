@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { UserService } from 'src/app/services/user.service';
-
+import { AlertService } from 'src/app/services/alert.service';
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
@@ -24,15 +24,21 @@ export class UserLoginComponent implements OnInit {
   constructor(
     private _ds: DataService,
     private _us: UserService,
+    private _as: AlertService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    const hasToken = (token) => {
-      token = this._us.getToken()
-        ? this.isLoggedIn == true
-        : this.isLoggedIn == false;
-    };
+    if(!this._us.getUser()){
+      this.isLoggedIn = true
+    }else{
+      this.isLoggedIn =false
+    }
+
+    if(this.isLoggedIn){
+      this.router.navigateByUrl('/');
+    }
+    console.log(this.isLoggedIn)
   }
 
 
@@ -41,21 +47,25 @@ export class UserLoginComponent implements OnInit {
     let email_fld = e.target.email.value;
     let password_fld = e.target.password.value;
 
-    this._ds._httpPostRequest('students/login', { email_fld, password_fld }).subscribe(
-        (res: any) => {
-          this._us.saveToken(res.token);
-          this._us.saveUser(res.data);
+    if(!this.isLoggedIn){
 
-          this.isLoggedIn = true;
-
-          this._us.userData = res;
-          this._us.setLoggedin();
-          this.router.navigateByUrl('/');
-        },
-        (err) => {
-          this.errorMessage = err.error.message;
-          this.isLoginFailed = true;
-        }
-      );
-  }
+      this._ds._httpPostRequest('students/login', { email_fld, password_fld }).subscribe(
+          (res: any) => {
+            this._us.saveToken(res.token);
+            this._us.saveUser(res.data);
+  
+            this.isLoggedIn = true;
+  
+            this._us.userData = res;
+            this._us.setLoggedin();
+            this.router.navigateByUrl('/');
+          },
+          (err) => {
+            this.errorMessage = err.error.message;
+            this._as.error(this.errorMessage);
+            this.isLoginFailed = true;
+          }
+        );
+    }
+    }
 }

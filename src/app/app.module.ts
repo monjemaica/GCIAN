@@ -43,6 +43,7 @@ import { AdminUsersComponent } from './pages/admin/admin-users/admin-users.compo
 import { AdminPostsComponent } from './pages/admin/admin-posts/admin-posts.component';
 import { AdminReportsComponent } from './pages/admin/admin-reports/admin-reports.component';
 import { AdminRequestsComponent } from './pages/admin/admin-requests/admin-requests.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { AdminRequestsComponent } from './pages/admin/admin-requests/admin-reque
     AdminPostsComponent,
     AdminReportsComponent,
     AdminRequestsComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,

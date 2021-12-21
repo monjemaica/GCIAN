@@ -112,13 +112,13 @@
                   <div class="card-body">
                     <div class="avatar">
                       <img
-                      src="{{ post.avatar_fld }}" alt="" />
+                      src="http://localhost:5000/uploads/{{ post.avatar_fld }}" alt="" />
                     </div>
                   </div>
                 </div>
                 <div class="col-sm-3">
                   <div class="card-body post-card-details">
-                    <p class="card-title">>{{ post.fname_fld }} {{ post.mname_fld }}
+                    <p class="card-title">{{ post.fname_fld }} {{ post.mname_fld }}
                       {{ post.lname_fld }}</p>
                     <p class="card-subtitle">{{ post.program_fld }} |
                       {{ post.date_created_TS_fld | date:'short' }}</p>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertService } from 'src/app/services/alert.service';
 import { DataService } from 'src/app/services/data.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -9,26 +10,63 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./admin-login.component.css']
 })
 export class AdminLoginComponent implements OnInit {
-  email: string = 'admin@gmail.com';
-  password: string = '123';
+  userData: any;
+
+  form: any = {
+    email_fld: null,
+    password_fld: null,
+  };
+
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
 
   constructor(
     private _ds: DataService,
     private _us: UserService,
+    private _as: AlertService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
+    if(!this._us.getUser()){
+      this.isLoggedIn = true
+    }else{
+      this.isLoggedIn =false
+    }
+
+    if(this.isLoggedIn){
+      this.router.navigateByUrl('/admin-dashboard');
+    }
+    console.log(this.isLoggedIn)
   }
+
 
   login(e) {
-    let ue = e.target.email.value;
-    let up = e.target.password.value;
+    e.preventDefault();
+    let email_fld = e.target.email.value;
+    let password_fld = e.target.password.value;
+    const user = this._us.getUser()
+    
 
-    if (ue == this.email && up == this.password) {
-      this._us.setLoggedin();
-      this.router.navigateByUrl('admin-dashboard');
-      
+
+      this._ds._httpPostRequest('students/login', { email_fld, password_fld }).subscribe(
+          (res: any) => {
+            this._us.saveToken(res.token);
+            this._us.saveUser(res.data);
+            
+            this.isLoggedIn = true;
+  
+            this._us.userData = res;
+            this._us.setLoggedin();
+            this.router.navigateByUrl('/admin-dashboard');
+          },
+          (err) => {
+            this.errorMessage = err.error.message;
+            this._as.error(this.errorMessage);
+            this.isLoginFailed = true;
+          }
+        );
+   
     }
-  }
 }
