@@ -14,8 +14,10 @@ import { AdminReportsComponent } from './pages/admin/admin-reports/admin-reports
 import { AdminUsersComponent } from './pages/admin/admin-users/admin-users.component';
 import { AdminPostsComponent } from './pages/admin/admin-posts/admin-posts.component';
 import { AdminRequestsComponent } from './pages/admin/admin-requests/admin-requests.component';
+import { RoleGuard } from './services/role.guard';
 
 const routes: Routes = [
+  //USER
   { path: '', component: UserFeedComponent, canActivate: [AuthGuard] },
   { path: 'user-login', component: UserLoginComponent },
   {
@@ -28,42 +30,62 @@ const routes: Routes = [
     component: UserProfileCaresComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'user-chat', component: UserChatComponent, canActivate: [AuthGuard] },
+  { path: 'user-chat', component: UserChatComponent, canActivate: [AuthGuard],
+ },
   {
     path: 'details-post/:id',
     component: DetailsPostComponent,
     canActivate: [AuthGuard],
+
   },
   {
     path: 'user-comment',
     component: UserCommentComponent,
     canActivate: [AuthGuard],
+
   },
+
+  //ADMIN
   { path: 'admin-login', component: AdminLoginComponent },
   {
     path: 'admin-dashboard',
     component: AdminDashboardComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, RoleGuard],
+    data:{
+      roles:['admin']
+    }
   },
   {
     path: 'admin-users',
     component: AdminUsersComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, RoleGuard],
+    data:{
+      roles:['admin']
+    }
   },
   {
     path: 'admin-posts',
     component: AdminPostsComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, RoleGuard],
+    data:{
+      roles:['admin']
+    }
   },
   {
     path: 'admin-reports',
     component: AdminReportsComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, RoleGuard],
+    data:{
+      roles:['admin']
+    }
   },
   {
     path: 'admin-requests',
     component: AdminRequestsComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, RoleGuard],
+    data:{
+      roles:['admin']
+    }
   },
 ];
 

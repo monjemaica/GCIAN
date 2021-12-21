@@ -1,131 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins" , sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-body {
-  overflow-x: hidden;
-}
 
-.sidebar{
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 78px;
-  background: #398547;
-  padding: 6px 14px;
-  z-index: 99;
-  transition: all 0.5s ease;
-}
-
-.sidebar i{
-  color: #fff;
-  height: 60px;
-  min-width: 50px;
-  font-size: 28px;
-  text-align: center;
-  line-height: 60px;
-}
-
-.sidebar .nav-list{
-  margin-top: 20px;
-  height: 100%;
-}
-
-.sidebar li{
-  position: relative;
-  margin: 8px 0;
-  list-style: none;
-}
-
-.sidebar li .tooltip{
-  position: absolute;
-  top: -20px;
-  left: calc(100% + 15px);
-  z-index: 3;
-  background: #fff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  padding: 6px 12px;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: 400;
-  opacity: 0;
-  white-space: nowrap;
-  pointer-events: none;
-  transition: 0s;
-}
-
-.sidebar li:hover .tooltip{
-  opacity: 1;
-  pointer-events: auto;
-  transition: all 0.4s ease;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.sidebar.open li .tooltip{
-  display: none;
-}
-
-.sidebar li a{
-  display: flex;
-  height: 100%;
-  width: 100%;
-  border-radius: 12px;
-  align-items: center;
-  text-decoration: none;
-  transition: all 0.4s ease;
-  background: #4ca05c;
-}
-
-.sidebar li a:hover{
-  background: #FFF;
-}
-
-.sidebar li a .links_name{
-  color: #fff;
-  font-size: 15px;
-  font-weight: 400;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.4s;
-}
-
-.sidebar.open li a .links_name{
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.sidebar li a:hover .links_name,
-.sidebar li a:hover i{
-  transition: all 0.5s ease;
-  color: #11101D;
-}
-
-.sidebar li i{
-  height: 50px;
-  line-height: 50px;
-  font-size: 18px;
-  border-radius: 12px;
-}
-
-.sidebar li.profile{
-  position: fixed;
-  height: 60px;
-  width: 78px;
-  left: 0;
-  bottom: -8px;
-  padding: 10px 14px;
-  transition: all 0.5s ease;
-  overflow: hidden;
-}
-
-.home-section{
+.home-section {
   position: relative;
   background: #fff;
   top: 0;
@@ -135,30 +17,25 @@ body {
   z-index: 2;
 }
 
-.sidebar.open ~ .home-section{
+.sidebar.open ~ .home-section {
   left: 250px;
   width: calc(100% - 250px);
 }
 
-.home-section .text{
+.home-section .text {
   display: inline-block;
   color: #11101d;
   font-size: 25px;
   font-weight: 500;
-  margin: 18px
+  margin: 18px;
 }
 
-@media (max-width: 420px) {
-  .sidebar li .tooltip{
-    display: none;
-  }
-}
 
 /* ------------------------------ SIDE NAV CSS ENDS HERE ------------------------------ */
 
 .id_card-border {
   background: #398547;
-  color: #FFF;
+  color: #fff;
   position: fixed;
   padding-bottom: 2%;
 }
@@ -175,16 +52,14 @@ mat-card-content {
 }
 
 mat-divider {
-  border-top-color: rgb(216, 216, 216); 
+  border-top-color: rgb(216, 216, 216);
   padding-bottom: 4%;
 }
-
-
 
 .cards_wrap {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: -6px; 
+  margin-bottom: -6px;
 }
 
 .one {
@@ -199,23 +74,22 @@ mat-divider {
   color: red;
 }
 
-
 hr {
-  margin-top: .7rem;
-  margin-bottom: .7rem;
+  margin-top: 0.7rem;
+  margin-bottom: 0.7rem;
   border: 0;
   border-top: 1px solid rgba(240, 240, 240, 0.693);
 }
 /* ------------------------- CARD FOR STUDENT'S ID STARTS HERE ------------------------- */
 
 .change-avatar {
-  background-color: rgba(223, 223, 223, 0.166); 
-  border: none; 
-  border-radius: 50%; 
-  width: 45px; 
-  height: 45px; 
-  margin-left: 175px; 
-  margin-top: 40px
+  background-color: rgba(223, 223, 223, 0.166);
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  margin-left: 175px;
+  margin-top: 40px;
 }
 
 .id_container {
@@ -260,9 +134,9 @@ hr {
 }
 
 .navbar {
-  position: fixed; 
-  z-index: 99; 
-  width: 100%
+  position: fixed;
+  z-index: 99;
+  width: 100%;
 }
 
 section .post-card {
@@ -276,7 +150,7 @@ section .card {
 }
 
 .post-card .post-card-details {
-  margin-left: -6%; 
+  margin-left: -6%;
 }
 
 .post-card .card-title {
@@ -309,12 +183,19 @@ section .card {
   margin-left: 100px;
 }
 
-button:hover, button:focus {
+.posts-avatar img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+button:hover,
+button:focus {
   outline: none;
 }
 
 .drop-down {
-  margin-left: 260%; 
+  margin-left: 260%;
   margin-top: 15px;
 }
 
@@ -329,10 +210,10 @@ button:hover, button:focus {
 }
 
 .bx-camera {
-  margin-left: 140px; 
-  margin-top: -68px !important; 
-  font-size: 17px; 
-  color: white
+  margin-left: 140px;
+  margin-top: -68px !important;
+  font-size: 17px;
+  color: white;
 }
 
 input[type="file"] {
@@ -348,23 +229,19 @@ label i {
 }
 
 .seg-cares {
-  width:358px; 
-  border: none; 
-  border-bottom: 3px solid #398547; 
-  background-color: transparent; 
-  margin-bottom: 2%; 
+  width: 250px;
+  border: none;
+  color: #398547;
+  border-bottom: 3px solid #398547;
+  background-color: transparent;
+  margin-bottom: 2%;
   font-weight: 500;
 }
 
 .seg-posts {
-  width:358px; 
-  border: none; 
-  background-color: transparent; 
+  width: 250px;
+  border: none;
+  background-color: transparent;
   margin-bottom: 2%;
-}
-
-.posts-avatar img {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
+  font-weight: 500;
 }
