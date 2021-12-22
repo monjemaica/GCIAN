@@ -1,0 +1,18 @@
+.btn {
+    margin: 0 auto;
+    display: block;
+    border-radius: 10px;
+    color: white;
+  font-size: 11px;
+  border: none;
+  cursor: pointer;
+}
+
+.snapshot {
+  text-align: center;
+}
+
+img {
+  max-width: 300px;
+  max-height: 300px;
+}

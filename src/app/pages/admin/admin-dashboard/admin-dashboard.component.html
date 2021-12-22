@@ -58,7 +58,7 @@
           <span class="tooltip">Reports</span>
         </li>
         <li>
-          <a (click)="profile()">
+          <a [routerLink]="['/admin-profile']">
             <i class="bx bx-user"></i>
             <span class="links_name">Profile</span>
           </a>
@@ -194,7 +194,7 @@
             <div class="trends-card">
               <div
                 [ngClass]="{ 'show-less': showShortDesciption }"
-                style="margin-left: 5%; margin-right: 5%; margin-bottom: 3%"
+                style="margin-left: 5%; margin-right: 5%;"
               >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
                 ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum
@@ -209,7 +209,7 @@
             <div class="trends-card">
               <div
                 [ngClass]="{ 'show-less': showShortDesciption }"
-                style="margin-left: 5%; margin-right: 5%; margin-bottom: 3%"
+                style="margin-left: 5%; margin-right: 5%;"
               >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
                 ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum
@@ -224,7 +224,7 @@
             <div class="trends-card">
               <div
                 [ngClass]="{ 'show-less': showShortDesciption }"
-                style="margin-left: 5%; margin-right: 5%; margin-bottom: 3%"
+                style="margin-left: 5%; margin-right: 5%;"
               >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
                 ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum

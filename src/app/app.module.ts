@@ -33,7 +33,6 @@ import { EditCommentComponent } from './modal/comments/edit-comment/edit-comment
 import { DeleteCommentComponent } from './modal/comments/delete-comment/delete-comment.component';
 import { AdminLoginComponent } from './pages/admin/admin-login/admin-login.component';
 import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
-import { AdminProfileComponent } from './modal/admin-profile/admin-profile.component';
 import { AppInfoComponent } from './modal/app-info/app-info.component';
 import { ReportPostComponent } from './modal/posts/report-post/report-post.component';
 import { UserChatComponent } from './pages/user/user-chat/user-chat.component';
@@ -44,6 +43,9 @@ import { AdminPostsComponent } from './pages/admin/admin-posts/admin-posts.compo
 import { AdminReportsComponent } from './pages/admin/admin-reports/admin-reports.component';
 import { AdminRequestsComponent } from './pages/admin/admin-requests/admin-requests.component';
 import { AlertComponent } from './components/alert/alert.component';
+import { AdminProfileComponent } from './pages/admin/admin-profile/admin-profile.component';
+import { WebcamModule } from 'ngx-webcam';
+import { WebcamImageComponent } from './modal/webcam-image/webcam-image.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +74,7 @@ import { AlertComponent } from './components/alert/alert.component';
     AdminReportsComponent,
     AdminRequestsComponent,
     AlertComponent,
+    WebcamImageComponent,
   ],
   imports: [
     BrowserModule,
@@ -92,7 +95,8 @@ import { AlertComponent } from './components/alert/alert.component';
     LayoutModule,
     MatListModule,
     MatMenuModule,
-    HttpClientModule
+    HttpClientModule,
+    WebcamModule
   ],
   providers: [
     AuthInterceptorProviders

@@ -6,6 +6,7 @@ import { ChangePasswordComponent } from 'src/app/modal/change-password/change-pa
 import { CreatePostComponent } from 'src/app/modal/posts/create-post/create-post.component';
 import { DeletePostComponent } from 'src/app/modal/posts/delete-post/delete-post.component';
 import { EditPostComponent } from 'src/app/modal/posts/edit-post/edit-post.component';
+import { WebcamImageComponent } from 'src/app/modal/webcam-image/webcam-image.component';
 import { DataService } from 'src/app/services/data.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -90,6 +91,10 @@ export class UserProfileComponent implements OnInit {
 
   editPost() {
     this.dialog.open(EditPostComponent);
+  }
+
+  webcam() {
+    this.dialog.open(WebcamImageComponent);
   }
 
   // changePassword(id: number) {
