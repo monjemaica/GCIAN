@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { AdminProfileComponent } from 'src/app/modal/admin-profile/admin-profile.component';
 import { UserService } from 'src/app/services/user.service';
 import Chart from 'chart.js/auto';
 
@@ -57,10 +56,6 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   chart() {}
-
-  profile() {
-    this.dialog.open(AdminProfileComponent);
-  }
 
   logout() {
     this._us.setLoggedOut();

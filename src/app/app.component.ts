@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AdminProfileComponent } from './modal/admin-profile/admin-profile.component';
 import { AppInfoComponent } from './modal/app-info/app-info.component';
 import { CreatePostComponent } from './modal/posts/create-post/create-post.component';
 import { UserService } from './services/user.service';
@@ -39,10 +38,6 @@ export class AppComponent {
     this.dialog.open(AppInfoComponent);
   }
   chart() {}
-
-  profile() {
-    this.dialog.open(AdminProfileComponent);
-  }
 
   logout(){
     this._us.setLoggedOut();

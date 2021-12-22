@@ -6,53 +6,61 @@ import { ChangePasswordComponent } from 'src/app/modal/change-password/change-pa
 import { CreatePostComponent } from 'src/app/modal/posts/create-post/create-post.component';
 import { DeletePostComponent } from 'src/app/modal/posts/delete-post/delete-post.component';
 import { EditPostComponent } from 'src/app/modal/posts/edit-post/edit-post.component';
+import { WebcamImageComponent } from 'src/app/modal/webcam-image/webcam-image.component';
 import { DataService } from 'src/app/services/data.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-profile-cares',
   templateUrl: './user-profile-cares.component.html',
-  styleUrls: ['./user-profile-cares.component.css']
+  styleUrls: ['./user-profile-cares.component.css'],
 })
 export class UserProfileCaresComponent implements OnInit {
   posts: any;
-  student:any;
+  student: any;
 
   isPopupOpened = false;
 
-  constructor(public dialog: MatDialog, private _us: UserService, private _ds:DataService , private router: Router) {}
-  
+  constructor(
+    public dialog: MatDialog,
+    private _us: UserService,
+    private _ds: DataService,
+    private router: Router
+  ) {}
+
   ngOnInit(): void {
     this.student = this._us.getUser();
     this.getUsersPosts();
   }
 
-  getUsersPosts(){
-    let studid_fld = this.student.studid_fld
-    this._ds._httpGetRequestById('posts/', studid_fld).subscribe((res:any) =>{
-      this.posts = res;
-      console.log(this.posts);
-    },(err:any) => {
-      if(err.status == 401){
-        this._us.setLoggedOut();
-        this.router.navigateByUrl('/user-login');
+  getUsersPosts() {
+    let studid_fld = this.student.studid_fld;
+    this._ds._httpGetRequestById('posts/', studid_fld).subscribe(
+      (res: any) => {
+        this.posts = res;
+        console.log(this.posts);
+      },
+      (err: any) => {
+        if (err.status == 401) {
+          this._us.setLoggedOut();
+          this.router.navigateByUrl('/user-login');
+        }
       }
-    });
+    );
   }
 
   addPost() {
     this.isPopupOpened = true;
     const dialogRef = this.dialog.open(CreatePostComponent);
 
-    dialogRef.afterClosed().subscribe(res => {
+    dialogRef.afterClosed().subscribe((res) => {
       this.isPopupOpened = false;
-    })
+    });
   }
-
 
   // editPost(id: number) {
   //   this.isPopupOpened = true;
-    
+
   //   let post = this.posts.find(post => post.post_uid === id);
   //   console.log('post_uid: ', this.posts.post_uid)
   //   const dialogRef = this.dialog.open(EditPostComponent, {
@@ -63,7 +71,7 @@ export class UserProfileCaresComponent implements OnInit {
   //     this.isPopupOpened = false;
   //   });
   // }
-  
+
   // deletePost(id: number) {
   //   this.isPopupOpened = true;
   //   let post = this.posts.find(post => post.post_uid === id);
@@ -75,7 +83,7 @@ export class UserProfileCaresComponent implements OnInit {
   //   dialogRef.afterClosed().subscribe(res => {
   //     this.isPopupOpened = false;
   //   });
-    
+
   // }
   deletePost() {
     this.dialog.open(DeletePostComponent);
@@ -85,33 +93,35 @@ export class UserProfileCaresComponent implements OnInit {
     this.dialog.open(EditPostComponent);
   }
 
+  webcam() {
+    this.dialog.open(WebcamImageComponent);
+  }
+
   changePassword(id: number) {
     this.isPopupOpened = true;
     console.log(this.student);
-    if(this.student.studid_fld !== id){
-      console.log('invalid studid_fld')
-    }else{
-      let student = this.student
-      
+    if (this.student.studid_fld !== id) {
+      console.log('invalid studid_fld');
+    } else {
+      let student = this.student;
+
       const dialogRef = this.dialog.open(ChangePasswordComponent, {
-        data: student
+        data: student,
       });
-  
-      dialogRef.afterClosed().subscribe(res => {
+
+      dialogRef.afterClosed().subscribe((res) => {
         this.isPopupOpened = false;
       });
     }
   }
-  
 
   test() {
-    window.location.href="/"
+    window.location.href = '/';
   }
 
   openDialog() {
     this.dialog.open(CreatePostComponent);
   }
-
 
   appInfo() {
     this.dialog.open(AppInfoComponent);

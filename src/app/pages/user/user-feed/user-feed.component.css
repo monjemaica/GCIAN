@@ -174,8 +174,8 @@ section .post-card {
 
 section .card {
   border-radius: 15px;
-  background: #398547;
-  color: white;
+  background: white;
+  color: black;
 }
 
 .post-card .post-card-details {
@@ -190,13 +190,13 @@ section .card {
 
 .post-card .card-subtitle {
   font-size: 15px;
-  color: white;
+  color: black;
   margin-top: -8px;
 }
 
 .post-card .card-content {
   font-size: 15px;
-  color: white;
+  color: black;
   margin-left: 7.5%;
   margin-right: 7.5%;
   margin-top: -2%;
@@ -242,7 +242,7 @@ button:hover, button:focus {
 }
 
 .posts_btn {
-  color: white;
+  color: black;
   font-size: 20px;
 }
 
@@ -266,4 +266,20 @@ button:hover, button:focus {
   font-size: 20px; 
   margin-top: 4%; 
   margin-left: 5%;
+}
+
+.trends-button {
+  margin-left: 70%; 
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 5%; 
+  background-color: #419751;
+  border: none; 
+  color: white;
+  font-size: 11px; 
+  border: 2px solid black;
+  border-color: #449953;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
 }

@@ -345,11 +345,10 @@ button:focus {
   padding-left: 5px;
   padding-right: 5px;
   margin-bottom: 5%; 
-  background-color: transparent; 
+  background-color: #419751;
   border: none; 
-  color: #449953;
-  font-size: 13px; 
-  /* border: none;  */
+  color: white;
+  font-size: 11px; 
   border: 2px solid black;
   border-color: #449953;
   border-radius: 12px;

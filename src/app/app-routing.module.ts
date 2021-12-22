@@ -15,6 +15,7 @@ import { AdminUsersComponent } from './pages/admin/admin-users/admin-users.compo
 import { AdminPostsComponent } from './pages/admin/admin-posts/admin-posts.component';
 import { AdminRequestsComponent } from './pages/admin/admin-requests/admin-requests.component';
 import { RoleGuard } from './services/role.guard';
+import { AdminProfileComponent } from './pages/admin/admin-profile/admin-profile.component';
 
 const routes: Routes = [
   //USER
@@ -82,6 +83,14 @@ const routes: Routes = [
   {
     path: 'admin-requests',
     component: AdminRequestsComponent,
+    canActivate: [AuthGuard, RoleGuard],
+    data:{
+      roles:['admin']
+    }
+  },
+  {
+    path: 'admin-profile',
+    component: AdminProfileComponent,
     canActivate: [AuthGuard, RoleGuard],
     data:{
       roles:['admin']

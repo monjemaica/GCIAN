@@ -94,8 +94,7 @@
                 sit amet consectetur adipisicing elit.
               </div>
 
-              <button
-                style="margin-left: 70%; margin-bottom: 5%; background-color: transparent; border: none; color: white;"
+              <button class="trends-button"
                 (click)="alterDescriptionText()"
               >
                 {{ showShortDesciption ? "Show More >" : "Show Less" }}
@@ -106,7 +105,7 @@
 
         <div class="col col-md-8">
           <div class="post-card" fxLayoutAlign="start start" fxFlexFill>
-            <div class="card" fxFlex="100">
+            <div class="card shadow" fxFlex="100">
               <div class="row">
                 <div class="col-sm-1">
                   <div class="card-body">
@@ -161,9 +160,8 @@
                 </p>
               </div>
               <div class="card-actions">
-                <!-- <button class="btn_like" mat-button>Like</button> -->
                 <button type="button" class="btn_like">
-                  <i class="bi-hand-thumbs-up text-light"></i>
+                  <i class="bi-heart text-light"></i>
                 </button>
                 <button (click)="comment(post.post_uid)" [routerLink]="['/user-comment']" type="button" class="btn_comment">
                   <i class="bi bi-chat-square-text text-light"></i>
