@@ -25,6 +25,7 @@ import { CreatePostComponent } from './modal/posts/create-post/create-post.compo
 import { EditPostComponent } from './modal/posts/edit-post/edit-post.component';
 import { DeletePostComponent } from './modal/posts/delete-post/delete-post.component';
 import { CreateCommentComponent } from './modal/comments/create-comment/create-comment.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AuthInterceptorProviders } from './helpers/auth.interceptor';
@@ -78,6 +79,8 @@ import { WebcamImageComponent } from './modal/webcam-image/webcam-image.componen
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
