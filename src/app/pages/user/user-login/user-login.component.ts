@@ -4,12 +4,15 @@ import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { UserService } from 'src/app/services/user.service';
 import { AlertService } from 'src/app/services/alert.service';
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
   styleUrls: ['./user-login.component.css'],
 })
 export class UserLoginComponent implements OnInit {
+  registrationForm: FormGroup;
+  currentPassword: boolean;
   userData: any;
 
   form: any = {
@@ -25,10 +28,12 @@ export class UserLoginComponent implements OnInit {
     private _ds: DataService,
     private _us: UserService,
     private _as: AlertService,
-    private router: Router
+    private router: Router,
+    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
+    this.initRegForm();
     if(!this._us.getUser()){
       this.isLoggedIn = true
     }else{
@@ -41,6 +46,17 @@ export class UserLoginComponent implements OnInit {
     console.log(this.isLoggedIn)
   }
 
+  initRegForm() {
+    this.registrationForm = this.fb.group({
+      email: ["", [Validators.required, Validators.email]],
+      password: ["", Validators.required],
+      confirmpassword: ["", Validators.required],
+    });
+  }
+
+  togglecurrentPassword() {
+    this.currentPassword = !this.currentPassword;
+  }
 
   login(e) {
     e.preventDefault();

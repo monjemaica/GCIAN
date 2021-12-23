@@ -20,37 +20,61 @@
 
 <div fxLayoutAlign="center center" fxFlexFill>
   <mat-card fxFlex="30">
-    <mat-toolbar fxLayoutAlign="center center">Welcome GCIANs!</mat-toolbar>
+    <mat-toolbar fxLayoutAlign="center center" style="background-color: transparent !important;">Welcome GCIANs!</mat-toolbar>
     <form
+      [formGroup]="registrationForm"
+      class="mx-auto"
       name="form"
       fxLayoutAlign="stretch"
       fxLayout="column"
       ngNativeValidate
       (submit)="login($event)"
     >
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Email Address"
-          type="email"
-          id="email"
-          name="email"
-          required
-          email
-        />
-      </mat-form-field>
+      <div class="form-group" style="z-index: 100">
+        <div class="input-group">
+          <input
+            class="form-control"
+            placeholder="Email Address"
+            type="email"
+            id="email"
+            name="email"
+            required
+            email
+            style="border: none;"
+          />
+        </div>
+        <mat-divider [inset]="true" style="background-color: #495057;"></mat-divider>
+      </div>
 
-      <mat-form-field>
-        <input
-          matInput
-          type="password"
-          placeholder="Password"
-          id="password"
-          name="password"
-          required
-          password
-        />
-      </mat-form-field>
+      <div class="form-group" style="z-index: 100">
+        <div class="input-group">
+          <input
+            [type]="currentPassword ? 'text' : 'password'"
+            class="form-control"
+            formControlName="password"
+            type="password"
+            placeholder="Password"
+            id="password"
+            name="password"
+            required
+            password
+            style="border: none;"
+          />
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <i
+                class="fa"
+                [ngClass]="{
+                  'fa-eye-slash': !currentPassword,
+                  'fa-eye': currentPassword
+                }"
+                (click)="togglecurrentPassword()"
+              ></i>
+            </span>
+          </div>
+          <mat-divider [inset]="true" style="background-color: #71777c;"></mat-divider>
+        </div>
+      </div>
       <button class="submit" mat-raised-button type="submit">LOGIN</button>
       <ng-container class="alert alert-warning" *ngIf="isLoginFailed"
         >Log In Failed!, {{ errorMessage }}</ng-container

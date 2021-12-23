@@ -1,20 +1,48 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, OnInit } from "@angular/core";
+import { MatDialogRef } from "@angular/material/dialog";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'app-change-password',
-  templateUrl: './change-password.component.html',
-  styleUrls: ['./change-password.component.css']
+  selector: "app-change-password",
+  templateUrl: "./change-password.component.html",
+  styleUrls: ["./change-password.component.css"],
 })
 export class ChangePasswordComponent implements OnInit {
+  registrationForm: FormGroup;
+  currentPassword: boolean;
+  fieldTextType: boolean;
+  repeatFieldTextType: boolean;
 
-  constructor(private dialogRef: MatDialogRef<ChangePasswordComponent>) { 
+  constructor(
+    private dialogRef: MatDialogRef<ChangePasswordComponent>,
+    private fb: FormBuilder
+  ) {
     dialogRef.disableClose = true;
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.initRegForm();
   }
 
+  initRegForm() {
+    this.registrationForm = this.fb.group({
+      email: ["", [Validators.required, Validators.email]],
+      password: ["", Validators.required],
+      confirmpassword: ["", Validators.required],
+    });
+  }
+
+  togglecurrentPassword() {
+    this.currentPassword = !this.currentPassword;
+  }
+
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
+  }
+
+  toggleRepeatFieldTextType() {
+    this.repeatFieldTextType = !this.repeatFieldTextType;
+  }
 }
 
 
@@ -41,7 +69,7 @@ export class ChangePasswordComponent implements OnInit {
 //     @Inject(MAT_DIALOG_DATA) data
 //     ) {
 //       this.student = data;
-//       dialogRef.disableClose = true; 
+//       dialogRef.disableClose = true;
 //   }
 
 //   ngOnInit(): void {
