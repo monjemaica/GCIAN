@@ -89,36 +89,33 @@
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Hatdog</th>
+              <th scope="col">Profile</th>
+              <th scope="col">Name</th>
+              <th scope="col">Role</th>
+              <th scope="col">Date_Created</th>
+              <th scope="col">Last_Login</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td>Miko</td>
-              <td>Barreyro</td>
-              <td>@john</td>
-            </tr>
+            <ng-container *ngFor="let s of students">
+              <tr>
+                <th scope="row">{{s.studid_fld}}</th>
+                <td>
+                  <img src="http://localhost:5000/uploads/{{s.avatar_fld}}" class="img-fluid img-thumbnail" alt="No Picture">
+                </td>
+                <td>{{s.fname_fld}} {{s.mname_fld}} {{s.lname_fld}}</td>
+                <td>{{s.role_fld}}</td>
+                <td>{{s.date_created_TS_fld}}</td>
+                <td>{{s.last_login_TS_fld}}</td>
+                <td>
+                  <div class="button">
+                    <button>view</button
+                    ><button><i class="far fa-trash-alt"></i></button>
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
           </tbody>
         </table>
       </div>

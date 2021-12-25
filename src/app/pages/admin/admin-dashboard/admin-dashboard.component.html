@@ -96,7 +96,9 @@
                       Total Users
                     </div>
                     <div class="h5 mb-0 font-weight-bold text-gray-800">
-                      126
+                      <ng-container *ngIf="totalUsers">
+                        {{totalUsers.total_users}}
+                      </ng-container>
                     </div>
                   </div>
                   <div class="col-auto">
@@ -143,7 +145,11 @@
                     >
                       Total Posts
                     </div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">35</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                      <ng-container *ngIf="totalPosts">
+                        {{totalPosts.total_posts}}
+                      </ng-container>
+                    </div>
                   </div>
                   <div class="col-auto">
                     <i class="fas fa-book-open fa-2x"></i>
@@ -166,7 +172,11 @@
                     >
                       Total Reports
                     </div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">3</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                      <ng-container *ngIf="totalReports">
+                        {{totalReports.total_reports}}
+                      </ng-container>
+                    </div>
                   </div>
                   <div class="col-auto">
                     <i
@@ -191,51 +201,25 @@
           <div class="trend-card shadow h-100">
             <div class="title">Top Sentiments</div>
             <hr />
+            <ng-container *ngFor="let t of trends; let i = index ">
             <div class="trends-card">
-              <div
-                [ngClass]="{ 'show-less': showShortDesciption }"
-                style="margin-left: 5%; margin-right: 5%;"
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
-                ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum
-                dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor
-                sit amet consectetur adipisicing elit.
+                <div>
+                  <div
+                    [ngClass]="{ 'show-less': showShortDesciption }"
+                    style="margin-left: 5%; margin-right: 5%;"
+                  >
+                  <p><strong>{{trends[i].total_likes}} Likes</strong></p>
+                  <p>{{trends[i].date_created_TS_fld | date: 'short'}}</p>
+                  {{trends[i].content_fld}}
+                  </div>
+    
+                </div>
               </div>
-
-              <button class="trends-button" (click)="alterDescriptionText()">
+              <button class="trends-button" (click)="alterDescriptionText(trends[i].post_uid)">
                 {{ showShortDesciption ? "Show More >" : "Show Less" }}
               </button>
-            </div>
-            <div class="trends-card">
-              <div
-                [ngClass]="{ 'show-less': showShortDesciption }"
-                style="margin-left: 5%; margin-right: 5%;"
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
-                ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum
-                dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor
-                sit amet consectetur adipisicing elit.
-              </div>
-
-              <button class="trends-button" (click)="alterDescriptionText()">
-                {{ showShortDesciption ? "Show More >" : "Show Less" }}
-              </button>
-            </div>
-            <div class="trends-card">
-              <div
-                [ngClass]="{ 'show-less': showShortDesciption }"
-                style="margin-left: 5%; margin-right: 5%;"
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
-                ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum
-                dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor
-                sit amet consectetur adipisicing elit.
-              </div>
-
-              <button class="trends-button" (click)="alterDescriptionText()">
-                {{ showShortDesciption ? "Show More >" : "Show Less" }}
-              </button>
-            </div>
+            </ng-container>
+            
           </div>
         </div>
       </div>
