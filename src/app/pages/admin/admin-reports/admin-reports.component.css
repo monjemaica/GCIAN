@@ -185,3 +185,7 @@ body {
     float: none;
     box-shadow: 0 0px 8px rgba(0, 0, 0, 0.3);
   }
+
+.button{
+  display: flex;
+}
