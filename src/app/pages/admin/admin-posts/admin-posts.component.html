@@ -83,36 +83,42 @@
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              <th scope="col">Content</th>
+              <th scope="col">Author</th>
+              <th scope="col">Image</th>
+              <th scope="col">Dept.</th>
+              <th scope="col">Course</th>
+              <th scope="col">Date_Created</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td>Miko</td>
-              <td>Barreyro</td>
-              <td>@john</td>
-            </tr>
+            <ng-container *ngFor="let p of posts">
+              <tr>
+                <th scope="row">{{p.post_uid}}</th>
+                <td>{{p.content_fld}}</td>
+                <td>{{p.fname_fld}} {{p.mname_fld}} {{p.lname_fld}}</td>
+                <ng-container *ngIf="p.img_fld">
+                  <td>
+                    <img src="http://localhost:5000/uploads/{{p.img_fld}}" class="img-fluid img-thumbnail" alt="No Picture">
+                  </td>
+                </ng-container>
+                <ng-container *ngIf="!p.img_fld">
+                  <td>
+                    No Picture
+                  </td>
+                </ng-container>
+                <td>{{p.dept_fld}}</td>
+                <td>{{p.program_fld}}</td>
+                <td>{{p.date_created_TS_fld}}</td>
+                <td>
+                  <div class="button">
+                    <button><i class="far fa-edit"></i></button
+                    ><button><i class="far fa-trash-alt"></i></button>
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
           </tbody>
         </table>
       </div>
