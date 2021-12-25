@@ -196,3 +196,7 @@ body {
   color: #398547;
   text-decoration: none;
 }
+
+.button{
+  display:flex;
+}
