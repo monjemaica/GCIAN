@@ -155,8 +155,11 @@ body {
 }
 
 /* ------------------------------ SIDE NAV CSS ENDS HERE ------------------------------ */
+.header {
+  display: flex;
+}
+
 .label {
-  /* text-align: center !important; */
   font-size: 18px; 
   font-weight: bold;
 }
@@ -186,6 +189,19 @@ body {
     box-shadow: 0 0px 8px rgba(0, 0, 0, 0.3);
 }
 
-.button{
+.button .far {
   display: flex;
+  cursor:pointer;
+}
+
+.fa-eye {
+  color: #398547;
+}
+
+.fa-trash-alt {
+  color: red;
+}
+
+button:hover, button:focus {
+  outline: none;
 }

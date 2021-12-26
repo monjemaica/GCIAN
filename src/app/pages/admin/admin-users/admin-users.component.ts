@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { AdminViewPostsComponent } from 'src/app/modal/admin-view-posts/admin-view-posts.component';
 import { DataService } from 'src/app/services/data.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -27,6 +28,10 @@ export class AdminUsersComponent implements OnInit {
       this.students = res;
       console.log('students', res)
     })
+  }
+
+  viewPost() {
+    this.dialog.open(AdminViewPostsComponent);
   }
 
   logout() {

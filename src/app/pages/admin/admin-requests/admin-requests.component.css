@@ -155,11 +155,13 @@ body {
 }
 
 /* ------------------------------ SIDE NAV CSS ENDS HERE ------------------------------ */
+.header {
+  display: flex;
+}
+
 .label {
-  /* text-align: center !important; */
   font-size: 18px; 
   font-weight: bold;
-  color: black;
 }
 
 .navbar {
