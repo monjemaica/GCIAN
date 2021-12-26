@@ -157,6 +157,7 @@ body {
 /* ------------------------------ SIDE NAV CSS ENDS HERE ------------------------------ */
 .header {
   display: flex;
+  justify-content: space-between;
 }
 
 .label {
@@ -208,4 +209,9 @@ body {
 
 button:hover, button:focus {
   outline: none;
+}
+
+.search-container{
+  display: flex;
+  color: #398547;
 }

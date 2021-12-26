@@ -15,6 +15,7 @@ export class AdminReportsComponent implements OnInit {
   reports=[];
   authors=[];
   parentSelector: boolean = false;
+  term: any;
 
   constructor(
     public dialog: MatDialog,

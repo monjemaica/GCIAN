@@ -78,13 +78,23 @@
       <div class="all-posts-card shadow h-100">
         <div class="header">
           <p class="label">All Posts</p>
-          <div class="search-container" style="margin-left: 70%;">
-            <form action="/action_page.php">
-              <input type="text" placeholder="Search.." name="search" style="border-right: none;">
-              <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
+          <div class="search-container">
+            <div class="form-group">
+              <input
+                type="text"
+                id="search-focus"
+                class="form-control"
+                placeholder="Search Here"
+                [(ngModel)]="term"
+                />
+              </div>
+              <div>
+                <button type="button" class="btn btn-success">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
         <table class="table table-striped table-hover">
           <thead>
             <tr>
@@ -99,7 +109,7 @@
             </tr>
           </thead>
           <tbody>
-            <ng-container *ngFor="let p of posts">
+            <ng-container *ngFor="let p of posts | filter: term">
               <tr>
                 <th scope="row">{{p.post_uid}}</th>
                 <td>{{p.content_fld}}</td>
@@ -111,7 +121,7 @@
                 </ng-container>
                 <ng-container *ngIf="!p.img_fld">
                   <td>
-                    No Picture
+                    <img src="../assets/img/no-image.jpg" class="img-fluid img-thumbnail" alt="No Picture" style="width: 100px; height: auto;">
                   </td>
                 </ng-container>
                 <td>{{p.dept_fld}}</td>
