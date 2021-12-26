@@ -215,3 +215,8 @@ body {
 button:hover, button:focus {
   outline: none;
 }
+
+.search-container{
+  display: flex;
+  color: #398547;
+}

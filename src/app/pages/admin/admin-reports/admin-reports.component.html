@@ -79,12 +79,23 @@
       <div class="all-posts-card shadow h-100">
         <div class="header">
           <p class="label">All Reports</p>
-          <div class="search-container" style="margin-left: 70%;">
-            <form action="/action_page.php">
-              <input type="text" placeholder="Search.." name="search" style="border-right: none;">
-              <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-          </div>
+          <div class="search-container">
+            <div class="form-group">
+              <input
+                type="text"
+                id="search-focus"
+                class="form-control"
+                placeholder="Search Here"
+                [(ngModel)]="term"
+              />
+            </div>
+            <div>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          
+        </div>
         </div>
         <table class="table table-striped table-hover">
           <thead>
@@ -114,7 +125,7 @@
 
               <div>try{{ a.fname_fld }}</div>
               </ng-container> -->
-            <ng-container *ngFor="let r of reports; let i = index">
+            <ng-container *ngFor="let r of reports| filter: term let i = index ">
               <tr>
                 <th scope="row">
                   <div class="form-check form-switch">

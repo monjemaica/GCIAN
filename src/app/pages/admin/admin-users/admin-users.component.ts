@@ -12,6 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class AdminUsersComponent implements OnInit {
   students: any;
+  term:any;
   constructor(
     public dialog: MatDialog,
     private _us: UserService,

@@ -78,18 +78,34 @@
       <div class="all-posts-card shadow h-100">
         <div class="label">
           <div class="category-spacer">
-          <p>All Users</p>
-          <div class="search-container">
-            <form action="/action_page.php" style="margin-bottom: 10px;">
-              <input type="text" placeholder="Search.." name="search" style="border-right: none;">
-              <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-            <a [routerLink]="['/admin-requests']" style="margin-left: 25px;">
-              <i style="font-size: 20px;" class="fas fa-concierge-bell"></i>
-              <span style="margin-left: 6px; font-size: 16px;" class="links_name">Chat Room Requests</span>
+            <p>All Users</p>
+            <div class="search-container">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="search-focus"
+                  class="form-control"
+                  placeholder="Search Here"
+                  [(ngModel)]="term"
+                />
+              </div>
+              <div>
+                <button type="button" class="btn btn-success">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div style="text-align: right">
+            <a [routerLink]="['/admin-requests']" style="color: green">
+              <i style="font-size: 20px" class="fas fa-concierge-bell"></i>
+              <span
+                style="margin-left: 6px; font-size: 16px; color: green"
+                class="links_name"
+                >Chat Room Requests</span
+              >
             </a>
           </div>
-        </div>
         </div>
         <table class="table table-striped table-hover">
           <thead>
@@ -104,20 +120,45 @@
             </tr>
           </thead>
           <tbody>
-            <ng-container *ngFor="let s of students">
+            <ng-container *ngFor="let s of students | filter: term">
               <tr>
-                <th scope="row">{{s.studid_fld}}</th>
-                <td>
-                  <img src="http://localhost:5000/uploads/{{s.avatar_fld}}" class="img-fluid img-thumbnail" alt="No Picture" style="width: 100px; height: auto;">
-                </td>
-                <td>{{s.fname_fld}} {{s.mname_fld}} {{s.lname_fld}}</td>
-                <td>{{s.role_fld}}</td>
-                <td>{{s.date_created_TS_fld}}</td>
-                <td>{{s.last_login_TS_fld}}</td>
+                <th scope="row">{{ s.studid_fld }}</th>
+                <ng-container *ngIf="s.avatar_fld" style="height: 50px">
+                  <td>
+                    <img
+                      src="http://localhost:5000/uploads/{{ s.avatar_fld }}"
+                      class="img-fluid img-thumbnail"
+                      alt="No Picture"
+                      style="width: 100px; height: auto"
+                    />
+                  </td>
+                </ng-container>
+                <ng-container *ngIf="!s.avatar_fld">
+                  <td>
+                    <img
+                      src="../assets/img/no-image.jpg"
+                      class="img-fluid img-thumbnail"
+                      alt="No Picture"
+                      style="width: 100px; height: auto"
+                    />
+                  </td>
+                </ng-container>
+                <td>{{ s.fname_fld }} {{ s.mname_fld }} {{ s.lname_fld }}</td>
+                <td>{{ s.role_fld }}</td>
+                <td>{{ s.date_created_TS_fld }}</td>
+                <td>{{ s.last_login_TS_fld }}</td>
                 <td>
                   <div class="button">
-                    <button style="margin-right: 10px; border: none;" href (click)="viewPost()"><i class="far fa-eye"></i></button>
-                    <button style="border: none;"><i class="far fa-trash-alt"></i></button>
+                    <button
+                      style="margin-right: 10px; border: none"
+                      href
+                      (click)="viewPost()"
+                    >
+                      <i class="far fa-eye"></i>
+                    </button>
+                    <button style="border: none">
+                      <i class="far fa-trash-alt"></i>
+                    </button>
                   </div>
                 </td>
               </tr>

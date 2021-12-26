@@ -50,6 +50,8 @@ import { WebcamImageComponent } from './modal/webcam-image/webcam-image.componen
 import { AdminViewPostsComponent } from './modal/admin-view-posts/admin-view-posts.component';
 import { AdminEditFieldsComponent } from './modal/admin-edit-fields/admin-edit-fields.component';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,7 +105,8 @@ import { AdminEditFieldsComponent } from './modal/admin-edit-fields/admin-edit-f
     MatListModule,
     MatMenuModule,
     HttpClientModule,
-    WebcamModule
+    WebcamModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     AuthInterceptorProviders
