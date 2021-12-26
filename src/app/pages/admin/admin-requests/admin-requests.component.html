@@ -76,8 +76,14 @@
     <section class="home-section">
       <div class="nav-spacer"></div>
       <div class="all-posts-card shadow h-100">
-        <div class="label">
-          <p>Chat Room Requests</p>
+        <div class="header">
+          <p class="label">Chat Room Requests</p>
+          <div class="search-container" style="margin-left: 60%;">
+            <form action="/action_page.php">
+              <input type="text" placeholder="Search.." name="search" style="border-right: none;">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+          </div>
         </div>
         <table class="table table-striped table-hover">
           <thead>

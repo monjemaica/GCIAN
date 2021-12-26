@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { DataService } from 'src/app/services/data.service';
+import { AdminEditFieldsComponent } from 'src/app/modal/admin-edit-fields/admin-edit-fields.component';
+import { AdminViewPostsComponent } from 'src/app/modal/admin-view-posts/admin-view-posts.component';
 
 @Component({
   selector: 'app-admin-reports',
@@ -79,4 +81,13 @@ export class AdminReportsComponent implements OnInit {
   logout() {
     this._us.setLoggedOut();
   }
+
+  viewPost() {
+    this.dialog.open(AdminViewPostsComponent);
+  }
+  
+  // adminReportFields() {
+  //   this.dialog.open(AdminEditFieldsComponent);
+  // }
+  
 }

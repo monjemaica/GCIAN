@@ -47,6 +47,8 @@ import { AlertComponent } from './components/alert/alert.component';
 import { AdminProfileComponent } from './pages/admin/admin-profile/admin-profile.component';
 import { WebcamModule } from 'ngx-webcam';
 import { WebcamImageComponent } from './modal/webcam-image/webcam-image.component';
+import { AdminViewPostsComponent } from './modal/admin-view-posts/admin-view-posts.component';
+import { AdminEditFieldsComponent } from './modal/admin-edit-fields/admin-edit-fields.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +78,8 @@ import { WebcamImageComponent } from './modal/webcam-image/webcam-image.componen
     AdminRequestsComponent,
     AlertComponent,
     WebcamImageComponent,
+    AdminViewPostsComponent,
+    AdminEditFieldsComponent,
   ],
   imports: [
     BrowserModule,
