@@ -31,8 +31,13 @@ export class AdminPostsComponent implements OnInit {
     })
   }
 
-  viewPost() {
-    this.dialog.open(AdminViewPostsComponent);
+  viewPost(id:number) {
+    console.log('id:', id)
+    let post = this.posts.find(x => x.post_uid === id);
+    console.log('post', post)
+    this.dialog.open(AdminViewPostsComponent,
+      {data: post}  
+    );
   }
 
   logout() {

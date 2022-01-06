@@ -96,6 +96,7 @@ const routes: Routes = [
       roles:['admin']
     }
   },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

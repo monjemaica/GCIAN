@@ -14,7 +14,7 @@ import { UserService } from './user.service';
 })
 export class AuthGuard implements CanActivate {
   constructor(private user: UserService, private router: Router) {}
-
+  role: any;
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -23,10 +23,18 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
+
     const currentUser = this.user.getUser();
+    const user = this.user.getUser();
+    this.role = user.role_fld;
+
     if (!this.user.isLoggedIn()) {
       this.user.refreshUser();
-      this.router.navigateByUrl('/user-login');
+      if(this.role !== "admin"){
+        this.router.navigateByUrl('/user-login');
+      }else{
+        this.router.navigateByUrl('/admin-login');
+      }
       return false;
     } else {
     }

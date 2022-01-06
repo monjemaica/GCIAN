@@ -51,6 +51,7 @@ import { AdminViewPostsComponent } from './modal/admin-view-posts/admin-view-pos
 import { AdminEditFieldsComponent } from './modal/admin-edit-fields/admin-edit-fields.component';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { AdminViewReportsComponent } from './modal/admin-view-reports/admin-view-reports.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     WebcamImageComponent,
     AdminViewPostsComponent,
     AdminEditFieldsComponent,
+    AdminViewReportsComponent,
   ],
   imports: [
     BrowserModule,

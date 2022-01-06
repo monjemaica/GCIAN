@@ -45,6 +45,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
 getTrends(){
+  this.ngOnInit();
   this._ds._httpPostRequestNoData('post/trends').subscribe((res:any[]) => {
     res.forEach((e, i) => this.trends.push(res[i]));
     console.log(this.trends);

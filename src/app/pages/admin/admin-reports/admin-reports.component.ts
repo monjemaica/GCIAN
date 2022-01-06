@@ -5,6 +5,7 @@ import { UserService } from 'src/app/services/user.service';
 import { DataService } from 'src/app/services/data.service';
 import { AdminEditFieldsComponent } from 'src/app/modal/admin-edit-fields/admin-edit-fields.component';
 import { AdminViewPostsComponent } from 'src/app/modal/admin-view-posts/admin-view-posts.component';
+import { AdminViewReportsComponent } from 'src/app/modal/admin-view-reports/admin-view-reports.component';
 
 @Component({
   selector: 'app-admin-reports',
@@ -58,6 +59,15 @@ export class AdminReportsComponent implements OnInit {
   //   })
   // }
 
+   viewPost(id:number) {
+    console.log('id:', id)
+    let post = this.reports.find(x => x.report_uid === id);
+    console.log('post', post)
+    this.dialog.open(AdminViewReportsComponent,
+      {data: post}  
+    );
+  }
+
   isChecked(e){
     const id = e.target.value;
     const isViewed_fld = e.target.checked; //true or false
@@ -82,13 +92,6 @@ export class AdminReportsComponent implements OnInit {
   logout() {
     this._us.setLoggedOut();
   }
-
-  viewPost() {
-    this.dialog.open(AdminViewPostsComponent);
-  }
   
-  // adminReportFields() {
-  //   this.dialog.open(AdminEditFieldsComponent);
-  // }
   
 }

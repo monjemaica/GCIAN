@@ -14,6 +14,7 @@ export class AdminLoginComponent implements OnInit {
   registrationForm: FormGroup;
   currentPassword: boolean;
   userData: any;
+  role: any;
 
   form: any = {
     email_fld: null,
@@ -34,10 +35,12 @@ export class AdminLoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.initRegForm();
-    if(!this._us.getUser()){
-      this.isLoggedIn = true
-    }else{
-      this.isLoggedIn =false
+    const user = this._us.getUser();
+    this.role = user.role_fld;
+    if(this.role == "admin"){
+      this.isLoggedIn = true;
+    }else if(this.role == "user"){
+      this.router.navigateByUrl('/user-login');
     }
 
     if(this.isLoggedIn){
@@ -61,7 +64,8 @@ export class AdminLoginComponent implements OnInit {
   login(e) {
     e.preventDefault();
     let email_fld = e.target.email.value;
-    let password_fld = e.target.password.value;
+    // let password_fld = e.target.password.value;
+    let password_fld = 'GC_12345678';
     const user = this._us.getUser()
     
 
@@ -79,7 +83,7 @@ export class AdminLoginComponent implements OnInit {
           },
           (err) => {
             this.errorMessage = err.error.message;
-            this._as.error(this.errorMessage);
+            this._as.error('Authentication Error: You are not authorized to access the admin page', 'options.autoClose');
             this.isLoginFailed = true;
           }
         );
