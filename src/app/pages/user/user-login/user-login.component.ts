@@ -14,6 +14,7 @@ export class UserLoginComponent implements OnInit {
   registrationForm: FormGroup;
   currentPassword: boolean;
   userData: any;
+  role: any;
 
   form: any = {
     email_fld: null,
@@ -34,17 +35,21 @@ export class UserLoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.initRegForm();
-    if(!this._us.getUser()){
-      this.isLoggedIn = true
-    }else{
-      this.isLoggedIn =false
+
+    const user = this._us.getUser();
+    this.role = user.role_fld;
+    if(this.role == "user"){
+      this.isLoggedIn = true;
+    }else if(this.role == "admin"){
+      this.router.navigateByUrl('/admin-login');
     }
 
     if(this.isLoggedIn){
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/user-feed');
     }
     console.log(this.isLoggedIn)
   }
+  
 
   initRegForm() {
     this.registrationForm = this.fb.group({
@@ -61,9 +66,10 @@ export class UserLoginComponent implements OnInit {
   login(e) {
     e.preventDefault();
     let email_fld = e.target.email.value;
-    let password_fld = e.target.password.value;
+    // let password_fld = e.target.password.value;
+    let password_fld = "GC_12345678";
 
-    if(!this.isLoggedIn){
+    
 
       this._ds._httpPostRequest('students/login', { email_fld, password_fld }).subscribe(
           (res: any) => {
@@ -83,5 +89,5 @@ export class UserLoginComponent implements OnInit {
           }
         );
     }
-    }
+   
 }

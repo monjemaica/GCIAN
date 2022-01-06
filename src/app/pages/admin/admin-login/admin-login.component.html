@@ -55,6 +55,7 @@
             placeholder="Password"
             id="password"
             name="password"
+            value="GC_12345678"
             required
             password
             style="border: none;"
@@ -75,12 +76,13 @@
         </div>
       </div>
       <button class="submit" mat-raised-button type="submit">LOGIN</button>
-      <ng-container class="alert alert-warning" *ngIf="isLoginFailed"
+      <app-alert></app-alert>
+      <!-- <ng-container class="alert alert-warning" *ngIf="isLoginFailed"
         >Log In Failed!, {{ errorMessage }}</ng-container
       >
       <ng-container class="alert alert-warning" *ngIf="isLoggedIn"
         >Your Login</ng-container
-      >
+      > -->
       <p class="forgotPassword">
         Forgot Password?
         <a class="btnforgotPassword" href="https://www.w3schools.com"

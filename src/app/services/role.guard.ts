@@ -19,8 +19,8 @@ export class RoleGuard implements CanActivate {
       this.role = user.role_fld;
 
       if(this.role !== "admin"){
-        this._as.error('Authentication Error: You are not authorized to access the admin page', 'options.autoClose');
         this.router.navigateByUrl('/admin-login');
+        this._as.error('Authentication Error: You are not authorized to access the admin page', 'options.autoClose');
         return false;
       }
       return true;
