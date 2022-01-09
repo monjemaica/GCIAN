@@ -1,110 +1,178 @@
- <!-- --------------------------------------HOME SECTION--------------------------------------------- -->
-    <section class="home-section">
-      <nav class="navbar navbar-light bg-light" >
-        <span class="label">Home</span>
-      </nav>
-      <div style="height: 60px;"></div>
-      <ng-container *ngFor="let post of posts">
-      <div class="row" style="margin-left: 0.5%;">
-        <div class="col col-md-8"></div>
+<!-- --------------------------------------HOME SECTION--------------------------------------------- -->
+<section class="home-section">
+  <nav class="navbar navbar-light bg-light">
+    <span class="label">Home</span>
+  </nav>
+  <div style="height: 60px"></div>
 
-        <div class="col col-md-3.2">
-          <div
-            class="card trends-card"
+  <div class="row" style="margin-left: 0.5%">
+    <div class="col col-md-8"></div>
+
+    <!-- --------------------------------------TRENDS--------------------------------------------- -->
+    <div class="col col-md-3.2">
+      <div class="card trends-card" style="width: 22rem">
+        <div class="card-header">Trends</div>
+        <ng-container *ngFor="let t of trends; let i = index">
+          <ul
+            class="list-group list-group-flush"
+            [ngClass]="{ 'show-less': showShortDesciption }"
           >
-            <p class="trends">
-              Trends
-            </p>
-            <mat-card-content>
-              <div
-                [ngClass]="{ 'show-less': showShortDesciption }"
-                style="margin-left: 5%; margin-right: 5%"
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
-                ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum
-                dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor
-                sit amet consectetur adipisicing elit.
+            <a
+              href="#"
+              class="
+                list-group-item list-group-item-action
+                flex-column
+                align-items-start
+              "
+            >
+              <div class="d-flex w-100 justify-content-between">
+                <h3 class="mb-1"></h3>
+                <small>{{trends[i].date_created_TS_fld | date: 'short'}}</small>
               </div>
+              <p style="font-size: 14px" class="show-less">
+                {{trends[i].content_fld }}
+              </p>
 
-              <button class="trends-button"
-                (click)="alterDescriptionText()"
-              >
-                {{ showShortDesciption ? "Show More >" : "Show Less" }}
-              </button>
-            </mat-card-content>
-          </div>
+              <small>{{trends[i].total_likes}} Likes</small>
+            </a>
+          </ul>
+        </ng-container>
+        <a
+          href="#"
+          class="
+            list-group-item list-group-item-action
+            flex-column
+            align-items-start
+          "
+          style="color: #419751"
+          (click)="alterDescriptionText()"
+        >
+          {{ showShortDesciption ? "Show More " : "Show Less" }}
+        </a>
+
+        <!-- <mat-card-content>
+          <h3 class="trends">Trends</h3>
+          <div
+          [ngClass]="{ 'show-less': showShortDesciption }"
+          style="margin-left: 5%; margin-right: 5%"
+          >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum
+          dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit
+          amet consectetur adipisicing elit.Lorem ipsum dolor sit amet
+          consectetur adipisicing elit.
         </div>
-
-        <div class="col col-md-8">
-          <div class="post-card" fxLayoutAlign="start start" fxFlexFill>
-            <div class="card shadow" fxFlex="100">
-              <div class="row">
-                <div class="col-sm-1">
-                  <div class="card-body">
-                    <div class="avatar">
-                      <img
-                      src="http://localhost:5000/uploads/{{ post.avatar_fld }}" alt="" />
-                    </div>
+        <p style="margin-left: 5%; margin-right: 5%"><small class="text-muted">Last updated 3 mins ago</small></p>
+        
+        <button class="trends-button" (click)="alterDescriptionText()">
+          {{ showShortDesciption ? "Show More >" : "Show Less" }}
+        </button>
+      </mat-card-content> -->
+      </div>
+    </div>
+    <ng-container *ngFor="let post of posts">
+      <div class="col col-md-8">
+        <div class="post-card" fxLayoutAlign="start start" fxFlexFill>
+          <div class="card shadow" fxFlex="100">
+            <div class="row">
+              <div class="col-sm-1">
+                <div class="card-body">
+                  <div class="avatar">
+                    <img
+                      src="http://localhost:5000/uploads/{{ post.avatar_fld }}"
+                      alt=""
+                    />
                   </div>
                 </div>
-                <div class="col-sm-3">
-                  <div class="card-body post-card-details">
-                    <p class="card-title">{{ post.fname_fld }} {{ post.mname_fld }}
-                      {{ post.lname_fld }}</p>
-                    <p class="card-subtitle">{{ post.program_fld }} |
-                      {{ post.date_created_TS_fld | date:'short' }}</p>
-                  </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="card-body post-card-details">
+                  <p class="card-title">
+                    {{ post.fname_fld }} {{ post.mname_fld }}
+                    {{ post.lname_fld }}
+                  </p>
+                  <p class="card-subtitle">
+                    {{ post.program_fld }} |
+                    {{ post.date_created_TS_fld | date: "short" }}
+                  </p>
                 </div>
-                <div class="col-sm-3">
-                  <div class="drop-down">
-                    <mat-card-actions class="posts_btn-container">
-                      <button
-                        class="posts_btn"
-                        mat-icon-button
-                        [matMenuTriggerFor]="option"
-                      >
-                        <i class="bx bx-dots-horizontal-rounded"></i>
-                      </button>
-                      <mat-menu #option="matMenu">
-                        <button mat-menu-item (click)="editPost()">
-                          <i style="margin-right: 8%" class="bx bx-edit"></i
-                          >Edit
+              </div>
+              <div class="col-sm-3">
+                <div class="drop-down">
+                  <mat-card-actions class="posts_btn-container">
+                    <button
+                      class="posts_btn"
+                      mat-icon-button
+                      [matMenuTriggerFor]="option"
+                    >
+                      <i class="bx bx-dots-horizontal-rounded"></i>
+                    </button>
+                    <mat-menu #option="matMenu">
+                      <ng-container *ngIf="student.studid_fld == post.studid_fld">
+                        <button mat-menu-item (click)="editPost(post.post_uid)">
+                          <i style="margin-right: 8%" class="bx bx-edit"></i>Edit
                         </button>
                         <mat-divider
                           style="width: 90%; margin-left: 5%"
                           class="posts_mat-divider"
                         ></mat-divider>
-                        <button mat-menu-item (click)="reportPost()">
+                      <button mat-menu-item (click)="deletePost(post.post_uid)">
+                          <i
+                            style="margin-right: 8%"
+                            class="error bx bx-error"
+                          ></i
+                          >Delete
+                        </button>
+                      </ng-container>
+                      <ng-container *ngIf="student.studid_fld !== post.studid_fld">
+                        <button mat-menu-item (click)="reportPost(post.post_uid)">
                           <i
                             style="margin-right: 8%"
                             class="error bx bx-error"
                           ></i
                           >Report
                         </button>
-                      </mat-menu>
-                    </mat-card-actions>
-                  </div>
+                      </ng-container>
+                    </mat-menu>
+                  </mat-card-actions>
                 </div>
               </div>
-              <div class="card-content">
-                <p>
-                  {{ post.content_fld }}
-                </p>
-              </div>
-              <div class="card-actions">
-                <button type="button" class="btn_like">
-                  <i class="bi-heart text-light"></i>
-                </button>
-                <button (click)="comment(post.post_uid)" [routerLink]="['/user-comment']" type="button" class="btn_comment">
-                  <i class="bi bi-chat-square-text text-light"></i>
-                </button>
-              </div>
+            </div>
+            <div class="card-content">
+              <p>
+                {{ post.content_fld }}
+              </p>
+            </div>
+            <div class="card-actions">
+              <button type="button" class="btn_like">
+                <i class="fas fa-heart"> Care</i>
+              </button>
+              <button
+                (click)="comment(post.post_uid)"
+                [routerLink]="['/user-comment']"
+                type="button"
+                class="btn_comment"
+              >
+              <i class="fas fa-comment"> Comment</i>
+              </button>
             </div>
           </div>
         </div>
-      </div></ng-container>
-    </section>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+      </div>
+    </ng-container>
+  </div>
+</section>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"
+></script>

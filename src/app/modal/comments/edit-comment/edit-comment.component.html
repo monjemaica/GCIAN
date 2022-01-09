@@ -1,30 +1,35 @@
 <ng-container *ngIf="comment">
-    <form class="example-form" ngNativeValidate (submit)="doEdit($event)" required  >
-      <mat-card-title>Edit Comment</mat-card-title>
-      <mat-form-field  class="wrapper" appearance="fill">
-        <textarea
+  <form
+    class="example-form"
+    ngNativeValidate
+    (submit)="doEdit($event)"
+    required
+  >
+    <mat-card-title>Edit Comment</mat-card-title>
+    <mat-form-field class="wrapper" appearance="fill">
+      <textarea
         matInput
-          #message
-          maxlength="256"
-          id="content" name="content"
-          value="{{comment.content_fld}}"
-          type='textarea'
-          required
-        ></textarea>
-        <mat-hint align="end">{{ message.value.length }} / 256 </mat-hint>
-      </mat-form-field>
-      <div mat-card-actions class="actions">
-        <button
-          mat-dialog-close
-          mat-raised-button
-          class="btnCancel"
-          type="button"
-          data-dismiss="modal"
-        >
-          Cancel
-        </button>
-        <button mat-raised-button class="btnSave" type="submit">Save</button>
-      </div>
-    </form>
-  </ng-container>
-    
+        #message
+        maxlength="256"
+        id="content"
+        name="content"
+        value="{{ comment.content_fld }}"
+        type="textarea"
+        required
+      ></textarea>
+      <mat-hint align="end">{{ message.value.length }} / 256 </mat-hint>
+    </mat-form-field>
+    <div mat-card-actions class="actions">
+      <button
+        mat-dialog-close
+        mat-raised-button
+        class="btnCancel"
+        type="button"
+        data-dismiss="modal"
+      >
+        Cancel
+      </button>
+      <button mat-raised-button class="btnSave" type="submit">Save</button>
+    </div>
+  </form>
+</ng-container>

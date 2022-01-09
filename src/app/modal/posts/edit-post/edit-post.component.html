@@ -1,8 +1,10 @@
-<form class="example-form">
+<form class="example-form" *ngIf="post" (submit)="doEdit($event)">
   <mat-card-title>Edit post</mat-card-title>
     <mat-form-field class="wrapper" appearance="fill">
       <textarea
         matInput
+        id="content" name="content"
+        value="{{post.content_fld}}"
         #message
         maxlength="256"
       ></textarea>

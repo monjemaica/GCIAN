@@ -26,6 +26,8 @@ export class CreatePostComponent implements OnInit {
 
     this._ds._httpPostRequest('posts/compose', {content_fld, studid_fld}).subscribe((res: any) => {
       this.posts = res;
+      console.log('detail post: ', this.posts)
+      this.router.navigateByUrl('/details-post/', this.posts.post_uid);
       this.dialogRef.close()
     })
   } 

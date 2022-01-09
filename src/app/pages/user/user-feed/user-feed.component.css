@@ -220,6 +220,7 @@ section .card {
   margin-right: 18%;
   border: none;
   background-color: transparent;
+  color: #398547;
   font-size: 18px;
   cursor: pointer;
 }
@@ -228,6 +229,7 @@ section .card {
   margin-left: 18%;
   border: none;
   background-color: transparent;
+  color: #398547;
   font-size: 18px;
   cursor: pointer;
 }
@@ -252,7 +254,7 @@ button:hover, button:focus {
 }
 
 .show-less {
-  height: 1.2rem;
+  /* height: .1rem; */
   overflow: hidden;
 }
 
@@ -262,14 +264,8 @@ button:hover, button:focus {
   position: fixed;
 }
 
-.trends {
-  font-size: 20px; 
-  margin-top: 4%; 
-  margin-left: 5%;
-}
-
 .trends-button {
-  margin-left: 70%; 
+  margin-left: 65%; 
   padding-left: 5px;
   padding-right: 5px;
   margin-bottom: 5%; 

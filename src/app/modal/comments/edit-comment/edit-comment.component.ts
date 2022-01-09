@@ -36,6 +36,7 @@ export class EditCommentComponent implements OnInit {
     this._ds._httpPostRequestById('comment/', comment_uid, {content_fld}).subscribe((res:any) => {
       this.comment = res
         this.dialogRef.close();
+        this.ngOnInit();
       }),(err:any) => {
         if(err.status == 401){
           this._us.setLoggedOut();

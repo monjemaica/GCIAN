@@ -27,10 +27,11 @@ export class DeletePostComponent implements OnInit {
 
   deletePost(e) {
     e.preventDefault();
-    let post_id = this.post.post_uid;
+    let post_id = this.post;
 
     this._ds._httpDeleteById('posts/', post_id).subscribe((res: any) => {
       this.post = res;
+      this.router.navigateByUrl('/');
       this.dialogRef.close();
     }),
       (err: any) => {
