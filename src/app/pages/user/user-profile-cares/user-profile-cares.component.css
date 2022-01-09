@@ -212,7 +212,7 @@ hr {
   border-radius: 50%;
   width: 45px;
   height: 45px;
-  margin-left: 175px;
+  margin-left: 260px;
   margin-top: 40px;
 }
 
@@ -229,7 +229,6 @@ hr {
 .id_img {
   height: 320%;
   border-radius: 50%;
-  margin-left: 285%;
   display: flex;
 }
 
@@ -292,7 +291,7 @@ section .card {
 .post-card .card-content {
   font-size: 15px;
   color: black;
-  margin-left: 7.5%;
+  margin-left: 2.5%;
   margin-right: 7.5%;
   margin-top: -1%;
 }
@@ -304,7 +303,7 @@ section .card {
 .avatar img {
   height: 250%;
   border-radius: 50%;
-  margin-left: 100px;
+  margin-left: 180px;
 }
 
 .posts-avatar img {

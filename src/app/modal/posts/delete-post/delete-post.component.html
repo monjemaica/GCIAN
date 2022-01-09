@@ -1,16 +1,16 @@
 <div class="example-form">
   <mat-card-title>Delete post?</mat-card-title>
-
-  <!-- dapat wala syang mat form kase d namn need ng form -->
-  <!-- <mat-form-field class="wrapper" appearance="fill" null> -->
+  <div class="wrapper">
     <mat-card-subtitle class="subtitle"
       >This can’t be undone and it will be removed from your profile
       permanently.
     </mat-card-subtitle>
-  <!-- </mat-form-field> -->
+  </div>
   <div mat-card-actions class="actions">
-    <div>
-      <button mat-raised-button class="btnDelete" (click)="deletePost($event)">Delete</button>
+    <div style="margin-bottom: 5px;">
+      <button mat-raised-button class="btnDelete" (click)="deletePost($event)">
+        Delete
+      </button>
     </div>
     <div>
       <button
