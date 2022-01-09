@@ -63,12 +63,13 @@ section .post-card {
 
 section .card {
   border-radius: 15px;
-  background: #398547;
-  color: white;
+  /* background: #398547; */
+  background: white;
+  color: black;
 }
 
 .post-card .post-card-details {
-  margin-left: -12%; 
+  margin-left: -20%; 
 }
 
 .post-card .card-title {
@@ -78,26 +79,22 @@ section .card {
 }
 
 .post-card .card-subtitle {
-  font-size: 15px;
-  color: white;
-  margin-top: -8px;
+  font-size: 14px;
+  color: rgb(114, 114, 114);
 }
 
 .post-card .card-content {
   font-size: 15px;
-  color: white;
-  margin-left: 7.5%;
+  color: black;
+  margin-left: .8%;
   margin-right: 7.5%;
-  margin-top: -2%;
+  margin-top: -1%;
 }
 
-.post-card .avatar {
+.avatarIcon {
   height: 50px;
-}
-
-.avatar img {
-  height: 100%;
   border-radius: 50%;
+  width: 50px;
 }
 
 .post-card .card-actions {
@@ -111,14 +108,37 @@ button:hover, button:focus {
 
 ::placeholder {
   font-size: 14px;
-  color: white !important;
+  color: black !important;
   opacity: 80% !important;
 }
 
 .comment-panel .actions {
   text-align: end;
 }
+
 .margin-comments{
   margin-left: 1rem;
   margin-bottom: 0rem;
+}
+
+.divider {
+  background-color: rgba(0,0,0,.125);
+}
+
+.comment-panel {
+  display: flex;
+}
+
+.replyIcon {
+  height: 50px;
+  border-radius: 50%;
+  width: 50px;
+  margin-top: 15px;
+  margin-right: 13px;
+}
+
+.card-subtitle1 {
+  font-size: 14px;
+  color: rgb(114, 114, 114);
+  margin-top: -10px;
 }

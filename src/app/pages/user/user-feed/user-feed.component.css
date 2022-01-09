@@ -189,17 +189,16 @@ section .card {
 }
 
 .post-card .card-subtitle {
-  font-size: 15px;
-  color: black;
+  font-size: 14px;
+  color: rgb(114, 114, 114);
   margin-top: -8px;
 }
 
 .post-card .card-content {
   font-size: 15px;
   color: black;
-  margin-left: 7.5%;
-  margin-right: 7.5%;
-  margin-top: -2%;
+  margin-left: 1.2%;
+  margin-top: -1%;
 }
 
 .post-card .avatar {

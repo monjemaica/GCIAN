@@ -36,3 +36,7 @@ text-align: end;
   background-color: #398547; 
   color: white;
 }
+
+button:hover, button:focus {
+  outline: none;
+} 

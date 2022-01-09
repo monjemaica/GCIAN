@@ -2,8 +2,11 @@
 <ng-container *ngIf="post">
   <section class="home-section">
     <nav class="navbar navbar-light bg-light">
-      <span class="label"><a [routerLink]="['/']">
-          <i class="bx bx-left-arrow-alt" style="font-size: 22px"></i> </a>Comment</span>
+      <span class="label"
+        ><a [routerLink]="['/']">
+          <i class="bx bx-left-arrow-alt" style="font-size: 22px; margin-right: 7px;"></i> </a
+        >Comment</span
+      >
     </nav>
 
     <div class="post-card" fxLayoutAlign="center start" fxFlexFill>
@@ -12,7 +15,13 @@
           <div class="col-sm-1">
             <div class="card-body">
               <div class="avatar">
-                <img src="{{ post[0].avatar_fld }}" alt="" />
+                <!-- <img class="avatar22" src="{{ post[0].avatar_fld }}" alt="" /> -->
+                <!-- balik mo nalang to jem para lang makita mo itsura pag may image -->
+                <img
+                  class="avatarIcon"
+                  src="https://www.pinkvilla.com/imageresize/ius-agency-confirms-her-comeback.jpg?width=752&format=webp&t=pvorg"
+                  alt=""
+                />
               </div>
             </div>
           </div>
@@ -22,9 +31,9 @@
                 {{ post[0].fname_fld }} {{ post[0].mname_fld }}
                 {{ post[0].lname_fld }}
               </p>
-              <p class="card-subtitle">
-                {{ post[0].program_fld }} |
-                {{ post[0].date_created_TS_fld | date: "short" }}
+
+              <p class="card-subtitle1">
+                {{ post[0].program_fld }}
               </p>
             </div>
           </div>
@@ -35,44 +44,70 @@
           </p>
         </div>
 
-        <!-- ---------------------------------------ALL COMMENTS IN ONE POST------------------------------------ -->
+        <div class="col-sm-3">
+          <p class="card-subtitle">
+            {{ post[0].date_created_TS_fld | date: "short" }}
+          </p>
+        </div>
+
+        <mat-divider class="divider"></mat-divider>
+
         <ng-container *ngFor="let c of comments">
           <div class="margin-comments">
             <div class="post-card mat-elevation-z0">
-              <mat-card fxFlex="100">
-                <mat-card-header>
+              <mat-card fxFlex="99">
+                <mat-card-header style="display: flex">
                   <div mat-card-avatar>
-                    <img src="http://localhost:5000/uploads/{{ c.avatar_fld }}" alt="" />
+                    <img
+                      class="avatarIcon"
+                      src="http://localhost:5000/uploads/{{ c.avatar_fld }}"
+                      alt=""
+                    />
                   </div>
-                  <mat-card-title>
-                    {{ c.fname_fld }} {{ c.mname_fld }} {{ c.lname_fld }}
-                  </mat-card-title>
-                  <mat-card-subtitle>
-                    {{ c.program_fld }} |
-                    {{ c.date_created_TS_fld | date: "short"}}
-                  </mat-card-subtitle>
-
-                  <div *ngIf="student">
-                      <ng-container *ngIf="student.studid_fld == c.studid_fld">
-                        <mat-card-actions class="posts_btn-container">
-                          <button class="posts_btn" mat-icon-button [matMenuTriggerFor]="option">
-                            <i class="bx bx-dots-horizontal-rounded"></i>
+                  <div>
+                    <mat-card-title style="font-size: 17px;">
+                      {{ c.fname_fld }} {{ c.mname_fld }} {{ c.lname_fld }}
+                    </mat-card-title>
+                    <mat-card-subtitle style="margin-top: -10%;">
+                      {{ c.program_fld }} |
+                      {{ c.date_created_TS_fld | date: "short" }}
+                    </mat-card-subtitle>
+                  </div>
+                  <div *ngIf="student" style="margin-top: -.8%; margin-left: 85%;">
+                    <ng-container *ngIf="student.studid_fld == c.studid_fld">
+                      <mat-card-actions
+                        class="posts_btn-container"
+                      >
+                        <button
+                          class="posts_btn"
+                          mat-icon-button
+                          [matMenuTriggerFor]="option"
+                        >
+                          <i class="bx bx-dots-horizontal-rounded"></i>
+                        </button>
+                        <mat-menu #option="matMenu">
+                          <button
+                            mat-menu-item
+                            (click)="editComment(c.comment_uid)"
+                          >
+                            <i style="margin-right: 8%" class="bx bx-edit"></i
+                            >Edit
                           </button>
-                          <mat-menu #option="matMenu">
-                            <button mat-menu-item (click)="editComment(c.comment_uid)">
-                              <i style="margin-right: 8%" class="bx bx-edit"></i>Edit
-                            </button>
-                            <mat-divider style="width: 90%; margin-left: 5%" class="posts_mat-divider"></mat-divider>
-                            <button mat-menu-item (click)="deleteComment(c.comment_uid)">
-                              <i style="margin-right: 8%" class="bx bx-trash"></i>Delete
-                            </button>
-                          </mat-menu>
-                        </mat-card-actions>
-                      </ng-container>
-  
-                    
+                          <mat-divider
+                            style="width: 90%; margin-left: 5%"
+                            class="posts_mat-divider"
+                          ></mat-divider>
+                          <button
+                            mat-menu-item
+                            (click)="deleteComment(c.comment_uid)"
+                          >
+                            <i style="margin-right: 8%" class="bx bx-trash"></i
+                            >Delete
+                          </button>
+                        </mat-menu>
+                      </mat-card-actions>
+                    </ng-container>
                   </div>
-
                 </mat-card-header>
 
                 <mat-card-content>
@@ -82,20 +117,43 @@
             </div>
           </div>
         </ng-container>
-        <!-- ---------------------------------------ALL COMMENTS IN ONE POST ENDS HERE------------------------------------ -->
-        <div class="row">
+
+        <div class="row" style="margin-top: -10px">
           <div class="col-12">
             <div class="card-body">
-              <form ngNativeValidate action="posts/{{ post[0].post_uid }}/comments" method="post"
-                (submit)="doComment($event)">
+              <form
+                ngNativeValidate
+                action="posts/{{ post[0].post_uid }}/comments"
+                method="post"
+                (submit)="doComment($event)"
+              >
                 <div class="comment-panel">
-                  <mat-form-field appearance="fill">
-                    <input matInput #message maxlength="256" placeholder="Write a comment..." id="content"
-                      name="content" required />
+                  <div class="avatar">
+                    <!-- dito naman jem, lagay mo yung avatar nung may ari ng account na to para kita na sya yung magcocomment -->
+                    <img
+                      class="replyIcon"
+                      src="https://1739752386.rsc.cdn77.org/data/images/full/236819/confirmed-lee-seung-gis-agency-declared-that-the-malicious-commenter-was-heavily-charged.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <mat-form-field appearance="fill" style="width: 95%">
+                    <input
+                      matInput
+                      #message
+                      maxlength="256"
+                      placeholder="Write a comment..."
+                      id="content"
+                      name="content"
+                      required
+                      style="width: 100%"
+                    />
                   </mat-form-field>
                   <div mat-card-actions class="actions">
                     <button mat-button class="btnSave" type="submit">
-                      <i class="bx bx-paper-plane" style="font-size: 20px"></i>
+                      <i
+                        class="bx bx-paper-plane"
+                        style="font-size: 20px; margin-top: 40px"
+                      ></i>
                     </button>
                   </div>
                 </div>
@@ -103,7 +161,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>

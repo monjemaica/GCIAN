@@ -1,11 +1,12 @@
 .example-form {
-  min-width: 320px;
-  min-height: 200px;
+  max-width: 300px;
+  max-height: 300px;
   width: 100%;
 }
 
 .wrapper {
   width: 100%;
+  margin-top: 10px;
 }
 
 textarea {
@@ -15,11 +16,11 @@ textarea {
 
 mat-card-title {
   text-align: center;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .subtitle {
-  font-size: 18px;
+  font-size: 16px;
   color: black;
 }
 
@@ -29,6 +30,7 @@ mat-form-field {
 
 .actions {
   text-align: center;
+  margin-top: 20px;
 }
 
 .btnDelete {
@@ -44,4 +46,8 @@ mat-form-field {
   color: white;
   border-radius: 20px;
   width: 300px;
+}
+
+button:hover, button:focus {
+  outline: none;
 }
