@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserLoginComponent } from './pages/user/user-login/user-login.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,6 +16,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 import { UserFeedComponent } from './pages/user/user-feed/user-feed.component';
 import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -26,7 +30,6 @@ import { EditPostComponent } from './modal/posts/edit-post/edit-post.component';
 import { DeletePostComponent } from './modal/posts/delete-post/delete-post.component';
 import { CreateCommentComponent } from './modal/comments/create-comment/create-comment.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { HttpClientModule } from '@angular/common/http';
 import { AuthInterceptorProviders } from './helpers/auth.interceptor';
 import { DetailsPostComponent } from './pages/user/details-post/details-post.component';
@@ -52,6 +55,7 @@ import { AdminEditFieldsComponent } from './modal/admin-edit-fields/admin-edit-f
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AdminViewReportsComponent } from './modal/admin-view-reports/admin-view-reports.component';
+import { NotifierComponent } from './components/notifier/notifier.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +88,7 @@ import { AdminViewReportsComponent } from './modal/admin-view-reports/admin-view
     AdminViewPostsComponent,
     AdminEditFieldsComponent,
     AdminViewReportsComponent,
+    NotifierComponent,
   ],
   imports: [
     BrowserModule,
@@ -108,7 +113,9 @@ import { AdminViewReportsComponent } from './modal/admin-view-reports/admin-view
     MatMenuModule,
     HttpClientModule,
     WebcamModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MatSelectModule,
+    MatSnackBarModule
   ],
   providers: [
     AuthInterceptorProviders

@@ -10,121 +10,6 @@ body {
   overflow-x: hidden;
 }
 
-.sidebar {
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 78px;
-  background: #398547;
-  padding: 6px 14px;
-  z-index: 99;
-  transition: all 0.5s ease;
-}
-
-.sidebar i {
-  color: #fff;
-  height: 60px;
-  min-width: 50px;
-  font-size: 28px;
-  text-align: center;
-  line-height: 60px;
-}
-
-.sidebar .nav-list {
-  margin-top: 20px;
-  height: 100%;
-}
-
-.sidebar li {
-  position: relative;
-  margin: 8px 0;
-  list-style: none;
-}
-
-.sidebar li .tooltip {
-  position: absolute;
-  top: -20px;
-  left: calc(100% + 15px);
-  z-index: 3;
-  background: #fff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  padding: 6px 12px;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: 400;
-  opacity: 0;
-  white-space: nowrap;
-  pointer-events: none;
-  transition: 0s;
-}
-
-.sidebar li:hover .tooltip {
-  opacity: 1;
-  pointer-events: auto;
-  transition: all 0.4s ease;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.sidebar.open li .tooltip {
-  display: none;
-}
-
-.sidebar li a {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  border-radius: 12px;
-  align-items: center;
-  text-decoration: none;
-  transition: all 0.4s ease;
-  background: #4ca05c;
-}
-
-.sidebar li a:hover {
-  background: #fff;
-}
-
-.sidebar li a .links_name {
-  color: #fff;
-  font-size: 15px;
-  font-weight: 400;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.4s;
-}
-
-.sidebar.open li a .links_name {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.sidebar li a:hover .links_name,
-.sidebar li a:hover i {
-  transition: all 0.5s ease;
-  color: #11101d;
-}
-
-.sidebar li i {
-  height: 50px;
-  line-height: 50px;
-  font-size: 18px;
-  border-radius: 12px;
-}
-
-.sidebar li.profile {
-  position: fixed;
-  height: 60px;
-  width: 78px;
-  left: 0;
-  bottom: -8px;
-  padding: 10px 14px;
-  transition: all 0.5s ease;
-  overflow: hidden;
-}
-
 .home-section {
   position: relative;
   background: #fff;
@@ -230,7 +115,10 @@ button:hover, button:focus {
   opacity: 80% !important;
 }
 
-.comment-panel {
-  margin-left: 5%;
-  margin-right: 5%;
+.comment-panel .actions {
+  text-align: end;
+}
+.margin-comments{
+  margin-left: 1rem;
+  margin-bottom: 0rem;
 }

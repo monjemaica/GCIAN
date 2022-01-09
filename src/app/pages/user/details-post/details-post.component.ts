@@ -17,20 +17,16 @@ export class DetailsPostComponent implements OnInit {
   post: any;
   post_uid: any;
   comments:any;
+  student: any;
   
-
-
   isPopupOpened = false;
   constructor(public dialog: MatDialog, private _ds: DataService, private _us: UserService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.post_uid = this.route.snapshot.paramMap.get('id');
-    setTimeout(() => {
-      this.getPost();
-    },1000)
-    setTimeout(() => {
-      this.getAllComments();
-    },2000)
+    this.student = this._us.getUser();
+    this.getPost();
+    this.getAllComments();
   }
 
   getPost(){
@@ -46,26 +42,10 @@ export class DetailsPostComponent implements OnInit {
     })
   }
   
-  doComment(e){
-    let post_uid = this.post_uid;
-    let content_fld = e.target.content.value;
-    let studid_fld = this.post[0].studid_fld
-    e.preventDefault();
-
-    this._ds._httpPostRequest( `posts/${post_uid}/comments`, {studid_fld, content_fld}).subscribe((res:any) => {
-      console.log(res)
-    }),(err:any) => {
-      if(err.status == 401){
-        this._us.setLoggedOut();
-        this.router.navigateByUrl('/user-login');
-      }
-    };
-  }
-
   getAllComments(){
     let post_uid = this.post_uid;
     
-
+    
     this._ds._httpGetRequest(`posts/${post_uid}/comments`).subscribe((res:any) => {
       this.comments = res
       console.log('comments: ', res)
@@ -79,15 +59,22 @@ export class DetailsPostComponent implements OnInit {
     
   }
 
-  addPost() {
-    this.isPopupOpened = true;
-    const dialogRef = this.dialog.open(CreatePostComponent);
+  doComment(e){
+    let post_uid = this.post_uid;
+    let content_fld = e.target.content.value;
+    let studid_fld = this.student.studid_fld;
+    e.preventDefault();
 
-    dialogRef.afterClosed().subscribe(res => {
-      this.isPopupOpened = false;
-    })
-  } 
-
+    this._ds._httpPostRequest( `posts/${post_uid}/comments`, {studid_fld, content_fld}).subscribe((res:any) => {
+      console.log(res)
+      this.ngOnInit();
+    }),(err:any) => {
+      if(err.status == 401){
+        this._us.setLoggedOut();
+        this.router.navigateByUrl('/user-login');
+      }
+    };
+  }
   editComment(id: number) {
     this.isPopupOpened = true;
     let comment = this.comments.find(comment => comment.comment_uid === id);
@@ -97,6 +84,7 @@ export class DetailsPostComponent implements OnInit {
     });
  
     dialogRef.afterClosed().subscribe(res => {
+      this.ngOnInit();
       this.isPopupOpened = false;
     });
   }
@@ -110,20 +98,9 @@ export class DetailsPostComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(res => {
+      this.ngOnInit();
       this.isPopupOpened = false;
     });
-  }
- 
-  openDialog() {
-    this.dialog.open(CreatePostComponent);
-  }
-
-  appInfo() {
-    this.dialog.open(AppInfoComponent);
-  }
-
-  logout(){
-    this._us.setLoggedOut();
   }
 
 }
