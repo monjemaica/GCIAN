@@ -31,7 +31,6 @@ export class DeletePostComponent implements OnInit {
 
     this._ds._httpDeleteById('posts/', post_id).subscribe((res: any) => {
       this.post = res;
-      this.router.navigateByUrl('/');
       this.dialogRef.close();
     }),
       (err: any) => {

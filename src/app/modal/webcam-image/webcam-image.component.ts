@@ -20,6 +20,7 @@ export class WebcamImageComponent implements OnInit {
    // webcam snapshot trigger
    private trigger: Subject<void> = new Subject<void>();
    triggerSnapshot(): void {
+    console.info('received webcam image', this.trigger);
     this.trigger.next();
    }
    handleImage(webcamImage: WebcamImage): void {

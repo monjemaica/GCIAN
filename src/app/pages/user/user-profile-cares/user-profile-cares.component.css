@@ -369,3 +369,21 @@ label i {
   margin-bottom: 2%;
   font-weight: 500;
 }
+
+.card-actions .btn_like {
+  margin-right: 18%;
+  border: none;
+  background-color: transparent;
+  color: #398547;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.card-actions .btn_comment {
+  margin-left: 18%;
+  border: none;
+  background-color: transparent;
+  color: #398547;
+  font-size: 18px;
+  cursor: pointer;
+}

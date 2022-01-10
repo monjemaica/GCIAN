@@ -18,6 +18,11 @@ import { UserService } from 'src/app/services/user.service';
 export class UserProfileComponent implements OnInit {
   posts: any;
   student: any;
+  total_comments: any;
+  total_likes: any;
+  countLikes=0;
+  liked_posts: any;
+  likes=[];
 
   isPopupOpened = false;
 
@@ -31,6 +36,10 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
     this.student = this._us.getUser();
     this.getUsersPosts();
+    this.getTotalComments();
+    this.getTotalLikes()
+    this.getAllLikes();
+    console.log('filterlikes', this.total_comments)
   }
 
   getUsersPosts() {
@@ -49,6 +58,52 @@ export class UserProfileComponent implements OnInit {
     );
   }
 
+  getTotalComments(){
+    this._ds._httpPostRequestNoData('post/total_comments').subscribe((res:any) => {
+      this.total_comments = res
+    })
+  }
+
+  getTotalLikes(){
+    this._ds._httpPostRequestNoData('post/total_likes').subscribe((res:any) => {
+      this.total_likes = res
+    })
+  }
+
+  filterComments(id:any){
+    return this.total_comments.filter(x => x.post_uid === id);
+  }
+
+  filterLikes(id:any){
+    return this.total_likes.filter(x => x.post_uid === id);
+  }
+
+  async getAllLikes(){
+    let studid_fld = this.student.studid_fld 
+    const find = await this._ds._httpGetRequest(`posts/likes/${studid_fld}`).subscribe((res:any) => {
+      this.liked_posts = res
+      if(this.liked_posts){
+        this.liked_posts.map(x => {
+          this._ds._httpGetRequestById('students/', x.studid_fld).subscribe((res:any[]) => {
+            this.likes.push(res);
+          })
+        }
+          );
+      }
+    })
+    
+  }
+
+  async doLIke(id: number){
+    let studid_fld = await this.student.studid_fld;
+    let post_uid = id;
+
+    this._ds._httpPutRequestById(`posts/${post_uid}/likes`, {studid_fld}).subscribe((res:any) => {
+      console.log(res)      
+      this.countLikes++;
+    })
+  }
+
   addPost() {
     this.isPopupOpened = true;
     const dialogRef = this.dialog.open(CreatePostComponent);
@@ -58,84 +113,35 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  // editPost(id: number) {
-  //   this.isPopupOpened = true;
-
-  //   let post = this.posts.find(post => post.post_uid === id);
-  //   console.log('post_uid: ', this.posts.post_uid)
-  //   const dialogRef = this.dialog.open(EditPostComponent, {
-  //     data: post
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(res => {
-  //     this.isPopupOpened = false;
-  //   });
-  // }
-
-  // deletePost(id: number) {
-  //   this.isPopupOpened = true;
-  //   let post = this.posts.find(post => post.post_uid === id);
-
-  //   const dialogRef = this.dialog.open(DeletePostComponent, {
-  //     data: post
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(res => {
-  //     this.isPopupOpened = false;
-  //   });
-
-  // }
-  deletePost() {
-    this.dialog.open(DeletePostComponent);
+  editPost(id) {
+    let post = this.posts.find(post => post.post_uid === id);
+    
+    const dialogRef = this.dialog.open(EditPostComponent, {
+      data: post
+    });
+    
+    dialogRef.afterClosed().subscribe(res => {
+      this.ngOnInit();
+      this.isPopupOpened = false;
+    });
   }
 
-  editPost() {
-    this.dialog.open(EditPostComponent);
+  deletePost(id) {
+    this.ngOnInit();
+    this.dialog.open(DeletePostComponent, {
+      data: id
+    });
+  }
+
+  comment(id: number) {
+    this.router.navigateByUrl('details-post/' + id);
   }
 
   webcam() {
     this.dialog.open(WebcamImageComponent);
   }
 
-  // changePassword(id: number) {
-  //   this.isPopupOpened = true;
-  //   console.log(this.student);
-  //   if (this.student.studid_fld !== id) {
-  //     console.log('invalid studid_fld');
-  //   } else {
-  //     let student = this.student;
-
-  //     const dialogRef = this.dialog.open(ChangePasswordComponent, {
-  //       data: student,
-  //     });
-
-  //     dialogRef.afterClosed().subscribe((res) => {
-  //       this.isPopupOpened = false;
-  //     });
-  //   }
-  // }
-
   changePassword() {
     this.dialog.open(ChangePasswordComponent);
-  }
-
-  test() {
-    window.location.href = '/';
-  }
-
-  openDialog() {
-    this.dialog.open(CreatePostComponent);
-  }
-
-  appInfo() {
-    this.dialog.open(AppInfoComponent);
-  }
-
-  logout() {
-    this._us.setLoggedOut();
-  }
-
-  segPosts() {
-    this.router.navigate(['/user-feed']);
   }
 }

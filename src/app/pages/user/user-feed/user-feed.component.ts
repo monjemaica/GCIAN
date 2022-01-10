@@ -20,6 +20,10 @@ export class UserFeedComponent implements OnInit {
   trends = [];
   student: any;
   isPopupOpened = false;
+  total_comments: any;
+  total_likes: any;
+  countLikes=1;
+  like_clicked: boolean = false;
 
   constructor(
     public dialog: MatDialog,
@@ -34,6 +38,8 @@ export class UserFeedComponent implements OnInit {
     this.student = this._us.getUser();
     this.getUsersPosts();
     this.getTrends();
+    this.getTotalComments();
+    this.getTotalLikes();
   }
 
   alterDescriptionText() {
@@ -71,17 +77,12 @@ export class UserFeedComponent implements OnInit {
   }
 
   comment(id: number) {
-    // this.dialog.open(CreateCommentComponent);
     this.router.navigateByUrl('details-post/' + id);
   }
 
   openDialog() {
     this.dialog.open(CreatePostComponent);
   }
-
-  // comment() {
-  //   this.dialog.open(CreateCommentComponent);
-  // }
 
   logout() {
     this._us.setLoggedOut();
@@ -122,5 +123,44 @@ export class UserFeedComponent implements OnInit {
 
   appInfo() {
     this.dialog.open(AppInfoComponent);
+  }
+
+  // likes
+  getTotalComments(){
+    this._ds._httpPostRequestNoData('post/total_comments').subscribe((res:any) => {
+      this.total_comments = res
+      console.log('total_comments: ', this.total_comments);
+  
+    })
+  }
+
+  getTotalLikes(){
+    this._ds._httpPostRequestNoData('post/total_likes').subscribe((res:any) => {
+      this.total_likes = res
+    })
+  }
+
+  filterComments(id:any){
+    return this.total_comments.filter(x => x.post_uid === id);
+  }
+
+  filterLikes(id:any){
+    return this.total_likes.filter(x => x.post_uid === id);
+  }
+
+  async doLIke(id: number){
+    let studid_fld = await this.student.studid_fld;
+    let post_uid = id;
+    console.log('studidid:', studid_fld);
+    this._ds._httpPutRequestById(`posts/${post_uid}/likes`, {studid_fld}).subscribe((res:any) => {
+      console.log(res)      
+    })
+    console.log('post_uid:', post_uid);
+    if(this.like_clicked == false){
+      this.like_clicked = true;
+      this.countLikes++;
+    }else{
+      this.like_clicked = false;
+    }
   }
 }

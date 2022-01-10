@@ -26,6 +26,9 @@ export class DataService {
   _httpPostRequestNoData(endpoint){
     return this.http.post(this.url + endpoint, null);
   }
+  _httpPutRequestById(endpoint, data){
+    return this.http.put(this.url + endpoint, data);
+  }
   _httpDeleteById(endpoint, id){
     return this.http.delete(this.url + endpoint + id);
   }

@@ -38,8 +38,7 @@ export class EditPostComponent implements OnInit {
     console.log('test edit: ', post_id, content_fld);
 
       this._ds._httpPostRequestById('posts/', post_id, {content_fld}).subscribe((res:any) => {
-        this.post = res
-        this.router.navigateByUrl('/');
+        this.post = res        
         this.dialogRef.close();
       }),(err:any) => {
         if(err.status == 401){
