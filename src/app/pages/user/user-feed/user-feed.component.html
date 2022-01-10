@@ -149,16 +149,32 @@
             </div>
             
             <div class="card-actions" style="margin-top: -1%;">
-              <button type="button" class="btn_like">
-                <i class="fas fa-heart"> Care</i>
+              <button type="button" class="btn_like" (click)="doLIke(post.post_useruid)">
+                <ng-container *ngIf="like_clicked == true">
+                  <i class="fas fa-heart" style="color: #ea4c46;"> 
+                    <ng-container *ngFor="let c of filterLikes(post.post_uid)">
+                      {{c.total_likes}} </ng-container>
+                  </i>
+                </ng-container>
+                <ng-container *ngIf="like_clicked == false">
+                  <i class="fas fa-heart" style="color: #398547;"> 
+                    <ng-container *ngFor="let c of filterLikes(post.post_uid)">
+                      {{c.total_likes}} 
+                    </ng-container>
+                  </i>
+                </ng-container>
               </button>
               <button
                 (click)="comment(post.post_uid)"
-                [routerLink]="['/user-comment']"
+                routerLink="/comment/{{post.post_uid}}"
                 type="button"
                 class="btn_comment"
               >
-              <i class="fas fa-comment"> Comment</i>
+              <i class="fas fa-comment">
+                <ng-container *ngFor="let c of filterComments(post.post_uid)">
+                  {{c.total_comments}}
+                </ng-container>
+              </i>
               </button>
             </div>
           </div>

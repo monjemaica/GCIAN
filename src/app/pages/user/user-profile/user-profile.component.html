@@ -1,195 +1,19 @@
-    <!-- --------------------------------------HOME SECTION--------------------------------------------- -->
-    <section class="home-section">
-      <nav class="navbar navbar-light bg-light">
-        <span class="label">Student's Profile</span>
-      </nav>
+<!-- --------------------------------------HOME SECTION--------------------------------------------- -->
+<section class="home-section">
+  <nav class="navbar navbar-light bg-light">
+    <span class="label">Student's Profile</span>
+  </nav>
 
-      <div class="row" style="margin-left: 0.5%">
-        <div class="col col-md-6" style="margin-top: 5%">
-          <ng-container *ngIf="student">
-            <div class="col col-md-8">
-              <div
-                class="post-card shadow"
-                fxLayoutAlign="start start"
-                fxFlexFill
-              >
-                <div class="card" fxFlex="100">
-                  <div class="row">
-                    <div class="col-sm-1">
-                      <div class="card-body">
-                        <div class="avatar">
-                          <img
-                            class="id_img"
-                            src="http://localhost:5000/uploads/{{
-                              student.avatar_fld
-                            }}"
-                            alt=""
-                          />
-                        </div>
-                        <button type="button" class="change-avatar">
-                          <div class="drop-down">
-                            <mat-card-actions class="posts_btn-container">
-                              <button
-                                class="posts_btn"
-                                mat-icon-button
-                                [matMenuTriggerFor]="option"
-                              >
-                                <i class="bi bi-camera2"></i>
-                              </button>
-                              <mat-menu #option="matMenu">
-                                <button mat-menu-item>
-                                  <input
-                                    type="file"
-                                    id="file"
-                                    accept="image/*"
-                                  />
-                                  <label for="file">
-                                    <i
-                                      style="margin-right: 8%"
-                                      class="bi bi-images"
-                                    ></i
-                                    >Gallery
-                                  </label>
-                                </button>
-                                <mat-divider
-                                  style="width: 90%; margin-left: 5%"
-                                  class="posts_mat-divider"
-                                ></mat-divider>
-                                <button mat-menu-item href (click)="webcam()">
-                                  <i
-                                    style="margin-right: 8%"
-                                    class="bi bi-camera"
-                                  ></i
-                                  >Camera
-                                </button>
-                              </mat-menu>
-                            </mat-card-actions>
-                          </div>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="id_container">
-                    <div class="cards_wrap">
-                      <div class="one">
-                        <mat-card-subtitle class="id_subs"
-                          >Name</mat-card-subtitle
-                        >
-                      </div>
-                      <div class="two">
-                        <mat-card-content class="cards_wrap_id"
-                          >{{ student.fname_fld }} {{ student.mname_fld }}
-                          {{ student.lname_fld }}</mat-card-content
-                        >
-                      </div>
-                    </div>
-
-                    <hr />
-
-                    <div class="cards_wrap">
-                      <div class="one">
-                        <mat-card-subtitle class="id_subs"
-                          >Student ID</mat-card-subtitle
-                        >
-                      </div>
-                      <div class="two">
-                        <mat-card-content class="cards_wrap_id">{{
-                          student.studid_fld
-                        }}</mat-card-content>
-                      </div>
-                    </div>
-
-                    <hr />
-
-                    <div class="cards_wrap">
-                      <div class="one">
-                        <mat-card-subtitle class="id_subs"
-                          >Program</mat-card-subtitle
-                        >
-                      </div>
-                      <div class="two">
-                        <mat-card-content class="cards_wrap_id">{{
-                          student.program_fld
-                        }}</mat-card-content>
-                      </div>
-                    </div>
-
-                    <hr />
-
-                    <div class="cards_wrap">
-                      <div class="one">
-                        <mat-card-subtitle class="id_subs"
-                          >Department</mat-card-subtitle
-                        >
-                      </div>
-                      <div class="two">
-                        <mat-card-content class="cards_wrap_id">{{
-                          student.dept_fld
-                        }}</mat-card-content>
-                      </div>
-                    </div>
-                    <hr />
-                    <div class="cards_wrap">
-                      <div class="one">
-                        <mat-card-subtitle class="id_subs"
-                          >Email</mat-card-subtitle
-                        >
-                      </div>
-                      <div class="two">
-                        <mat-card-content class="cards_wrap_id">{{
-                          student.email_fld
-                        }}</mat-card-content>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="id_card-btn">
-                    <!-- <button
-                  (click)="changePassword()"
-                    class="id_btn"
-                    mat-raised-button
-                  > -->
-                    <button
-                      class="id_btn"
-                      (click)="changePassword()"
-                      mat-raised-button
-                    >
-                      Change Password
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </ng-container>
-        </div>
-
-        <div class="col col-md-7" style="margin-top: 5%; margin-left: -15%">
-          <div class="row" style="text-align: center; margin-left: 0px">
-            <div class="col-sm-6">
-              <button
-                type="button"
-                class="seg-posts"
-                [routerLink]="['/user-profile']"
-              >
-                Posts
-              </button>
-            </div>
-            <div class="col-sm-6">
-              <button
-                type="button"
-                class="seg-cares"
-                [routerLink]="['/user-profile-cares']"
-              >
-                Cares
-              </button>
-            </div>
-          </div>
-
-          <div class="post-card shadow" fxLayoutAlign="start start" fxFlexFill>
+  <div class="row" style="margin-left: 0.5%">
+    <div class="col col-md-6" style="margin-top: 5%">
+      <ng-container *ngIf="student">
+        <div class="col col-md-8">
+          <div class="post-card" fxLayoutAlign="start start" fxFlexFill>
             <div class="card" fxFlex="100">
               <div class="row">
                 <div class="col-sm-1">
                   <div class="card-body">
-                    <div class="posts-avatar">
+                    <div class="avatar">
                       <img
                         class="id_img"
                         src="http://localhost:5000/uploads/{{
@@ -198,55 +22,244 @@
                         alt=""
                       />
                     </div>
-                  </div>
-                </div>
-                <div class="col-sm-3">
-                  <div class="card-body" style="margin-left: -10%;">
-                    <p class="card-title">Lee Ji Eun</p>
-                    <p class="card-subtitle">BSCS</p>
-                  </div>
-                </div>
-                <div class="col-sm-3">
-                  <div class="drop-down">
-                    <mat-card-actions class="posts_btn-container">
-                      <button
-                        class="posts_btn"
-                        mat-icon-button
-                        [matMenuTriggerFor]="option"
-                      >
-                        <i class="bx bx-dots-horizontal-rounded"></i>
-                      </button>
-                      <mat-menu #option="matMenu">
-                        <button mat-menu-item (click)="editPost()">
-                          <i style="margin-right: 8%" class="bx bx-edit"></i
-                          >Edit
-                        </button>
-                        <mat-divider
-                          style="width: 90%; margin-left: 5%"
-                          class="posts_mat-divider"
-                        ></mat-divider>
-                        <button mat-menu-item (click)="deletePost()">
-                          <i
-                            style="margin-right: 8%; color: red"
-                            class="bx bx-trash"
-                          ></i
-                          >Delete
-                        </button>
-                      </mat-menu>
-                    </mat-card-actions>
+                    <button type="button" class="change-avatar">
+                      <div class="drop-down">
+                        <mat-card-actions class="posts_btn-container">
+                          <button
+                            class="posts_btn"
+                            mat-icon-button
+                            [matMenuTriggerFor]="option"
+                          >
+                            <i class="bi bi-camera2"></i>
+                          </button>
+                          <mat-menu #option="matMenu">
+                            <button mat-menu-item>
+                              <input type="file" id="file" accept="image/*" />
+                              <label for="file">
+                                <i
+                                  style="margin-right: 8%"
+                                  class="bi bi-images"
+                                ></i
+                                >Gallery
+                              </label>
+                            </button>
+                            <mat-divider
+                              style="width: 90%; margin-left: 5%"
+                              class="posts_mat-divider"
+                            ></mat-divider>
+                            <button mat-menu-item href (click)="webcam()">
+                              <i
+                                style="margin-right: 8%"
+                                class="bi bi-camera"
+                              ></i
+                              >Camera
+                            </button>
+                          </mat-menu>
+                        </mat-card-actions>
+                      </div>
+                    </button>
                   </div>
                 </div>
               </div>
-              <div class="card-content">
-                <p>
-                  I love Olongapo City! I love Gordon College! I love Olongapo
-                  City! I love Gordon College! I love Olongapo City! I love
-                  Gordon College! I love Olongapo City! I love Gordon College! I
-                  love Olongapo City! I love Gordon College!
-                </p>
+              <div class="id_container">
+                <div class="cards_wrap">
+                  <div class="one">
+                    <mat-card-subtitle class="id_subs">Name</mat-card-subtitle>
+                  </div>
+                  <div class="two">
+                    <mat-card-content class="cards_wrap_id"
+                      >{{ student.fname_fld }} {{ student.mname_fld }}
+                      {{ student.lname_fld }}</mat-card-content
+                    >
+                  </div>
+                </div>
+
+                <hr />
+
+                <div class="cards_wrap">
+                  <div class="one">
+                    <mat-card-subtitle class="id_subs"
+                      >Student ID</mat-card-subtitle
+                    >
+                  </div>
+                  <div class="two">
+                    <mat-card-content class="cards_wrap_id">{{
+                      student.studid_fld
+                    }}</mat-card-content>
+                  </div>
+                </div>
+
+                <hr />
+
+                <div class="cards_wrap">
+                  <div class="one">
+                    <mat-card-subtitle class="id_subs"
+                      >Program</mat-card-subtitle
+                    >
+                  </div>
+                  <div class="two">
+                    <mat-card-content class="cards_wrap_id">{{
+                      student.program_fld
+                    }}</mat-card-content>
+                  </div>
+                </div>
+
+                <hr />
+
+                <div class="cards_wrap">
+                  <div class="one">
+                    <mat-card-subtitle class="id_subs"
+                      >Department</mat-card-subtitle
+                    >
+                  </div>
+                  <div class="two">
+                    <mat-card-content class="cards_wrap_id">{{
+                      student.dept_fld
+                    }}</mat-card-content>
+                  </div>
+                </div>
+                <hr />
+                <div class="cards_wrap">
+                  <div class="one">
+                    <mat-card-subtitle class="id_subs">Email</mat-card-subtitle>
+                  </div>
+                  <div class="two">
+                    <mat-card-content class="cards_wrap_id">{{
+                      student.email_fld
+                    }}</mat-card-content>
+                  </div>
+                </div>
+              </div>
+              <div class="id_card-btn">
+                <!-- <button
+                  (click)="changePassword()"
+                    class="id_btn"
+                    mat-raised-button
+                  > -->
+                <button class="id_btn" mat-raised-button>
+                  Change Password
+                </button>
               </div>
             </div>
           </div>
         </div>
+      </ng-container>
+    </div>
+
+    <div class="col col-md-7" style="margin-top: 5%; margin-left: -15%">
+      <div class="row" style="text-align: center; margin-left: 0px">
+        <div class="col-sm-6">
+          <button
+            type="button"
+            class="seg-posts"
+            [routerLink]="['/user-profile']"
+          >
+            Posts
+          </button>
+        </div>
+        <div class="col-sm-6">
+          <button
+            type="button"
+            class="seg-cares"
+            [routerLink]="['/user-profile-cares']"
+          >
+            Cares
+          </button>
+        </div>
       </div>
-    </section>
+
+      <div class="post-card" fxLayoutAlign="start start" fxFlexFill>
+        <div class="card" fxFlex="100">
+          <ng-container *ngFor="let p of posts">
+            <div class="row">
+              <div class="col-sm-1">
+                <div class="card-body">
+                  <div class="posts-avatar">
+                    <img
+                      class="id_img"
+                      src="http://localhost:5000/uploads/{{
+                        student.avatar_fld
+                      }}"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="card-body" style="margin-left: -10%">
+                  <p class="card-title">
+                    {{ p.fname_fld }} {{ p.mname_fld }} {{ p.lname_fld }}
+                  </p>
+                  <p class="card-subtitle">
+                    {{ p.date_created_TS_fld | date: "short" }}
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="drop-down">
+                  <mat-card-actions class="posts_btn-container">
+                    <button
+                      class="posts_btn"
+                      mat-icon-button
+                      [matMenuTriggerFor]="option"
+                    >
+                      <i class="bx bx-dots-horizontal-rounded"></i>
+                    </button>
+                    <mat-menu #option="matMenu">
+                      <button mat-menu-item (click)="editPost(p.post_uid)">
+                        <i style="margin-right: 8%" class="bx bx-edit"></i>Edit
+                      </button>
+                      <mat-divider
+                        style="width: 90%; margin-left: 5%"
+                        class="posts_mat-divider"
+                      ></mat-divider>
+                      <button mat-menu-item (click)="deletePost(p.post_uid)">
+                        <i
+                          style="margin-right: 8%; color: red"
+                          class="bx bx-trash"
+                        ></i
+                        >Delete
+                      </button>
+                    </mat-menu>
+                  </mat-card-actions>
+                </div>
+              </div>
+            </div>
+            <div class="card-content">
+              <p>
+                {{ p.content_fld }}
+              </p>
+            </div>
+            <div class="col-sm-3">
+              <p class="card-subtitle">
+                {{ p.date_created_TS_fld | date: "short" }}
+              </p>
+            </div>
+
+            <div class="card-actions" style="margin-top: -1%">
+              <button type="button" class="btn_like">
+                <i class="fas fa-heart">
+                  <ng-container *ngFor="let c of filterLikes(p.post_uid)">
+                    {{ c.total_likes }}
+                  </ng-container>
+                </i>
+              </button>
+              <button
+                (click)="comment(p.post_uid)"
+                [routerLink]="['/comment/{{p.post_uid}}']"
+                type="button"
+                class="btn_comment"
+              >
+                <i class="fas fa-comment">
+                  <ng-container *ngFor="let c of filterComments(p.post_uid)">
+                    {{ c.total_comments }}
+                  </ng-container>
+                </i>
+              </button>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
