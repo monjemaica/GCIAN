@@ -1,0 +1,26 @@
+<div class="example-form">
+    <mat-card-title>Leave Room?</mat-card-title>
+    <div class="wrapper">
+      <mat-card-subtitle class="subtitle"
+        >Are you sure you want to leave this group?
+      </mat-card-subtitle>
+    </div>
+    <div mat-card-actions class="actions">
+      <div style="margin-bottom: 5px;">
+        <button mat-raised-button class="btnDelete" (click)="leaveRoom()">
+          Leave
+        </button>
+      </div>
+      <div>
+        <button
+          mat-dialog-close
+          mat-raised-button
+          class="btnCancel"
+          type="button"
+          data-dismiss="modal"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+</div>
