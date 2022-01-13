@@ -16,6 +16,7 @@ import { AdminPostsComponent } from './pages/admin/admin-posts/admin-posts.compo
 import { AdminRequestsComponent } from './pages/admin/admin-requests/admin-requests.component';
 import { RoleGuard } from './services/role.guard';
 import { AdminProfileComponent } from './pages/admin/admin-profile/admin-profile.component';
+import { UserChatroomComponent } from './pages/user/user-chatroom/user-chatroom.component';
 
 const routes: Routes = [
   //USER
@@ -32,6 +33,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'user-chat', component: UserChatComponent, canActivate: [AuthGuard],
+ },
+  { path: 'user-chatroom', component: UserChatroomComponent, canActivate: [AuthGuard],
  },
   {
     path: 'details-post/:id',

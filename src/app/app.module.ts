@@ -56,6 +56,9 @@ import { AdminEditFieldsComponent } from './modal/admin-edit-fields/admin-edit-f
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AdminViewReportsComponent } from './modal/admin-view-reports/admin-view-reports.component';
 import { NotifierComponent } from './components/notifier/notifier.component';
+import { UserChatroomComponent } from './pages/user/user-chatroom/user-chatroom.component';
+import { UserCreateRoomComponent } from './modal/user-create-room/user-create-room/user-create-room.component';
+import { UserChatroomLeaveComponent } from './modal/chat/user-chatroom-leave/user-chatroom-leave.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +92,9 @@ import { NotifierComponent } from './components/notifier/notifier.component';
     AdminEditFieldsComponent,
     AdminViewReportsComponent,
     NotifierComponent,
+    UserChatroomComponent,
+    UserCreateRoomComponent,
+    UserChatroomLeaveComponent,
   ],
   imports: [
     BrowserModule,

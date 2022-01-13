@@ -6,7 +6,10 @@ import { ChangePasswordComponent } from 'src/app/modal/change-password/change-pa
 import { CreatePostComponent } from 'src/app/modal/posts/create-post/create-post.component';
 import { DeletePostComponent } from 'src/app/modal/posts/delete-post/delete-post.component';
 import { EditPostComponent } from 'src/app/modal/posts/edit-post/edit-post.component';
+import { UserCreateRoomComponent } from 'src/app/modal/user-create-room/user-create-room/user-create-room.component';
+import { ChatService } from 'src/app/services/chat.service';
 import { UserService } from 'src/app/services/user.service';
+import { UserChatroomComponent } from '../user-chatroom/user-chatroom.component';
 
 @Component({
   selector: 'app-user-chat',
@@ -14,35 +17,26 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-chat.component.css'],
 })
 export class UserChatComponent implements OnInit {
+
+  isPopupOpened = false;
+
   constructor(
     public dialog: MatDialog,
-    private _us: UserService,
-    private router: Router
   ) {}
 
-  openDialog() {
-    this.dialog.open(CreatePostComponent);
+  ngOnInit() {
   }
 
-  editPost() {
-    this.dialog.open(EditPostComponent);
-  }
+  async createRoom(){
+    
+    const dialogRef = this.dialog.open(UserCreateRoomComponent,
+      {width: '550px'}
+      );
+    
+    dialogRef.afterClosed().subscribe(res => {
+      this.ngOnInit();
+      this.isPopupOpened = false;
+    });
 
-  deletePost() {
-    this.dialog.open(DeletePostComponent);
-  }
-
-  changePassword() {
-    this.dialog.open(ChangePasswordComponent);
-  }
-
-  ngOnInit(): void {}
-
-  appInfo() {
-    this.dialog.open(AppInfoComponent);
-  }
-
-  logout() {
-    this._us.setLoggedOut();
   }
 }

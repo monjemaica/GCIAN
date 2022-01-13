@@ -1,63 +1,43 @@
-<!-- --------------------------------------HOME SECTION--------------------------------------------- -->
-<section class="home-section">
-  <nav class="navbar navbar-light bg-light">
-    <span class="label">GChat</span>
-  </nav>
+<div class="container">
+  <img class="home-image" src="assets/img/Group Chat.gif" alt=""  style="height: 100%;"/>
+  <div class="btnContainer">
+    <h2>Welcome to GCIAN Room!</h2>
+    <button type="button" class="btn btn-success btnLand" (click)="createRoom()">
+      <i class="fa fa-plus-circle" aria-hidden="true"></i>
+      Create a room
+    </button>
+    <button type="button" class="btn btn-success btnLand"  (click)="createRoom()">
+      <i class="fa fa-sign-in" aria-hidden="true"></i>
+      Join a room
+    </button>
+  </div>
+</div>
 
-  <div style="height: 60px"></div>
+<!-- Modal -->
 
-  
-  <button class="add-room">
-    <i class="bx bx-layer-plus" title="Add New Room"></i>
-  </button>
 
-  <div class="container">
-    <div class="messaging">
-      <div class="inbox_msg">
-        <div class="mesgs">
-          <div class="msg_history">
-            <div class="incoming_msg">
-              <div class="incoming_msg_img">
-                <img
-                  src="https://ptetutorials.com/images/user-profile.png"
-                  alt="sunil"
-                />
-              </div>
-              <div class="received_msg">
-                <div class="received_withd_msg">
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
-                  </p>
-                  <span class="time_date"> 11:01 AM | June 9</span>
-                </div>
-              </div>
-            </div>
-            <div class="outgoing_msg">
-              <div class="sent_msg">
-                <p>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                </p>
-                <span class="time_date"> 11:01 AM | June 9</span>
-              </div>
-            </div>
-          </div>
-          <div class="chat-input">
-            <button type="button" class="attach-btn">
-              <input type="file" id="file" accept="image/*" />
-              <label for="file"> <i class="bx bx-paperclip"></i> &nbsp; </label>
-            </button>
-            <input type="text" placeholder="Enter Message" />
-            <button class="send-btn">
-              <i class="bx bx-paper-plane" style="font-size: 25px"></i>
-            </button>
-          </div>
-        </div>
-      </div>
+<ng-template #joinRoomModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Join a Room</h4>
+    <button type="button" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="roomName"
+        >Please enter the Room Id of the room you want to join</label
+      >
+      <input
+        id="joinRoomInp"
+        class="form-control"
+        placeholder="Room Id"
+        name="joinRoomInp"
+        autofocus
+      />
     </div>
   </div>
-</section>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary">Join Room</button>
+  </div>
+</ng-template>
