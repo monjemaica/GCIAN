@@ -157,6 +157,7 @@ body {
 /* ------------------------------ SIDE NAV CSS ENDS HERE ------------------------------ */
 .header {
   display: flex;
+  justify-content: space-between;
 }
 
 .label {
@@ -187,14 +188,45 @@ body {
     margin: 0 auto;
     float: none;
     box-shadow: 0 0px 8px rgba(0, 0, 0, 0.3);
-  }
-
-.category-spacer {
-  display: flex;
-  justify-content: space-between;
 }
 
-.category-spacer a {
+.button .far {
+  display: flex;
+  cursor:pointer;
+}
+
+.fa-eye {
   color: #398547;
+}
+
+.fa-trash-alt {
+  color: red;
+}
+
+button:hover, button:focus {
+  outline: none;
+}
+
+.search-container{
+  display: flex;
+  color: #398547;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  border: none;
+  padding: 20px;
+}
+
+a {
+  background-color: white;
+  padding: 15px;
+  color: #398547;
+}
+
+a.sec:hover {
   text-decoration: none;
+  background-color: #4ca05c;
+  color: black;
 }

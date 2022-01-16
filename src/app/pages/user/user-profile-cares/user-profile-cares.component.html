@@ -4,15 +4,15 @@
     <span class="label">Student's Profile</span>
   </nav>
 
-  <div class="row" style="margin-left: 0.5%">
-    <div class="col col-md-6" style="margin-top: 5%">
+  <div class="row" style="margin-left: -3vmin">
+    <div class="col col-md-6" style="margin-top: 7.5%; margin-right: 10vmin;">
       <ng-container *ngIf="student">
-        <div class="col col-md-8">
+        <div class="col col-md-10">
           <div class="post-card" fxLayoutAlign="start start" fxFlexFill>
             <div class="card" fxFlex="100">
-              <div class="row">
-                <div class="col-sm-1">
-                  <div class="card-body">
+              <!-- <div class="row"> -->
+                <!-- <div class="col-sm-1"> -->
+                  <div class="display-picture">
                     <div class="avatar">
                       <img
                         class="id_img"
@@ -59,8 +59,8 @@
                       </div>
                     </button>
                   </div>
-                </div>
-              </div>
+                <!-- </div> -->
+              <!-- </div> -->
               <div class="id_container">
                 <div class="cards_wrap">
                   <div class="one">
@@ -136,7 +136,7 @@
                     class="id_btn"
                     mat-raised-button
                   > -->
-                <button class="id_btn" mat-raised-button>
+                <button class="id_btn" mat-raised-button (click)="changePassword()">
                   Change Password
                 </button>
               </div>
@@ -170,7 +170,6 @@
 
       <div class="post-card" fxLayoutAlign="start start" fxFlexFill>
         <div class="card" fxFlex="100">
-
           <ng-container *ngFor="let p of liked_posts; let i=index;">
             <div class="row">
               <div class="col-sm-1">
@@ -185,13 +184,18 @@
                 </div>
               </div>
               <div class="col-sm-3">
-                <div class="card-body" style="margin-left: -10%">
-                  <!-- <p class="card-title">{{likes[i].fname_fld}} {{likes[i].mname_fld}} {{likes[i].lname_fld}}</p> -->
-                  <!-- <p class="card-subtitle">{{likes[i].program_fld}}</p> -->
+                <div class="card-body">
+                  <p class="card-title">
+                    Mae Walker
+                  </p>
+                  <p class="card-subtitle">
+                    {{ p.date_created_TS_fld | date: "short" }} 
+                    <!-- ^ Ako naglagay neto, palitan mo nalang if di tama to -->
+                  </p>
                 </div>
               </div>
-              <div class="col-sm-3">
-                <div class="drop-down">
+              <!-- <div class="col-sm-3"> -->
+                <div class="drop-down" style="margin-left: 57%;">
                   <mat-card-actions class="posts_btn-container">
                     <button
                       class="posts_btn"
@@ -218,20 +222,15 @@
                     </mat-menu>
                   </mat-card-actions>
                 </div>
-              </div>
+              <!-- </div> -->
             </div>
             <div class="card-content">
               <p>
                {{p.content_fld}}
               </p>
             </div>
-            <div class="col-sm-3">
-              <p class="card-subtitle">
-                {{ p.date_created_TS_fld | date: "short" }}
-              </p>
-            </div>
             
-            <div class="card-actions" style="margin-top: -1%;">
+            <div class="card-actions" style="margin-bottom: 1%">
               <button type="button" class="btn_like">
                 <i class="fas fa-heart"> 
                   <ng-container *ngFor="let c of filterLikes(p.post_uid)">

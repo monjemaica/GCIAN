@@ -1,32 +1,31 @@
 <form name="form" (submit)="createRoom($event)">
-    <div class="modal-header">
-      <h2 class="modal-title">Create New Room</h2>
+  <div style="text-align: center">
+    <mat-card-title>Create New Room</mat-card-title>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="roomName" style="margin-bottom: 1vmin;">Please enter a name for the room</label>
+      <input
+        class="form-control"
+        type="text"
+        id="room"
+        name="room"
+        placeholder="Enter Room Name"
+        required
+        autofocus
+      />
     </div>
-    <div class="modal-body">
-      <div class="form-group">
-        <label for="roomName">Please enter a name for the room</label>
-        <input
-          class="form-control"
-          type="text" id="room" name="room" placeholder="Enter Room Name" required
-          autofocus
-        />
-      </div>
-    </div>
-    <div class="modal-footer">
-        <button type="submit" class="btn btn-outline-danger" mat-dialog-close
-        data-dismiss="modal">Cancel</button>
-      <button type="submit" class="btn btn-success" [mat-dialog-close]="true">Create Room</button>
-    </div>
+  </div>
+  <div mat-card-actions class="actions">
+    <button
+      mat-dialog-close
+      mat-raised-button
+      class="btnCancel"
+      type="button"
+      data-dismiss="modal"
+    >
+      Cancel
+    </button>
+    <button mat-raised-button class="btnCreate" type="submit">Create Room</button>
+  </div>
 </form>
-<!-- <h1 mat-dialog-title>Hi </h1>
-<div mat-dialog-content>
-  <p>What's your favorite animal?</p>
-  <mat-form-field appearance="fill">
-    <mat-label>Favorite Animal</mat-label>
-    <input matInput >
-  </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button>No Thanks</button>
-  <button mat-button cdkFocusInitial>Ok</button>
-</div> -->

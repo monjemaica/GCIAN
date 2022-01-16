@@ -84,19 +84,19 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-3" style="margin-left: -1.4%;">
+              <div class="col-sm-3">
                 <div class="card-body post-card-details">
                   <p class="card-title">
                     {{ post.fname_fld }} {{ post.mname_fld }}
                     {{ post.lname_fld }}
                   </p>
-                  <p class="card-subtitle">
+                  <p class="card-subtitle-course">
                     {{ post.program_fld }}
                   </p>
                 </div>
               </div>
               <div class="col-sm-3">
-                <div class="drop-down">
+                <div class="drop-down" >
                   <mat-card-actions class="posts_btn-container">
                     <button
                       class="posts_btn"
@@ -106,7 +106,7 @@
                       <i class="bx bx-dots-horizontal-rounded"></i>
                     </button>
                     <mat-menu #option="matMenu">
-                      <ng-container *ngIf="student.studid_fld == post.studid_fld">
+                      <ng-container *ngIf="student.studid_fld == post.studid_fld" >
                         <button mat-menu-item (click)="editPost(post.post_uid)">
                           <i style="margin-right: 8%" class="bx bx-edit"></i>Edit
                         </button>

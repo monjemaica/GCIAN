@@ -192,12 +192,19 @@ section .card {
   font-size: 14px;
   color: rgb(114, 114, 114);
   margin-top: -8px;
+  margin-left: 2.8%;
+}
+
+.card-subtitle-course {
+  font-size: 14px;
+  color: rgb(114, 114, 114);
+  margin-top: -8px;
 }
 
 .post-card .card-content {
   font-size: 15px;
   color: black;
-  margin-left: 1.2%;
+  margin-left: 2.3%;
   margin-top: -1%;
 }
 
@@ -252,7 +259,7 @@ button:hover, button:focus {
 }
 
 .show-less {
-  /* height: .1rem; */
+  height: 1.5rem;
   overflow: hidden;
 }
 

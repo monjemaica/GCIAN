@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
 #heading {
   font-size: 60px;
   margin-top: 0px;
@@ -10,30 +18,57 @@
   position: -webkit-sticky;
 }
 
-.container {
-  margin-left: 50px;
-  text-align: center;
+/* -------------------------------------------------------- */
+
+.flex-container {
+  width: 100vw;
   display: flex;
-  justify-content: center;
+  margin-left: 30vmin;
+  margin-top: 15vmin;
+  overflow: hidden;
+  flex-flow: row;
 }
 
+@media (max-width: 768px) {
+  .flex-container {
+    /* margin-bottom: 5vmin; */
+    flex-flow: column;
+  }
+}
 
-.btnContainer {
-  height: 100px;
-  margin-left: 20px;
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.flex-column {
+  margin-top: 20vmin;
+  margin-right: 25vmin;
+  margin-bottom: 11vmin;
+}
+
+.container {
+  margin-top: 1vmin;
+  width: 100vw;
+}
+
+.home-image {
+  height: 70vmin;
 }
 
 .btnLand {
-  text-align: center;
-  font-size: 18px;
-  margin-top: 10px;
+  font-size: 2.8vmin;
+  margin-top: 1.1vmin;
 }
 
-.footer{
+.flex-gap {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.flex-gap > div {
+  margin: 6px;
+  height: 400px;
+  color: black;
+  background-color: red;
+}
+
+.footer {
   position: fixed;
   bottom: 0;
   text-align: center;
