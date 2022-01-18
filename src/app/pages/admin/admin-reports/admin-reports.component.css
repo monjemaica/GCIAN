@@ -215,3 +215,22 @@ button:hover, button:focus {
   display: flex;
   color: #398547;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  border: none;
+  padding: 20px;
+}
+
+a {
+  background-color: white;
+  padding: 15px;
+  color: #398547;
+}
+
+a.sec:hover {
+  text-decoration: none;
+  background-color: #4ca05c;
+  color: black;
+}

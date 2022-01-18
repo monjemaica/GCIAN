@@ -1,56 +1,110 @@
-body{margin-top:20px;}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.flex-container {
+  width: 100vw;
+  display: flex;
+  overflow: hidden;
+  flex-flow: row;
+}
+
+@media (max-width: 768px) {
+  .flex-container {
+    flex-flow: column;
+  }
+}
+
+
+.home-section {
+  position: relative;
+  background: #fff;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+
+.home-section .text {
+  display: inline-block;
+  color: #11101d;
+  font-size: 25px;
+  font-weight: 500;
+  margin: 18px;
+}
+
+.label {
+  font-size: 23px;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+.navbar {
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+}
+
+body {
+  margin-top: 20px;
+}
 
 .example::-webkit-scrollbar {
-    display: none;
-  }
-.chat-section{
-    width: 1200px;
-    height: 1800px;
-    top: 0%;
-    left: 9%;
-    overflow:hidden;
-  }
+  display: none;
+}
+.chat-section {
+  width: 1200px;
+  height: 1800px;
+  top: 0%;
+  left: 9%;
+  overflow: hidden;
+}
 
 .chat-online {
-    color: #34ce57
+  color: #34ce57;
 }
 
 .chat-offline {
-    color: #e4606d
+  color: #e4606d;
 }
 
 .chat-messages {
-    display: flex;
-    flex-direction: column;
-    max-height: 800px;
-    overflow-y: auto
+  display: flex;
+  flex-direction: column;
+  max-height: 800px;
+  overflow-y: auto;
 }
 
 .chat-message-left,
 .chat-message-right {
-    display: flex;
-    flex-shrink: 0
+  display: flex;
+  flex-shrink: 0;
 }
 
 .chat-message-left {
-    margin-right: auto
+  margin-right: auto;
 }
 
 .chat-message-right {
-    flex-direction: row-reverse;
-    margin-left: auto
+  flex-direction: row-reverse;
+  margin-left: auto;
 }
 .py-3 {
-    padding-top: 1rem!important;
-    padding-bottom: 1rem!important;
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
 }
 .px-4 {
-    padding-right: 1.5rem!important;
-    padding-left: 1.5rem!important;
+  padding-right: 1.5rem !important;
+  padding-left: 1.5rem !important;
 }
 .flex-grow-0 {
-    flex-grow: 0!important;
+  flex-grow: 0 !important;
 }
 .border-top {
-    border-top: 1px solid #dee2e6!important;
+  border-top: 1px solid #dee2e6 !important;
 }

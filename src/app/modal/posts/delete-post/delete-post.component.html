@@ -1,5 +1,7 @@
-<div class="example-form">
-  <mat-card-title>Delete post?</mat-card-title>
+<div class="container">
+  <div style="text-align: center">
+    <mat-card-title>Delete Post?</mat-card-title>
+  </div>
   <div class="wrapper">
     <mat-card-subtitle class="subtitle"
       >This can’t be undone and it will be removed from your profile
@@ -7,11 +9,6 @@
     </mat-card-subtitle>
   </div>
   <div mat-card-actions class="actions">
-    <div style="margin-bottom: 5px;">
-      <button mat-raised-button class="btnDelete" (click)="deletePost($event)">
-        Delete
-      </button>
-    </div>
     <div>
       <button
         mat-dialog-close
@@ -21,6 +18,11 @@
         data-dismiss="modal"
       >
         Cancel
+      </button>
+    </div>
+    <div style="margin-bottom: 0.8vmin">
+      <button mat-raised-button class="btnDelete" (click)="deletePost($event)">
+        Delete
       </button>
     </div>
   </div>

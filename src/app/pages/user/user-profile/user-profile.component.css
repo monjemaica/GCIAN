@@ -14,6 +14,8 @@
   width: calc(100% - 78px);
   transition: all 0.5s ease;
   z-index: 2;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .home-section .text{
@@ -56,6 +58,10 @@ mat-divider {
   margin-bottom: -6px;
 }
 
+.cards_wrap_id {
+font-size: 14px;
+}
+
 .one {
   flex: 0 0 40%;
 }
@@ -82,7 +88,7 @@ hr {
   border-radius: 50%;
   width: 45px;
   height: 45px;
-  margin-left: 260px;
+  /* margin-left: 260px; */
   margin-top: 40px;
 }
 
@@ -113,9 +119,9 @@ hr {
 }
 
 .id_btn {
-  background: #63be74;
+  background: #398547;
   width: 80%;
-  border-radius: 20px;
+  color: white;
 }
 
 /* ------------------------- CARD FOR VIEW ALL POSTS STARTS HERE ------------------------- */
@@ -153,15 +159,16 @@ section .card {
 }
 
 .post-card .card-subtitle {
-  font-size: 15px;
-  color: black;
+  font-size: 14px;
+  color: rgb(114, 114, 114);
   margin-top: -8px;
 }
+
 
 .post-card .card-content {
   font-size: 15px;
   color: black;
-  margin-left: 2.5%;
+  margin-left: 2%;
   margin-right: 7.5%;
   margin-top: -1%;
 }
@@ -173,7 +180,7 @@ section .card {
 .avatar img {
   height: 250%;
   border-radius: 50%;
-  margin-left: 180px;
+  /* margin-left: 180px; */
 }
 
 .posts-avatar img {
@@ -188,24 +195,21 @@ button:focus {
 }
 
 .drop-down {
-  margin-left: 260%;
   margin-top: 15px;
 }
 
 .post-card .card-actions {
-  text-align: end;
-  margin-right: 2%;
+  text-align: center;
 }
 
 .posts_btn {
   color: black;
   font-size: 20px;
   margin-top: -30px !important;
+  margin-left: -3px;
 }
 
 .bi-camera2 {
-  margin-left: -230px;
-  margin-top: -30px !important;
   font-size: 18px;
   color: whitesmoke;
 }
@@ -257,4 +261,11 @@ label i {
   color: #398547;
   font-size: 18px;
   cursor: pointer;
+}
+
+.display-picture {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  flex-direction:column
 }

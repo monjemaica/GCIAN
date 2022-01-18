@@ -1,200 +1,176 @@
-<!-- --------------------------------------HOME SECTION--------------------------------------------- -->
 <section class="home-section">
   <nav class="navbar navbar-light bg-light">
     <span class="label">Home</span>
   </nav>
-  <div style="height: 60px"></div>
 
-  <div class="row" style="margin-left: 0.5%">
-    <div class="col col-md-8"></div>
-
-    <!-- --------------------------------------TRENDS--------------------------------------------- -->
-    <div class="col col-md-3.2">
-      <div class="card trends-card" style="width: 22rem">
-        <div class="card-header">Trends</div>
-        <ng-container *ngFor="let t of trends; let i = index">
-          <ul
-            class="list-group list-group-flush"
-            [ngClass]="{ 'show-less': showShortDesciption }"
-          >
-            <a
-              href="#"
-              class="
-                list-group-item list-group-item-action
-                flex-column
-                align-items-start
-              "
-            >
-              <div class="d-flex w-100 justify-content-between">
-                <h3 class="mb-1"></h3>
-                <small>{{trends[i].date_created_TS_fld | date: 'short'}}</small>
-              </div>
-              <p style="font-size: 14px" class="show-less">
-                {{trends[i].content_fld }}
-              </p>
-
-              <small>{{trends[i].total_likes}} Care/s</small>
-            </a>
-          </ul>
-        </ng-container>
-        <a
-          href="#"
-          class="
-            list-group-item list-group-item-action
-            flex-column
-            align-items-start
-          "
-          style="color: #419751"
-          (click)="alterDescriptionText()"
-        >
-          {{ showShortDesciption ? "Show More " : "Show Less" }}
-        </a>
-
-        <!-- <mat-card-content>
-          <h3 class="trends">Trends</h3>
-          <div
-          [ngClass]="{ 'show-less': showShortDesciption }"
-          style="margin-left: 5%; margin-right: 5%"
-          >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum
-          dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit
-          amet consectetur adipisicing elit.Lorem ipsum dolor sit amet
-          consectetur adipisicing elit.
-        </div>
-        <p style="margin-left: 5%; margin-right: 5%"><small class="text-muted">Last updated 3 mins ago</small></p>
-        
-        <button class="trends-button" (click)="alterDescriptionText()">
-          {{ showShortDesciption ? "Show More >" : "Show Less" }}
-        </button>
-      </mat-card-content> -->
-      </div>
-    </div>
-    <ng-container *ngFor="let post of posts">
-      <div class="col col-md-8">
-        <div class="post-card" fxLayoutAlign="start start" fxFlexFill>
-          <div class="card shadow" fxFlex="100">
-            <div class="row">
-              <div class="col-sm-1">
-                <div class="card-body">
-                  <div class="avatar">
-                    <img
-                      src="http://localhost:5000/uploads/{{ post.avatar_fld }}"
-                      alt=""
-                    />
+  <div class="flex-container">
+    <div style="width: 150vmin">
+      <ng-container *ngFor="let post of posts">
+        <div>
+          <div class="post-card" fxLayoutAlign="start start" fxFlexFill>
+            <div class="card shadow" fxFlex="98">
+              <div
+                style="
+                  display: flex;
+                  flex-direction: row;
+                  flex-wrap: wrap;
+                  justify-content: flex-start;
+                "
+              >
+                <div>
+                  <div class="card-body">
+                    <div class="avatar">
+                      <img
+                        src="http://localhost:5000/uploads/{{
+                          post.avatar_fld
+                        }}"
+                        alt=""
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-sm-3" style="margin-left: -1.4%;">
-                <div class="card-body post-card-details">
-                  <p class="card-title">
-                    {{ post.fname_fld }} {{ post.mname_fld }}
-                    {{ post.lname_fld }}
-                  </p>
-                  <p class="card-subtitle">
-                    {{ post.program_fld }}
-                  </p>
+                <div class="post-card-details">
+                  <div class="card-body">
+                    <p class="card-title">
+                      {{ post.fname_fld }} {{ post.mname_fld }}
+                      {{ post.lname_fld }}
+                    </p>
+                    <p class="card-subtitle-course">
+                      {{ post.program_fld }}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div class="col-sm-3">
                 <div class="drop-down">
-                  <mat-card-actions class="posts_btn-container">
-                    <button
-                      class="posts_btn"
-                      mat-icon-button
-                      [matMenuTriggerFor]="option"
-                    >
-                      <i class="bx bx-dots-horizontal-rounded"></i>
+                  <mat-card-actions>
+                    <button mat-icon-button [matMenuTriggerFor]="option">
+                      <i
+                        class="bx bx-dots-horizontal-rounded"
+                        style="font-size: 3.2vmin"
+                      ></i>
                     </button>
                     <mat-menu #option="matMenu">
-                      <ng-container *ngIf="student.studid_fld == post.studid_fld">
+                      <ng-container
+                        *ngIf="student.studid_fld == post.studid_fld"
+                      >
                         <button mat-menu-item (click)="editPost(post.post_uid)">
-                          <i style="margin-right: 8%" class="bx bx-edit"></i>Edit
+                          <i class="btn_care bx bx-edit"></i>Edit
                         </button>
                         <mat-divider
                           style="width: 90%; margin-left: 5%"
                           class="posts_mat-divider"
                         ></mat-divider>
-                      <button mat-menu-item (click)="deletePost(post.post_uid)">
-                          <i
-                            style="margin-right: 8%"
-                            class="error bx bx-trash"
-                          ></i
-                          >Delete
+                        <button
+                          mat-menu-item
+                          (click)="deletePost(post.post_uid)"
+                        >
+                          <i class="btn_red bx bx-trash"></i>Delete
                         </button>
                       </ng-container>
-                      <ng-container *ngIf="student.studid_fld !== post.studid_fld">
-                        <button mat-menu-item (click)="reportPost(post.post_uid)">
-                          <i
-                            style="margin-right: 8%"
-                            class="error bx bx-error"
-                          ></i
-                          >Report
+                      <ng-container
+                        *ngIf="student.studid_fld !== post.studid_fld"
+                      >
+                        <button
+                          mat-menu-item
+                          (click)="reportPost(post.post_uid)"
+                        >
+                          <i class="btn_red bx bx-error"></i>Report
                         </button>
                       </ng-container>
                     </mat-menu>
                   </mat-card-actions>
                 </div>
               </div>
-            </div>
-            <div class="card-content">
-              <p>
-                {{ post.content_fld }}
-              </p>
-            </div>
+              <div class="card-content">
+                <p class="content-field">
+                  {{ post.content_fld }}
+                </p>
+                <p class="content-timestamp">
+                  {{ post.date_created_TS_fld | date: "short" }}
+                </p>
+              </div>
 
-            <div class="col-sm-3">
-              <p class="card-subtitle">
-                {{ post.date_created_TS_fld | date: "short" }}
-              </p>
-            </div>
-            
-            <div class="card-actions" style="margin-top: -1%;">
-              <button type="button" class="btn_like" (click)="doLIke(post.post_useruid)">
-                <ng-container *ngIf="like_clicked == true">
-                  <i class="fas fa-heart" style="color: #ea4c46;"> 
-                    <ng-container *ngFor="let c of filterLikes(post.post_uid)">
-                      {{c.total_likes}} </ng-container>
-                  </i>
-                </ng-container>
-                <ng-container *ngIf="like_clicked == false">
-                  <i class="fas fa-heart" style="color: #398547;"> 
-                    <ng-container *ngFor="let c of filterLikes(post.post_uid)">
-                      {{c.total_likes}} 
+              <div class="card-actions">
+                <button
+                  type="button"
+                  class="btn_care"
+                  (click)="doLIke(post.post_useruid)"
+                >
+                  <ng-container *ngIf="like_clicked == true">
+                    <i class="fas fa-heart" style="color: #ea4c46">
+                      <ng-container
+                        *ngFor="let c of filterLikes(post.post_uid)"
+                      >
+                        {{ c.total_likes }}
+                      </ng-container>
+                    </i>
+                  </ng-container>
+                  <ng-container *ngIf="like_clicked == false">
+                    <i class="fas fa-heart" style="color: #398547">
+                      <ng-container
+                        *ngFor="let c of filterLikes(post.post_uid)"
+                      >
+                        {{ c.total_likes }}
+                      </ng-container>
+                    </i>
+                  </ng-container>
+                </button>
+                <button
+                  (click)="comment(post.post_uid)"
+                  routerLink="/comment/{{ post.post_uid }}"
+                  type="button"
+                  class="btn_comment"
+                >
+                  <i class="fas fa-comment">
+                    <ng-container
+                      *ngFor="let c of filterComments(post.post_uid)"
+                    >
+                      {{ c.total_comments }}
                     </ng-container>
                   </i>
-                </ng-container>
-              </button>
-              <button
-                (click)="comment(post.post_uid)"
-                routerLink="/comment/{{post.post_uid}}"
-                type="button"
-                class="btn_comment"
-              >
-              <i class="fas fa-comment">
-                <ng-container *ngFor="let c of filterComments(post.post_uid)">
-                  {{c.total_comments}}
-                </ng-container>
-              </i>
-              </button>
+                </button>
+              </div>
             </div>
           </div>
         </div>
+      </ng-container>
+    </div>
+    <div>
+      <div>
+        <div class="card trends-card">
+          <div class="card-header">Trends</div>
+          <ng-container *ngFor="let t of trends; let i = index">
+            <ul
+              class="list-group list-group-flush"
+              [ngClass]="{ 'show-less': showShortDesciption }"
+            >
+              <a
+                href="#"
+                class="list-group-item list-group-item-action flex-column align-items-start"
+              >
+                <div class="d-flex w-100 justify-content-between">
+                  <h3 class="mb-1"></h3>
+                  <small>
+                    {{ trends[i].date_created_TS_fld | date: "short" }}
+                  </small>
+                </div>
+                <p style="font-size: 2.25vmin" class="show-less">
+                  {{ trends[i].content_fld }}
+                </p>
+
+                <small>{{ trends[i].total_likes }} Care/s</small>
+              </a>
+            </ul>
+            <a
+              href="#"
+              class="list-group-item list-group-item-action flex-column align-items-start"
+              style="color: #419751"
+              (click)="alterDescriptionText()"
+            >
+              {{ showShortDesciption ? "Show More " : "Show Less" }}
+            </a>
+          </ng-container>
+        </div>
       </div>
-    </ng-container>
+    </div>
   </div>
 </section>
-<script
-  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-  crossorigin="anonymous"
-></script>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-  crossorigin="anonymous"
-></script>
-<script
-  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-  crossorigin="anonymous"
-></script>

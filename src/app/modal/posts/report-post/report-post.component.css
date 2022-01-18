@@ -1,41 +1,61 @@
-.example-form {
-    min-width: 500px;
-    min-height: 200px;
-    width: 100%;
-  }
-  
-  .wrapper {
-    width: 100%;
-  }
-  
-  textarea {
-    height: 140px;
-    font-size: 16px;
-  }
-  
-  mat-label {
-    font-size: 15px;
-  }
-  
-  mat-form-field {
-    margin-bottom: 2%;
-  }
-  
-  .actions {
-    text-align: end;
-  }
-  
-  .btnCancel {
-    margin-right: 1%;
-    background-color: rgb(201, 65, 65);
-    color: white;
-  }
-  
-  .btnSave {
-    background-color: #398547;
-    color: white;
-  }
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
 
-  button:hover, button:focus {
-    outline: none;
-  } 
+.container {
+  /* height: 47vmin; */
+  width: 80vmin;
+}
+
+.details {
+  font-size: 2vmin;
+}
+
+mat-label {
+  font-size: 2.25vmin;
+}
+
+mat-form-field {
+  margin-bottom: 2%;
+}
+
+.wrapper {
+  margin-top: 1.6vmin;
+  width: 100%;
+}
+
+.concern {
+  margin-top: -1.5vmin;
+  width: 100%;
+}
+
+textarea {
+  height: 15vmin;
+  font-size: 2.5vmin;
+}
+
+.actions {
+  text-align: end;
+}
+
+.btnCancel {
+  background-color: #b0b0b0;
+  color: white;
+  margin-right: 2vmin;
+  width: 12vmin;
+}
+
+.btnSubmit {
+  background-color: rgb(204, 26, 26);
+  color: white;
+  width: 12vmin;
+}
+
+button:hover,
+button:focus {
+  outline: none;
+}

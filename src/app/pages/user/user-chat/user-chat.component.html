@@ -1,43 +1,71 @@
-<div class="container">
-  <img class="home-image" src="assets/img/Group Chat.gif" alt=""  style="height: 100%;"/>
-  <div class="btnContainer">
-    <h2>Welcome to GCIAN Room!</h2>
-    <button type="button" class="btn btn-success btnLand" (click)="createRoom()">
-      <i class="fa fa-plus-circle" aria-hidden="true"></i>
-      Create a room
-    </button>
-    <button type="button" class="btn btn-success btnLand"  (click)="createRoom()">
-      <i class="fa fa-sign-in" aria-hidden="true"></i>
-      Join a room
-    </button>
-  </div>
-</div>
-
-<!-- Modal -->
-
-
-<ng-template #joinRoomModal let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Join a Room</h4>
-    <button type="button" class="close" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <div class="form-group">
-      <label for="roomName"
-        >Please enter the Room Id of the room you want to join</label
+<div class="flex-container">
+  <div class="flex-column">
+    <p style="font-size: 5vmin; font-weight: bold">Welcome to</p>
+    <p style="font-size: 6vmin; font-weight: bold; margin-top: -4vmin">
+      GCIAN ROOM
+    </p>
+    <p style="font-size: 2vmin; margin-top: -1vmin">
+      The platform where you can communicate with your fellow students.
+    </p>
+    <div style="display: flex">
+      <button
+        type="button"
+        class="btn btn-success btnLand"
+        (click)="createRoom()"
+        style="margin-right: 8%"
       >
-      <input
-        id="joinRoomInp"
-        class="form-control"
-        placeholder="Room Id"
-        name="joinRoomInp"
-        autofocus
-      />
+        <i
+          class="fa fa-plus-circle"
+          aria-hidden="true"
+          style="margin-right: 3%"
+        ></i>
+        Create a room
+      </button>
+      <button
+        type="button"
+        class="btn btn-success btnLand"
+        (click)="createRoom()"
+      >
+        <i
+          class="fa fa-sign-in"
+          aria-hidden="true"
+          style="margin-right: 3%"
+        ></i>
+        Join a room
+      </button>
     </div>
   </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-primary">Join Room</button>
+  <div class="container">
+    <img
+      class="home-image"
+      src="assets/img/Group Chat.gif"
+      alt=""
+    />
   </div>
-</ng-template>
+
+<ng-template #joinRoomModal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Join a Room</h4>
+      <button type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="roomName"
+          >Please enter the Room Id of the room you want to join</label
+        >
+        <input
+          id="joinRoomInp"
+          class="form-control"
+          placeholder="Room Id"
+          name="joinRoomInp"
+          autofocus
+        />
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary">Join Room</button>
+    </div>
+  </ng-template>
+</div>

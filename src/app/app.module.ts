@@ -41,7 +41,6 @@ import { AppInfoComponent } from './modal/app-info/app-info.component';
 import { ReportPostComponent } from './modal/posts/report-post/report-post.component';
 import { UserChatComponent } from './pages/user/user-chat/user-chat.component';
 import { UserProfileCaresComponent } from './pages/user/user-profile-cares/user-profile-cares.component';
-import { UserCommentComponent } from './pages/user/user-comment/user-comment.component';
 import { AdminUsersComponent } from './pages/admin/admin-users/admin-users.component';
 import { AdminPostsComponent } from './pages/admin/admin-posts/admin-posts.component';
 import { AdminReportsComponent } from './pages/admin/admin-reports/admin-reports.component';
@@ -81,7 +80,6 @@ import { UserChatroomLeaveComponent } from './modal/chat/user-chatroom-leave/use
     ReportPostComponent,
     UserChatComponent,
     UserProfileCaresComponent,
-    UserCommentComponent,
     AdminUsersComponent,
     AdminPostsComponent,
     AdminReportsComponent,

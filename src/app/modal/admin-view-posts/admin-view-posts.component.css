@@ -1,52 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins" , sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-body {
-  overflow-x: hidden;
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 72vmin;
 }
 
-section .post-card {
-  margin-bottom: 1%;
-}
-
-section .card {
-  border-radius: 15px;
-  background: white;
-  color: black;
-}
-
-.post-card .post-card-details {
-  margin-left: -6%; 
-}
-
-.post-card .card-title {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 2%;
-}
-
-.post-card .card-subtitle {
-  font-size: 15px;
-  color: black;
-  margin-top: -8px;
-}
-
-.post-card .card-content {
-  font-size: 15px;
-  color: black;
-  margin-left: 7.5%;
-  margin-right: 7.5%;
-  margin-top: -2%;
-  height: 100%;
-}
-
-.post-card .avatar {
-  height: 50px;
+.avatar {
+  height: 8vmin;
 }
 
 .avatar img {
@@ -54,6 +21,31 @@ section .card {
   border-radius: 50%;
 }
 
-button:hover, button:focus {
-  outline: none;
+.title {
+  font-size: 3vmin;
+  font-weight: bold;
+  /* margin-top: .6vmin; */
+}
+
+.subtitle {
+  margin-top: -1vmin;
+  font-size: 2vmin;
+  color: rgb(114, 114, 114);
+}
+
+.card-content {
+  margin-top: -1vmin;
+  margin-left: 2.5vmin;
+  font-size: 2vmin;
+}
+
+.image-content {
+  justify-content: center; 
+  text-align: center;
+  margin-bottom: 1vmin;
+}
+
+.image-content img {
+  height: 30vmin;
+  width: 30vmin;
 }

@@ -1,42 +1,52 @@
-.example-form {
-    min-width: 500px;
-    min-height: 200px;
-    width: 100%;
-  }
-  
-.wrapper {
-width: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins" , sans-serif;
 }
 
-textarea {
-height: 140px;
-font-size: 16px;
+.container {
+  /* height: 43vmin; */
+  width: 80vmin;
 }
 
 mat-card-title {
   text-align: center;
-  font-size: 22px; 
+  font-size: 3.2vmin;
+  font-weight: bold;
 }
 
-mat-form-field {
-  margin-bottom: 2%;
+.wrapper {
+  margin-top: 1.6vmin;
+  width: 100%;
+}
+
+textarea {
+  height: 22.4vmin;
+  font-size: 2.5vmin;
 }
 
 .actions {
-text-align: end;
+  text-align: end;
+  margin-top: 1.5vmin;
 }
 
 .btnCancel {
-  margin-right: 1%;
-  background-color: rgb(201, 65, 65);
+  background-color: #b0b0b0;
   color: white;
+  margin-right: 2vmin;
+  width: 12vmin;
 }
 
 .btnSave {
-  background-color: #398547; 
+  background-color: #398547;
   color: white;
+  width: 12vmin;
 }
 
-button:hover, button:focus {
+button:hover,
+button:focus {
   outline: none;
-} 
+}
+

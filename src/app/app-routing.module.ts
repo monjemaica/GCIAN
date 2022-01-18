@@ -9,7 +9,6 @@ import { AdminLoginComponent } from './pages/admin/admin-login/admin-login.compo
 import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
 import { UserChatComponent } from './pages/user/user-chat/user-chat.component';
 import { UserProfileCaresComponent } from './pages/user/user-profile-cares/user-profile-cares.component';
-import { UserCommentComponent } from './pages/user/user-comment/user-comment.component';
 import { AdminReportsComponent } from './pages/admin/admin-reports/admin-reports.component';
 import { AdminUsersComponent } from './pages/admin/admin-users/admin-users.component';
 import { AdminPostsComponent } from './pages/admin/admin-posts/admin-posts.component';
@@ -39,12 +38,6 @@ const routes: Routes = [
   {
     path: 'details-post/:id',
     component: DetailsPostComponent,
-    canActivate: [AuthGuard],
-
-  },
-  {
-    path: 'user-comment',
-    component: UserCommentComponent,
     canActivate: [AuthGuard],
 
   },
