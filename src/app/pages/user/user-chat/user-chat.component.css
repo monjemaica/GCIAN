@@ -31,7 +31,6 @@
 
 @media (max-width: 768px) {
   .flex-container {
-    /* margin-bottom: 5vmin; */
     flex-flow: column;
     padding-right: 10vmin;
   }

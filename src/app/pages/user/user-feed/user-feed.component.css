@@ -215,8 +215,8 @@ section .card {
 }
 
 .btn_care {
-  margin-right: 1vmin;
-  margin-left: 0.1.5vmin;
+  margin-right: 1.3vmin;
+  margin-left: .1vmin;
 }
 
 .btn_red {
@@ -253,6 +253,7 @@ section .card {
   margin-right: 15vmin;
   border: none;
   background-color: transparent;
+  color: #398547;
   font-size: 2.5vmin;
   cursor: pointer;
 }

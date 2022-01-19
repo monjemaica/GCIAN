@@ -26,120 +26,36 @@
   margin: 18px
 }
 
-/* ------------------------------ SIDE NAV CSS ENDS HERE ------------------------------ */
-
-.id_card-border {
-  background: #398547;
-  color: black;
-  position: fixed;
-  padding-bottom: 2%;
-}
-
-mat-card-subtitle {
-  font-size: 15px;
-  color: black;
-}
-
-mat-card-content {
-  font-size: 15px;
-  color: black;
-  margin-left: 3%;
-  font-weight: 450;
-}
-
-mat-divider {
-  border-top-color: rgb(119, 119, 119);
-  padding-bottom: 4%;
-}
-
-.cards_wrap {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: -6px;
-}
-
-.cards_wrap_id {
-font-size: 14px;
-}
-
-.one {
-  flex: 0 0 40%;
-}
-
-.two {
-  flex: 1;
-}
-
-.bx bx-edit {
-  color: red;
-}
-
-hr {
-  margin-top: 0.7rem;
-  margin-bottom: 0.7rem;
-  border: 0;
-  border-top: 1px solid rgba(135, 135, 135, 0.693);
-}
-/* ------------------------- CARD FOR STUDENT'S ID STARTS HERE ------------------------- */
-
-.change-avatar {
-  background-color: rgba(135, 135, 135, 0.693);
-  border: none;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  /* margin-left: 260px; */
-  margin-top: 40px;
-}
-
-.id_container {
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-.id_cards-wrap {
-  display: flex;
-  margin-bottom: 15px;
-}
-
-.id_img {
-  height: 320%;
-  border-radius: 50%;
-  display: flex;
-}
-
-.id_subs {
-  margin-left: 5%;
-}
-
-.id_card-btn {
-  text-align: center;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-
-.id_btn {
-  background: #398547;
-  width: 80%;
-  color: white;
-}
-
-/* ------------------------- CARD FOR VIEW ALL POSTS STARTS HERE ------------------------- */
-
 .label {
   font-size: 23px;
   margin-top: 5px;
   font-weight: 500;
+  /* margin-bottom: 5vmin; */
 }
 
 .navbar {
   position: fixed;
-  z-index: 99;
+  z-index: 95;
   width: 100%;
 }
 
-section .post-card {
-  margin-bottom: 1%;
+/* -------------------------------------------------------------------------- */
+
+.flex-container {
+  display: flex; 
+  /* flex-direction: row-reverse;  */
+  /* float: left; */
+  /* padding-top: 3.75rem;  */
+  /* padding-left: 3vmin;  */
+  /* width: 150vmin; */
+  /* margin-left: 10vmin; */
+}
+
+.id-container {
+  margin-top: 15vmin; 
+  margin-right: 10vmin;
+  margin-left: -2.5vmin;
+  position: fixed;
 }
 
 section .card {
@@ -148,69 +64,42 @@ section .card {
   color: black;
 }
 
-.post-card .post-card-details {
-  margin-left: -6%;
-}
-
-.post-card .card-title {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 2%;
-}
-
-.post-card .card-subtitle {
-  font-size: 14px;
-  color: rgb(114, 114, 114);
-  margin-top: -8px;
-}
-
-
-.post-card .card-content {
-  font-size: 15px;
-  color: black;
-  margin-left: 2%;
-  margin-right: 7.5%;
-  margin-top: -1%;
+.display-picture {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  flex-direction:column;
+  margin-bottom: 1vmin;
 }
 
 .post-card .avatar {
-  height: 50px;
+  height: 8vmin;
 }
 
 .avatar img {
   height: 250%;
-  border-radius: 50%;
-  /* margin-left: 180px; */
-}
-
-.posts-avatar img {
-  height: 50px;
-  width: 50px;
+  width: auto;
   border-radius: 50%;
 }
 
-button:hover,
-button:focus {
-  outline: none;
-}
-
-.drop-down {
-  margin-top: 15px;
-}
-
-.post-card .card-actions {
-  text-align: center;
+.change-avatar {
+  background-color: rgba(135, 135, 135, 0.693);
+  border: none;
+  border-radius: 50%;
+  width: 7vmin;
+  height: 7vmin;
+  margin-top: 7vmin;
+  margin-left: 12vmin;
 }
 
 .posts_btn {
   color: black;
-  font-size: 20px;
-  margin-top: -30px !important;
-  margin-left: -3px;
+  margin-top: -3.5vmin;
+  margin-left: -4.5vmin;
 }
 
 .bi-camera2 {
-  font-size: 18px;
+  font-size: 3.2vmin;
   color: whitesmoke;
 }
 
@@ -218,54 +107,172 @@ input[type="file"] {
   display: none;
 }
 
-label {
+.bi-images {
+  color: black;
+  margin-right: 1.5vmin;
+  font-size: 2vmin;
+}
+
+.bi-camera {
+  color: black;
+  margin-right: 1.3vmin;
+  font-size: 2vmin;
+}
+
+.id_details_container {
+  display: flex; 
+  flex-direction: column
+}
+
+.id_container {
+  padding: 2vmin;
+}
+
+.cards_wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: .8vmin;
+}
+
+.one {
+  flex: 0 0 25vmin;
+}
+
+.id_subs {
+  margin-left: 1vmin;
+  font-size: 2.25vmin;
   color: black;
 }
 
-label i {
-  margin-left: 6px;
+.two {
+  flex: 2;
+}
+
+.cards_wrap_id {
+  font-size: 2.25vmin;
+  font-weight: 450;
+  color: black;
+}
+
+.id_btn {
+  text-align: center;
+  margin-top: 2vmin;
+  margin-bottom: 3vmin;
+}
+
+.id_btn-details {
+  background: #398547;
+  width: 50vmin;
+  color: white;
+  font-size: 2.2vmin;
+}
+
+hr {
+  margin-top: 0.7rem;
+  margin-bottom: 0.7rem;
+  border: 0;
+  border-top: 1px solid rgba(135, 135, 135, 0.693);
+}
+
+mat-divider {
+  border-top-color: rgb(119, 119, 119);
+}
+
+/* ------------------------- STUDENT'S ID ENDS HERE ------------------------- */
+
+.posts-container {
+  margin-top: 5%; 
+  margin-left: 38%; 
+  width: 125vmin; 
+  display: flex; 
+  flex-direction: column;
+}
+
+.seg-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .seg-posts {
-  width: 250px;
+  width: 50vmin;
   border: none;
   background-color: transparent;
   margin-bottom: 2%;
   font-weight: 500;
+  font-size: 2.5vmin;
+  color: black;
 }
 
 .seg-cares {
-  width: 250px;
+  width: 50vmin;
   border: none;
   background-color: transparent;
-  color: #398547;
-  border-bottom: 3px solid #398547;
   margin-bottom: 2%;
+  font-size: 2.5vmin;
   font-weight: 500;
+  border-bottom: .4vmin solid #398547;
+  color: #398547;
 }
 
+.posts-avatar img {
+  height: 8vmin;
+  width: 8vmin;
+  border-radius: 50%;
+}
 
-.card-actions .btn_like {
-  margin-right: 18%;
+.post-card-posts {
+  margin-top: -1.5vmin;
+}
+
+.card-actions {
+  text-align: center;
+}
+
+.drop-down {
+  margin-left: 60%;
+  margin-top: 2.5vmin;
+}
+
+.card-actions .btn_care {
+  margin-right: 15vmin;
   border: none;
   background-color: transparent;
   color: #398547;
-  font-size: 18px;
+  font-size: 2.5vmin;
   cursor: pointer;
 }
 
 .card-actions .btn_comment {
-  margin-left: 18%;
+  margin-left: 25vmin;
   border: none;
   background-color: transparent;
   color: #398547;
-  font-size: 18px;
+  font-size: 2.5vmin;
   cursor: pointer;
 }
 
-.display-picture {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  flex-direction:column
+.card-title {
+  font-size: 2.7vmin;
+  font-weight: bold;
+  margin-bottom: 2%;
+}
+
+.card-subtitle {
+  font-size: 2vmin;
+  color: rgb(114, 114, 114);
+  margin-top: -1.2vmin;
+}
+
+.card-content {
+  font-size: 2.4vmin;
+  color: black;
+  margin-left: 2.3%;
+  margin-top: -1.5vmin;
+  padding-right: 10vmin;
+}
+
+button:hover,
+button:focus {
+  outline: none;
 }
