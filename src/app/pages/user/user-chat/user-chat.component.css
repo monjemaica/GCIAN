@@ -33,6 +33,12 @@
   .flex-container {
     /* margin-bottom: 5vmin; */
     flex-flow: column;
+    padding-right: 10vmin;
+  }
+
+  .home-image {
+    height: auto;
+    width: 50vmin;
   }
 }
 
@@ -45,10 +51,6 @@
 .container {
   margin-top: 1vmin;
   width: 100vw;
-}
-
-.home-image {
-  height: 70vmin;
 }
 
 .btnLand {
