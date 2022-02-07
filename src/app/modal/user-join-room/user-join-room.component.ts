@@ -18,6 +18,7 @@ export class UserJoinRoomComponent implements OnInit {
   currentUser: any;
   room_uid: any;
   members: any;
+  left_members: any;
 
   isPopupOpened = false;
 
@@ -32,6 +33,7 @@ export class UserJoinRoomComponent implements OnInit {
   ngOnInit() {
     this.currentUser = this._us.getUser()
     this.getMembers();
+    this.getLeftMembers();
   }
 
   ngOnDestroy() {
@@ -41,7 +43,11 @@ export class UserJoinRoomComponent implements OnInit {
   getMembers(){
     this._ds._httpPostRequestNoData('rooms/members').subscribe((res: any) => {
       this.members = res;
-      console.log("ALL ROOMS: ", this.members)
+    });
+  }
+  getLeftMembers(){
+    this._ds._httpPostRequestNoData('rooms/left_members').subscribe((res: any) => {
+      this.left_members = res;
     });
   }
 
@@ -77,19 +83,22 @@ export class UserJoinRoomComponent implements OnInit {
         (users = data.users)
       });
 
+      // check if duplicate added members
       let checkMembers = this.members.filter((r) => r.studid_fld === this.currentUser.studid_fld);
-
+    
       if(checkMembers.length === 0){
-        console.log('data2:', data)
+        
         this._ds._httpPostRequest('rooms/add_member', data).subscribe((res:any) => {
           console.log('add new member ', res)
         })
       }
 
+      //check i the user has been joined to the group
+      // let checkJoinedMembers = this.left_members.filter((r) => r.studid_fld === this.currentUser.studid_fld);
+      // console.log('CHECK MEMBERS', checkJoinedMembers);
     })
     
-    this.dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+    this.dialogRef.afterClosed().subscribe(result => {      
       this.router.navigateByUrl('/user-chatroom/'+ this.room_uid)
     });
 

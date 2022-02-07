@@ -27,6 +27,7 @@ export class UserChatroomLeaveComponent implements OnInit {
   leaveRoom() {
     this._cs.emit('leave', this.data.data);
 
+    console.log('LEAVE DATA', this.data.data)
     this._ds._httpPostRequestNoData(`rooms/leave/${this.data.studid_fld}`).subscribe((res:any) => {
       console.log('leave the room')
     })

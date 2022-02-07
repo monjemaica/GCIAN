@@ -12,7 +12,8 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-chatroom.component.css'],
 })
 export class UserChatroomComponent implements OnInit {
-  messages: any[] = [];
+  oldMsg: any[] = [];
+  newMsg: any[] = [];
   message_notif: any[] = [];
 
   members: any;
@@ -23,7 +24,6 @@ export class UserChatroomComponent implements OnInit {
   room_uid: any;
   groups: any;
   roomName: any;
-  newMsg: any;
 
   chatHead: string;
   countMembers: any;
@@ -47,9 +47,18 @@ export class UserChatroomComponent implements OnInit {
     this.getGroups();
     this.getRoomName();
     this.joinRoom();
+    this.getInitialMessage();
   }
 
 
+  async getInitialMessage(){
+    let room_uid = await this.room_uid;
+
+    this._ds._httpPostRequestNoData(`room/message?room_uid=${room_uid}`).subscribe((res: any) => {
+      this.oldMsg = res
+      console.log('MESSGAGE TESTING: ', this.oldMsg);
+    })
+  }
 
   async getRoomName(){
     let room_uid = await this.room_uid;
@@ -96,29 +105,17 @@ export class UserChatroomComponent implements OnInit {
 
   getMessage() {
     this._cs.listen('new-user-joined').subscribe((res: any) => {
-      this.messages.push(res);
+      this.newMsg.push(res);
       console.log('new user joined: ', res);
     });
     this._cs.listen('left-room').subscribe((res: any) => {
-      this.messages.push(res);
+      this.newMsg.push(res);
       console.log('left room: ', res);
     });
     this._cs.listen('new-message').subscribe((res: any) => {
-      this.messages.push(res);
+      this.newMsg.push(res);
       console.log('MESSGAGE TESTING: ', res);
     });
-
-    // //get room
-    // let data = {
-    //   user: this.data.user,
-    //   room: this.data.rname_fld,
-    // };
-
-    // this._cs.on('room-users', ({ data }) => {
-    //   this.users = data.user;
-    //   this.room = data.rname_fld;
-    //   console.log('room', this.room);
-    // });
   }
 
   sendMessage(e) {
@@ -131,22 +128,19 @@ export class UserChatroomComponent implements OnInit {
       avatar_fld: this.data.avatar_fld
     };
 
-    let rname_fld = this.data.rname_fld;
-
     console.log('message: ', data);
     this._cs.emit('message', data);
 
 
-    // let data2 = {
-    //   studid_fld: this.currentUser.studid_fld,
-    //   message_fld: e.target.message.value
-    // }
+    let data2 = {
+      studid_fld: this.currentUser.studid_fld,
+      message_fld: e.target.message.value
+    }
 
-    // this._ds._httpPostRequest(`rooms/message/${this.room_uid}`, data2).subscribe((res: any) => {
-    //   this.newMsg.push(res);
-    //   console.log('=test= ', res)
-    // })
-    console.log('MESSAGE',this.messages)
+    this._ds._httpPostRequest(`rooms/message/${this.room_uid}`, data2).subscribe((res: any) => {
+      console.log('=test= ', res)
+    })
+    console.log('MESSAGE',this.newMsg)
 
   }
 

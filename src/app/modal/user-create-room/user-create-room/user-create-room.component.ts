@@ -49,7 +49,7 @@ export class UserCreateRoomComponent implements OnInit, OnDestroy {
   }
 
   getMembers(){
-    this._ds._httpGetRequest('rooms/members').subscribe((res: any) => {
+    this._ds._httpPostRequestNoData('rooms/members').subscribe((res: any) => {
       this.members = res;
       console.log("ALL ROOMS: ", this.members)
     });
