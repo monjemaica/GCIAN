@@ -58,6 +58,7 @@ import { NotifierComponent } from './components/notifier/notifier.component';
 import { UserChatroomComponent } from './pages/user/user-chatroom/user-chatroom.component';
 import { UserCreateRoomComponent } from './modal/user-create-room/user-create-room/user-create-room.component';
 import { UserChatroomLeaveComponent } from './modal/chat/user-chatroom-leave/user-chatroom-leave.component';
+import { UserJoinRoomComponent } from './modal/user-join-room/user-join-room.component';
 
 @NgModule({
   declarations: [
@@ -93,6 +94,7 @@ import { UserChatroomLeaveComponent } from './modal/chat/user-chatroom-leave/use
     UserChatroomComponent,
     UserCreateRoomComponent,
     UserChatroomLeaveComponent,
+    UserJoinRoomComponent
   ],
   imports: [
     BrowserModule,

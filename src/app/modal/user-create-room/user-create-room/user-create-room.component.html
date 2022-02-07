@@ -21,11 +21,11 @@
       mat-dialog-close
       mat-raised-button
       class="btnCancel"
-      type="button"
+      (click)="cancelClick()"
       data-dismiss="modal"
     >
       Cancel
     </button>
-    <button mat-raised-button class="btnCreate" type="submit">Create Room</button>
+    <button  mat-dialog-close  mat-raised-button class="btnCreate" type="submit">Create Room</button>
   </div>
 </form>

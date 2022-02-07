@@ -33,7 +33,7 @@ const routes: Routes = [
   },
   { path: 'user-chat', component: UserChatComponent, canActivate: [AuthGuard],
  },
-  { path: 'user-chatroom', component: UserChatroomComponent, canActivate: [AuthGuard],
+  { path: 'user-chatroom/:id', component: UserChatroomComponent, canActivate: [AuthGuard],
  },
   {
     path: 'details-post/:id',

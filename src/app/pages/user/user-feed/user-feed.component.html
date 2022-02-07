@@ -4,7 +4,7 @@
   </nav>
 
   <div class="flex-container">
-    <div style="width: 150vmin">
+    <div style="width: 135vmin">
       <ng-container *ngFor="let post of posts">
         <div>
           <div class="post-card" fxLayoutAlign="start start" fxFlexFill>
@@ -93,26 +93,22 @@
                 <button
                   type="button"
                   class="btn_care"
-                  (click)="doLIke(post.post_useruid)"
+                  id="post.post_uid"
+                  (click)="doLIke(post.post_uid, student.studid_fld)"
                 >
-                  <ng-container *ngIf="like_clicked == true">
+                <!---------------------------------------Like ------------------------------------------->
+                  <ng-container *ngIf="filterLikeStatus(post.post_uid, student.studid_fld) else doUnlike">
                     <i class="fas fa-heart" style="color: #ea4c46">
-                      <ng-container
-                        *ngFor="let c of filterLikes(post.post_uid)"
-                      >
-                        {{ c.total_likes }}
-                      </ng-container>
                     </i>
+                    <span style="color: #ea4c46">
+                      {{post.total_likes_fld}}
+                    </span>
                   </ng-container>
-                  <ng-container *ngIf="like_clicked == false">
-                    <i class="fas fa-heart" style="color: #398547">
-                      <ng-container
-                        *ngFor="let c of filterLikes(post.post_uid)"
-                      >
-                        {{ c.total_likes }}
-                      </ng-container>
-                    </i>
-                  </ng-container>
+
+                <!---------------------------------------Unlike ------------------------------------------->
+                <ng-template #doUnlike>
+                    <i class="fas fa-heart" style="color: #398547"></i>
+                  </ng-template>
                 </button>
                 <button
                   (click)="comment(post.post_uid)"
@@ -121,14 +117,15 @@
                   class="btn_comment"
                 >
                   <i class="fas fa-comment">
-                    <ng-container
-                      *ngFor="let c of filterComments(post.post_uid)"
-                    >
-                      {{ c.total_comments }}
-                    </ng-container>
                   </i>
+                  <ng-container
+                    *ngFor="let c of filterComments(post.post_uid)"
+                  >
+                    {{ c.total_comments }}
+                  </ng-container>
                 </button>
               </div>
+              
             </div>
           </div>
         </div>
@@ -138,37 +135,30 @@
       <div>
         <div class="card trends-card shadow">
           <div class="card-header">Trends</div>
-          <ng-container *ngFor="let t of trends; let i = index">
-            <ul
-              class="list-group list-group-flush"
-              [ngClass]="{ 'show-less': showShortDesciption }"
-            >
-              <a
-                href="#"
-                class="list-group-item list-group-item-action flex-column align-items-start"
+          <div class="trends-container" >
+            <ng-container *ngFor="let t of trends; let i = index">
+              <ul
+                class="list-group list-group-flush"             
               >
-                <div class="d-flex w-100 justify-content-between">
-                  <h3 class="mb-1"></h3>
-                  <small>
-                    {{ trends[i].date_created_TS_fld | date: "short" }}
-                  </small>
-                </div>
-                <p style="font-size: 2.25vmin" class="show-less">
-                  {{ trends[i].content_fld }}
-                </p>
-
-                <small>{{ trends[i].total_likes }} Care/s</small>
-              </a>
-            </ul>
-            <a
-              href="#"
-              class="list-group-item list-group-item-action flex-column align-items-start"
-              style="color: #419751"
-              (click)="alterDescriptionText()"
-            >
-              {{ showShortDesciption ? "Show More " : "Show Less" }}
-            </a>
-          </ng-container>
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action flex-column align-items-start"
+                >
+                  <div class="d-flex w-100 justify-content-between">
+                    <h3 class="mb-1"></h3>
+                    <small>
+                      {{ trends[i].date_created_TS_fld | date: "short" }}
+                    </small>
+                  </div>
+                  <p>
+                    {{ trends[i].content_fld }}
+                  </p>
+  
+                  <small>{{ trends[i].total_likes }} Care/s</small>
+                </a>
+              </ul>
+            </ng-container>
+          </div>
         </div>
       </div>
     </div>

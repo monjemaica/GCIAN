@@ -1,0 +1,31 @@
+<form name="form" (submit)="joinRoom($event)">
+    <div style="text-align: center">
+      <mat-card-title>Join Room</mat-card-title>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="roomName" style="margin-bottom: 1vmin;">Please enter a name for the room</label>
+        <input
+          class="form-control"
+          type="text"
+          id="room"
+          name="room"
+          placeholder="Enter Room Name"
+          required
+          autofocus
+        />
+      </div>
+    </div>
+    <div mat-card-actions class="actions">
+      <button
+        mat-dialog-close
+        mat-raised-button
+        class="btnCancel"
+        (click)="cancelClick()"
+        data-dismiss="modal"
+      >
+        Cancel
+      </button>
+      <button  mat-dialog-close  mat-raised-button class="btnCreate" type="submit">Join Room</button>
+    </div>
+  </form>

@@ -7,6 +7,7 @@ import { CreatePostComponent } from 'src/app/modal/posts/create-post/create-post
 import { DeletePostComponent } from 'src/app/modal/posts/delete-post/delete-post.component';
 import { EditPostComponent } from 'src/app/modal/posts/edit-post/edit-post.component';
 import { UserCreateRoomComponent } from 'src/app/modal/user-create-room/user-create-room/user-create-room.component';
+import { UserJoinRoomComponent } from 'src/app/modal/user-join-room/user-join-room.component';
 import { ChatService } from 'src/app/services/chat.service';
 import { UserService } from 'src/app/services/user.service';
 import { UserChatroomComponent } from '../user-chatroom/user-chatroom.component';
@@ -39,4 +40,18 @@ export class UserChatComponent implements OnInit {
     });
 
   }
+  async joinRoom(){
+    
+    const dialogRef = this.dialog.open(UserJoinRoomComponent,
+      {width: '550px'}
+      );
+    
+    dialogRef.afterClosed().subscribe(res => {
+      this.ngOnInit();
+      this.isPopupOpened = false;
+    });
+
+  }
+
+  
 }

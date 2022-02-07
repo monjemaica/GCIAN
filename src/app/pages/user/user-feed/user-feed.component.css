@@ -272,11 +272,14 @@ button:focus {
   outline: none;
 }
 
+.trends-container{
+  overflow-y: scroll;
+}
+
 .trends-card {
   width: 20rem;
   background: #398547; 
   position: fixed;
-  overflow-y: scroll;
   height: 90%;
 }
 
