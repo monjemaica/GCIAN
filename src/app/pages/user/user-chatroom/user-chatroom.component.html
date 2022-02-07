@@ -38,7 +38,7 @@
                   </div> -->
                   <div class="d-flex align-items-start">
                     <img
-                      src="https://bootdey.com/img/Content/avatar/avatar5.png"
+                      src="https://dummyimage.com/200xx200/7b876d/ffffff&text={{ chatHead | titlecase}}"
                       class="rounded-circle mr-1"
                       alt="Vanessa Tucker"
                       width="40"
@@ -47,9 +47,9 @@
                     <div class="flex-grow-1 ml-1">
                       {{g.rname_fld | titlecase}}
                       <div class="small">
-                        <!-- <span class="fas fa-circle chat-online"></span> {{members.length}}  -->
-                        <ng-container *ngIf="groups.length > 1">Members</ng-container>
-                        <ng-container *ngIf="groups.length === 1">Member</ng-container>
+                        <span class="fas fa-circle chat-online"></span> {{countMembers}} 
+                        <ng-container *ngIf="members.length > 1">Members</ng-container>
+                        <ng-container *ngIf="members.length === 1">Member</ng-container>
                         
                       </div>
                     </div>
@@ -67,7 +67,7 @@
               <div class="d-flex align-items-center py-1">
                 <div class="position-relative">
                   <img
-                    src="https://bootdey.com/img/Content/avatar/avatar3.png"
+                    src="https://dummyimage.com/200xx200/7b876d/ffffff&text={{ chatHead | titlecase}}"
                     class="rounded-circle mr-1"
                     alt="Sharon Lessman"
                     width="40"
@@ -75,7 +75,7 @@
                   />
                 </div>
                 <div class="flex-grow-1 pl-3">
-                  <!-- <strong>{{ roomName[0].rname_fld | titlecase}}</strong> -->
+                  <strong>{{ roomName | titlecase}}</strong>
                   <!-- <div class="text-muted small"><em>Typing...</em></div> -->
                 </div>
                 <!-- <div>
@@ -155,8 +155,8 @@
                   class="chat-message-left pb-4"
                   >
                     <div>
-                      <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-                      <div class="text-muted small text-nowrap mt-2">{{ message.is_created_at_fld | date: "short" }}</div>
+                      <img src="http://localhost:5000/uploads/{{message.avatar_fld}}" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
+                      <div class="text-muted small text-nowrap mt-2">{{ message.is_created_at_fld | date: "shortTime" }}</div>
                     </div>
                     <div class="other-message flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
                       <div class="font-weight-bold mb-1">{{ message.user }}</div>
@@ -171,14 +171,14 @@
                   >
                     <div>
                       <img
-                        src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                        src="http://localhost:5000/uploads/{{message.avatar_fld}}"
                         class="rounded-circle mr-1"
                         alt="Chris Wood"
                         width="40"
                         height="40"
                       />
                       <div class="text-muted small text-nowrap mt-2">
-                        {{ message.is_created_at_fld | date: "short" }}
+                        {{ message.is_created_at_fld | date: "shortTime" }}
                       </div>
                     </div>
                     <div class="my-message flex-shrink-1 rounded py-2 px-3 mr-3">
@@ -207,7 +207,7 @@
                     placeholder="Write a message..."
                     required
                   />
-                  <button class="btn btn-primary" type="submit">Send</button>
+                  <button class="btn btn-success" type="submit">Send</button>
                 </div>
               </div>
             </form>

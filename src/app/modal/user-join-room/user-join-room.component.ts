@@ -62,12 +62,16 @@ export class UserJoinRoomComponent implements OnInit {
         studid_fld: this.currentUser.studid_fld,
         user: `${this.currentUser.fname_fld} ${this.currentUser.mname_fld} ${this.currentUser.lname_fld}`,
         rname_fld: e.target.room.value,
+        avatar_fld: this.currentUser.avatar_fld
       };
   
       this.data = data;
   
       this._cs.emit('join',data);
   
+      // save to local storage
+      this._us.saveJoinedUser(data);
+
       this._cs.on('room-users',data => {
         (rname_fld = data.rname_fld), 
         (users = data.users)

@@ -14,15 +14,19 @@ import { UserService } from 'src/app/services/user.service';
 export class UserChatroomComponent implements OnInit {
   messages: any[] = [];
   message_notif: any[] = [];
+
   members: any;
   currentUser: any;
   data: any;
   room: any;
   users: any;
-  newMsg: any;
   room_uid: any;
   groups: any;
   roomName: any;
+  newMsg: any;
+
+  chatHead: string;
+  countMembers: any;
 
   constructor(
     private _cs: ChatService,
@@ -33,21 +37,25 @@ export class UserChatroomComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.data = this._cs.chatroom;
+    this.data = this._us.getUserChatRoom();
     this.room_uid = this.route.snapshot.paramMap.get('id');
     this.currentUser = this._us.getUser();
     console.log("TESTING CHATROOM DATA", this.data)
+
     this.getMessage();
     this.getMembers();
     this.getGroups();
     this.getRoomName();
+    this.joinRoom();
   }
+
+
 
   async getRoomName(){
     let room_uid = await this.room_uid;
     this._ds._httpGetRequest(`rooms/${room_uid}`).subscribe((res:any) => {
-      this.roomName = res
-      console.log('TEST ROOMNAME', res);
+      this.roomName = res.rname_fld
+      this.chatHead= this.roomName.charAt(0);
     })
   }
 
@@ -67,7 +75,23 @@ export class UserChatroomComponent implements OnInit {
       ._httpGetRequestById('rooms/members/', room_uid)
       .subscribe((res: any) => {
         this.members = res;
+        this.countMembers = this.members.length
       });
+  }
+
+  async joinRoom(){
+    let rname_fld = await this.roomName;
+
+      let data ={
+        room_uid: this.data.room_uid,
+        studid_fld: this.currentUser.studid_fld,
+        user: `${this.currentUser.fname_fld} ${this.currentUser.mname_fld} ${this.currentUser.lname_fld}`,
+        rname_fld: this.data.rname_fld,
+        avatar_fld: this.currentUser.avatar_fld
+      }
+
+      this._cs.emit('join',data);
+      
   }
 
   getMessage() {
@@ -84,17 +108,17 @@ export class UserChatroomComponent implements OnInit {
       console.log('MESSGAGE TESTING: ', res);
     });
 
-    //get room
-    let data = {
-      user: this.data.user,
-      room: this.data.rname_fld,
-    };
+    // //get room
+    // let data = {
+    //   user: this.data.user,
+    //   room: this.data.rname_fld,
+    // };
 
-    this._cs.on('room-users', ({ data }) => {
-      this.users = data.user;
-      this.room = data.rname_fld;
-      console.log('room', this.room);
-    });
+    // this._cs.on('room-users', ({ data }) => {
+    //   this.users = data.user;
+    //   this.room = data.rname_fld;
+    //   console.log('room', this.room);
+    // });
   }
 
   sendMessage(e) {
@@ -103,7 +127,8 @@ export class UserChatroomComponent implements OnInit {
       room_uid: this.data.room_uid,
       user: this.data.user,
       room: this.data.rname_fld,
-      message_fld: e.target.message.value
+      message_fld: e.target.message.value,
+      avatar_fld: this.data.avatar_fld
     };
 
     let rname_fld = this.data.rname_fld;

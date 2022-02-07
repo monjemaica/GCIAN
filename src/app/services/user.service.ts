@@ -8,6 +8,7 @@ import { DataService } from './data.service';
 export class UserService {
   TOKEN_KEY = 'auth-token';
   USER_KEY = 'auth-user';
+  JOIN_CHATROOM_KEY = 'auth-chatroom';
   userData: any;
   loggedIn: boolean = true;
 
@@ -44,12 +45,25 @@ export class UserService {
 
   }
 
+  saveJoinedUser(user: any): void {
+    window.sessionStorage.removeItem(this.JOIN_CHATROOM_KEY);
+    window.sessionStorage.setItem(this.JOIN_CHATROOM_KEY,JSON.stringify(user));
+  }
+
   refreshUser(){
     window.sessionStorage.clear();
   }
 
   getUser(): any {
     const user = window.sessionStorage.getItem(this.USER_KEY);
+    if(user){
+      return JSON.parse(user);
+    }
+    return {};
+  }
+
+  getUserChatRoom(): any {
+    const user = window.sessionStorage.getItem(this.JOIN_CHATROOM_KEY);
     if(user){
       return JSON.parse(user);
     }
