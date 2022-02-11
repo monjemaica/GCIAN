@@ -153,10 +153,10 @@
 /* ------------------------------ SIDE NAV CSS ENDS HERE ------------------------------ */
 
 .flex-container {
-  display: flex; 
-  flex-direction: row; 
-  padding-top: 3.75rem; 
-  padding-left: 3vmin; 
+  display: flex;
+  flex-direction: row;
+  padding-top: 3.75rem;
+  padding-left: 3vmin;
   width: 150vmin;
 }
 
@@ -216,7 +216,7 @@ section .card {
 
 .btn_care {
   margin-right: 1.3vmin;
-  margin-left: .1vmin;
+  margin-left: 0.1vmin;
 }
 
 .btn_red {
@@ -238,7 +238,7 @@ section .card {
 }
 
 .content-timestamp {
-  font-size: 2vmin; 
+  font-size: 2vmin;
   color: rgb(114, 114, 114);
   margin-top: 1vmin;
 }
@@ -272,13 +272,13 @@ button:focus {
   outline: none;
 }
 
-.trends-container{
+.trends-container {
   overflow-y: scroll;
 }
 
 .trends-card {
   width: 20rem;
-  background: #398547; 
+  background: #398547;
   position: fixed;
   height: 90%;
 }

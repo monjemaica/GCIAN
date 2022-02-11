@@ -21,102 +21,115 @@
         </button>
       </div>
 
-      <div class="post-card-posts" fxLayoutAlign="start start" fxFlexFill>
-        <div class="card" fxFlex="100">
-          <ng-container *ngFor="let p of posts">
-            <div class="row">
-              <div class="col-sm-1">
-                <div class="card-body">
-                  <div class="posts-avatar">
-                    <img
-                      class="id_img"
-                      src="http://localhost:5000/uploads/{{
-                        student.avatar_fld
-                      }}"
-                      alt=""
-                    />
+      <ng-container *ngFor="let p of posts">
+        <div>
+          <div class="post-card-posts" fxLayoutAlign="start start" fxFlexFill>
+            <div class="card shadow" fxFlex="98">
+              <div class="row">
+                <div class="col-sm-1">
+                  <div class="card-body">
+                    <div class="posts-avatar">
+                      <img
+                        class="id_img"
+                        src="http://localhost:5000/uploads/{{
+                          student.avatar_fld
+                        }}"
+                        alt=""
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="card-body" style="display: flex; flex-direction: column">
-                  <p class="card-title">
-                    {{ p.fname_fld }} {{ p.mname_fld }} {{ p.lname_fld }}
-                  </p>
-                  <p class="card-subtitle">
-                    {{ p.date_created_TS_fld | date: "short" }}
-                  </p>
+                <div class="col-sm-3">
+                  <div
+                    class="card-body"
+                    style="display: flex; flex-direction: column"
+                  >
+                    <p class="card-title">
+                      {{ p.fname_fld }} {{ p.mname_fld }} {{ p.lname_fld }}
+                    </p>
+                    <p class="card-subtitle">
+                      {{ p.date_created_TS_fld | date: "short" }}
+                    </p>
+                  </div>
+                </div>
+                <div class="drop-down">
+                  <mat-card-actions class="posts_btn-container">
+                    <button
+                      class="posts_btn"
+                      mat-icon-button
+                      [matMenuTriggerFor]="option"
+                    >
+                      <i
+                        class="bx bx-dots-horizontal-rounded"
+                        style="font-size: 3.2vmin"
+                      ></i>
+                    </button>
+                    <mat-menu #option="matMenu">
+                      <button mat-menu-item (click)="editPost(p.post_uid)">
+                        <i style="margin-right: 8%" class="bx bx-edit"></i>Edit
+                      </button>
+                      <mat-divider
+                        style="width: 90%; margin-left: 5%"
+                        class="posts_mat-divider"
+                      ></mat-divider>
+                      <button mat-menu-item (click)="deletePost(p.post_uid)">
+                        <i
+                          style="margin-right: 8%; color: red"
+                          class="bx bx-trash"
+                        ></i
+                        >Delete
+                      </button>
+                    </mat-menu>
+                  </mat-card-actions>
                 </div>
               </div>
-              <div class="drop-down">
-                <mat-card-actions class="posts_btn-container">
-                  <button
-                    class="posts_btn"
-                    mat-icon-button
-                    [matMenuTriggerFor]="option"
+              <div class="card-content">
+                <p>
+                  {{ p.content_fld }}
+                </p>
+              </div>
+
+              <div class="card-actions">
+                <button
+                  type="button"
+                  class="btn_care"
+                  id="p.post_uid"
+                  (click)="doLIke(p.post_uid, student.studid_fld)"
+                >
+                  <!---------------------------------------Like ------------------------------------------->
+                  <ng-container
+                    *ngIf="
+                      filterLikeStatus(p.post_uid, student.studid_fld);
+                      else doUnlike
+                    "
                   >
-                    <i
-                      class="bx bx-dots-horizontal-rounded"
-                      style="font-size: 3.2vmin"
-                    ></i>
-                  </button>
-                  <mat-menu #option="matMenu">
-                    <button mat-menu-item (click)="editPost(p.post_uid)">
-                      <i style="margin-right: 8%" class="bx bx-edit"></i>Edit
-                    </button>
-                    <mat-divider
-                      style="width: 90%; margin-left: 5%"
-                      class="posts_mat-divider"
-                    ></mat-divider>
-                    <button mat-menu-item (click)="deletePost(p.post_uid)">
-                      <i
-                        style="margin-right: 8%; color: red"
-                        class="bx bx-trash"
-                      ></i
-                      >Delete
-                    </button>
-                  </mat-menu>
-                </mat-card-actions>
+                    <i class="fas fa-heart" style="color: #ea4c46"> </i>
+                    <span style="color: #ea4c46">
+                      {{ p.total_likes_fld }}
+                    </span>
+                  </ng-container>
+                  <!---------------------------------------Unlike ------------------------------------------->
+                  <ng-template #doUnlike>
+                    <i class="fas fa-heart" style="color: #398547"></i>
+                  </ng-template>
+                </button>
+                <button
+                  (click)="comment(p.post_uid)"
+                  [routerLink]="['/comment/{{p.post_uid}}']"
+                  type="button"
+                  class="btn_comment"
+                >
+                  <i class="fas fa-comment">
+                    <ng-container *ngFor="let c of filterComments(p.post_uid)">
+                      {{ c.total_comments }}
+                    </ng-container>
+                  </i>
+                </button>
               </div>
             </div>
-            <div class="card-content">
-              <p>
-                {{ p.content_fld }}
-              </p>
-            </div>
-
-            <div class="card-actions">
-              <button type="button" class="btn_care" id="p.post_uid"
-              (click)="doLIke(p.post_uid, student.studid_fld)">
-               <!---------------------------------------Like ------------------------------------------->
-               <ng-container *ngIf="filterLikeStatus(p.post_uid, student.studid_fld) else doUnlike">
-                <i class="fas fa-heart" style="color: #ea4c46">
-                </i>
-                <span style="color: #ea4c46">
-                  {{p.total_likes_fld}}
-                </span>
-                </ng-container>
-                <!---------------------------------------Unlike ------------------------------------------->
-                <ng-template #doUnlike>
-                  <i class="fas fa-heart" style="color: #398547"></i>
-                </ng-template>
-              </button>
-              <button
-                (click)="comment(p.post_uid)"
-                [routerLink]="['/comment/{{p.post_uid}}']"
-                type="button"
-                class="btn_comment"
-              >
-                <i class="fas fa-comment">
-                  <ng-container *ngFor="let c of filterComments(p.post_uid)">
-                    {{ c.total_comments }}
-                  </ng-container>
-                </i>
-              </button>
-            </div>
-          </ng-container>
+          </div>
         </div>
-      </div>
+      </ng-container>
     </div>
 
     <!-- ---------------------- -->

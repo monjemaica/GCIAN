@@ -21,7 +21,9 @@
                   <div class="card-body">
                     <div class="avatar">
                       <img
-                        src="http://localhost:5000/uploads/{{post.avatar_fld}}"
+                        src="http://localhost:5000/uploads/{{
+                          post.avatar_fld
+                        }}"
                         alt=""
                       />
                     </div>
@@ -83,7 +85,11 @@
                   {{ post.content_fld }}
                 </p>
                 <div class="content-center">
-                  <img style="height: 50vmin; width: auto" src="https://www.lifewire.com/thmb/g2jva4iFBaG5vBXNpzEs8wEVYJY=/1920x1080/filters:no_upscale():max_bytes(150000):strip_icc()/passage_wallpaper_by_trenchmaker-d4pp3zd-5919d0673df78cf5fa42884c.jpg" alt="">
+                  <img
+                    style="height: 50vmin; width: auto"
+                    src="https://www.lifewire.com/thmb/g2jva4iFBaG5vBXNpzEs8wEVYJY=/1920x1080/filters:no_upscale():max_bytes(150000):strip_icc()/passage_wallpaper_by_trenchmaker-d4pp3zd-5919d0673df78cf5fa42884c.jpg"
+                    alt=""
+                  />
                 </div>
                 <p class="content-timestamp">
                   {{ post.date_created_TS_fld | date: "short" }}
@@ -97,17 +103,21 @@
                   id="post.post_uid"
                   (click)="doLIke(post.post_uid, student.studid_fld)"
                 >
-                <!---------------------------------------Like ------------------------------------------->
-                  <ng-container *ngIf="filterLikeStatus(post.post_uid, student.studid_fld) else doUnlike">
-                    <i class="fas fa-heart" style="color: #ea4c46">
-                    </i>
+                  <!---------------------------------------Like ------------------------------------------->
+                  <ng-container
+                    *ngIf="
+                      filterLikeStatus(post.post_uid, student.studid_fld);
+                      else doUnlike
+                    "
+                  >
+                    <i class="fas fa-heart" style="color: #ea4c46"> </i>
                     <span style="color: #ea4c46">
-                      {{post.total_likes_fld}}
+                      {{ post.total_likes_fld }}
                     </span>
                   </ng-container>
 
-                <!---------------------------------------Unlike ------------------------------------------->
-                <ng-template #doUnlike>
+                  <!---------------------------------------Unlike ------------------------------------------->
+                  <ng-template #doUnlike>
                     <i class="fas fa-heart" style="color: #398547"></i>
                   </ng-template>
                 </button>
@@ -117,16 +127,12 @@
                   type="button"
                   class="btn_comment"
                 >
-                  <i class="fas fa-comment">
-                  </i>
-                  <ng-container
-                    *ngFor="let c of filterComments(post.post_uid)"
-                  >
+                  <i class="fas fa-comment"> </i>
+                  <ng-container *ngFor="let c of filterComments(post.post_uid)">
                     {{ c.total_comments }}
                   </ng-container>
                 </button>
               </div>
-              
             </div>
           </div>
         </div>
@@ -136,11 +142,9 @@
       <div>
         <div class="card trends-card shadow">
           <div class="card-header">Trends</div>
-          <div class="trends-container" >
+          <div class="trends-container">
             <ng-container *ngFor="let t of trends; let i = index">
-              <ul
-                class="list-group list-group-flush"             
-              >
+              <ul class="list-group list-group-flush">
                 <a
                   href="#"
                   class="list-group-item list-group-item-action flex-column align-items-start"
@@ -154,7 +158,7 @@
                   <p>
                     {{ trends[i].content_fld }}
                   </p>
-  
+
                   <small>{{ trends[i].total_likes }} Care/s</small>
                 </a>
               </ul>

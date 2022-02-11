@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins" , sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-.home-section{
+.home-section {
   position: relative;
   background: #fff;
   top: 0;
@@ -18,12 +18,12 @@
   overflow-x: hidden;
 }
 
-.home-section .text{
+.home-section .text {
   display: inline-block;
   color: #11101d;
   font-size: 25px;
   font-weight: 500;
-  margin: 18px
+  margin: 18px;
 }
 
 .label {
@@ -42,7 +42,7 @@
 /* -------------------------------------------------------------------------- */
 
 .flex-container {
-  display: flex; 
+  display: flex;
   /* flex-direction: row-reverse;  */
   /* float: left; */
   /* padding-top: 3.75rem;  */
@@ -52,7 +52,7 @@
 }
 
 .id-container {
-  margin-top: 15vmin; 
+  margin-top: 15vmin;
   margin-right: 10vmin;
   margin-left: -2.5vmin;
   position: fixed;
@@ -68,7 +68,7 @@ section .card {
   display: flex;
   flex-wrap: wrap;
   align-content: center;
-  flex-direction:column;
+  flex-direction: column;
   margin-bottom: 1vmin;
 }
 
@@ -120,8 +120,8 @@ input[type="file"] {
 }
 
 .id_details_container {
-  display: flex; 
-  flex-direction: column
+  display: flex;
+  flex-direction: column;
 }
 
 .id_container {
@@ -131,7 +131,7 @@ input[type="file"] {
 .cards_wrap {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: .8vmin;
+  margin-bottom: 0.8vmin;
 }
 
 .one {
@@ -181,10 +181,10 @@ mat-divider {
 /* ------------------------- STUDENT'S ID ENDS HERE ------------------------- */
 
 .posts-container {
-  margin-top: 5%; 
-  margin-left: 38%; 
-  width: 125vmin; 
-  display: flex; 
+  margin-top: 5%;
+  margin-left: 38%;
+  width: 125vmin;
+  display: flex;
   flex-direction: column;
 }
 
@@ -201,7 +201,7 @@ mat-divider {
   margin-bottom: 2%;
   font-weight: 500;
   font-size: 2.5vmin;
-  border-bottom: .4vmin solid #398547;
+  border-bottom: 0.4vmin solid #398547;
   color: #398547;
 }
 
@@ -223,6 +223,7 @@ mat-divider {
 
 .post-card-posts {
   margin-top: -1.5vmin;
+  margin-bottom: 2.5%;
 }
 
 .card-actions {

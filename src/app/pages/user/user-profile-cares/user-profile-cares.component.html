@@ -21,10 +21,10 @@
         </button>
       </div>
 
+      <ng-container *ngFor="let p of liked_posts; let i=index;">
+        <div>
       <div class="post-card-posts" fxLayoutAlign="start start" fxFlexFill>
-        <div class="card" fxFlex="100">
-          <!-- <ng-container *ngFor="let p of posts"> -->
-            <ng-container *ngFor="let p of liked_posts; let i=index;">
+        <div class="card shadow" fxFlex="100">
             <div class="row">
               <div class="col-sm-1">
                 <div class="card-body">
@@ -115,9 +115,10 @@
                 </i>
               </button>
             </div>
-          </ng-container>
         </div>
       </div>
+    </div>
+    </ng-container>
     </div>
 kw
     <!-- ---------------------- -->
