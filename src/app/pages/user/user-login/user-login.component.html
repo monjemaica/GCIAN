@@ -20,7 +20,7 @@
 
 <div fxLayoutAlign="center center" fxFlexFill>
   <mat-card>
-    <mat-toolbar fxLayoutAlign="center center" style="background-color: transparent !important;">Welcome GCIANs!</mat-toolbar>
+    <mat-toolbar fxLayoutAlign="center center" style="background-color: transparent !important; margin-bottom: 2vmin; font-size: 5vmin;">Welcome GCIANs!</mat-toolbar>
     <form
       [formGroup]="registrationForm"
       class="mx-auto"
@@ -31,7 +31,7 @@
       (submit)="login($event)"
     >
       <div class="form-group" style="z-index: 100">
-        <div class="input-group">
+        <div class="input-group" style="height: 4vmin;">
           <input
             class="form-control"
             placeholder="Email Address"
@@ -43,11 +43,11 @@
             style="border: none;"
           />
         </div>
-        <mat-divider [inset]="true" style="background-color: #495057;"></mat-divider>
+        <mat-divider [inset]="true" style="background-color: #495057; margin-bottom: 2vmin;"></mat-divider>
       </div>
 
       <div class="form-group" style="z-index: 100">
-        <div class="input-group">
+        <div class="input-group" style="height: 4vmin;">
           <input
             [type]="currentPassword ? 'text' : 'password'"
             class="form-control"
@@ -75,7 +75,7 @@
           <mat-divider [inset]="true" style="background-color: #71777c;"></mat-divider>
         </div>
       </div>
-      <button class="submit" mat-raised-button type="submit">LOGIN</button>
+      <button class="submit" mat-raised-button type="submit" style="margin-top: 2vmin;">LOGIN</button>
       <ng-container class="alert alert-warning" *ngIf="isLoginFailed"
         >Log In Failed!, {{ errorMessage }}</ng-container
       >

@@ -238,9 +238,9 @@ section .card {
 }
 
 .content-timestamp {
-  font-size: 2vmin;
-  margin-top: -1.5vmin;
+  font-size: 2vmin; 
   color: rgb(114, 114, 114);
+  margin-top: 1vmin;
 }
 
 .post-card .card-actions {
@@ -286,4 +286,9 @@ button:focus {
 .show-less {
   height: 3.5rem;
   overflow: hidden;
+}
+
+.content-center {
+  display: flex;
+  justify-content: center;
 }
