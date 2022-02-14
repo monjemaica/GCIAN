@@ -82,12 +82,12 @@ export class AdminReportsComponent implements OnInit {
   isCheckedG(e) {
     const id = e.target.value;
     const isViewed_fld = e.target.checked; //true or false
-    this.uniqueIgnored = [...new Set(this.selectedReports)];
+    // this.uniqueIgnored = [...new Set(this.selectedReports)];
 
     this.ignored.map((x) => {
       if (x.report_uid == id) {
-        this.selectedReports.push(x);
-        console.log('test:', this.selectedReports);
+        this.uniqueIgnored.push(x);
+        // console.log('test:', this.selectedReports);
         console.log('test:', this.uniqueIgnored);
         
       }
@@ -107,11 +107,11 @@ export class AdminReportsComponent implements OnInit {
   isChecked(e) {
     const id = e.target.value;
     const isViewed_fld = e.target.checked; //true or false
-    this.uniqueNoticed = [...new Set(this.selectedReports)];
+    // this.uniqueNoticed = [...new Set(this.selectedReports)];
     this.noticed.map((x) => {
       if (x.report_uid == id) {
-        this.selectedReports.push(x);
-        console.log('test:', this.selectedReports);
+        this.uniqueNoticed.push(x);
+        // console.log('test:', this.uniqueNoticed);
         console.log('test:', this.uniqueNoticed);
         // this._ds._httpPostRequestById('reports/', x.report_uid, {isViewed_fld}).subscribe((res:any) => {
         //   console.log(res);

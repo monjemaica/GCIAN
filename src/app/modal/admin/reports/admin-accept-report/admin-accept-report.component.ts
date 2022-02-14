@@ -33,7 +33,7 @@ export class AdminAcceptReportComponent implements OnInit {
   }
 
   async updateChatroom(e) {
-    if (this.selectedItemsList) {
+
       this.selectedItemsList.map((x) => {
         let isViewed_fld = x.isViewed_fld;
 
@@ -44,9 +44,8 @@ export class AdminAcceptReportComponent implements OnInit {
             this.ngOnInit();
           });
       });
-      this.dialogRef.close();
-    }
-    if (this.unselectedItemsList) {
+
+
       this.unselectedItemsList.map((x) => {
         let isViewed_fld = x.isViewed_fld;
 
@@ -60,7 +59,7 @@ export class AdminAcceptReportComponent implements OnInit {
           });
       });
       this.dialogRef.close();
-    }
+    
   }
 
   cancelClick(): void {
