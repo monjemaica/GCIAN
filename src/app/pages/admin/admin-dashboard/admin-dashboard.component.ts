@@ -44,13 +44,11 @@ export class AdminDashboardComponent implements OnInit {
     })
   }
 
-getTrends(){
-  this.ngOnInit();
-  this._ds._httpPostRequestNoData('post/trends').subscribe((res:any[]) => {
-    res.forEach((e, i) => this.trends.push(res[i]));
-    console.log(this.trends);
-  })
-}
+  getTrends() {
+    this._ds._httpPostRequestNoData('post/trends').subscribe((res: any[]) => {
+      res.forEach((e, i) => this.trends.push(res[i]));
+    });
+  }
 
 
   countUsers(){
@@ -70,17 +68,45 @@ getTrends(){
   }
 
   chart() {
-    const MONTHS = ["2018", "2019", "2020", "2021"];
+    const MONTHS = [ "Nov", "Dec","Jan", "Feb"];
       const myLinechart = new Chart('myChart', {
         type: "line",
         data: {
           labels: MONTHS,
           datasets: [
             {
-              label: "Earnings Per Year Dataset",
-              data: [65, 59, 80, 40],
+              label: "CEAS",
+              data: [0, 0, 0, 0],
               fill: false,
-              borderColor: "rgb(75, 192, 192)",
+              borderColor: "rgb(3, 16, 247)",
+              tension: 0.1,
+            },
+            {
+              label: "CCS",
+              data: [0, 1, 0, 0],
+              fill: false,
+              borderColor: "rgb(255, 138, 0)",
+              tension: 0.1,
+            },
+            {
+              label: "CBA",
+              data: [0, 1, 0, 2],
+              fill: false,
+              borderColor: "rgb(253, 251, 0)",
+              tension: 0.1,
+            },
+            {
+              label: "CAHS",
+              data: [0, 0, 0, 0],
+              fill: false,
+              borderColor: "rgb(252, 0, 0)",
+              tension: 0.1,
+            },
+            {
+              label: "CHTM",
+              data: [1, 0, 1, 2],
+              fill: false,
+              borderColor: "rgb(255, 0, 128)",
               tension: 0.1,
             },
           ],

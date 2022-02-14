@@ -8,8 +8,8 @@
 
 .container {
   display: flex;
-  flex-direction: row;
-  width: 72vmin;
+  width: 100vmin;
+  padding: 5rem;
 }
 
 .avatar {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { AdminViewPostsComponent } from 'src/app/modal/admin-view-posts/admin-view-posts.component';
+import { AdminViewPostsComponent } from 'src/app/modal/admin/posts/admin-view-posts/admin-view-posts.component';
 import { DataService } from 'src/app/services/data.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -36,7 +36,7 @@ export class AdminPostsComponent implements OnInit {
     let post = this.posts.find(x => x.post_uid === id);
     console.log('post', post)
     this.dialog.open(AdminViewPostsComponent,
-      {data: post}  
+      {data: post, width:"800px", height:"800px"}  
     );
   }
 

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminEditFieldsComponent } from './admin-edit-fields.component';
+import { AdminAcceptReportComponent } from './admin-accept-report.component';
 
-describe('AdminEditFieldsComponent', () => {
-  let component: AdminEditFieldsComponent;
-  let fixture: ComponentFixture<AdminEditFieldsComponent>;
+describe('AdminAcceptReportComponent', () => {
+  let component: AdminAcceptReportComponent;
+  let fixture: ComponentFixture<AdminAcceptReportComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminEditFieldsComponent ]
+      declarations: [ AdminAcceptReportComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminEditFieldsComponent);
+    fixture = TestBed.createComponent(AdminAcceptReportComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

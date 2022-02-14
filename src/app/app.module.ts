@@ -18,6 +18,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { UserFeedComponent } from './pages/user/user-feed/user-feed.component';
 import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
@@ -49,16 +50,17 @@ import { AlertComponent } from './components/alert/alert.component';
 import { AdminProfileComponent } from './pages/admin/admin-profile/admin-profile.component';
 import { WebcamModule } from 'ngx-webcam';
 import { WebcamImageComponent } from './modal/webcam-image/webcam-image.component';
-import { AdminViewPostsComponent } from './modal/admin-view-posts/admin-view-posts.component';
-import { AdminEditFieldsComponent } from './modal/admin-edit-fields/admin-edit-fields.component';
+import { AdminViewPostsComponent } from './modal/admin/posts/admin-view-posts/admin-view-posts.component';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { AdminViewReportsComponent } from './modal/admin-view-reports/admin-view-reports.component';
+import { AdminViewReportsComponent } from './modal/admin/reports/admin-view-reports/admin-view-reports.component';
 import { NotifierComponent } from './components/notifier/notifier.component';
 import { UserChatroomComponent } from './pages/user/user-chatroom/user-chatroom.component';
 import { UserCreateRoomComponent } from './modal/user-create-room/user-create-room/user-create-room.component';
 import { UserChatroomLeaveComponent } from './modal/chat/user-chatroom-leave/user-chatroom-leave.component';
 import { UserJoinRoomComponent } from './modal/user-join-room/user-join-room.component';
+import { AdminUpdateChatroomRequestComponent } from './modal/admin/users/admin-update-chatroom-request/admin-update-chatroom-request.component';
+import { AdminAcceptReportComponent } from './modal/admin/reports/admin-accept-report/admin-accept-report.component';
 
 @NgModule({
   declarations: [
@@ -88,13 +90,14 @@ import { UserJoinRoomComponent } from './modal/user-join-room/user-join-room.com
     AlertComponent,
     WebcamImageComponent,
     AdminViewPostsComponent,
-    AdminEditFieldsComponent,
     AdminViewReportsComponent,
     NotifierComponent,
     UserChatroomComponent,
     UserCreateRoomComponent,
     UserChatroomLeaveComponent,
-    UserJoinRoomComponent
+    UserJoinRoomComponent,
+    AdminUpdateChatroomRequestComponent,
+    AdminAcceptReportComponent
   ],
   imports: [
     BrowserModule,
@@ -121,7 +124,8 @@ import { UserJoinRoomComponent } from './modal/user-join-room/user-join-room.com
     WebcamModule,
     Ng2SearchPipeModule,
     MatSelectModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTabsModule
   ],
   providers: [
     AuthInterceptorProviders

@@ -3,9 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { DataService } from 'src/app/services/data.service';
-import { AdminEditFieldsComponent } from 'src/app/modal/admin-edit-fields/admin-edit-fields.component';
-import { AdminViewPostsComponent } from 'src/app/modal/admin-view-posts/admin-view-posts.component';
-import { AdminViewReportsComponent } from 'src/app/modal/admin-view-reports/admin-view-reports.component';
+import { AdminViewPostsComponent } from 'src/app/modal/admin/posts/admin-view-posts/admin-view-posts.component';
+import { AdminViewReportsComponent } from 'src/app/modal/admin/reports/admin-view-reports/admin-view-reports.component';
+import { AdminAcceptReportComponent } from 'src/app/modal/admin/reports/admin-accept-report/admin-accept-report.component';
 
 @Component({
   selector: 'app-admin-reports',
@@ -13,10 +13,17 @@ import { AdminViewReportsComponent } from 'src/app/modal/admin-view-reports/admi
   styleUrls: ['./admin-reports.component.css'],
 })
 export class AdminReportsComponent implements OnInit {
-  reports=[];
-  authors=[];
+  reports = [];
+  noticed = [];
+  ignored = [];
+  authors = [];
+  uniqueNoticed = [];
+  uniqueIgnored = [];
+  selectedReports = [];
   parentSelector: boolean = false;
   term: any;
+  isPopupOpened = false;
+
 
   constructor(
     public dialog: MatDialog,
@@ -33,65 +40,109 @@ export class AdminReportsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getReports();
-    // this.getStudent();
+    this.getNoticed();
+    this.getIgnored();
   }
 
-  reloadData(){
-    setTimeout(() => {
-      this.getReports();
-    }, 2000)
+  async getReports() {
+    const find = await this._ds
+      ._httpGetRequest('reports')
+      .subscribe((res: any) => {
+        this.reports = res;
+      });
   }
 
-  async getReports(){
-    const find = await this._ds._httpGetRequest('reports').subscribe((res:any) => {
-      this.reports=res
-      console.log('report:', this.reports)
-      // this.getStudent();
+  async getIgnored() {
+    const find = await this._ds
+      ._httpGetRequest('ignored_reports')
+      .subscribe((res: any) => {
+        this.ignored = res;
+      });
+  }
+
+  async getNoticed() {
+    const find = await this._ds
+      ._httpGetRequest('noticed_reports')
+      .subscribe((res: any) => {
+        this.noticed = res;
+      });
+  }
+
+  viewPost(id: number) {
+    console.log('id:', id);
+    let post = this.reports.find((x) => x.report_uid === id);
+    console.log('post', post);
+    this.dialog.open(AdminViewReportsComponent, {
+      data: post,
+      width: '800px',
+      height: '500px',
     });
   }
 
-  // getStudent(){
-  //   this.reports.map((x, index) => {
-  //     this._ds._httpGetRequestById('students/', x[index].author).subscribe((res:any[]) => {
-  //       this.authors.push(res)
-  //       console.log('authors:', this.authors)
-  //     })
-  //   })
-  // }
-
-   viewPost(id:number) {
-    console.log('id:', id)
-    let post = this.reports.find(x => x.report_uid === id);
-    console.log('post', post)
-    this.dialog.open(AdminViewReportsComponent,
-      {data: post}  
-    );
-  }
-
-  isChecked(e){
+  isCheckedG(e) {
     const id = e.target.value;
     const isViewed_fld = e.target.checked; //true or false
-    
-    this.reports.map((x) => {
-      if(x.report_uid == id){
-        this._ds._httpPostRequestById('reports/', x.report_uid, {isViewed_fld}).subscribe((res:any) => {
-          console.log(res);
-          this.ngOnInit();
-        })
+    this.uniqueIgnored = [...new Set(this.selectedReports)];
+
+    this.ignored.map((x) => {
+      if (x.report_uid == id) {
+        this.selectedReports.push(x);
+        console.log('test:', this.selectedReports);
+        console.log('test:', this.uniqueIgnored);
+        
       }
-      if(id == -1){
+
+      if (id == -1) {
         const isViewed_fld = this.parentSelector;
-        this._ds._httpPostRequestById('reports/', x.report_uid, {isViewed_fld}).subscribe((res:any) => {
-          console.log(res);
-          this.ngOnInit();
-        })
+        this._ds
+          ._httpPostRequestById('reports/', x.report_uid, { isViewed_fld })
+          .subscribe((res: any) => {
+            console.log(res);
+            this.ngOnInit();
+          });
       }
-    })
+    });
   }
 
+  isChecked(e) {
+    const id = e.target.value;
+    const isViewed_fld = e.target.checked; //true or false
+    this.uniqueNoticed = [...new Set(this.selectedReports)];
+    this.noticed.map((x) => {
+      if (x.report_uid == id) {
+        this.selectedReports.push(x);
+        console.log('test:', this.selectedReports);
+        console.log('test:', this.uniqueNoticed);
+        // this._ds._httpPostRequestById('reports/', x.report_uid, {isViewed_fld}).subscribe((res:any) => {
+        //   console.log(res);
+        //   this.ngOnInit();
+        // })
+        return x;
+      }
+
+      if (id == -1) {
+        const isViewed_fld = this.parentSelector;
+        this._ds
+          ._httpPostRequestById('noticed_reports/', x.report_uid, { isViewed_fld })
+          .subscribe((res: any) => {
+            console.log(res);
+            this.ngOnInit();
+          });
+      }
+    });
+  }
+
+  doUpdate() {
+    const dialogRef = this.dialog.open(AdminAcceptReportComponent, {
+      data: {selected: this.uniqueIgnored, unselected: this.uniqueNoticed}
+      ,
+    });
+    dialogRef.afterClosed().subscribe((res) => {
+      this.ngOnInit();
+      this.isPopupOpened = false;
+    });
+  }
   logout() {
     this._us.setLoggedOut();
   }
-  
-  
 }
