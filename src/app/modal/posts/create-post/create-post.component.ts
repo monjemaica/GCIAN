@@ -3,6 +3,9 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { UserService } from 'src/app/services/user.service';
+import { WebcamImageComponent } from 'src/app/modal/webcam-image/webcam-image.component';
+import { MatDialog } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-create-post',
@@ -13,10 +16,14 @@ export class CreatePostComponent implements OnInit {
   posts: any;
   studid: any;
 
-  constructor(private dialogRef: MatDialogRef<CreatePostComponent>, private _ds: DataService, private _us: UserService, private router:Router) {}
+  constructor(private dialogRef: MatDialogRef<CreatePostComponent>, private _ds: DataService, private _us: UserService, private router:Router, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.studid = this._us.getUser();
+  }
+
+  webcam() {
+    this.dialog.open(WebcamImageComponent);
   }
 
   doCompose(e){

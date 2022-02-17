@@ -226,7 +226,9 @@ section .card {
 .post-card .card-content {
   display: flex;
   flex-direction: column;
-  margin-left: 2.3%;
+  /* margin-left: 2.3%; */
+  /* margin-left: 8.3%; */
+  margin-left: 5rem;
   margin-right: 2.5%;
   margin-top: -1.5vmin;
 }
@@ -236,11 +238,11 @@ section .card {
   color: black;
 }
 
-.content-timestamp {
+/* .content-timestamp {
   font-size: 2vmin;
   color: rgb(114, 114, 114);
   margin-top: 1vmin;
-}
+} */
 
 .post-card .card-actions {
   text-align: center;
@@ -287,14 +289,20 @@ button:focus {
   overflow: hidden;
 }
 
-.content-center {
+/* .content-center {
   display: flex;
   justify-content: center;
-}
+} */
 
 .flex-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+}
+
+.content-timestamp {
+  font-size: 0.875rem;
+  color: rgb(114, 114, 114);
+  margin-top: 1rem;
 }

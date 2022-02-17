@@ -53,3 +53,48 @@ button:hover,
 button:focus {
   outline: none;
 }
+
+input[type="file"] {
+  display: none;
+}
+
+.change-avatar {
+  border: none;
+  border-radius: 50%;
+  width: 7vmin;
+  height: 7vmin;
+  margin-top: -3vmin;
+  /* background-color: rgba(135, 135, 135, 0.693); */
+  /* margin-top: 7vmin; */
+  /* margin-left: 12vmin; */
+}
+
+.drop-down {
+  margin-left: 60%;
+  margin-top: 2.5vmin;
+}
+
+.posts_btn {
+  color: black;
+  margin-top: -3.5vmin;
+  margin-left: -4.5vmin;
+}
+
+.bi-image-fill {
+  font-size: 2.5vmin;
+  color: black  ;
+}
+
+.bi-camera {
+  color: black;
+  margin-right: .5rem;
+  margin-left: 1rem;
+  font-size: 2vmin;
+}
+
+.bi-images {
+  color: black;
+  margin-right: .5rem;
+  margin-left: 1rem;
+  font-size: 2vmin;
+}

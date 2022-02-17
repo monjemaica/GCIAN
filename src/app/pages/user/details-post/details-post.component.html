@@ -33,14 +33,17 @@
             </div>
           </div>
         </div>
-        <div class="card-content">
+        <!-- <div class="card-content" > -->
+        <div class="card-body" style="margin-left: 4rem; margin-top: -2.5rem">
           <p>
             {{ post[0].content_fld }}
           </p>
-        </div>
-
-        <div class="col-sm-3">
-          <p class="card-subtitle">
+          <img
+            style="height: 50vmin; width: auto; border-radius: 5%;"
+            src="https://pbs.twimg.com/media/FLvIsZ6XMAAJgp1?format=jpg&name=medium"
+            alt=""
+          />
+          <p class="content-timestamp">
             {{ post[0].date_created_TS_fld | date: "short" }}
           </p>
         </div>
@@ -49,7 +52,10 @@
 
         <ng-container *ngFor="let c of comments">
           <div class="margin-comments">
-            <div class="card border-top-0 border-right-0 border-left-0" fxFlex="99">
+            <div
+              class="card border-top-0 border-right-0 border-left-0"
+              fxFlex="99"
+            >
               <mat-card-header class="card-body">
                 <div class="flex-container">
                   <div>
@@ -74,19 +80,19 @@
                       {{ c.date_created_TS_fld | date: "short" }}
                     </p>
                   </div>
-                  
-                <div
-                  *ngIf="student"
-                  class="drop-down"
-                >
-                  <!-- <ng-container *ngIf="student.studid_fld == c.studid_fld"> -->
+
+                  <div *ngIf="student" class="drop-down">
+                    <!-- <ng-container *ngIf="student.studid_fld == c.studid_fld"> -->
                     <mat-card-actions class="posts_btn-container">
                       <button
                         class="posts_btn"
                         mat-icon-button
                         [matMenuTriggerFor]="option"
                       >
-                        <i class="bx bx-dots-horizontal-rounded" style="font-size: 3.2vmin"></i>
+                        <i
+                          class="bx bx-dots-horizontal-rounded"
+                          style="font-size: 3.2vmin"
+                        ></i>
                       </button>
                       <mat-menu #option="matMenu">
                         <button
@@ -109,11 +115,12 @@
                         </button>
                       </mat-menu>
                     </mat-card-actions>
-                  <!-- </ng-container> -->
+                    <!-- </ng-container> -->
+                  </div>
                 </div>
-              </div>
               </mat-card-header>
-              <div class="card-content1">
+              <!-- <div class="card-content1"> -->
+                <div class="card-body" style="margin-left: 4rem; margin-top: -2.5rem">
                 <p>{{ c.content_fld }}</p>
               </div>
             </div>

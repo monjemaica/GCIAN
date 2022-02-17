@@ -80,12 +80,21 @@
                   </mat-card-actions>
                 </div>
               </div>
-              <div class="card-content">
+              <!-- <div class="card-content"> -->
+              <!-- <div class="post-card-details"> -->
+              <div
+                class="card-body"
+                style="margin-left: 7.3%; margin-top: -2.5rem"
+              >
                 <p class="content-field">
                   {{ post.content_fld }}
                 </p>
                 <div class="content-center">
-                  <img style="height: 50vmin; width: auto" src="https://www.lifewire.com/thmb/g2jva4iFBaG5vBXNpzEs8wEVYJY=/1920x1080/filters:no_upscale():max_bytes(150000):strip_icc()/passage_wallpaper_by_trenchmaker-d4pp3zd-5919d0673df78cf5fa42884c.jpg" alt="">
+                  <img
+                    style="height: 50vmin; width: auto; border-radius: 5%"
+                    src="https://pbs.twimg.com/media/FLvIsZ6XMAAJgp1?format=jpg&name=medium  "
+                    alt=""
+                  />
                 </div>
                 <p class="content-timestamp">
                   {{ post.date_created_TS_fld | date: "short" }}
@@ -134,32 +143,32 @@
         </div>
       </ng-container>
     </div>
-      <div>
-        <div class="card trends-card shadow">
-          <div class="card-header">Trends</div>
-          <div class="trends-container">
-            <ng-container *ngFor="let t of trends; let i = index">
-              <ul class="list-group list-group-flush">
-                <a
-                  href="#"
-                  class="list-group-item list-group-item-action flex-column align-items-start"
-                >
-                  <div class="d-flex w-100 justify-content-between">
-                    <h3 class="mb-1"></h3>
-                    <small>
-                      {{ trends[i].date_created_TS_fld | date: "short" }}
-                    </small>
-                  </div>
-                  <p>
-                    {{ trends[i].content_fld }}
-                  </p>
+    <div>
+      <div class="card trends-card shadow">
+        <div class="card-header">Trends</div>
+        <div class="trends-container">
+          <ng-container *ngFor="let t of trends; let i = index">
+            <ul class="list-group list-group-flush">
+              <a
+                href="#"
+                class="list-group-item list-group-item-action flex-column align-items-start"
+              >
+                <div class="d-flex w-100 justify-content-between">
+                  <h3 class="mb-1"></h3>
+                  <small>
+                    {{ trends[i].date_created_TS_fld | date: "short" }}
+                  </small>
+                </div>
+                <p>
+                  {{ trends[i].content_fld }}
+                </p>
 
-                  <small>{{ trends[i].total_likes }} Care/s</small>
-                </a>
-              </ul>
-            </ng-container>
-          </div>
+                <small>{{ trends[i].total_likes }} Care/s</small>
+              </a>
+            </ul>
+          </ng-container>
         </div>
       </div>
+    </div>
   </div>
 </section>

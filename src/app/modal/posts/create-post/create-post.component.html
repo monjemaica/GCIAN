@@ -20,8 +20,44 @@
       maxlength="256"
       placeholder="Ex: GCIAN is a great app..."
     ></textarea>
+    <img
+      style="height: 20vmin; width: auto;"
+      src="https://pbs.twimg.com/media/FLzffcqVIAACrP3?format=jpg&name=large"
+      alt=""
+    /> <!-- container lang to -->
     <mat-hint align="end">{{ message.value.length }} / 256 </mat-hint>
   </mat-form-field>
+  <div>
+    <button type="button" class="change-avatar">
+      <div class="drop-down">
+        <mat-card-actions>
+          <button
+            class="posts_btn"
+            mat-icon-button
+            [matMenuTriggerFor]="option"
+          >
+            <i class="bi bi-image-fill"></i>
+          </button>
+          <mat-menu #option="matMenu">
+            <button mat-menu-item >
+              <input type="file" id="file" accept="image/*" />
+              <label for="file">
+                <i class="bi bi-images"></i>Gallery
+              </label>
+            </button>
+            <mat-divider
+              style="width: 90%; margin-left: 5%"
+              class="posts_mat-divider"
+            ></mat-divider>
+            <button mat-menu-item href (click)="webcam()">
+              <i class="bi bi-camera"></i>Camera
+            </button>
+          </mat-menu>
+        </mat-card-actions>
+      </div>
+    </button>
+  </div>
+
   <div mat-card-actions class="actions">
     <button
       mat-dialog-close

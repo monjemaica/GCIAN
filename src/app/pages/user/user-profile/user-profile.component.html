@@ -66,7 +66,7 @@
                     </button>
                     <mat-menu #option="matMenu">
                       <button mat-menu-item (click)="editPost(p.post_uid)">
-                        <i style="margin-right: 8%" class="bx bx-edit"></i>Edit
+                        <i style="margin-right: .7rem" class="bx bx-edit"></i>Edit
                       </button>
                       <mat-divider
                         style="width: 90%; margin-left: 5%"
@@ -74,7 +74,7 @@
                       ></mat-divider>
                       <button mat-menu-item (click)="deletePost(p.post_uid)">
                         <i
-                          style="margin-right: 8%; color: red"
+                          style="margin-right: .7rem; color: red"
                           class="bx bx-trash"
                         ></i
                         >Delete
@@ -83,10 +83,15 @@
                   </mat-card-actions>
                 </div>
               </div>
-              <div class="card-content">
+              <div class="card-body card-content">
                 <p>
                   {{ p.content_fld }}
                 </p>
+                <img
+                  style="height: 50vmin; width: auto; border-radius: 5%"
+                  src="https://pbs.twimg.com/media/FLvIsZ6XMAAJgp1?format=jpg&name=medium"
+                  alt=""
+                />
               </div>
 
               <div class="card-actions">
@@ -139,7 +144,7 @@
         <div class="col col-md-10">
           <div class="post-card" fxLayoutAlign="start start" fxFlexFill>
             <div class="card" fxFlex="90">
-              <div class="display-picture">
+              <div class="display-picture" style="padding-top: 1rem !important">
                 <div class="avatar">
                   <img
                     class="id_img"

@@ -74,7 +74,8 @@ section .card {
 .card-content {
   font-size: 0.95rem;
   color: black;
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
+  margin-left: 7.3%;
   margin-top: -1%;
 }
 
@@ -148,4 +149,10 @@ button:hover, button:focus {
 .drop-down {
   margin-left: 97%;
   margin-top: -3.2rem;
+}
+
+.content-timestamp {
+  font-size: 0.875rem;
+  color: rgb(114, 114, 114);
+  margin-top: 1rem;
 }
