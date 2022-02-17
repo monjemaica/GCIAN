@@ -3,28 +3,25 @@
   <section class="home-section">
     <nav class="navbar navbar-light bg-light">
       <span class="label"
-        ><a [routerLink]="['/']">
-          <i class="bx bx-left-arrow-alt" style="font-size: 22px; margin-right: 7px;"></i> </a
+        ><a [routerLink]="['/']"> <i class="bx bx-left-arrow-alt"></i> </a
         >Comment</span
       >
     </nav>
 
     <div class="post-card" fxLayoutAlign="center start" fxFlexFill>
       <div class="card" fxFlex="96.5" style="margin-top: 5%">
-        <div class="row">
-          <div class="col-sm-1">
-            <div class="card-body">
-              <div class="avatar">               
-                <img
-                  class="avatarIcon"
-                  src="http://localhost:5000/uploads/{{ post[0].avatar_fld }}"
-                  alt=""
-                />
-              </div>
+        <div class="card-body">
+          <div class="flex-container">
+            <div>
+              <img
+                class="avatarIcon"
+                src="http://localhost:5000/uploads/{{ post[0].avatar_fld }}"
+                alt=""
+              />
             </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="card-body post-card-details">
+            <div
+              style="display: flex; flex-direction: column; margin-left: 0.8rem"
+            >
               <p class="card-title">
                 {{ post[0].fname_fld }} {{ post[0].mname_fld }}
                 {{ post[0].lname_fld }}
@@ -52,71 +49,78 @@
 
         <ng-container *ngFor="let c of comments">
           <div class="margin-comments">
-            <div class="post-card mat-elevation-z0">
-              <mat-card fxFlex="99">
-                <mat-card-header style="display: flex">
-                  <div mat-card-avatar>
+            <div class="card border-top-0 border-right-0 border-left-0" fxFlex="99">
+              <mat-card-header class="card-body">
+                <div class="flex-container">
+                  <div>
                     <img
                       class="avatarIcon"
                       src="http://localhost:5000/uploads/{{ c.avatar_fld }}"
                       alt=""
                     />
                   </div>
-                  <div>
-                    <mat-card-title style="font-size: 17px;">
+                  <div
+                    style="
+                      display: flex;
+                      flex-direction: column;
+                      margin-left: 0.8rem;
+                    "
+                  >
+                    <p style="font-size: 1.063rem">
                       {{ c.fname_fld }} {{ c.mname_fld }} {{ c.lname_fld }}
-                    </mat-card-title>
-                    <mat-card-subtitle style="margin-top: -10%;">
+                    </p>
+                    <p class="card-subtitle1">
                       {{ c.program_fld }} |
                       {{ c.date_created_TS_fld | date: "short" }}
-                    </mat-card-subtitle>
+                    </p>
                   </div>
-                  <div *ngIf="student" style="margin-top: -.8%; margin-left: 85%;">
-                    <ng-container *ngIf="student.studid_fld == c.studid_fld">
-                      <mat-card-actions
-                        class="posts_btn-container"
+                  
+                <div
+                  *ngIf="student"
+                  class="drop-down"
+                >
+                  <!-- <ng-container *ngIf="student.studid_fld == c.studid_fld"> -->
+                    <mat-card-actions class="posts_btn-container">
+                      <button
+                        class="posts_btn"
+                        mat-icon-button
+                        [matMenuTriggerFor]="option"
                       >
+                        <i class="bx bx-dots-horizontal-rounded" style="font-size: 3.2vmin"></i>
+                      </button>
+                      <mat-menu #option="matMenu">
                         <button
-                          class="posts_btn"
-                          mat-icon-button
-                          [matMenuTriggerFor]="option"
+                          mat-menu-item
+                          (click)="editComment(c.comment_uid)"
                         >
-                          <i class="bx bx-dots-horizontal-rounded"></i>
+                          <i style="margin-right: 8%" class="bx bx-edit"></i
+                          >Edit
                         </button>
-                        <mat-menu #option="matMenu">
-                          <button
-                            mat-menu-item
-                            (click)="editComment(c.comment_uid)"
-                          >
-                            <i style="margin-right: 8%" class="bx bx-edit"></i
-                            >Edit
-                          </button>
-                          <mat-divider
-                            style="width: 90%; margin-left: 5%"
-                            class="posts_mat-divider"
-                          ></mat-divider>
-                          <button
-                            mat-menu-item
-                            (click)="deleteComment(c.comment_uid)"
-                          >
-                            <i style="margin-right: 8%" class="bx bx-trash"></i
-                            >Delete
-                          </button>
-                        </mat-menu>
-                      </mat-card-actions>
-                    </ng-container>
-                  </div>
-                </mat-card-header>
-
-                <mat-card-content>
-                  <p>{{ c.content_fld }}</p>
-                </mat-card-content>
-              </mat-card>
+                        <mat-divider
+                          style="width: 90%; margin-left: 5%"
+                          class="posts_mat-divider"
+                        ></mat-divider>
+                        <button
+                          mat-menu-item
+                          (click)="deleteComment(c.comment_uid)"
+                        >
+                          <i style="margin-right: 8%" class="bx bx-trash"></i
+                          >Delete
+                        </button>
+                      </mat-menu>
+                    </mat-card-actions>
+                  <!-- </ng-container> -->
+                </div>
+              </div>
+              </mat-card-header>
+              <div class="card-content1">
+                <p>{{ c.content_fld }}</p>
+              </div>
             </div>
           </div>
         </ng-container>
 
-        <div class="row" style="margin-top: -10px">
+        <div class="row" style="margin-top: -0.625rem">
           <div class="col-12">
             <div class="card-body">
               <form
@@ -126,10 +130,12 @@
                 (submit)="doComment($event)"
               >
                 <div class="comment-panel">
-                  <div class="avatar">                    
+                  <div class="avatar">
                     <img
                       class="replyIcon"
-                      src="http://localhost:5000/uploads/{{ post[0].avatar_fld }}"
+                      src="http://localhost:5000/uploads/{{
+                        post[0].avatar_fld
+                      }}"
                       alt=""
                     />
                   </div>
@@ -149,7 +155,7 @@
                     <button mat-button class="btnSave" type="submit">
                       <i
                         class="bx bx-paper-plane"
-                        style="font-size: 20px; margin-top: 40px"
+                        style="font-size: 1.25rem; margin-top: 2.5rem"
                       ></i>
                     </button>
                   </div>

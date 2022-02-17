@@ -189,29 +189,27 @@ section .card {
 }
 
 .post-card-details {
-  margin-top: 1vmin;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin-left: -3vmin;
+  margin-left: -1.7rem;
+  margin-top: .1rem;
 }
 
 .post-card .card-title {
-  font-size: 2.7vmin;
-  font-weight: bold;
-  margin-bottom: 2%;
+  font-size: 3vmin;
+  font-weight: 500;
 }
 
 .card-subtitle-course {
   font-size: 2vmin;
   color: rgb(114, 114, 114);
-  margin-top: -1.2vmin;
+  margin-top: -.8rem
 }
 
 .drop-down {
-  /* margin-left: 95vmin; */
-  margin-left: 68%;
-  margin-top: 2.5vmin;
+  margin-left: 66.5%;
+  margin-top: 1.2rem;
 }
 
 .btn_care {
@@ -229,6 +227,7 @@ section .card {
   display: flex;
   flex-direction: column;
   margin-left: 2.3%;
+  margin-right: 2.5%;
   margin-top: -1.5vmin;
 }
 
@@ -277,7 +276,7 @@ button:focus {
 }
 
 .trends-card {
-  width: 20rem;
+  width: 50vmin;
   background: #398547;
   position: fixed;
   height: 90%;
@@ -291,4 +290,11 @@ button:focus {
 .content-center {
   display: flex;
   justify-content: center;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }

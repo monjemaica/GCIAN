@@ -14,23 +14,10 @@ body {
   position: relative;
   background: #fff;
   top: 0;
-  left: 78px;
-  width: calc(100% - 78px);
+  left: 4.875rem;
+  width: calc(100% - 4.875rem);
   transition: all 0.5s ease;
   z-index: 2;
-}
-
-.sidebar.open ~ .home-section {
-  left: 250px;
-  width: calc(100% - 250px);
-}
-
-.home-section .text {
-  display: inline-block;
-  color: #11101d;
-  font-size: 25px;
-  font-weight: 500;
-  margin: 18px;
 }
 
 @media (max-width: 420px) {
@@ -40,14 +27,15 @@ body {
 }
 
 .label {
-  font-size: 23px;
-  margin-top: 5px;
+  font-size: 1.5rem;
+  margin-top: 0.313rem;
   font-weight: 500;
 }
 
 .label i {
-  font-size: 25px;
+  font-size: 1.563rem;
   color: black;
+  margin-right: 0.45rem;
 }
 
 .navbar {
@@ -58,42 +46,49 @@ body {
 
 section .post-card {
   margin-bottom: 1%;
+  width: 100vmin;
 }
 
 section .card {
-  border-radius: 15px;
-  /* background: #398547; */
+  border-radius: 0.938rem;
   background: white;
   color: black;
 }
 
-.post-card .post-card-details {
-  margin-left: -20%; 
+.post-card-details {
+  margin-top: .5vmin;
+  margin-left: -3vmin;
 }
 
 .post-card .card-title {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 2%;
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-top: .2rem;
 }
 
 .post-card .card-subtitle {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: rgb(114, 114, 114);
 }
 
-.post-card .card-content {
-  font-size: 15px;
+.card-content {
+  font-size: 0.95rem;
   color: black;
-  margin-left: .8%;
-  margin-right: 7.5%;
+  margin-left: 1rem;
+  margin-top: -1%;
+}
+
+.card-content1 {
+  font-size: 0.95rem;
+  color: black;
+  margin-left: 1rem;
   margin-top: -1%;
 }
 
 .avatarIcon {
-  height: 50px;
+  height: 3.125rem;
   border-radius: 50%;
-  width: 50px;
+  width: 3.125rem;
 }
 
 .post-card .card-actions {
@@ -106,7 +101,7 @@ button:hover, button:focus {
 }
 
 ::placeholder {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: black !important;
   opacity: 80% !important;
 }
@@ -118,6 +113,7 @@ button:hover, button:focus {
 .margin-comments{
   margin-left: 1rem;
   margin-bottom: 0rem;
+  width: 185vmin
 }
 
 .divider {
@@ -129,15 +125,27 @@ button:hover, button:focus {
 }
 
 .replyIcon {
-  height: 50px;
+  height: 3.125rem;
   border-radius: 50%;
-  width: 50px;
-  margin-top: 15px;
-  margin-right: 13px;
+  width: 3.125rem;
+  margin-top: 0.938rem;
+  margin-right: 0.813rem;
 }
 
 .card-subtitle1 {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: rgb(114, 114, 114);
-  margin-top: -10px;
+  margin-top: -1rem
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.drop-down {
+  margin-left: 97%;
+  margin-top: -3.2rem;
 }

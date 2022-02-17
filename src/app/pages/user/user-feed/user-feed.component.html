@@ -4,7 +4,7 @@
   </nav>
 
   <div class="flex-container">
-    <div style="width: 147vmin">
+    <div style="width: 140vmin">
       <ng-container *ngFor="let post of posts">
         <div>
           <div class="post-card" fxLayoutAlign="start start" fxFlexFill>
@@ -35,7 +35,7 @@
                       {{ post.fname_fld }} {{ post.mname_fld }}
                       {{ post.lname_fld }}
                     </p>
-                    <p class="card-subtitle">
+                    <p class="card-subtitle-course">
                       {{ post.program_fld }}
                     </p>
                   </div>
@@ -134,7 +134,6 @@
         </div>
       </ng-container>
     </div>
-    <div>
       <div>
         <div class="card trends-card shadow">
           <div class="card-header">Trends</div>
@@ -162,6 +161,5 @@
           </div>
         </div>
       </div>
-    </div>
   </div>
 </section>

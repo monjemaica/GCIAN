@@ -80,6 +80,7 @@ section .card {
   height: 250%;
   width: auto;
   border-radius: 50%;
+  border: 5px solid #398547;
 }
 
 .change-avatar {
