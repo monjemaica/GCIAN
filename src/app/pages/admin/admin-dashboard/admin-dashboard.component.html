@@ -123,26 +123,27 @@
             </div>
           </div>
 
-          <div class="trend-card shadow h-100">
+          <div class="trend-card h-100">
             <div class="title">Top Sentiments</div>
             <hr />
             <ng-container *ngFor="let t of trends; let i = index ">
             <div class="trends-card">
                 <div>
-                  <div
+                  <!-- <div
                     [ngClass]="{ 'show-less': showShortDesciption }"
                     style="margin-left: 5%; margin-right: 5%;"
-                  >
+                  > -->
+                  <div>
                   <p><strong>{{trends[i].total_likes}} Likes</strong></p>
-                  <p>{{trends[i].date_created_TS_fld | date: 'short'}}</p>
-                  {{trends[i].content_fld}}
+                  <p style="font-size: 0.875rem; color: rgb(114, 114, 114); margin-top: -.8rem">{{trends[i].date_created_TS_fld | date: 'short'}}</p>
+                  <p>{{trends[i].content_fld}}</p>
                   </div>
     
                 </div>
               </div>
-              <button class="trends-button" (click)="alterDescriptionText(trends[i].post_uid)">
+              <!-- <button class="trends-button" (click)="alterDescriptionText(trends[i].post_uid)">
                 {{ showShortDesciption ? "Show More >" : "Show Less" }}
-              </button>
+              </button> -->
             </ng-container>
             
           </div>
