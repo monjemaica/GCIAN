@@ -8,6 +8,7 @@ import { DeletePostComponent } from 'src/app/modal/posts/delete-post/delete-post
 import { EditPostComponent } from 'src/app/modal/posts/edit-post/edit-post.component';
 import { WebcamImageComponent } from 'src/app/modal/webcam-image/webcam-image.component';
 import { DataService } from 'src/app/services/data.service';
+import { SnackBarService } from 'src/app/services/snack-bar.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -26,12 +27,16 @@ export class UserProfileComponent implements OnInit {
   like_uid: number;
   likesArr=[];
 
+  displayImg: any;
+  filename: any;
+
   isPopupOpened = false;
 
   constructor(
     public dialog: MatDialog,
     private _us: UserService,
     private _ds: DataService,
+    private _sb: SnackBarService,
     private router: Router
   ) {}
 
@@ -109,7 +114,7 @@ export class UserProfileComponent implements OnInit {
   return false;
 }
 
-async doLIke(id: number, studid_fld: any) {
+async doLIke(id: number, studid_fld:any) {
   let post_uid = id;
 
   let currentPost = await this.likes.filter(
@@ -117,26 +122,20 @@ async doLIke(id: number, studid_fld: any) {
       parseInt(like.post_uid) === post_uid && like.studid_fld === studid_fld
   );
 
-  this.like_uid = await currentPost[0]?.like_uid;
+  console.log('currentpost', currentPost)
+  
+  this.like_uid = await currentPost[0]?.like_uid
 
-  if (currentPost.length !== 0 && currentPost[0].isLiked_fld === 1) {
-    console.log('BUTTON dislike post_uid:', post_uid);
-    this._ds
-      ._httpPutRequestByIdNoData(
-        `posts/${this.like_uid}/${post_uid}/dislikes`
-      )
-      .subscribe((res: any) => {
-        console.log(res);
-        this.ngOnInit();
-      });
+ if (currentPost.length !== 0 && currentPost[0].isLiked_fld === 1) {
+    this._ds._httpPutRequestByIdNoData(`posts/${this.like_uid}/${post_uid}/dislikes` ).subscribe((res: any) => {
+      this.ngOnInit();
+    })
   } else {
-    this._ds
-      ._httpPutRequestById(`posts/${post_uid}/likes`, { studid_fld })
-      .subscribe((res: any) => {
-        console.log(res);
-        this.ngOnInit();
-      });
+    this._ds._httpPutRequestById(`posts/${post_uid}/likes`, { studid_fld }).subscribe((res: any) => {
+      this.ngOnInit();
+    });
   }
+  
 }
 
   addPost() {
@@ -178,5 +177,28 @@ async doLIke(id: number, studid_fld: any) {
 
   changePassword() {
     this.dialog.open(ChangePasswordComponent);
+  }
+
+  async selectedFile(e) {
+    if (e.target.files.length > 0) {
+      const file = e.target.files[0];
+      this.displayImg = file;
+      this.filename = file.name;
+      console.log(this.filename);
+    }
+
+    let studid_fld = await this.student.studid_fld;
+    const formData = new FormData();
+
+    if (this.displayImg) {
+      formData.append('avatar_fld', this.displayImg);
+    }
+
+    console.log(':TESTIMG: ', this.displayImg);
+
+    this._ds._httpPutRequestById(`students/${studid_fld}/upload`, formData).subscribe((res:any) => {
+      this._sb.showNotification('Uploaded Profile Photo!', null, 'success');
+      this.ngOnInit();
+    })
   }
 }

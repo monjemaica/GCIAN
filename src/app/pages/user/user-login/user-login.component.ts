@@ -66,8 +66,7 @@ export class UserLoginComponent implements OnInit {
   login(e) {
     e.preventDefault();
     let email_fld = e.target.email.value;
-    // let password_fld = e.target.password.value;
-    let password_fld = "GC_12345678";
+    let password_fld = "GC_123456789";
 
     
 

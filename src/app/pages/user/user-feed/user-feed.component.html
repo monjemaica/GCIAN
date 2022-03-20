@@ -4,7 +4,7 @@
   </nav>
 
   <div class="flex-container">
-    <div style="width: 140vmin">
+    <div style="width: 100vmin">
       <ng-container *ngFor="let post of posts">
         <div>
           <div class="post-card" fxLayoutAlign="start start" fxFlexFill>
@@ -89,13 +89,15 @@
                 <p class="content-field">
                   {{ post.content_fld }}
                 </p>
-                <div class="content-center">
-                  <img
-                    style="height: 50vmin; width: auto; border-radius: 5%"
-                    src="https://pbs.twimg.com/media/FLvIsZ6XMAAJgp1?format=jpg&name=medium  "
-                    alt=""
-                  />
-                </div>
+                <ng-container *ngIf="post.img_fld">
+                  <div class="content-center">
+                    <img
+                      style="height: 50vmin; width: auto; border-radius: 5%"
+                      src="http://localhost:5000/uploads/{{post.img_fld}}"
+                      alt=""
+                    />
+                  </div>
+                </ng-container>
                 <p class="content-timestamp">
                   {{ post.date_created_TS_fld | date: "short" }}
                 </p>
@@ -124,6 +126,13 @@
                   <!---------------------------------------Unlike ------------------------------------------->
                   <ng-template #doUnlike>
                     <i class="fas fa-heart" style="color: #398547"></i>
+                    <span style="color: #398547">
+                      <ng-container *ngIf="post.total_likes_fld === 0">
+                      </ng-container>
+                      <ng-container *ngIf="post.total_likes_fld > 0">
+                        {{ post.total_likes_fld }}
+                      </ng-container>
+                    </span>
                   </ng-template>
                 </button>
                 <button
@@ -145,7 +154,7 @@
     </div>
     <div>
       <div class="card trends-card shadow">
-        <div class="card-header">Trends</div>
+        <div class="card-header">Trendings on GCIAN</div>
         <div class="trends-container">
           <ng-container *ngFor="let t of trends; let i = index">
             <ul class="list-group list-group-flush">
@@ -156,14 +165,14 @@
                 <div class="d-flex w-100 justify-content-between">
                   <h3 class="mb-1"></h3>
                   <small>
-                    {{ trends[i].date_created_TS_fld | date: "short" }}
+                    {{ t.is_created_at_fld | date: "short" }}
                   </small>
                 </div>
                 <p>
-                  {{ trends[i].content_fld }}
+                  {{ t.content_fld }}
                 </p>
 
-                <small>{{ trends[i].total_likes }} Care/s</small>
+                <small>{{ t.total_trends }} posts</small>
               </a>
             </ul>
           </ng-container>

@@ -7,7 +7,6 @@ import { EditPostComponent } from 'src/app/modal/posts/edit-post/edit-post.compo
 import { ReportPostComponent } from 'src/app/modal/posts/report-post/report-post.component';
 import { AppInfoComponent } from 'src/app/modal/app-info/app-info.component';
 import { DataService } from 'src/app/services/data.service';
-import { CreateCommentComponent } from 'src/app/modal/comments/create-comment/create-comment.component';
 import { DeletePostComponent } from 'src/app/modal/posts/delete-post/delete-post.component';
 
 @Component({
@@ -49,7 +48,6 @@ export class UserFeedComponent implements OnInit {
   getUsersPosts() {
     this._ds._httpGetRequest('posts').subscribe(
       (res: any) => {
-        console.log('test: ', res);
         this.posts = res;
       },
       (err: any) => {
@@ -62,9 +60,9 @@ export class UserFeedComponent implements OnInit {
   }
 
   getTrends() {
-    this._ds._httpPostRequestNoData('post/trends').subscribe((res: any[]) => {
-      res.forEach((e, i) => this.trends.push(res[i]));
-    });
+   this._ds._httpGetRequest('total_trends').subscribe((res:any) => {
+     this.trends = res
+   })
   }
 
   addPost() {
@@ -103,8 +101,13 @@ export class UserFeedComponent implements OnInit {
 
   deletePost(id) {
     this.ngOnInit();
-    this.dialog.open(DeletePostComponent, {
+    const dialogRef = this.dialog.open(DeletePostComponent, {
       data: id
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      this.ngOnInit();
+      this.isPopupOpened = false;
     });
   }
 
@@ -129,31 +132,18 @@ export class UserFeedComponent implements OnInit {
   getAllLikes() {
     this._ds._httpPostRequestNoData('posts/likes').subscribe((res: any[]) => {
       this.likes = res;
-      console.log('All Likes: ', this.likes);
     });
   }
 
   getTotalComments(){
     this._ds._httpPostRequestNoData('post/total_comments').subscribe((res:any) => {
       this.total_comments = res
-      console.log('total_comments: ', this.total_comments);
-  
     })
   }
-
-  // getTotalLikes(){
-  //   this._ds._httpPostRequestNoData('post/total_likes').subscribe((res:any) => {
-  //     this.total_likes = res
-  //   })
-  // }
 
   filterComments(id:any){
     return this.total_comments.filter(x => x.post_uid === id);
   }
-
-  // filterLikes(id:any){
-  //   return this.total_likes.filter(x => x.post_uid === id);
-  // }
 
   //filter red hearts
   filterLikeStatus(id: number, studid_fld:any) {
@@ -161,6 +151,7 @@ export class UserFeedComponent implements OnInit {
     let currentPost = this.likes?.filter((like) => parseInt(like.post_uid) === post_uid && like.studid_fld === studid_fld);
     
     if(currentPost?.length > 0 && currentPost[0]?.isLiked_fld === 1) {
+      console.log('currentPost: ',currentPost);
       return true
     }
     return false;
@@ -177,17 +168,15 @@ export class UserFeedComponent implements OnInit {
     this.like_uid = await currentPost[0]?.like_uid
 
    if (currentPost.length !== 0 && currentPost[0].isLiked_fld === 1) {
-      console.log('BUTTON dislike post_uid:', post_uid);
       this._ds._httpPutRequestByIdNoData(`posts/${this.like_uid}/${post_uid}/dislikes` ).subscribe((res: any) => {
-        console.log(res);
         this.ngOnInit();
       })
     } else {
       this._ds._httpPutRequestById(`posts/${post_uid}/likes`, { studid_fld }).subscribe((res: any) => {
-        console.log(res);
         this.ngOnInit();
       });
     }
     
   }
+
 }

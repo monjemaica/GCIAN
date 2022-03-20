@@ -1,34 +1,48 @@
-import { Component, OnInit } from "@angular/core";
-import { MatDialogRef } from "@angular/material/dialog";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { DataService } from 'src/app/services/data.service';
+import { UserService } from 'src/app/services/user.service';
+import { AlertService } from 'src/app/services/alert.service';
+import { SnackBarService } from 'src/app/services/snack-bar.service';
 
 @Component({
-  selector: "app-change-password",
-  templateUrl: "./change-password.component.html",
-  styleUrls: ["./change-password.component.css"],
+  selector: 'app-change-password',
+  templateUrl: './change-password.component.html',
+  styleUrls: ['./change-password.component.css'],
 })
 export class ChangePasswordComponent implements OnInit {
   registrationForm: FormGroup;
   currentPassword: boolean;
   fieldTextType: boolean;
   repeatFieldTextType: boolean;
+  currentUser: any;
+  oldPass: boolean = false;
+  oldPassMsg: boolean = false;
+  err:any;
 
   constructor(
     private dialogRef: MatDialogRef<ChangePasswordComponent>,
+    private _ds: DataService,
+    private _us: UserService,
+    private _as: AlertService,
+    private _sb: SnackBarService,
     private fb: FormBuilder
   ) {
     dialogRef.disableClose = true;
   }
 
   ngOnInit() {
+    this.currentUser = this._us.getUser();
     this.initRegForm();
   }
 
   initRegForm() {
     this.registrationForm = this.fb.group({
-      email: ["", [Validators.required, Validators.email]],
-      password: ["", Validators.required],
-      confirmpassword: ["", Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+      n_password: ['', Validators.required],
+      confirmpassword: ['', Validators.required],
     });
   }
 
@@ -43,61 +57,39 @@ export class ChangePasswordComponent implements OnInit {
   toggleRepeatFieldTextType() {
     this.repeatFieldTextType = !this.repeatFieldTextType;
   }
+
+  doChangePass(e) {
+    const studid_fld = this.currentUser.studid_fld;
+    let password_fld = e.target.password.value;
+
+    console.log('pass', password_fld);
+    if (password_fld) {
+      this._ds
+        ._httpPostRequest(`students/${studid_fld}/check_pass`, { password_fld })
+        .toPromise()
+        .then((res: any) => {
+          this.oldPass = true;
+
+          let n_password = e.target.n_password.value;
+          let c_password = e.target.c_password.value;
+          if(n_password !== c_password){
+            this._as.error('Password mismatch, please try again.', 'options.autoClose');
+          }else{
+            let password_fld = n_password
+           this._ds._httpPutRequestById(`students/${studid_fld}/change_pass`, {password_fld}).toPromise().then((res:any) => {
+            this._sb.showNotification('Password changed successfully!', null, "success");
+            this.dialogRef.close();
+           })
+
+          }
+         
+        })
+        .catch((err) => {
+          this.err = err.error.message
+          console.log(this.err)
+          this._as.error('Invalid Password, please try again.', 'options.autoClose');
+        });
+        
+    }
+  }
 }
-
-
-// import { Component, Inject, OnInit } from '@angular/core';
-// import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-// import { Router } from '@angular/router';
-// import { DataService } from 'src/app/services/data.service';
-// import { UserService } from 'src/app/services/user.service';
-
-// @Component({
-//   selector: 'app-change-password',
-//   templateUrl: './change-password.component.html',
-//   styleUrls: ['./change-password.component.css']
-// })
-// export class ChangePasswordComponent implements OnInit {
-//   student: any;
-//   alert_msg: string;
-
-//   constructor(
-//     private dialogRef: MatDialogRef<ChangePasswordComponent>,
-//     private _us: UserService,
-//     private _ds: DataService,
-//     private router: Router,
-//     @Inject(MAT_DIALOG_DATA) data
-//     ) {
-//       this.student = data;
-//       dialogRef.disableClose = true;
-//   }
-
-//   ngOnInit(): void {
-//     console.log('test student: ',this.student);
-//   }
-
-//   doChangePass(e){
-//     e.preventDefault();
-//     let password_fld = e.target.password.value;
-//     let n_password_fld = e.target.n_password.value;
-//     let c_password = e.target.c_password.value;
-//     let studid_fld = this.student.studid_fld;
-
-//     console.log('test npass: ',n_password_fld);
-//     console.log('test npass: ',c_password);
-//     if(n_password_fld != c_password){
-//       this.alert_msg = "Please make sure your passwords match."
-//     }else{
-//       this._ds._httpPostRequest(`students/${studid_fld}/check_pass`, {password_fld, n_password_fld}).subscribe((res:any) => {
-//         console.log('test changepass: ', res);
-//         this.alert_msg = 'Password Updated!'
-//       },(err:any) => {
-//         if(err.status == 401){
-//           this._us.setLoggedOut();
-//           this.router.navigateByUrl('/');
-//         }
-//       });
-//     }
-//   }
-
-// }

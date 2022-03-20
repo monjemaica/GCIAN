@@ -37,9 +37,9 @@ export class AlertComponent implements  OnDestroy {
               this.alerts.push(alert);
 
               // auto close alert if required
-              if (alert.autoClose) {
-                  setTimeout(() => this.removeAlert(alert), 3000);
-              }
+
+                  setTimeout(() => this.removeAlert(alert), 5000);
+              
          });
 
       // clear alerts on location change

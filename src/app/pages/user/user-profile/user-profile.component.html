@@ -89,7 +89,7 @@
                 </p>
                 <img
                   style="height: 50vmin; width: auto; border-radius: 5%"
-                  src="https://pbs.twimg.com/media/FLvIsZ6XMAAJgp1?format=jpg&name=medium"
+                  src="http://localhost:5000/uploads/{{p.img_fld}}"
                   alt=""
                 />
               </div>
@@ -113,9 +113,17 @@
                       {{ p.total_likes_fld }}
                     </span>
                   </ng-container>
+                
                   <!---------------------------------------Unlike ------------------------------------------->
                   <ng-template #doUnlike>
                     <i class="fas fa-heart" style="color: #398547"></i>
+                    <span style="color: #398547">
+                      <ng-container *ngIf="p.total_likes_fld === 0">
+                      </ng-container>
+                      <ng-container *ngIf="p.total_likes_fld > 0">
+                        {{ p.total_likes_fld }}
+                      </ng-container>
+                    </span>
                   </ng-template>
                 </button>
                 <button
@@ -165,7 +173,7 @@
                         </button>
                         <mat-menu #option="matMenu">
                           <button mat-menu-item>
-                            <input type="file" id="file" accept="image/*" />
+                            <input type="file" id="file" accept="image/*" (change)="selectedFile($event)"/>
                             <label for="file">
                               <i class="bi bi-images"></i>Gallery
                             </label>
