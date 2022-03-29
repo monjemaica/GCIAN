@@ -5,8 +5,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class DataService {
-  private url = 'http://localhost:5000/';
-
+  private url = 'http://192.168.100.17:5000/';
+  // private url = 'http://192.168.100.17:5000/';
+  
   constructor(private http: HttpClient) {
     console.log('Data service is working');
   }

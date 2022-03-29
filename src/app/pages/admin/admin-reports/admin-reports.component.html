@@ -1,57 +1,64 @@
-    <!-- --------------------------------------HOME SECTION--------------------------------------------- -->
-    <section class="home-section">
-      <div class="nav-spacer"></div>
-      <div class="all-posts-card shadow h-100">
-        <div class="header">
-          <p class="label">All Reports</p>
-          <div class="search-container">
-            <div class="form-group">
-              <input
-                type="text"
-                id="search-focus"
-                class="form-control"
-                placeholder="Search Here"
-                [(ngModel)]="term"
-              />
-            </div>
-            <div>
-              <button type="button" class="btn btn-success">
-                <i class="fas fa-search"></i>
-              </button>
-            </div>
-          
+<!-- --------------------------------------HOME SECTION--------------------------------------------- -->
+<section class="home-section">
+  <div class="nav-spacer"></div>
+  <div class="all-posts-card shadow h-100">
+    <div class="header">
+      <p class="label">All Reports</p>
+      <div class="search-container">
+        <div class="form-group">
+          <input
+            type="text"
+            id="search-focus"
+            class="form-control"
+            placeholder="Search Here"
+            [(ngModel)]="term"
+          />
         </div>
+        <div>
+          <button type="button" class="btn btn-success">
+            <i class="fas fa-search"></i>
+          </button>
         </div>
-
-        <!-- --------------------------------------ACCEPT BUTTON--------------------------------------------- -->
+      </div>
+    </div>
+    <!-- --------------------------------------ACCEPT BUTTON--------------------------------------------- -->
+    <ng-container *ngIf="selectedItemsList.length !== 0">
       <div class="acceptBtn">
-        <button class="btn btn-outline-success" style="margin-right: 10px" (click)="doUpdate()">
-          Update Report
+        <button
+          class="btn btn-outline-success"
+          style="margin-right: 10px"
+          (click)="doUpdate()"
+        >
+          Accept Reports
         </button>
       </div>
+    </ng-container>
+    <!-- --------------------------------------DECLINE BUTTON--------------------------------------------- -->
+    <ng-container *ngIf="unselectedItemsList.length !== 0">
+      <div class="acceptBtn">
+        <button
+          class="btn btn-outline-danger"
+          style="margin-right: 10px"
+          (click)="doUpdate()"
+        >
+          Decline Reports
+        </button>
+      </div>
+    </ng-container>
 
-    
     <mat-tab-group>
-      <mat-tab label="All"> 
+      <!-- --------------------------------------ALL--------------------------------------------- -->
+      <mat-tab label="All">
         <table class="table table-striped table-hover">
           <thead>
             <tr>
-              <th scope="col">
-                <input
-                  type="checkbox"
-                  id="flexSwitchCheckChecked"
-                  [(ngModel)]="parentSelector"
-                  [value]="-1"
-                  (change)="isChecked($event)"
-                />
-              </th>
               <th scope="col">#</th>
               <th scope="col">Content</th>
-              <th scope="col">Author</th>
+              <!-- <th scope="col">Author</th> -->
               <th scope="col">Concern</th>
               <th scope="col">Details</th>
               <th scope="col">Reported_By</th>
-              <th scope="col">Date_Created</th>
+              <!-- <th scope="col">Date_Created</th> -->
               <th scope="col">Date_Reported</th>
               <!-- <th scope="col">Action</th> -->
             </tr>
@@ -61,29 +68,18 @@
 
               <div>try{{ a.fname_fld }}</div>
               </ng-container> -->
-            <ng-container *ngFor="let r of reports| filter: term let i = index ">
+            <ng-container
+              *ngFor="let r of reports | filter: term; let i = index"
+            >
               <tr>
-                <th scope="row">
-                  <div class="form-check form-switch">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="flexSwitchCheckChecked"
-                      [value]="r.report_uid"
-                      [checked]="!!r.isViewed_fld"
-                      (change)="isChecked($event)"
-                      disabled="disabled"
-                    />
-                  </div>
-                </th>
                 <td>{{ r.report_uid }}</td>
                 <td>{{ r.post_content }}</td>
-                <td>{{ r.author }}</td>
+                <!-- <td>{{ r.author }}</td> -->
                 <td>{{ r.concern_fld }}</td>
                 <td>{{ r.report_content }}</td>
                 <td>{{ r.fname_fld }} {{ r.mname_fld }} {{ r.lname_fld }}</td>
-                <td>{{ r.date_created | date:'short' }}</td>
-                <td>{{ r.date_reported | date:'short' }}</td>
+                <!-- <td>{{ r.date_created | date:'yyyy-MM-dd' }}</td> -->
+                <td>{{ r.date_reported | date: "yyyy-MM-dd" }}</td>
                 <!-- <td>
                   <div class="button">                    
                     <button style="margin-right: 10px; border: none;" href (click)="viewPost(r.report_uid)"><i class="far fa-eye"></i></button>
@@ -94,7 +90,14 @@
             </ng-container>
           </tbody>
         </table>
-        <div class="pagination">
+        
+                  <ng-container *ngIf="reports.length === 0">
+                    <div class="container">
+                      <img src="../../../../assets/img/no_records.png" alt="" />
+                      
+                    </div>
+                  </ng-container>
+        <!-- <div class="pagination">
           <a href="" class="sec">Prev</a>
           <a href="" class="sec">1</a>
           <a href="" class="sec">2</a>
@@ -102,29 +105,22 @@
           <a href="" class="sec">4</a>
           <a href="" class="sec">5</a>
           <a href="" class="sec">Next</a>
-        </div>  
+        </div> -->
       </mat-tab>
 
-      <mat-tab label="Ignored Reports"> 
+      <!-- --------------------------------------IGNORED BUTTON--------------------------------------------- -->
+      <mat-tab label="Ignored Reports">
         <table class="table table-striped table-hover">
           <thead>
             <tr>
-              <th scope="col">
-                <input
-                  type="checkbox"
-                  id="flexSwitchCheckChecked"
-                  [(ngModel)]="parentSelector"
-                  [value]="-1"
-                  (change)="isCheckedG($event)"
-                />
-              </th>
+              <th></th>
               <th scope="col">#</th>
               <th scope="col">Content</th>
-              <th scope="col">Author</th>
+              <!-- <th scope="col">Author</th> -->
               <th scope="col">Concern</th>
               <th scope="col">Details</th>
               <th scope="col">Reported_By</th>
-              <th scope="col">Date_Created</th>
+              <!-- <th scope="col">Date_Created</th> -->
               <th scope="col">Date_Reported</th>
               <!-- <th scope="col">Action</th> -->
             </tr>
@@ -134,7 +130,10 @@
 
               <div>try{{ a.fname_fld }}</div>
               </ng-container> -->
-            <ng-container *ngFor="let r of ignored| filter: term let i = index ">
+
+            <ng-container
+              *ngFor="let r of ignored | filter: term; let i = index"
+            >
               <tr>
                 <th scope="row">
                   <div class="form-check form-switch">
@@ -144,18 +143,19 @@
                       id="flexSwitchCheckChecked"
                       [value]="r.report_uid"
                       [checked]="!!r.isViewed_fld"
-                      (change)="isCheckedG($event)"
+                      [(ngModel)]="r.isViewed_fld"
+                      (change)="changeSelectionIgnored()"
                     />
                   </div>
                 </th>
                 <td>{{ r.report_uid }}</td>
                 <td>{{ r.post_content }}</td>
-                <td>{{ r.author }}</td>
+                <!-- <td>{{ r.author }}</td> -->
                 <td>{{ r.concern_fld }}</td>
                 <td>{{ r.report_content }}</td>
                 <td>{{ r.fname_fld }} {{ r.mname_fld }} {{ r.lname_fld }}</td>
-                <td>{{ r.date_created | date:'short' }}</td>
-                <td>{{ r.date_reported | date:'short' }}</td>
+                <!-- <td>{{ r.date_created | date:'yyyy-MM-dd' }}</td> -->
+                <td>{{ r.date_reported | date: "yyyy-MM-dd" }}</td>
                 <!-- <td>
                   <div class="button">                    
                     <button style="margin-right: 10px; border: none;" href (click)="viewPost(r.report_uid)"><i class="far fa-eye"></i></button>
@@ -166,7 +166,15 @@
             </ng-container>
           </tbody>
         </table>
-        <div class="pagination">
+
+        <ng-container *ngIf="ignored.length === 0">
+          <div class="container">
+            <img src="../../../../assets/img/no_records.png" alt="" />
+            <!-- No Cares maganda sana if may nakalagay na No Cares kaso dko sya mapantay sa img -->
+          </div>
+        </ng-container>
+
+        <!-- <div class="pagination">
           <a href="" class="sec">Prev</a>
           <a href="" class="sec">1</a>
           <a href="" class="sec">2</a>
@@ -174,39 +182,30 @@
           <a href="" class="sec">4</a>
           <a href="" class="sec">5</a>
           <a href="" class="sec">Next</a>
-        </div>  
+        </div> -->
       </mat-tab>
 
-      <mat-tab label="Noticed Reports"> 
+      --------------------------------------NOTICED---------------------------------------------
+      <mat-tab label="Noticed Reports">
         <table class="table table-striped table-hover">
           <thead>
             <tr>
               <th scope="col">
-                <input
-                  type="checkbox"
-                  id="flexSwitchCheckChecked"
-                  [(ngModel)]="parentSelector"
-                  [value]="-1"
-                  (change)="isCheckedG($event)"
-                />
               </th>
               <th scope="col">#</th>
               <th scope="col">Content</th>
-              <th scope="col">Author</th>
+              <!-- <th scope="col">Author</th> -->
               <th scope="col">Concern</th>
               <th scope="col">Details</th>
               <th scope="col">Reported_By</th>
-              <th scope="col">Date_Created</th>
+              <!-- <th scope="col">Date_Created</th> -->
               <th scope="col">Date_Reported</th>
-              <!-- <th scope="col">Action</th> -->
             </tr>
           </thead>
           <tbody>
-            <!-- <ng-container *ngFor="let a of authors">
-
-              <div>try{{ a.fname_fld }}</div>
-              </ng-container> -->
-            <ng-container *ngFor="let r of noticed| filter: term let i = index ">
+            <ng-container
+              *ngFor="let r of noticed | filter: term; let i = index"
+            >
               <tr>
                 <th scope="row">
                   <div class="form-check form-switch">
@@ -216,29 +215,33 @@
                       id="flexSwitchCheckChecked"
                       [value]="r.report_uid"
                       [checked]="!!r.isViewed_fld"
-                      (change)="isChecked($event)"
+                      [(ngModel)]="r.isViewed_fld"
+                      (change)="changeSelectionNoticed()"
                     />
                   </div>
                 </th>
                 <td>{{ r.report_uid }}</td>
                 <td>{{ r.post_content }}</td>
-                <td>{{ r.author }}</td>
+                <!-- <td>{{ r.author }}</td> -->
                 <td>{{ r.concern_fld }}</td>
                 <td>{{ r.report_content }}</td>
                 <td>{{ r.fname_fld }} {{ r.mname_fld }} {{ r.lname_fld }}</td>
-                <td>{{ r.date_created | date:'short' }}</td>
-                <td>{{ r.date_reported | date:'short' }}</td>
-                <!-- <td>
-                  <div class="button">                    
-                    <button style="margin-right: 10px; border: none;" href (click)="viewPost(r.report_uid)"><i class="far fa-eye"></i></button>
-                  </div>
-                </td> -->
+                <!-- <td>{{ r.date_created | date:'yyyy-MM-dd' }}</td> -->
+                <td>{{ r.date_reported | date: "yyyy-MM-dd" }}</td>
               </tr>
-              <!-- </ng-container> -->
             </ng-container>
           </tbody>
+
         </table>
-        <div class="pagination">
+
+        <ng-container *ngIf="noticed.length === 0">
+          <div class="container">
+            <img src="../../../../assets/img/no_records.png" alt="" />
+            <!-- No Cares maganda sana if may nakalagay na No Cares kaso dko sya mapantay sa img -->
+          </div>
+        </ng-container>
+        
+        <!-- <div class="pagination">
           <a href="" class="sec">Prev</a>
           <a href="" class="sec">1</a>
           <a href="" class="sec">2</a>
@@ -246,11 +249,8 @@
           <a href="" class="sec">4</a>
           <a href="" class="sec">5</a>
           <a href="" class="sec">Next</a>
-        </div>  
+        </div> -->
       </mat-tab>
     </mat-tab-group>
-    
-        
-      </div>
-    </section>
-
+  </div>
+</section>

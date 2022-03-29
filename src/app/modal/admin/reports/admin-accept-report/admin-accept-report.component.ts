@@ -16,6 +16,7 @@ export class AdminAcceptReportComponent implements OnInit {
   currentUser: any;
   isPopupOpened = false;
 
+
   constructor(
     private dialogRef: MatDialogRef<AdminAcceptReportComponent>,
     private _us: UserService,
@@ -33,31 +34,36 @@ export class AdminAcceptReportComponent implements OnInit {
   }
 
   async updateChatroom(e) {
-
+    console.log('SELECTED ', this.selectedItemsList)
+    console.log('UNSELECTED ', this.unselectedItemsList)
+    if(this.selectedItemsList){
       this.selectedItemsList.map((x) => {
         let isViewed_fld = x.isViewed_fld;
 
         this._ds
-          ._httpPostRequestById('reports/', x.report_uid, { isViewed_fld })
+          ._httpPostRequestById('ignored_reports/', x.report_uid, { isViewed_fld })
           .subscribe((res: any) => {
-            console.log(res);
+   
             this.ngOnInit();
           });
       });
+    }
 
-
+    if(this.unselectedItemsList){
       this.unselectedItemsList.map((x) => {
         let isViewed_fld = x.isViewed_fld;
-
+  
         this._ds
           ._httpPostRequestById('noticed_reports/', x.report_uid, {
             isViewed_fld,
           })
           .subscribe((res: any) => {
-            console.log(res);
             this.ngOnInit();
+
           });
       });
+    }
+
       this.dialogRef.close();
     
   }

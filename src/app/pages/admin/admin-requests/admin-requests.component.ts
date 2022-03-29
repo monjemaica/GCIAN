@@ -14,12 +14,14 @@ export class AdminRequestsComponent implements OnInit {
   selectedItemsList = [];
   unselectedItemsList = [];
   checkUnselect = [];
+  checkSelect = [];
   parentSelector: boolean = false;
   parentSelectorAuth: boolean = true;
 
   rooms = [];
   unauthorized = [];
   authorized = [];
+  term:any;
 
   isPopupOpened = false;
 
@@ -31,13 +33,13 @@ export class AdminRequestsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRooms();
-    this.getUnauthorized();
     this.getAuthorized();
-    setTimeout(() => {
-      this.fetchSeletedUnauthorized();
-      this.fetchSeletedAuthorized();
+    this.getUnauthorized();
+    // setTimeout(() => {
+    //   this.fetchSeletedUnauthorized();
+    //   this.fetchSeletedAuthorized();
       // this.fetchCheckedIDs();
-    }, 5000);
+    // }, 5000);
   }
 
   getRooms() {
@@ -60,23 +62,12 @@ export class AdminRequestsComponent implements OnInit {
 
   //unauthorized
   changeSelection() {
-    this.fetchSeletedUnauthorized();
+     this.fetchSeletedUnauthorized();
   }
 
   fetchSeletedUnauthorized() {
-    this.selectedItemsList = this.unauthorized.filter((value, index) => {
-      return !!value.is_unauthorized_fld;
-    });
-  }
-
-  // authorized
-  changeSelectionAuth() {
-    this.fetchSeletedAuthorized();
-  }
-
-  fetchSeletedAuthorized() {
     this.unselectedItemsList = [];
-    this.checkUnselect = this.authorized.filter((r) => {
+    this.checkUnselect = this.unauthorized.filter((r) => {
       if (!!r.is_unauthorized_fld === false) {
         this.unselectedItemsList.push(r);
       }
@@ -85,18 +76,41 @@ export class AdminRequestsComponent implements OnInit {
     });
     console.table(this.unselectedItemsList);
   }
-
+  
+  // authorized
+  changeSelectionAuth() {
+    this.fetchSeletedAuthorized();
+  }
+  
+  fetchSeletedAuthorized() {
+  this.selectedItemsList = [];
+    this.checkSelect = this.authorized.filter((r) => {
+      if(!!r.is_unauthorized_fld === true){
+        this.selectedItemsList.push(r);
+      }
+      return this.checkSelect;
+    });
+    console.table(this.selectedItemsList);
+  }
+  
   doUpdate() {
     const dialogRef = this.dialog.open(AdminUpdateChatroomRequestComponent, {
       data: {
-        seleted: this.selectedItemsList,
+        selected: this.selectedItemsList,
         unselected: this.unselectedItemsList,
       },
     });
     dialogRef.afterClosed().subscribe((res) => {
-      this.ngOnInit();
+      this.reload();
+      console.log('CLOSE'); 
       this.isPopupOpened = false;
     });
+  }
+
+  reload(){
+    this.selectedItemsList = [];
+    this.unselectedItemsList = [];
+    this.ngOnInit();
   }
 
   logout() {

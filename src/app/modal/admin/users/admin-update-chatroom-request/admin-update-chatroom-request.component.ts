@@ -38,31 +38,33 @@ export class AdminUpdateChatroomRequestComponent implements OnInit {
     if(this.selectedItemsList){
       this.selectedItemsList.map((x) => {
         let is_unauthorized_fld = x.is_unauthorized_fld;
-        console.log('is_unauthorized_fld', is_unauthorized_fld);
-        console.log('room_uid', x.room_uid);
+    
         this._ds
-          ._httpPostRequestById('room/', x.room_uid, { is_unauthorized_fld })
+          ._httpPutRequestById(`auth/${x.room_uid}`, { is_unauthorized_fld })
           .subscribe((res: any) => {
-            console.log('update: ', res);
-          });
-      });
-      this.dialogRef.close();
-    }
-    if(this.unselectedItemsList){
-      this.unselectedItemsList.map((x) => {
-        let is_unauthorized_fld = x.is_unauthorized_fld;
-        console.log('is_unauthorized_fld', is_unauthorized_fld);
-        console.log('room_uid', x.room_uid);
-        this._ds
-          ._httpPostRequestById('room/', x.room_uid, { is_unauthorized_fld })
-          .subscribe((res: any) => {
-            console.log('update: ', res);
+            this.ngOnInit();
           });
       });
       this.dialogRef.close();
     }
 
+    if(this.unselectedItemsList){
+      this.unselectedItemsList.map((x) => {
+        let is_unauthorized_fld = x.is_unauthorized_fld;
+
+        this._ds
+          ._httpPutRequestById(`unauth/${x.room_uid}`, { is_unauthorized_fld })
+          .subscribe((res: any) => {
+            this.ngOnInit();
+          });
+      });
+
+      this.dialogRef.close();
+    }
+
   }
+
+
 
   cancelClick(): void {
     this.dialogRef.close();

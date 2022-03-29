@@ -74,7 +74,10 @@ export class ChangePasswordComponent implements OnInit {
           let c_password = e.target.c_password.value;
           if(n_password !== c_password){
             this._as.error('Password mismatch, please try again.', 'options.autoClose');
-          }else{
+          }else if(n_password === password_fld && c_password === password_fld){
+            this._as.error('Your password cannot be same as old password, please try again.', 'options.autoClose');
+          }
+          else{
             let password_fld = n_password
            this._ds._httpPutRequestById(`students/${studid_fld}/change_pass`, {password_fld}).toPromise().then((res:any) => {
             this._sb.showNotification('Password changed successfully!', null, "success");

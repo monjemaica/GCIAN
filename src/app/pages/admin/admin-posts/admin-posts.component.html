@@ -43,7 +43,7 @@
             <ng-container *ngIf="p.img_fld" style="height: 50px">
               <td>
                 <img
-                  src="http://localhost:5000/uploads/{{ p.img_fld }}"
+                  src="http://192.168.100.17:5000/uploads/{{ p.img_fld }}"
                   class="img-fluid img-thumbnail"
                   alt="No Picture"
                   style="width: 100px; height: auto"
@@ -62,7 +62,7 @@
             </ng-container>
             <td>{{ p.dept_fld }}</td>
             <td>{{ p.program_fld }}</td>
-            <td>{{ p.date_created_TS_fld | date: "short" }}</td>
+            <td>{{ p.date_created_TS_fld | date:'yyyy-MM-dd' }}</td>
             <!-- <td>
               <div class="button">
                 <button
@@ -78,7 +78,7 @@
         </ng-container>
       </tbody>
     </table>
-    <div class="pagination">
+    <!-- <div class="pagination">
       <a href="" class="sec">Prev</a>
       <a href="" class="sec">1</a>
       <a href="" class="sec">2</a>
@@ -86,6 +86,6 @@
       <a href="" class="sec">4</a>
       <a href="" class="sec">5</a>
       <a href="" class="sec">Next</a>
-    </div>
+    </div> -->
   </div>
 </section>

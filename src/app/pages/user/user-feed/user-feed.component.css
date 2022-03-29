@@ -159,8 +159,9 @@
   flex-direction: row;
   padding-top: 3.75rem;
   padding-left: 3vmin;
-  width: 150vmin;
+  /* width: 150vmin; */
 }
+
 
 .label {
   font-size: 23px;
@@ -187,6 +188,7 @@ section .card {
 .avatar img {
   height: 8vmin;
   width: 8vmin;
+  margin-left: -1rem;
   border-radius: 50%;
 }
 
@@ -194,8 +196,8 @@ section .card {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin-left: -1.7rem;
-  margin-top: .1rem;
+  /* margin-left: -1.7rem;
+  margin-top: .1rem; */
 }
 
 .post-card .card-title {
@@ -209,10 +211,6 @@ section .card {
   margin-top: -.8rem
 }
 
-.drop-down {
-  margin-left: 66.5%;
-  margin-top: 1.2rem;
-}
 
 .btn_care {
   margin-right: 1.3vmin;
@@ -226,8 +224,8 @@ section .card {
 }
 
 .post-card .card-content {
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
   /* margin-left: 2.3%; */
   /* margin-left: 8.3%; */
   margin-left: 5rem;
@@ -248,8 +246,8 @@ section .card {
 
 .post-card .card-actions {
   text-align: center;
-  padding: 1vmin;
-  margin-top: -1vmin;
+  /* padding: 1vmin;
+  margin-top: -1vmin; */
 }
 
 .card-actions .btn_care {
@@ -291,10 +289,14 @@ button:focus {
   overflow: hidden;
 }
 
-/* .content-center {
-  display: flex;
-  justify-content: center;
-} */
+.content_img img{
+  width: 100%;
+  max-width: auto;
+  height: auto;
+  /* width: 600px; 
+  height: 600px; */
+  /* object-fit: cover; */
+}
 
 .flex-container {
   display: flex;

@@ -31,8 +31,8 @@
                     <div class="posts-avatar">
                       <img
                         class="id_img"
-                        src="http://localhost:5000/uploads/{{
-                          student.avatar_fld
+                        src="http://192.168.100.17:5000/uploads/{{
+                          p.avatar_fld
                         }}"
                         alt=""
                       />
@@ -89,7 +89,7 @@
                 </p>
                 <img
                   style="height: 50vmin; width: auto; border-radius: 5%"
-                  src="http://localhost:5000/uploads/{{p.img_fld}}"
+                  src="http://192.168.100.17:5000/uploads/{{p.img_fld}}"
                   alt=""
                 />
               </div>
@@ -156,7 +156,7 @@
                 <div class="avatar">
                   <img
                     class="id_img"
-                    src="http://localhost:5000/uploads/{{ student.avatar_fld }}"
+                    src="http://192.168.100.17:5000/uploads/{{ student.avatar_fld }}"
                     alt=""
                   />
                 </div>
@@ -182,9 +182,9 @@
                             style="width: 90%; margin-left: 5%"
                             class="posts_mat-divider"
                           ></mat-divider>
-                          <button mat-menu-item href (click)="webcam()">
+                          <!-- <button mat-menu-item href (click)="webcam()">
                             <i class="bi bi-camera"></i>Camera
-                          </button>
+                          </button> -->
                         </mat-menu>
                       </mat-card-actions>
                     </div>

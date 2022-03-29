@@ -20,6 +20,12 @@ export class AdminReportsComponent implements OnInit {
   uniqueNoticed = [];
   uniqueIgnored = [];
   selectedReports = [];
+
+  selectedItemsList = [];
+  checkSelect = [];
+  unselectedItemsList = [];
+  checkUnselect = [];
+  close: boolean;
   parentSelector: boolean = false;
   term: any;
   isPopupOpened = false;
@@ -57,6 +63,7 @@ export class AdminReportsComponent implements OnInit {
       ._httpGetRequest('ignored_reports')
       .subscribe((res: any) => {
         this.ignored = res;
+        console.table(this.ignored);
       });
   }
 
@@ -79,69 +86,57 @@ export class AdminReportsComponent implements OnInit {
     });
   }
 
-  isCheckedG(e) {
-    const id = e.target.value;
-    const isViewed_fld = e.target.checked; //true or false
-    // this.uniqueIgnored = [...new Set(this.selectedReports)];
+  //ignored
+  changeSelectionIgnored(){
+    this.fetchSelectedIgnored();
+  }
 
-    this.ignored.map((x) => {
-      if (x.report_uid == id) {
-        this.uniqueIgnored.push(x);
-        // console.log('test:', this.selectedReports);
-        console.log('test:', this.uniqueIgnored);
-        
+  fetchSelectedIgnored(){
+    this.selectedItemsList = [];
+    this.checkSelect = this.ignored.filter((r) => {
+      if(!!r.isViewed_fld === true){
+        this.selectedItemsList.push(r);
+        console.log('=TESTING= ', r)
       }
-
-      if (id == -1) {
-        const isViewed_fld = this.parentSelector;
-        this._ds
-          ._httpPostRequestById('reports/', x.report_uid, { isViewed_fld })
-          .subscribe((res: any) => {
-            console.log(res);
-            this.ngOnInit();
-          });
-      }
+      return this.checkSelect;
     });
   }
 
-  isChecked(e) {
-    const id = e.target.value;
-    const isViewed_fld = e.target.checked; //true or false
-    // this.uniqueNoticed = [...new Set(this.selectedReports)];
-    this.noticed.map((x) => {
-      if (x.report_uid == id) {
-        this.uniqueNoticed.push(x);
-        // console.log('test:', this.uniqueNoticed);
-        console.log('test:', this.uniqueNoticed);
-        // this._ds._httpPostRequestById('reports/', x.report_uid, {isViewed_fld}).subscribe((res:any) => {
-        //   console.log(res);
-        //   this.ngOnInit();
-        // })
-        return x;
+  //noticed
+  changeSelectionNoticed() {
+     this.fetchSeletedUnauthorized();
+  }
+
+  fetchSeletedUnauthorized() {
+    this.unselectedItemsList = [];
+    this.checkUnselect = this.noticed.filter((r) => {
+      if (!!r.isViewed_fld === false) {
+        this.unselectedItemsList.push(r);
       }
 
-      if (id == -1) {
-        const isViewed_fld = this.parentSelector;
-        this._ds
-          ._httpPostRequestById('noticed_reports/', x.report_uid, { isViewed_fld })
-          .subscribe((res: any) => {
-            console.log(res);
-            this.ngOnInit();
-          });
-      }
+      return this.checkUnselect;
     });
+    console.table(this.unselectedItemsList);
   }
 
   doUpdate() {
     const dialogRef = this.dialog.open(AdminAcceptReportComponent, {
-      data: {selected: this.uniqueIgnored, unselected: this.uniqueNoticed}
+      data: {selected: this.selectedItemsList, unselected: this.unselectedItemsList}
       ,
     });
     dialogRef.afterClosed().subscribe((res) => {
-      this.ngOnInit();
+      
+      this.reload();
       this.isPopupOpened = false;
     });
   }
+
+  reload(){
+    this.unselectedItemsList = [];
+    this.selectedItemsList = [];
+    this.ngOnInit();
+  }
+
   logout() {
     this._us.setLoggedOut();
   }

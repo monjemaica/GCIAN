@@ -3,104 +3,98 @@
     <span class="label">Home</span>
   </nav>
 
-  <div class="flex-container">
-    <div style="width: 100vmin">
+  <div class="row-cols-auto flex-container">
+    <div class="col-md-8">
       <ng-container *ngFor="let post of posts">
-        <div>
+        <div class="container">
           <div class="post-card" fxLayoutAlign="start start" fxFlexFill>
             <div class="card shadow" fxFlex="98">
-              <div
-                style="
-                  display: flex;
-                  flex-direction: row;
-                  flex-wrap: wrap;
-                  justify-content: flex-start;
-                "
-              >
-                <div>
-                  <div class="card-body">
-                    <div class="avatar">
+              <div class="row m-3">
+                <div class="col-4 col-md-1">
+                  <div class="avatar">
+                     
+                    <img
+                      src="http://192.168.100.17:5000/uploads/{{
+                        post.avatar_fld
+                      }}"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="col-md-10">
+                  <p class="card-title">
+                    {{ post.fname_fld }} {{ post.mname_fld }}
+                    {{ post.lname_fld }}
+                  </p>
+                  <p class="card-subtitle-course">
+                    {{ post.program_fld }}
+                  </p>
+                </div>
+                <div class="col-6 col-md-1">
+                    <mat-card-actions>
+                      <button mat-icon-button [matMenuTriggerFor]="option">
+                        <i
+                          class="bx bx-dots-horizontal-rounded"
+                          style="font-size: 3.2vmin"
+                        ></i>
+                      </button>
+                      <mat-menu #option="matMenu">
+                        <ng-container *ngIf="student.studid_fld == post.studid_fld">
+                          <button mat-menu-item (click)="editPost(post.post_uid)">
+                            <i class="btn_care bx bx-edit"></i>Edit
+                          </button>
+                          <mat-divider
+                            style="width: 90%; margin-left: 5%"
+                            class="posts_mat-divider"
+                          ></mat-divider>
+                          <button mat-menu-item (click)="deletePost(post.post_uid)">
+                            <i class="btn_red bx bx-trash"></i>Delete
+                          </button>
+                        </ng-container>
+                        <ng-container
+                          *ngIf="student.studid_fld !== post.studid_fld"
+                        >
+                          <button mat-menu-item (click)="reportPost(post.post_uid)">
+                            <i class="btn_red bx bx-error"></i>Report
+                          </button>
+                        </ng-container>
+                      </mat-menu>
+                    </mat-card-actions>
+                
+                </div>
+              </div>
+
+              <div class="row mx-2">
+                <div class="col">
+                  <p class="content-field">
+                    {{ post.content_fld }}
+                  </p>
+                  <ng-container *ngIf="post.img_fld">
+                    <div class="content_img">
                       <img
-                        src="http://localhost:5000/uploads/{{
-                          post.avatar_fld
+                        style=" border-radius: 5%"
+                        src="http://192.168.100.17:5000/uploads/{{
+                          post.img_fld
                         }}"
                         alt=""
                       />
                     </div>
-                  </div>
-                </div>
-                <div class="post-card-details">
-                  <div class="card-body">
-                    <p class="card-title">
-                      {{ post.fname_fld }} {{ post.mname_fld }}
-                      {{ post.lname_fld }}
-                    </p>
-                    <p class="card-subtitle-course">
-                      {{ post.program_fld }}
-                    </p>
-                  </div>
-                </div>
-                <div class="drop-down">
-                  <mat-card-actions>
-                    <button mat-icon-button [matMenuTriggerFor]="option">
-                      <i
-                        class="bx bx-dots-horizontal-rounded"
-                        style="font-size: 3.2vmin"
-                      ></i>
-                    </button>
-                    <mat-menu #option="matMenu">
-                      <ng-container
-                        *ngIf="student.studid_fld == post.studid_fld"
-                      >
-                        <button mat-menu-item (click)="editPost(post.post_uid)">
-                          <i class="btn_care bx bx-edit"></i>Edit
-                        </button>
-                        <mat-divider
-                          style="width: 90%; margin-left: 5%"
-                          class="posts_mat-divider"
-                        ></mat-divider>
-                        <button
-                          mat-menu-item
-                          (click)="deletePost(post.post_uid)"
-                        >
-                          <i class="btn_red bx bx-trash"></i>Delete
-                        </button>
-                      </ng-container>
-                      <ng-container
-                        *ngIf="student.studid_fld !== post.studid_fld"
-                      >
-                        <button
-                          mat-menu-item
-                          (click)="reportPost(post.post_uid)"
-                        >
-                          <i class="btn_red bx bx-error"></i>Report
-                        </button>
-                      </ng-container>
-                    </mat-menu>
-                  </mat-card-actions>
+                  </ng-container>
+                  <p class="content-timestamp">
+                    {{ post.date_created_TS_fld | date: "short" }}
+                  </p>
                 </div>
               </div>
-              <!-- <div class="card-content"> -->
-              <!-- <div class="post-card-details"> -->
+
+             
+
               <div
                 class="card-body"
                 style="margin-left: 7.3%; margin-top: -2.5rem"
               >
-                <p class="content-field">
-                  {{ post.content_fld }}
-                </p>
-                <ng-container *ngIf="post.img_fld">
-                  <div class="content-center">
-                    <img
-                      style="height: 50vmin; width: auto; border-radius: 5%"
-                      src="http://localhost:5000/uploads/{{post.img_fld}}"
-                      alt=""
-                    />
-                  </div>
-                </ng-container>
-                <p class="content-timestamp">
-                  {{ post.date_created_TS_fld | date: "short" }}
-                </p>
+                
+               
+               
               </div>
 
               <div class="card-actions">
@@ -135,6 +129,7 @@
                     </span>
                   </ng-template>
                 </button>
+                <!---------------------------------------Comments ------------------------------------------->
                 <button
                   (click)="comment(post.post_uid)"
                   routerLink="/comment/{{ post.post_uid }}"
@@ -152,7 +147,8 @@
         </div>
       </ng-container>
     </div>
-    <div>
+
+    <div class="col-6 col-md-4">
       <div class="card trends-card shadow">
         <div class="card-header">Trendings on GCIAN</div>
         <div class="trends-container">

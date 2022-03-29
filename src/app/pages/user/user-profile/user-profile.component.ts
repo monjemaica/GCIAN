@@ -198,7 +198,14 @@ async doLIke(id: number, studid_fld:any) {
 
     this._ds._httpPutRequestById(`students/${studid_fld}/upload`, formData).subscribe((res:any) => {
       this._sb.showNotification('Uploaded Profile Photo!', null, 'success');
+      this._ds._httpGetRequest(`students/${studid_fld}`).subscribe((res:any) => {
+        console.log('student: ',res);
+        this._us.saveUser(res);
+        this.ngOnInit();
+      })
       this.ngOnInit();
     })
+
+
   }
 }

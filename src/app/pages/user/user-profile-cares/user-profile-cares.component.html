@@ -31,7 +31,7 @@
                     <div class="posts-avatar">
                       <img
                         class="id_img"
-                        src="http://localhost:5000/uploads/{{
+                        src="http://192.168.100.17:5000/uploads/{{
                           likesArr[i].avatar_fld
                         }}"
                         alt=""
@@ -73,7 +73,7 @@
                         style="width: 90%; margin-left: 5%"
                         class="posts_mat-divider"
                       ></mat-divider>
-                      <button mat-menu-item (click)="deletePost(p.post_uid)">
+                      <button mat-men u-item (click)="deletePost(p.post_uid)">
                         <i
                           style="margin-right: .7rem; color: red"
                           class="bx bx-trash"
@@ -90,7 +90,7 @@
                 </p>
                 <img
                   style="height: 50vmin; width: auto; border-radius: 5%"
-                  src="https://pbs.twimg.com/media/FLvIsZ6XMAAJgp1?format=jpg&name=medium"
+                  src="http://192.168.100.17:5000/uploads/{{ p.img_fld }}"
                   alt=""
                 />
               </div>
@@ -163,7 +163,7 @@
                 <div class="avatar">
                   <img
                     class="id_img"
-                    src="http://localhost:5000/uploads/{{ student.avatar_fld }}"
+                    src="http://192.168.100.17:5000/uploads/{{ student.avatar_fld }}"
                     alt=""
                   />
                 </div>
