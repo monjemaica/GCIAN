@@ -114,7 +114,6 @@ button:hover, button:focus {
 .margin-comments{
   margin-left: 1rem;
   margin-bottom: 0rem;
-  width: 185vmin
 }
 
 .divider {
@@ -147,8 +146,7 @@ button:hover, button:focus {
 }
 
 .drop-down {
-  margin-left: 97%;
-  margin-top: -3.2rem;
+ margin-left: auto;
 }
 
 .content-timestamp {

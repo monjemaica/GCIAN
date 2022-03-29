@@ -75,8 +75,10 @@ export class CreatePostComponent implements OnInit {
       .then((res: any) => {
         this.posts = res;
         this._sb.showNotification('Posted Successfully!', null, 'success');
+        window.location.reload();
+        this.dialogRef.close();
       });
-    console.log(':post:', getPost);
+    
 
     //find hashtag
     const result = content_fld
@@ -87,7 +89,7 @@ export class CreatePostComponent implements OnInit {
       result.forEach((content_fld) => {
         // check duplicate hashtag
         const checkHash = trends.filter((h) => h.content_fld === content_fld);
-        console.log('chechHash', checkHash);
+        
         if (checkHash.length === 0) {
           this._ds
             ._httpPostRequest('hashtag', { content_fld })
@@ -106,7 +108,7 @@ export class CreatePostComponent implements OnInit {
         } else {
           let hashtag_uid = checkHash[0].hashtag_uid;
           let post_uid = this.posts.post_uid;
-          console.log('TESTING DUPLICATE HASHTAG', hashtag_uid, post_uid);
+          
           this._ds
             ._httpPostRequest('hashtag_relation', { hashtag_uid, post_uid })
             .subscribe((res) => {
@@ -118,5 +120,4 @@ export class CreatePostComponent implements OnInit {
 
     this.dialogRef.close();
   }
-
 }

@@ -35,7 +35,7 @@
                     <div class="avatar">
                       <img
                         class="id_img"
-                        src="http://localhost:5000/uploads/{{ student.avatar_fld }}"
+                        src="http://192.168.100.17:5000/uploads/{{ student.avatar_fld }}"
                         alt=""
                       />
                     </div>
@@ -52,7 +52,7 @@
                             </button>
                             <mat-menu #option="matMenu">
                               <button mat-menu-item>
-                                <input type="file" id="file" accept="image/*" />
+                                <input type="file" id="file" accept="image/*"  (change)="selectedFile($event)"/>
                                 <label for="file">
                                   <i
                                     style="margin-right: 8%"
@@ -61,14 +61,14 @@
                                   >Gallery
                                 </label>
                               </button>
-                              <mat-divider
+                              <!-- <mat-divider
                                 style="width: 90%; margin-left: 5%"
                                 class="posts_mat-divider"
-                              ></mat-divider>
-                              <button mat-menu-item href (click)="webcam()">
+                              ></mat-divider> -->
+                              <!-- <button mat-menu-item href (click)="webcam()">
                                 <i style="margin-right: 8%" class="bi bi-camera"></i
                                 >Camera
-                              </button>
+                              </button> -->
                             </mat-menu>
                           </mat-card-actions>
                         </div>
@@ -124,13 +124,13 @@
                     <div class="cards_wrap">
                       <div class="one">
                         <mat-card-subtitle class="id_subs"
-                          >Department</mat-card-subtitle
+                          >Role</mat-card-subtitle
                         >
                       </div>
                       <div class="two">
-                        <mat-card-content class="cards_wrap_id">{{
-                          student.dept_fld
-                        }}</mat-card-content>
+                        <mat-card-content class="cards_wrap_id">
+                          Admin
+                        </mat-card-content>
                       </div>
                     </div>
                     <hr />

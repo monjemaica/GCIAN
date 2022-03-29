@@ -12,7 +12,7 @@ import { UserService } from './services/user.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'GCIAN-web';
+  title = 'GCIAN';
   private role: string;
   isLoggedIn = false;
 

@@ -121,3 +121,10 @@ a.sec:hover {
   justify-content: flex-end; 
   padding-bottom: 10px;
 }
+
+.container{
+  width: 70vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

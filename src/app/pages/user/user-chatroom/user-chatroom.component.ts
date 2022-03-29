@@ -46,7 +46,7 @@ export class UserChatroomComponent implements OnInit {
     this.getMembers();
     this.getGroups();
     this.getRoomName();
-    this.joinRoom();
+    // this.joinRoom();
     this.getInitialMessage();
   }
 
@@ -56,7 +56,7 @@ export class UserChatroomComponent implements OnInit {
 
     this._ds._httpPostRequestNoData(`room/message?room_uid=${room_uid}`).subscribe((res: any) => {
       this.oldMsg = res
-      console.log('MESSGAGE TESTING: ', this.oldMsg);
+      console.log('MESSGAGE TESTING OLD: ', this.oldMsg);
     })
   }
 
@@ -88,20 +88,20 @@ export class UserChatroomComponent implements OnInit {
       });
   }
 
-  async joinRoom(){
-    let rname_fld = await this.roomName;
+  // async joinRoom(){
+  //   let rname_fld = await this.roomName;
 
-      let data ={
-        room_uid: this.data.room_uid,
-        studid_fld: this.currentUser.studid_fld,
-        user: `${this.currentUser.fname_fld} ${this.currentUser.mname_fld} ${this.currentUser.lname_fld}`,
-        rname_fld: this.data.rname_fld,
-        avatar_fld: this.currentUser.avatar_fld
-      }
+  //     let data ={
+  //       room_uid: this.data.room_uid,
+  //       studid_fld: this.currentUser.studid_fld,
+  //       user: `${this.currentUser.fname_fld} ${this.currentUser.mname_fld} ${this.currentUser.lname_fld}`,
+  //       rname_fld: this.data.rname_fld,
+  //       avatar_fld: this.data.avatar_fld
+  //     }
 
-      this._cs.emit('join',data);
+      // this._cs.emit('join',data);
       
-  }
+  // }
 
   getMessage() {
     this._cs.listen('new-user-joined').subscribe((res: any) => {

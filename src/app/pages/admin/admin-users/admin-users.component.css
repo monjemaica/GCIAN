@@ -239,3 +239,10 @@ a.sec:hover {
   background-color: #4ca05c;
   color: black;
 }
+
+.container{
+  width: 70vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

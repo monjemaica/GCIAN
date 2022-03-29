@@ -21,9 +21,7 @@
                       Total Users
                     </div>
                     <div class="h5 mb-0 font-weight-bold text-gray-800">
-                      <ng-container *ngIf="totalUsers">
-                        23
-                      </ng-container>
+                      {{totalUsers.total_users}}
                     </div>
                   </div>
                   <div class="col-auto">
@@ -47,7 +45,9 @@
                     >
                       New Users
                     </div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">23</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                      {{totalNewUsers.new_users}}
+                    </div>
                   </div>
                   <div class="col-auto">
                     <i class="fas fa-user-plus fa-2x text-gray-300"></i>
@@ -134,14 +134,14 @@
                     style="margin-left: 5%; margin-right: 5%;"
                   > -->
                   <div>
-                  <p><strong>{{trends[i].total_likes}} Likes</strong></p>
-                  <p style="font-size: 0.875rem; color: rgb(114, 114, 114); margin-top: -.8rem">{{trends[i].date_created_TS_fld | date: 'short'}}</p>
-                  <p>{{trends[i].content_fld}}</p>
+                    <p><strong> {{t.content_fld}} </strong></p>
+                    <p>{{t.total_trends}} Posts</p>
+                    <p style="font-size: 0.875rem; color: rgb(114, 114, 114); margin-top: -.8rem">{{t.is_created_at_fld | date: 'short'}}</p>
                   </div>
     
                 </div>
               </div>
-              <!-- <button class="trends-button" (click)="alterDescriptionText(trends[i].post_uid)">
+              <!-- <button class="trends-button" (click)="alterDescriptionText(t.post_uid)">
                 {{ showShortDesciption ? "Show More >" : "Show Less" }}
               </button> -->
             </ng-container>

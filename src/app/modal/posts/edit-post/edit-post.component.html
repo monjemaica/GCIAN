@@ -26,3 +26,36 @@
     <button mat-raised-button class="btnSave" type="submit">Save</button>
   </div>
 </form>
+
+<div>
+  <button class="change-avatar">
+    <div class="drop-down">
+      <mat-card-actions>
+        <button
+          class="posts_btn"
+          mat-icon-button
+          [matMenuTriggerFor]="option"
+        >
+        <i class="fas fa-image" style="color: #398547"></i>
+        </button>
+        <mat-menu #option="matMenu">
+          <button mat-menu-item>
+            <input type="file" id="file" accept="image/*" value="{{ post.img_fld}}" (change)="selectedFile($event)"/>
+            <label for="file">
+              <i class="bi bi-images"></i>Gallery
+            </label>
+          </button>
+          <mat-divider
+            style="width: 90%; margin-left: 5%"
+            class="posts_mat-divider"
+          ></mat-divider>
+          <button mat-menu-item href (click)="webcam()">
+            <i class="bi bi-camera"></i>Camera
+          </button>
+        </mat-menu>
+      </mat-card-actions>
+    </div>
+  </button>
+  &nbsp;
+  <span>{{ post.img_fld }}</span>
+</div>

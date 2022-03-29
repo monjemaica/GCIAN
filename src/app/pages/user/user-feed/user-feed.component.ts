@@ -70,6 +70,7 @@ export class UserFeedComponent implements OnInit {
     const dialogRef = this.dialog.open(CreatePostComponent);
 
     dialogRef.afterClosed().subscribe((res) => {
+      this.ngOnInit();
       this.isPopupOpened = false;
     });
   }
@@ -78,9 +79,6 @@ export class UserFeedComponent implements OnInit {
     this.router.navigateByUrl('details-post/' + id);
   }
 
-  openDialog() {
-    this.dialog.open(CreatePostComponent);
-  }
 
   logout() {
     this._us.setLoggedOut();
