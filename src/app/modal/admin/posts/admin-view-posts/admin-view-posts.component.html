@@ -8,7 +8,7 @@
               <div class="card-body">
                 <div class="avatar">
                   <img
-                    src="http://192.168.100.17:5000/uploads/{{ post.avatar_fld }}"
+                    src="http://192.168.100.17:5050/uploads/{{ post.avatar_fld }}"
                     alt=""
                   />
                 </div>
@@ -39,7 +39,7 @@
           <div class="image-content">
             <ng-container *ngIf="!post.img_fld"></ng-container>
             <ng-container *ngIf="post.img_fld">
-              <img src="http://192.168.100.17:5000/uploads/{{ post.img_fld }}" />
+              <img src="http://192.168.100.17:5050/uploads/{{ post.img_fld }}" />
             </ng-container>
           </div>
         </div>

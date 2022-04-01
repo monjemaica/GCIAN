@@ -62,6 +62,7 @@ import { UserJoinRoomComponent } from './modal/user-join-room/user-join-room.com
 import { AdminUpdateChatroomRequestComponent } from './modal/admin/users/admin-update-chatroom-request/admin-update-chatroom-request.component';
 import { AdminAcceptReportComponent } from './modal/admin/reports/admin-accept-report/admin-accept-report.component';
 import { AdminRemoveUserComponent } from './modal/admin/users/admin-remove-user/admin-remove-user.component';
+import { UserRequestRoomSuccessComponent } from './modal/chat/user-request-room-success/user-request-room-success.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +100,8 @@ import { AdminRemoveUserComponent } from './modal/admin/users/admin-remove-user/
     UserJoinRoomComponent,
     AdminUpdateChatroomRequestComponent,
     AdminAcceptReportComponent,
-    AdminRemoveUserComponent
+    AdminRemoveUserComponent,
+    UserRequestRoomSuccessComponent
   ],
   imports: [
     BrowserModule,

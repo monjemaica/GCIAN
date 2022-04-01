@@ -1,16 +1,27 @@
 <form name="form" (submit)="createRoom($event)">
   <div style="text-align: center">
-    <mat-card-title>Create New Room</mat-card-title>
+    <mat-card-title>Request New Room</mat-card-title>
   </div>
   <div class="modal-body">
     <div class="form-group">
-      <label for="roomName" style="margin-bottom: 1vmin;">Please enter a name for the room</label>
+      <label for="roomName" style="margin-bottom: 1vmin;">Please enter a name for the room:</label>
       <input
         class="form-control"
         type="text"
         id="room"
         name="room"
         placeholder="Enter Room Name"
+        required
+        autofocus
+      />
+      <br>
+      <label for="objectiveChatroom" style="margin-bottom: 1vmin;">Please enter objective of Chatroom:</label>
+      <input
+        class="form-control"
+        type="text"
+        id="objective"
+        name="objective"
+        placeholder="Enter Objective of Chatroom"
         required
         autofocus
       />

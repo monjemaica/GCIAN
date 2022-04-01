@@ -6,6 +6,7 @@ import { ChatService } from 'src/app/services/chat.service';
 import { DataService } from 'src/app/services/data.service';
 import { SnackBarService } from 'src/app/services/snack-bar.service';
 import { UserService } from 'src/app/services/user.service';
+import { UserRequestRoomSuccessComponent } from '../../chat/user-request-room-success/user-request-room-success.component';
 
 @Component({
   selector: 'app-user-create-room',
@@ -25,6 +26,7 @@ export class UserCreateRoomComponent implements OnInit, OnDestroy {
 
   constructor(
     private dialogRef: MatDialogRef<UserCreateRoomComponent>,
+    private dialog: MatDialog,
     private _us: UserService,
     private _cs: ChatService,
     private _ds: DataService,
@@ -56,60 +58,51 @@ export class UserCreateRoomComponent implements OnInit, OnDestroy {
   }
 
   async createRoom(e) {
-    let rname_fld = e.target.room.value;
-    let users;
 
-    let checkRoom = this.room.filter((r) => r.rname_fld === rname_fld);
-
-
-    if (checkRoom.length === 0) {
-      this._ds._httpPostRequest('rooms/create_room', { rname_fld }).subscribe((res: any) => {
-        
-        let data = {
-          room_uid: res.room_uid,
-          studid_fld: this.currentUser.studid_fld,
-          user: `${this.currentUser.fname_fld} ${this.currentUser.mname_fld} ${this.currentUser.lname_fld}`,
-          rname_fld: e.target.room.value,
-          avatar_fld: this.currentUser.avatar_fld
-        };
-
-        this.data = data;
-        this.room_uid = data.room_uid;
-        console.log("room_uid: ", this.room_uid)
-
-        this._cs.emit('join', data);
-
-        // save to local storage
-        this._us.saveJoinedUser(data);
-
-        this._cs.on('room-users', (data) => {
-          (rname_fld = data.room), (users = data.users);
-        });
-
-        let checkMembers = this.members.filter((r) => r.studid_fld === this.currentUser.studid_fld);
-        console.log("CHECK MEMBERS: ", checkMembers);
-        console.log("ALL ROOMS: ", this.members);
-
-        if (checkMembers.length === 0) {
-          console.log('data:', data);
-          this._ds
-            ._httpPostRequest('rooms/add_member', data)
-            .subscribe((res: any) => {
-              console.log('add new member ', res);
-            });
-        }
-
-        this.dialogRef.afterClosed().subscribe((result) => {
-          this.router.navigateByUrl('/user-chatroom/' + this.room_uid);
-          console.log('The dialog was closed', this.room_uid);
-        });
-      });
-      
-    }else{
-      this._ss.showNotification(`The '${rname_fld}' Room is already exist`, null, 'error');
+    if(!this.currentUser.mname_fld){
+      this.currentUser.mname_fld = ""
     }
+
+    let rname = e.target.room.value
     
-   
+    let data = {
+      rname_fld : rname.toLowerCase(),
+      objective_fld : e.target.objective.value,
+      requested_by_fld : `${this.currentUser.fname_fld} ${this.currentUser.mname_fld} ${this.currentUser.lname_fld}`
+    }
+    console.log('rname:', data.rname_fld)
+    let room = await this.room
+
+    if(this.room){
+      let checkRoom = room.filter((r) => r.rname_fld === data.rname_fld);
+  
+      console.log('check room', checkRoom);
+  
+      if (checkRoom.length === 0 || !this.room) {
+        this._ds
+          ._httpPostRequest('rooms/create_room', data)
+          .subscribe((res: any) => {
+            let checkMembers = this.members.filter(
+              (r) => r.studid_fld === this.currentUser.studid_fld
+            );
+            console.log('CHECK MEMBERS: ', checkMembers);
+            console.log('ALL ROOMS: ', this.members);
+            });
+            // create dialog
+            const dialogRef = this.dialog.open(UserRequestRoomSuccessComponent,
+              {width: '850px', height:'650px', data: data  }
+              );
+            
+            dialogRef.afterClosed().subscribe(res => {
+              this.ngOnInit();
+              this.isPopupOpened = false;
+            });
+      
+  
+      } else {
+        this._ss.showNotification(`The '${data.rname_fld}' Room is already exist`, null, 'error');
+      }
+    }
   }
 
   cancelClick(): void {
