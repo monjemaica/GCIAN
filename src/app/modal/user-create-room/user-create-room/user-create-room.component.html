@@ -1,4 +1,4 @@
-<form name="form" (submit)="createRoom($event)">
+<form ngNativeValidate name="form" (submit)="createRoom($event)">
   <div style="text-align: center">
     <mat-card-title>Request New Room</mat-card-title>
   </div>
@@ -10,21 +10,24 @@
         type="text"
         id="room"
         name="room"
-        placeholder="Enter Room Name"
         required
-        autofocus
+        placeholder="Enter Room Name"
       />
       <br>
       <label for="objectiveChatroom" style="margin-bottom: 1vmin;">Please enter objective of Chatroom:</label>
-      <input
-        class="form-control"
-        type="text"
-        id="objective"
-        name="objective"
-        placeholder="Enter Objective of Chatroom"
-        required
-        autofocus
-      />
+      <textarea
+      matInput
+      #message
+      class="form-control"
+      maxlength="256"
+      placeholder="Enter Objective of the Room"
+      id="objective"
+      name="objective"
+      required
+    ></textarea>
+    <div style="text-align: end;">
+      <mat-hint >{{ message.value.length }} / 256 </mat-hint>
+    </div>
     </div>
   </div>
   <div mat-card-actions class="actions">
@@ -37,6 +40,6 @@
     >
       Cancel
     </button>
-    <button  mat-dialog-close  mat-raised-button class="btnCreate" type="submit">Create Room</button>
+    <button  mat-raised-button class="btnCreate" type="submit" required>Create Room</button>
   </div>
 </form>

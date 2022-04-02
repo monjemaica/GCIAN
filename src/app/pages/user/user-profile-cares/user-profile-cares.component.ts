@@ -8,6 +8,7 @@ import { DeletePostComponent } from 'src/app/modal/posts/delete-post/delete-post
 import { EditPostComponent } from 'src/app/modal/posts/edit-post/edit-post.component';
 import { WebcamImageComponent } from 'src/app/modal/webcam-image/webcam-image.component';
 import { DataService } from 'src/app/services/data.service';
+import { SnackBarService } from 'src/app/services/snack-bar.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -24,12 +25,18 @@ export class UserProfileCaresComponent implements OnInit {
   like_uid: number;
   likesArr = [];
 
+  currentPost:any;
+
+  displayImg: any;
+  filename: any;
+
   isPopupOpened = false;
 
   constructor(
     public dialog: MatDialog,
     private _us: UserService,
     private _ds: DataService,
+    private _sb:SnackBarService,
     private router: Router
   ) {}
 
@@ -60,7 +67,6 @@ export class UserProfileCaresComponent implements OnInit {
   getAllLikes() {
     this._ds._httpPostRequestNoData('posts/likes').subscribe((res: any[]) => {
       this.likes = res;
-      console.table(this.likes);
     });
   }
 
@@ -79,14 +85,14 @@ export class UserProfileCaresComponent implements OnInit {
   async getAllLikedPost() {
     let studid_fld = this.student.studid_fld;
 
+    console.table("test",this.liked_posts);
+
     let currentPost = await this.likes?.filter((like) => {
-      console.log('studid', like.studid_fld, studid_fld);
       if (like.studid_fld === studid_fld) {
         return studid_fld;
       }
     });
 
-    console.log('TESTTT', currentPost);
 
     if (currentPost.length !== 0 ) {
       this._ds
@@ -95,8 +101,8 @@ export class UserProfileCaresComponent implements OnInit {
         .then(
           (res: any) => {
             this.liked_posts = res;
-            console.log('likes posts', this.liked_posts);
-  
+            
+            
             if (this.liked_posts) {
               this.liked_posts.map((x) => {
                 this._ds
@@ -109,9 +115,9 @@ export class UserProfileCaresComponent implements OnInit {
           });
       
     } else {
+      this.currentPost = currentPost.length
       console.log('yes', currentPost.length);
     }
-
   }
 
   //filter red hearts
@@ -130,19 +136,17 @@ export class UserProfileCaresComponent implements OnInit {
 
   async doLIke(id: any, studid_fld: any) {
     let post_uid = id;
-
+  
     let currentPost = await this.likes?.filter((like) => {
       if (like.post_uid === post_uid && like.studid_fld === studid_fld) {
         return post_uid;
       }
     });
-
-    console.log('currentpost', currentPost);
-
+  
+  
     this.like_uid = await currentPost[0]?.like_uid;
-
-    if (currentPost.length !== 0 && currentPost[0].isLiked_fld === 1) {
-      console.log('none', currentPost.length);
+  
+    if (currentPost?.length !== 0 && currentPost[0]?.isLiked_fld === 1) {
       this._ds
         ._httpPutRequestByIdNoData(
           `posts/${this.like_uid}/${post_uid}/dislikes`
@@ -151,7 +155,6 @@ export class UserProfileCaresComponent implements OnInit {
           this.ngOnInit();
         });
     } else {
-      console.log('yes', currentPost.length);
       this._ds
         ._httpPutRequestById(`posts/${post_uid}/likes`, { studid_fld })
         .subscribe((res: any) => {
@@ -198,5 +201,35 @@ export class UserProfileCaresComponent implements OnInit {
 
   changePassword() {
     this.dialog.open(ChangePasswordComponent);
+  }
+
+   async selectedFile(e) {
+    if (e.target.files.length > 0) {
+      const file = e.target.files[0];
+      this.displayImg = file;
+      this.filename = file.name;
+      console.log(this.filename);
+    }
+
+    let studid_fld = await this.student.studid_fld;
+    const formData = new FormData();
+
+    if (this.displayImg) {
+      formData.append('avatar_fld', this.displayImg);
+    }
+
+    console.log(':TESTIMG: ', this.displayImg);
+
+    this._ds._httpPutRequestById(`students/${studid_fld}/upload`, formData).subscribe((res:any) => {
+      this._sb.showNotification('Uploaded Profile Photo!', null, 'success');
+      this._ds._httpGetRequest(`students/${studid_fld}`).subscribe((res:any) => {
+        console.log('student: ',res);
+        this._us.saveUser(res);
+        this.ngOnInit();
+      })
+      this.ngOnInit();
+    })
+
+
   }
 }

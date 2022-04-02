@@ -1,7 +1,7 @@
 <div class="container-md px-4">
   <div class="img">
     <div>
-      <img src="assets/img/request_chatroom.png"  height="300px" width="300px" alt="" />
+      <img src="assets/img/request_chatroom.gif"  height="300px" width="300px" alt="" />
     </div>
   </div>
   <div class="header">
@@ -13,14 +13,14 @@
   </p>
   <ul>
     <li><b>Chatroom Name</b></li>
-    room name
+    {{data.rname_fld}}
     <li><b>Requested By:</b></li>
-    tset
+    {{data.requested_by_fld}}
     <li><b>Objective of Chatroom</b></li>
-    test
+    {{data.objective_fld}}
   </ul>
   <div class="button">
-    <button mat-dialog-close mat-raised-button class="btnCreate" type="submit">
+    <button mat-dialog-close mat-raised-button class="btnCreate">
       Done
     </button>
   </div>

@@ -101,6 +101,7 @@ section .card {
 
 .bi-camera2 {
   font-size: 3.2vmin;
+  margin-left: 3.5vmin;
   color: whitesmoke;
 }
 
@@ -232,8 +233,7 @@ mat-divider {
 }
 
 .drop-down {
-  margin-left: 60%;
-  margin-top: 2.5vmin;
+ padding: 1rem;
 }
 
 .card-actions .btn_care {
@@ -257,7 +257,7 @@ mat-divider {
 .card-title {
   font-size: 2.7vmin;
   font-weight: bold;
-  margin-bottom: 2%;
+  margin-bottom: .5%;
 }
 
 .card-subtitle {
@@ -277,4 +277,11 @@ mat-divider {
 button:hover,
 button:focus {
   outline: none;
+}
+
+.container{
+  width: 70vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
