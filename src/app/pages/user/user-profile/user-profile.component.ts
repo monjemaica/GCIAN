@@ -27,6 +27,8 @@ export class UserProfileComponent implements OnInit {
   like_uid: number;
   likesArr=[];
 
+  currentPost:any;
+
   displayImg: any;
   filename: any;
 
@@ -53,7 +55,10 @@ export class UserProfileComponent implements OnInit {
     this._ds._httpGetRequestById('posts/', studid_fld).subscribe(
       (res: any) => {
         this.posts = res;
-        console.log(this.posts);
+        if(this.posts?.length === 0){
+          this.currentPost == 0
+        }
+        
       },
       (err: any) => {
         if (err.status == 401) {
@@ -161,10 +166,14 @@ async doLIke(id: number, studid_fld:any) {
   }
 
   deletePost(id) {
-    this.ngOnInit();
-    this.dialog.open(DeletePostComponent, {
+    const dialogRef =this.dialog.open(DeletePostComponent, {
       data: id
     });
+
+    dialogRef.afterClosed().subscribe(res => {
+      this.ngOnInit();
+      this.isPopupOpened = false;
+    })
   }
 
   comment(id: number) {

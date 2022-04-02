@@ -95,6 +95,7 @@ export class UserCreateRoomComponent implements OnInit, OnDestroy {
             
             dialogRef.afterClosed().subscribe(res => {
               this.ngOnInit();
+              this.dialogRef.close();
               this.isPopupOpened = false;
             });
       

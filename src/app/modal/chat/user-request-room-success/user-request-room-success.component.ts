@@ -7,17 +7,15 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
   styleUrls: ['./user-request-room-success.component.css']
 })
 export class UserRequestRoomSuccessComponent implements OnInit {
-  
+  data:any;
   constructor(
     private dialogRef: MatDialogRef<UserRequestRoomSuccessComponent>,
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) data
   ) {
-  
+    this.data = data
    }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
 }
