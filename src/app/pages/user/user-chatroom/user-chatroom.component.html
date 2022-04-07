@@ -139,106 +139,108 @@
             </div>
 
             <div class="position-relative">
-              <div class="chat-messages p-4" style="height: 450px">
-                <ng-container *ngIf="!oldMsg">
-                  <div class="text-muted small">
-                    <em>No Message</em>
-                  </div>
-                </ng-container>
-
-                <!-- --------------------------------------INITIAL MESSAGE--------------------------------------------- -->
-                <ng-container *ngFor="let message of oldMsg; let i = index">
-                  
-                  <!-- USERS -->
-                  <div 
-                  *ngIf="currentUser.studid_fld !== message.studid_fld"
-                  class="chat-message-left pb-4"
-                  >
-                    <div>
-                      <img src="http://192.168.100.17:5050/uploads/{{message.avatar_fld}}" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-                      <div class="text-muted small text-nowrap mt-2">{{ message.is_created_at_fld | date: "shortTime" }}</div>
+              <div style="overflow: auto; height: xyz;" #scrollMe [scrollTop]="scrollMe.scrollHeight"> 
+                <div class="chat-messages p-4" style="height: 450px">
+                  <ng-container *ngIf="!oldMsg">
+                    <div class="text-muted small">
+                      <em>No Message</em>
                     </div>
-                    <div class="other-message flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
-                      <div class="font-weight-bold mb-1">
-                        {{message.fname_fld}} {{message.mname_fld}} {{message.lname_fld}}
+                  </ng-container>
+  
+                  <!-- --------------------------------------INITIAL MESSAGE--------------------------------------------- -->
+                  <ng-container *ngFor="let message of oldMsg; let i = index">
+                    
+                    <!-- USERS -->
+                    <div 
+                    *ngIf="currentUser.studid_fld !== message.studid_fld"
+                    class="chat-message-left pb-4"
+                    >
+                      <div>
+                        <img src="http://192.168.100.17:5050/uploads/{{message.avatar_fld}}" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
+                        <div class="text-muted small text-nowrap mt-2">{{ message.is_created_at_fld | date: "shortTime" }}</div>
                       </div>
-                      {{ message.message_fld }}
-                    </div>
-                  </div>
-
-                  <!-- CURRENT USER -->
-                  <div
-                    class="chat-message-right mb-4"
-                    *ngIf="currentUser.studid_fld == message.studid_fld" 
-                  >
-                    <div>
-                      <img
-                        src="http://192.168.100.17:5050/uploads/{{message.avatar_fld}}"
-                        class="rounded-circle mr-1"
-                        alt="Chris Wood"
-                        width="40"
-                        height="40"
-                      />
-                      <div class="text-muted small text-nowrap mt-2">
-                        {{ message.is_created_at_fld | date: "shortTime" }}
+                      <div class="other-message flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
+                        <div class="font-weight-bold mb-1">
+                          {{message.fname_fld}} {{message.mname_fld}} {{message.lname_fld}}
+                        </div>
+                        {{ message.message_fld }}
                       </div>
                     </div>
-                    <div class="my-message flex-shrink-1 rounded py-2 px-3 mr-3">
-                      <div class="font-weight-bold mb-1">
-                        {{message.fname_fld}} {{message.mname_fld}} {{message.lname_fld}}
+  
+                    <!-- CURRENT USER -->
+                    <div
+                      class="chat-message-right mb-4"
+                      *ngIf="currentUser.studid_fld == message.studid_fld" 
+                    >
+                      <div>
+                        <img
+                          src="http://192.168.100.17:5050/uploads/{{message.avatar_fld}}"
+                          class="rounded-circle mr-1"
+                          alt="Chris Wood"
+                          width="40"
+                          height="40"
+                        />
+                        <div class="text-muted small text-nowrap mt-2">
+                          {{ message.is_created_at_fld | date: "shortTime" }}
+                        </div>
                       </div>
-                      {{ message.message_fld }}
-                    </div>
-                  </div>
-                 
-
-                </ng-container>
-                <!-- --------------------------------------NEW MESSAGE--------------------------------------------- -->
-                <ng-container *ngFor="let message of newMsg; let i = index">
-                  
-                  <!-- USERS -->
-                  <div 
-                  *ngIf="currentUser.studid_fld !== message.studid_fld"
-                  class="chat-message-left pb-4"
-                  >
-                    <div>
-                      <img src="http://192.168.100.17:5050/uploads/{{message.avatar_fld}}" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-                      <div class="text-muted small text-nowrap mt-2">{{ message.is_created_at_fld | date: "shortTime" }}</div>
-                    </div>
-                    <div class="other-message flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
-                      <div class="font-weight-bold mb-1">{{ message.user }}</div>
-                      {{ message.message_fld }}
-                    </div>
-                  </div>
-
-                  <!-- CURRENT USER -->
-                  <div
-                    class="chat-message-right mb-4"
-                    *ngIf="currentUser.studid_fld == message.studid_fld" 
-                  >
-                    <div>
-                      <img
-                        src="http://192.168.100.17:5050/uploads/{{message.avatar_fld}}"
-                        class="rounded-circle mr-1"
-                        alt="Chris Wood"
-                        width="40"
-                        height="40"
-                      />
-                      <div class="text-muted small text-nowrap mt-2">
-                        {{ message.is_created_at_fld | date: "shortTime" }}
+                      <div class="my-message flex-shrink-1 rounded py-2 px-3 mr-3">
+                        <div class="font-weight-bold mb-1">
+                          {{message.fname_fld}} {{message.mname_fld}} {{message.lname_fld}}
+                        </div>
+                        {{ message.message_fld }}
                       </div>
                     </div>
-                    <div class="my-message flex-shrink-1 rounded py-2 px-3 mr-3">
-                      <div class="font-weight-bold mb-1">
-                        {{ message.user }}
+                   
+  
+                  </ng-container>
+                  <!-- --------------------------------------NEW MESSAGE--------------------------------------------- -->
+                  <ng-container *ngFor="let message of newMsg; let i = index">
+                    
+                    <!-- USERS -->
+                    <div 
+                    *ngIf="currentUser.studid_fld !== message.studid_fld"
+                    class="chat-message-left pb-4"
+                    >
+                      <div>
+                        <img src="http://192.168.100.17:5050/uploads/{{message.avatar_fld}}" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
+                        <div class="text-muted small text-nowrap mt-2">{{ message.is_created_at_fld | date: "shortTime" }}</div>
                       </div>
-                      {{ message.message_fld }}
+                      <div class="other-message flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
+                        <div class="font-weight-bold mb-1">{{ message.user }}</div>
+                        {{ message.message_fld }}
+                      </div>
                     </div>
-                  </div>
-                 
-
-                </ng-container>
-
+  
+                    <!-- CURRENT USER -->
+                    <div
+                      class="chat-message-right mb-4"
+                      *ngIf="currentUser.studid_fld == message.studid_fld" 
+                    >
+                      <div>
+                        <img
+                          src="http://192.168.100.17:5050/uploads/{{message.avatar_fld}}"
+                          class="rounded-circle mr-1"
+                          alt="Chris Wood"
+                          width="40"
+                          height="40"
+                        />
+                        <div class="text-muted small text-nowrap mt-2">
+                          {{ message.is_created_at_fld | date: "shortTime" }}
+                        </div>
+                      </div>
+                      <div class="my-message flex-shrink-1 rounded py-2 px-3 mr-3">
+                        <div class="font-weight-bold mb-1">
+                          {{ message.user }}
+                        </div>
+                        {{ message.message_fld }}
+                      </div>
+                    </div>
+                   
+  
+                  </ng-container>
+  
+                </div>
               </div>
             </div>
             <form ngNativeValidate (submit)="sendMessage($event)">
