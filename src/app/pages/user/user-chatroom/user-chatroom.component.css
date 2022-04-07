@@ -77,7 +77,7 @@ body {
   display: flex;
   flex-direction: column;
   max-height: 800px;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
 .chat-message-left,

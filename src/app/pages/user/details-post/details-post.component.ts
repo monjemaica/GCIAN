@@ -66,7 +66,7 @@ export class DetailsPostComponent implements OnInit {
     e.preventDefault();
 
     this._ds._httpPostRequest( `posts/${post_uid}/comments`, {studid_fld, content_fld}).subscribe((res:any) => {
-      console.log(res)
+      e.target.content.value = ''
       this.ngOnInit();
     }),(err:any) => {
       if(err.status == 401){
@@ -74,6 +74,7 @@ export class DetailsPostComponent implements OnInit {
         this.router.navigateByUrl('/user-login');
       }
     };
+
   }
   editComment(id: number) {
     this.isPopupOpened = true;

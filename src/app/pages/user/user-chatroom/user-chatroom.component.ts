@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, ViewChild, ElementRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { UserChatroomLeaveComponent } from 'src/app/modal/chat/user-chatroom-leave/user-chatroom-leave.component';
@@ -11,7 +11,8 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './user-chatroom.component.html',
   styleUrls: ['./user-chatroom.component.css'],
 })
-export class UserChatroomComponent implements OnInit {
+export class UserChatroomComponent implements OnInit, AfterViewChecked {
+  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   oldMsg: any[] = [];
   newMsg: any[] = [];
   message_notif: any[] = [];
@@ -42,6 +43,7 @@ export class UserChatroomComponent implements OnInit {
     this.currentUser = this._us.getUser();
     console.log("TESTING CHATROOM DATA", this.data)
 
+    this.scrollToBottom();
     this.getMessage();
     this.getMembers();
     this.getGroups();
@@ -49,6 +51,16 @@ export class UserChatroomComponent implements OnInit {
     // this.joinRoom();
     this.getInitialMessage();
   }
+
+  ngAfterViewChecked() {        
+        this.scrollToBottom();        
+    } 
+
+    scrollToBottom(): void {
+        try {
+            this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+        } catch(err) { }                 
+    }
 
 
   async getInitialMessage(){
