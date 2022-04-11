@@ -8,7 +8,7 @@ import {io} from 'socket.io-client';
 export class ChatService {
   public chatroom: Array<{user:String, room:String}> = [];
 
-  private url = 'http://192.168.100.17:5050';
+  private url = 'http://gordoncollegeccs.edu.ph:4230';
   socket: any;
 
   constructor(){
