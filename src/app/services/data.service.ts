@@ -6,8 +6,6 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
   private url = 'http://gordoncollegeccs.edu.ph:4230/';
-  // private url = 'http://192.168.100.17:5050/';
-  // private url = 'https://gcian-api-vercel-monjemaica.vercel.app/';
   
   constructor(private http: HttpClient) {
     console.log('Data service is working');
