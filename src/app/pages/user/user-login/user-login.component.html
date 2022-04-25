@@ -81,10 +81,8 @@
         >Log In Failed!, {{ errorMessage }}</ng-container
       >
       <p class="forgotPassword">
-        Forgot Password?
-        <a class="btnforgotPassword" href="https://www.w3schools.com"
-          >Click Here!</a
-        >
+        Switch to Admin?
+        <a class="btnforgotPassword" [routerLink]="['/admin-login']" >Click Here!</a>
       </p>
     </form>
   </mat-card>
