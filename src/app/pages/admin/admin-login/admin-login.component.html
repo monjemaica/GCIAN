@@ -77,11 +77,18 @@
         </div>
       </div>
       <button class="submit" mat-raised-button type="submit" style="margin-top: 2vmin;">LOGIN</button>
+      <app-alert style="margin-top: 1rem; width: 50vmin; z-index: 99;"></app-alert>
+      <!-- <ng-container class="alert alert-warning" *ngIf="isLoginFailed"
+        >Log In Failed!, {{ errorMessage }}</ng-container
+      >
+      <ng-container class="alert alert-warning" *ngIf="isLoggedIn"
+        >Your Login</ng-container
+      > -->
       <p class="forgotPassword">
-        Switch to User?
-        <a class="btnforgotPassword" [routerLink]="['/user-login']">
-          Click Here!
-        </a>
+        Forgot Password?
+        <a class="btnforgotPassword" href="https://www.w3schools.com"
+          >Click Here!</a
+        >
       </p>
     </form>
   </mat-card>
