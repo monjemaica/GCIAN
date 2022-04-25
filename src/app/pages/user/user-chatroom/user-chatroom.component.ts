@@ -150,10 +150,10 @@ export class UserChatroomComponent implements OnInit, AfterViewChecked {
     }
 
     this._ds._httpPostRequest(`rooms/message/${this.room_uid}`, data2).subscribe((res: any) => {
+      e.target.message.value = '';
       console.log('=test= ', res)
     })
     console.log('MESSAGE',this.newMsg)
-
   }
 
   // showMembers(){
