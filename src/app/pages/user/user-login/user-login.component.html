@@ -80,9 +80,7 @@
       <ng-container class="alert alert-warning" *ngIf="isLoginFailed"
         >Log In Failed!, {{ errorMessage }}</ng-container
       >
-      <p class="forgotPassword">
-        Switch to Admin?
-        <a class="btnforgotPassword" [routerLink]="['/admin-login']" >Click Here!</a>
+      <p class="forgotPassword">Switch to Admin? <a class="btnforgotPassword" [routerLink]="['/admin-login']" >Click Here!</a>
       </p>
     </form>
   </mat-card>
