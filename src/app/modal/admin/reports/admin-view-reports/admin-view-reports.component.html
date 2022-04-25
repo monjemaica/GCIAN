@@ -10,7 +10,9 @@
               <div class="card-body">
                 <div class="avatar">
                   <img
-                    src="http://gordoncollegeccs.edu.ph:4230/uploads/{{ post.avatar_fld }}"
+
+                    src="https://gordoncollegeccs.edu.ph:4230/uploads/{{ post.avatar_fld }}"
+
                     alt=""
                   />
                 </div>
@@ -41,8 +43,9 @@
           </div>
           <div class="image-content">
             <ng-container *ngIf="!post.img_fld"></ng-container>
-            <ng-container *ngIf="post.img_fld">
-              <img src="http://gordoncollegeccs.edu.ph:4230/uploads/{{ post.img_fld }}" />
+
+              <img src="https://gordoncollegeccs.edu.ph:4230/uploads/{{ post.img_fld }}" />
+
             </ng-container>
           </div>
         </div>
